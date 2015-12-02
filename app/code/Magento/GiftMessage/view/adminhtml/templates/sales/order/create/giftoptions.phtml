@@ -5,17 +5,16 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 
-<?php $_item = $block->getItem() ?>
+<?php $_item = $block->getItem()?>
 <?php if ($_item): ?>
     <?php $_childHtml = trim($block->getChildHtml('', false));?>
     <?php if ($_childHtml): ?>
-        <tr class="row-gift-options">
-            <td colspan="7">
-                <a class="action-link" href="#" id="gift_options_link_<?php /* @escapeNotVerified */ echo $_item->getId() ?>"><?php /* @escapeNotVerified */ echo __('Gift Options') ?></a>
-                <script>
+<tr class="row-gift-options">
+	<td colspan="7"><a class="action-link" href="#"
+		id="gift_options_link_<?php /* @escapeNotVerified */ echo $_item->getId() ?>"><?php /* @escapeNotVerified */ echo __('Gift Options') ?></a>
+		<script>
 require([
     "Magento_Sales/order/giftoptions_tooltip"
 ], function(){
@@ -24,10 +23,10 @@ require([
 
 });
 </script>
-                <div id="gift_options_data_<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
-                    <?php /* @escapeNotVerified */ echo $_childHtml ?>
-                </div>
-            </td>
-        </tr>
-    <?php endif ?>
+		<div
+			id="gift_options_data_<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
+                    <?php /* @escapeNotVerified */ echo $_childHtml?>
+                </div></td>
+</tr>
+<?php endif ?>
 <?php endif ?>

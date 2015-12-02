@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -29,61 +30,52 @@ namespace Magento\Bundle\Model;
  * @method int getSelectionCanChangeQty()
  * @method \Magento\Bundle\Model\Selection setSelectionCanChangeQty(int $value)
  */
-class Selection extends \Magento\Framework\Model\AbstractModel
-{
-    /**
-     * Catalog data
-     *
-     * @var \Magento\Catalog\Helper\Data
-     */
-    protected $_catalogData;
-
-    /**
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\Catalog\Helper\Data $catalogData
-     * @param \Magento\Bundle\Model\ResourceModel\Selection $resource
-     * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection
-     * @param array $data
-     */
-    public function __construct(
-        \Magento\Framework\Model\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\Catalog\Helper\Data $catalogData,
-        \Magento\Bundle\Model\ResourceModel\Selection $resource,
-        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
-        array $data = []
-    ) {
-        $this->_catalogData = $catalogData;
-        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
-    }
-
-    /**
-     * Initialize resource model
-     *
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init('Magento\Bundle\Model\ResourceModel\Selection');
-        parent::_construct();
-    }
-
-    /**
-     * Processing object before save data
-     *
-     * @return $this
-     */
-    public function afterSave()
-    {
-        if (!$this->_catalogData->isPriceGlobal() && $this->getWebsiteId()) {
-            $this->getResource()->saveSelectionPrice($this);
-
-            if (!$this->getDefaultPriceScope()) {
-                $this->unsSelectionPriceValue();
-                $this->unsSelectionPriceType();
-            }
-        }
-        parent::afterSave();
-    }
+class Selection extends \Magento\Framework\Model\AbstractModel {
+	/**
+	 * Catalog data
+	 *
+	 * @var \Magento\Catalog\Helper\Data
+	 */
+	protected $_catalogData;
+	
+	/**
+	 *
+	 * @param \Magento\Framework\Model\Context $context        	
+	 * @param \Magento\Framework\Registry $registry        	
+	 * @param \Magento\Catalog\Helper\Data $catalogData        	
+	 * @param \Magento\Bundle\Model\ResourceModel\Selection $resource        	
+	 * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection        	
+	 * @param array $data        	
+	 */
+	public function __construct(\Magento\Framework\Model\Context $context, \Magento\Framework\Registry $registry, \Magento\Catalog\Helper\Data $catalogData, \Magento\Bundle\Model\ResourceModel\Selection $resource, \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null, array $data = []) {
+		$this->_catalogData = $catalogData;
+		parent::__construct ( $context, $registry, $resource, $resourceCollection, $data );
+	}
+	
+	/**
+	 * Initialize resource model
+	 *
+	 * @return void
+	 */
+	protected function _construct() {
+		$this->_init ( 'Magento\Bundle\Model\ResourceModel\Selection' );
+		parent::_construct ();
+	}
+	
+	/**
+	 * Processing object before save data
+	 *
+	 * @return $this
+	 */
+	public function afterSave() {
+		if (! $this->_catalogData->isPriceGlobal () && $this->getWebsiteId ()) {
+			$this->getResource ()->saveSelectionPrice ( $this );
+			
+			if (! $this->getDefaultPriceScope ()) {
+				$this->unsSelectionPriceValue ();
+				$this->unsSelectionPriceType ();
+			}
+		}
+		parent::afterSave ();
+	}
 }

@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Tax\Test\TestCase;
 
 use Magento\Tax\Test\Fixture\TaxRate;
@@ -29,63 +29,56 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Tax_(CS)
  * @ZephyrId MAGETWO-23299
  */
-class UpdateTaxRateEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'CS';
-    /* end tags */
-
-    /**
-     * Tax Rate grid page.
-     *
-     * @var TaxRateIndex
-     */
-    protected $taxRateIndex;
-
-    /**
-     * Tax Rate new/edit page.
-     *
-     * @var TaxRateNew
-     */
-    protected $taxRateNew;
-
-    /**
-     * Injection data.
-     *
-     * @param TaxRateIndex $taxRateIndex
-     * @param TaxRateNew $taxRateNew
-     * @return void
-     */
-    public function __inject(
-        TaxRateIndex $taxRateIndex,
-        TaxRateNew $taxRateNew
-    ) {
-        $this->taxRateIndex = $taxRateIndex;
-        $this->taxRateNew = $taxRateNew;
-    }
-
-    /**
-     * Update Tax Rate Entity test.
-     *
-     * @param TaxRate $initialTaxRate
-     * @param TaxRate $taxRate
-     * @return void
-     */
-    public function testUpdateTaxRate(
-        TaxRate $initialTaxRate,
-        TaxRate $taxRate
-    ) {
-        // Precondition
-        $initialTaxRate->persist();
-
-        // Steps
-        $filter = [
-            'code' => $initialTaxRate->getCode(),
-        ];
-        $this->taxRateIndex->open();
-        $this->taxRateIndex->getTaxRateGrid()->searchAndOpen($filter);
-        $this->taxRateNew->getTaxRateForm()->fill($taxRate);
-        $this->taxRateNew->getFormPageActions()->save();
-    }
+class UpdateTaxRateEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'CS';
+	/* end tags */
+	
+	/**
+	 * Tax Rate grid page.
+	 *
+	 * @var TaxRateIndex
+	 */
+	protected $taxRateIndex;
+	
+	/**
+	 * Tax Rate new/edit page.
+	 *
+	 * @var TaxRateNew
+	 */
+	protected $taxRateNew;
+	
+	/**
+	 * Injection data.
+	 *
+	 * @param TaxRateIndex $taxRateIndex        	
+	 * @param TaxRateNew $taxRateNew        	
+	 * @return void
+	 */
+	public function __inject(TaxRateIndex $taxRateIndex, TaxRateNew $taxRateNew) {
+		$this->taxRateIndex = $taxRateIndex;
+		$this->taxRateNew = $taxRateNew;
+	}
+	
+	/**
+	 * Update Tax Rate Entity test.
+	 *
+	 * @param TaxRate $initialTaxRate        	
+	 * @param TaxRate $taxRate        	
+	 * @return void
+	 */
+	public function testUpdateTaxRate(TaxRate $initialTaxRate, TaxRate $taxRate) {
+		// Precondition
+		$initialTaxRate->persist ();
+		
+		// Steps
+		$filter = [ 
+				'code' => $initialTaxRate->getCode () 
+		];
+		$this->taxRateIndex->open ();
+		$this->taxRateIndex->getTaxRateGrid ()->searchAndOpen ( $filter );
+		$this->taxRateNew->getTaxRateForm ()->fill ( $taxRate );
+		$this->taxRateNew->getFormPageActions ()->save ();
+	}
 }

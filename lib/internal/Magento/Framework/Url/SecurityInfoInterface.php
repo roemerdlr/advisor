@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -6,17 +7,17 @@
 namespace Magento\Framework\Url;
 
 /**
- * URL security information. Answers whether URL is secured.
+ * URL security information.
+ * Answers whether URL is secured.
  *
  * @api
  */
-interface SecurityInfoInterface
-{
-    /**
-     * Check whether url is secure
-     *
-     * @param string $url
-     * @return bool
-     */
-    public function isSecure($url);
+interface SecurityInfoInterface {
+	/**
+	 * Check whether url is secure
+	 *
+	 * @param string $url        	
+	 * @return bool
+	 */
+	public function isSecure($url);
 }

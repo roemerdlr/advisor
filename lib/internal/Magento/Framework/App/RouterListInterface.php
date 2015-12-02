@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application router list
  *
@@ -7,6 +8,5 @@
  */
 namespace Magento\Framework\App;
 
-interface RouterListInterface extends \Iterator
-{
+interface RouterListInterface extends \Iterator {
 }

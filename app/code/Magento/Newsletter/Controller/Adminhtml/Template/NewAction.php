@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,15 +7,13 @@
  */
 namespace Magento\Newsletter\Controller\Adminhtml\Template;
 
-class NewAction extends \Magento\Newsletter\Controller\Adminhtml\Template
-{
-    /**
-     * Create new Newsletter Template
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_forward('edit');
-    }
+class NewAction extends \Magento\Newsletter\Controller\Adminhtml\Template {
+	/**
+	 * Create new Newsletter Template
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_forward ( 'edit' );
+	}
 }

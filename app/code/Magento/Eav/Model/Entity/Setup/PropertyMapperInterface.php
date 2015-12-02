@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Attribute property mapper interface
  *
@@ -7,14 +8,13 @@
  */
 namespace Magento\Eav\Model\Entity\Setup;
 
-interface PropertyMapperInterface
-{
-    /**
-     * Map input attribute properties to storage representation
-     *
-     * @param array $input
-     * @param int $entityTypeId
-     * @return array
-     */
-    public function map(array $input, $entityTypeId);
+interface PropertyMapperInterface {
+	/**
+	 * Map input attribute properties to storage representation
+	 *
+	 * @param array $input        	
+	 * @param int $entityTypeId        	
+	 * @return array
+	 */
+	public function map(array $input, $entityTypeId);
 }

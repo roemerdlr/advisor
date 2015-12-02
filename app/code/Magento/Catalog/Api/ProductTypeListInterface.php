@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Product type provider
  *
@@ -10,12 +11,11 @@ namespace Magento\Catalog\Api;
 /**
  * @api
  */
-interface ProductTypeListInterface
-{
-    /**
-     * Retrieve available product types
-     *
-     * @return \Magento\Catalog\Api\Data\ProductTypeInterface[]
-     */
-    public function getProductTypes();
+interface ProductTypeListInterface {
+	/**
+	 * Retrieve available product types
+	 *
+	 * @return \Magento\Catalog\Api\Data\ProductTypeInterface[]
+	 */
+	public function getProductTypes();
 }

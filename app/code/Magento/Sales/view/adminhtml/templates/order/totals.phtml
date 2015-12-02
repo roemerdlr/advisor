@@ -5,16 +5,20 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
-<?php /*$_source = $block->getSource(); ?>
-<?php $block->setPriceDataObject($_source) ?>
-<?php if ($_source): ?>
-<table width="100%">
-    <?php echo $block->getChildHtml('main'); ?>
-    <?php echo $block->getChildHtml('footer'); ?>
-</table>
-<?php endif;*/ ?>
+<?php
+ 
+/*
+       * $_source = $block->getSource(); ?>
+       * <?php $block->setPriceDataObject($_source) ?>
+       * <?php if ($_source): ?>
+       * <table width="100%">
+       * <?php echo $block->getChildHtml('main'); ?>
+       * <?php echo $block->getChildHtml('footer'); ?>
+       * </table>
+       * <?php endif;
+       */
+?>
 <table class="data-table admin__table-secondary order-subtotal-table">
     <?php $_totals = $block->getTotals('footer')?>
 
@@ -24,16 +28,19 @@
                 <?php if ($_total->getBlockName()): ?>
                     <?php echo $block->getChildHtml($_total->getBlockName(), false); ?>
                 <?php else:?>
-                <tr class="col-<?php /* @escapeNotVerified */ echo $_code?>">
-                    <td <?php /* @escapeNotVerified */ echo $block->getLabelProperties()?> class="label">
-                        <strong><?php echo $block->escapeHtml($_total->getLabel()); ?></strong>
-                    </td>
-                    <td <?php /* @escapeNotVerified */ echo $block->getValueProperties()?>>
-                        <strong><?php /* @escapeNotVerified */ echo $block->formatValue($_total) ?></strong>
-                    </td>
-                </tr>
-                <?php endif?>
-            <?php endforeach?>
+                <tr
+			class="col-<?php /* @escapeNotVerified */ echo $_code?>">
+			<td
+				<?php /* @escapeNotVerified */ echo $block->getLabelProperties()?>
+				class="label"><strong><?php echo $block->escapeHtml($_total->getLabel()); ?></strong>
+			</td>
+			<td
+				<?php /* @escapeNotVerified */ echo $block->getValueProperties()?>>
+				<strong><?php /* @escapeNotVerified */ echo $block->formatValue($_total) ?></strong>
+			</td>
+		</tr>
+                <?php
+endif;            <?php endforeach?>
         </tfoot>
     <?php endif?>
 
@@ -44,27 +51,32 @@
                 <?php if ($_total->getBlockName()): ?>
                     <?php echo $block->getChildHtml($_total->getBlockName(), false); ?>
                 <?php else:?>
-                    <tr class="col-<?php /* @escapeNotVerified */ echo $_code?>">
-                        <td <?php /* @escapeNotVerified */ echo $block->getLabelProperties()?> class="label">
+                    <tr
+			class="col-<?php /* @escapeNotVerified */ echo $_code?>">
+			<td
+				<?php /* @escapeNotVerified */ echo $block->getLabelProperties()?>
+				class="label">
                             <?php if ($_total->getStrong()):?>
                             <strong><?php echo $block->escapeHtml($_total->getLabel()); ?></strong>
                             <?php else:?>
                             <?php echo $block->escapeHtml($_total->getLabel()); ?>
-                            <?php endif?>
-                        </td>
+                            <?php
+endif;                        </td>
 
                         <?php if ($_total->getStrong()):?>
-                            <td <?php /* @escapeNotVerified */ echo $block->getValueProperties()?>>
-                                <strong><?php /* @escapeNotVerified */ echo $block->formatValue($_total) ?></strong>
-                            </td>
+                            <td
+				<?php /* @escapeNotVerified */ echo $block->getValueProperties()?>>
+				<strong><?php /* @escapeNotVerified */ echo $block->formatValue($_total) ?></strong>
+			</td>
                         <?php else:?>
-                            <td <?php /* @escapeNotVerified */ echo $block->getValueProperties()?>>
-                                <span><?php /* @escapeNotVerified */ echo $block->formatValue($_total) ?></span>
-                            </td>
-                        <?php endif?>
-                    </tr>
-                <?php endif?>
-            <?php endforeach?>
+                            <td
+				<?php /* @escapeNotVerified */ echo $block->getValueProperties()?>>
+				<span><?php /* @escapeNotVerified */ echo $block->formatValue($_total) ?></span>
+			</td>
+                        <?php
+endif;                    </tr>
+                <?php
+endif;            <?php endforeach?>
         </tbody>
     <?php endif?>
 </table>

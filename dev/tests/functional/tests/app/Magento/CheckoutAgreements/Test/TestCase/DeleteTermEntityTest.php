@@ -1,16 +1,17 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\CheckoutAgreements\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Preconditions:
- * 1. Enable "Terms and Conditions": Stores > Configuration > Sales > Checkout > Checkout Options.
+ * 1.
+ * Enable "Terms and Conditions": Stores > Configuration > Sales > Checkout > Checkout Options.
  * 2. Create term according to dataset.
  *
  * Steps:
@@ -22,20 +23,18 @@ use Magento\Mtf\TestCase\Scenario;
  * @group Terms_and_Conditions_(CS)
  * @ZephyrId MAGETWO-29687
  */
-class DeleteTermEntityTest extends Scenario
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'CS';
-    /* end tags */
-
-    /**
-     * Delete Term Entity test.
-     *
-     * @return void
-     */
-    public function test()
-    {
-        $this->executeScenario();
-    }
+class DeleteTermEntityTest extends Scenario {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'CS';
+	/* end tags */
+	
+	/**
+	 * Delete Term Entity test.
+	 *
+	 * @return void
+	 */
+	public function test() {
+		$this->executeScenario ();
+	}
 }

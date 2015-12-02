@@ -7,10 +7,9 @@
 // @codingStandardsIgnoreFile
 
 /** @var $block \Magento\Checkout\Block\Item\Price\Renderer */
-
-$_item = $block->getItem();
+$_item = $block->getItem ();
 ?>
 <?php $_incl = $this->helper('Magento\Checkout\Helper\Data')->getPriceInclTax($_item); ?>
 <span class="cart-price">
-    <?php /* @escapeNotVerified */ echo $this->helper('Magento\Checkout\Helper\Data')->formatPrice($_incl) ?>
+    <?php /* @escapeNotVerified */ echo $this->helper('Magento\Checkout\Helper\Data')->formatPrice($_incl)?>
 </span>

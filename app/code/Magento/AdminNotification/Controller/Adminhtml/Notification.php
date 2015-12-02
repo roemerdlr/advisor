@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Adminhtml AdminNotification controller
  *
@@ -7,13 +8,12 @@
  */
 namespace Magento\AdminNotification\Controller\Adminhtml;
 
-abstract class Notification extends \Magento\Backend\App\AbstractAction
-{
-    /**
-     * @return bool
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Magento_AdminNotification::show_list');
-    }
+abstract class Notification extends \Magento\Backend\App\AbstractAction {
+	/**
+	 *
+	 * @return bool
+	 */
+	protected function _isAllowed() {
+		return $this->_authorization->isAllowed ( 'Magento_AdminNotification::show_list' );
+	}
 }

@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Reports\Test\TestCase;
 
 use Magento\Reports\Test\Page\Adminhtml\SalesReport;
@@ -12,7 +12,8 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1. Open Backend
+ * 1.
+ * Open Backend
  * 2. Go to Reports > Sales > Orders
  * 3. Refresh statistic
  * 4. Configure filter
@@ -33,52 +34,54 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Reports_(MX)
  * @ZephyrId MAGETWO-29136
  */
-class SalesOrderReportEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'no';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Sales Report page.
-     *
-     * @var SalesReport
-     */
-    protected $salesReport;
-
-    /**
-     * Inject page.
-     *
-     * @param SalesReport $salesReport
-     * @return void
-     */
-    public function __inject(SalesReport $salesReport)
-    {
-        $this->salesReport = $salesReport;
-    }
-
-    /**
-     * Sales order report.
-     *
-     * @param OrderInjectable $order
-     * @param array $salesReport
-     * @return array
-     */
-    public function test(OrderInjectable $order, array $salesReport)
-    {
-        // Preconditions
-        $this->salesReport->open();
-        $this->salesReport->getMessagesBlock()->clickLinkInMessage('notice', 'here');
-        $this->salesReport->getFilterBlock()->viewsReport($salesReport);
-        $this->salesReport->getActionBlock()->showReport();
-        $initialSalesResult = $this->salesReport->getGridBlock()->getLastResult();
-        $initialSalesTotalResult = $this->salesReport->getGridBlock()->getTotalResult();
-
-        $order->persist();
-        $invoice = $this->objectManager->create('Magento\Sales\Test\TestStep\CreateInvoiceStep', ['order' => $order]);
-        $invoice->run();
-
-        return ['initialSalesResult' => $initialSalesResult, 'initialSalesTotalResult' => $initialSalesTotalResult];
-    }
+class SalesOrderReportEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'no';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Sales Report page.
+	 *
+	 * @var SalesReport
+	 */
+	protected $salesReport;
+	
+	/**
+	 * Inject page.
+	 *
+	 * @param SalesReport $salesReport        	
+	 * @return void
+	 */
+	public function __inject(SalesReport $salesReport) {
+		$this->salesReport = $salesReport;
+	}
+	
+	/**
+	 * Sales order report.
+	 *
+	 * @param OrderInjectable $order        	
+	 * @param array $salesReport        	
+	 * @return array
+	 */
+	public function test(OrderInjectable $order, array $salesReport) {
+		// Preconditions
+		$this->salesReport->open ();
+		$this->salesReport->getMessagesBlock ()->clickLinkInMessage ( 'notice', 'here' );
+		$this->salesReport->getFilterBlock ()->viewsReport ( $salesReport );
+		$this->salesReport->getActionBlock ()->showReport ();
+		$initialSalesResult = $this->salesReport->getGridBlock ()->getLastResult ();
+		$initialSalesTotalResult = $this->salesReport->getGridBlock ()->getTotalResult ();
+		
+		$order->persist ();
+		$invoice = $this->objectManager->create ( 'Magento\Sales\Test\TestStep\CreateInvoiceStep', [ 
+				'order' => $order 
+		] );
+		$invoice->run ();
+		
+		return [ 
+				'initialSalesResult' => $initialSalesResult,
+				'initialSalesTotalResult' => $initialSalesTotalResult 
+		];
+	}
 }

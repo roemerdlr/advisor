@@ -5,11 +5,10 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <div class="attribute-set">
-    <div class="edit-attribute-set attribute-set-col">
-        <?php echo $block->getSetFormHtml() ?>
+	<div class="edit-attribute-set attribute-set-col">
+        <?php echo $block->getSetFormHtml()?>
         <script>
             require([
                 "jquery",
@@ -20,26 +19,26 @@
 
             });
         </script>
-    </div>
-    <div class="attribute-set-col fieldset-wrapper">
-        <div class="fieldset-wrapper-title">
-            <span class="title"><?php /* @escapeNotVerified */ echo __('Groups') ?></span>
-        </div>
+	</div>
+	<div class="attribute-set-col fieldset-wrapper">
+		<div class="fieldset-wrapper-title">
+			<span class="title"><?php /* @escapeNotVerified */ echo __('Groups') ?></span>
+		</div>
         <?php if (!$block->getIsReadOnly()): ?>
-            <?php /* @escapeNotVerified */ echo $block->getAddGroupButton() ?>&nbsp;<?php /* @escapeNotVerified */ echo $block->getDeleteGroupButton() ?>
+            <?php /* @escapeNotVerified */ echo $block->getAddGroupButton() ?>&nbsp;<?php /* @escapeNotVerified */ echo $block->getDeleteGroupButton()?>
             <p class="note-block"><?php /* @escapeNotVerified */ echo __('Double click on a group to rename it.') ?></p>
         <?php endif; ?>
 
-        <?php echo $block->getSetsFilterHtml() ?>
-        <?php echo $block->getGroupTreeHtml() ?>
+        <?php echo $block->getSetsFilterHtml()?>
+        <?php echo $block->getGroupTreeHtml()?>
     </div>
-    <div class="attribute-set-col fieldset-wrapper">
-        <div class="fieldset-wrapper-title">
-            <span class="title"><?php /* @escapeNotVerified */ echo __('Unassigned Attributes') ?></span>
-        </div>
-        <div id="tree-div2" class="attribute-set-tree"></div>
-        <script id="ie-deferred-loader" defer="defer" src=""></script>
-        <script>
+	<div class="attribute-set-col fieldset-wrapper">
+		<div class="fieldset-wrapper-title">
+			<span class="title"><?php /* @escapeNotVerified */ echo __('Unassigned Attributes') ?></span>
+		</div>
+		<div id="tree-div2" class="attribute-set-tree"></div>
+		<script id="ie-deferred-loader" defer="defer" src=""></script>
+		<script>
             define("tree-panel",
                 [
                     "jquery",
@@ -429,5 +428,5 @@
             });
             require(["tree-panel"]);
         </script>
-    </div>
+	</div>
 </div>

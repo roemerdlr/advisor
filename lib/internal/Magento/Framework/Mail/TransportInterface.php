@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,13 +11,12 @@ namespace Magento\Framework\Mail;
  *
  * @api
  */
-interface TransportInterface
-{
-    /**
-     * Send a mail using this transport
-     *
-     * @return void
-     * @throws \Magento\Framework\Exception\MailException
-     */
-    public function sendMessage();
+interface TransportInterface {
+	/**
+	 * Send a mail using this transport
+	 *
+	 * @return void
+	 * @throws \Magento\Framework\Exception\MailException
+	 */
+	public function sendMessage();
 }

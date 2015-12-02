@@ -7,7 +7,7 @@
 ?>
 <?php /** @var $block \Magento\Ui\Block\Logger */ ?>
 <?php if ($block->isLoggingEnabled()): ?>
-    <script>
+<script>
         window.onerror = function(msg, url, line) {
             var key = "<?php /* @escapeNotVerified */ echo $block->getSessionStorageKey(); ?>";
             var errors = {};

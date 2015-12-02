@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,14 +7,13 @@
  */
 namespace Magento\CatalogSearch\Controller\Advanced;
 
-class Index extends \Magento\Framework\App\Action\Action
-{
-    /**
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_view->loadLayout();
-        $this->_view->renderLayout();
-    }
+class Index extends \Magento\Framework\App\Action\Action {
+	/**
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_view->loadLayout ();
+		$this->_view->renderLayout ();
+	}
 }

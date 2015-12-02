@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Authorizenet\Controller\Adminhtml\Authorizenet\Directpost\Payment;
 
-class Save extends \Magento\Sales\Controller\Adminhtml\Order\Create\Save
-{
+class Save extends \Magento\Sales\Controller\Adminhtml\Order\Create\Save {
 }

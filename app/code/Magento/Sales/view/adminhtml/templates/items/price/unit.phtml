@@ -5,13 +5,13 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <?php
+
 /** @var \Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn $block */
 
-$_item = $block->getItem();
+$_item = $block->getItem ();
 ?>
 <div class="price-excl-tax">
-<?php /* @escapeNotVerified */ echo $block->displayPrices($_item->getBasePrice(), $_item->getPrice()) ?>
+<?php /* @escapeNotVerified */ echo $block->displayPrices($_item->getBasePrice(), $_item->getPrice())?>
 </div>

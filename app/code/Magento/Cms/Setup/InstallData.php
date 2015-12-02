@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Cms\Setup;
 
 use Magento\Cms\Model\Page;
@@ -16,93 +16,76 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 /**
  * @codeCoverageIgnore
  */
-class InstallData implements InstallDataInterface
-{
-    /**
-     * Page factory
-     *
-     * @var PageFactory
-     */
-    private $pageFactory;
-
-    /**
-     * Init
-     *
-     * @param PageFactory $pageFactory
-     */
-    public function __construct(PageFactory $pageFactory)
-    {
-        $this->pageFactory = $pageFactory;
-    }
-
-    /**
-     * {@inheritdoc}
-     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
-     */
-    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
-    {
-        $cmsPages = [
-            [
-                'title' => '404 Not Found',
-                'page_layout' => '2columns-right',
-                'meta_keywords' => 'Page keywords',
-                'meta_description' => 'Page description',
-                'identifier' => 'no-route',
-                'content_heading' => 'Whoops, our bad...',
-                'content' => "<dl>\r\n<dt>The page you requested was not found, and we have a fine guess why.</dt>\r\n"
-                    . "<dd>\r\n<ul class=\"disc\">\r\n<li>If you typed the URL directly, please make sure the spelling"
-                    . " is correct.</li>\r\n<li>If you clicked on a link to get here, the link is outdated.</li>\r\n"
-                    . "</ul></dd>\r\n</dl>\r\n<dl>\r\n<dt>What can you do?</dt>\r\n<dd>Have no fear, help is near!"
-                    . " There are many ways you can get back on track with Magento Store.</dd>\r\n<dd>\r\n"
-                    . "<ul class=\"disc\">\r\n<li><a href=\"#\" onclick=\"history.go(-1); return false;\">Go back</a> "
-                    . "to the previous page.</li>\r\n<li>Use the search bar at the top of the page to search for your"
-                    . " products.</li>\r\n<li>Follow these links to get you back on track!<br />"
-                    . "<a href=\"{{store url=\"\"}}\">Store Home</a> <span class=\"separator\">|</span> "
-                    . "<a href=\"{{store url=\"customer/account\"}}\">My Account</a></li></ul></dd></dl>\r\n",
-                'is_active' => 1,
-                'stores' => [0],
-                'sort_order' => 0
-            ],
-            [
-                'title' => 'Home page',
-                'page_layout' => '1column',
-                'identifier' => 'home',
-                'content_heading' => 'Home Page',
-                'content' => "<p>CMS homepage content goes here.</p>\r\n",
-                'is_active' => 1,
-                'stores' => [0],
-                'sort_order' => 0
-            ],
-            [
-                'title' => 'Enable Cookies',
-                'page_layout' => '1column',
-                'identifier' => 'enable-cookies',
-                'content_heading' => 'What are Cookies?',
-                'content' => "<div class=\"enable-cookies cms-content\">\r\n<p>\"Cookies\" are little pieces of data"
-                    . " we send when you visit our store. Cookies help us get to know you better and personalize your"
-                    . " experience. Plus they help protect you and other shoppers from fraud.</p>\r\n"
-                    . "<p style=\"margin-bottom: 20px;\">Set your browser to accept cookies so you can buy items, "
-                    . "save items, and receive customized recommendations. Here’s how:</p>\r\n<ul>\r\n<li>"
-                    . "<a href=\"https://support.google.com/accounts/answer/61416?hl=en\" target=\"_blank\">Google "
-                    . "Chrome</a></li>\r\n<li>"
-                    . "<a href=\"http://windows.microsoft.com/en-us/internet-explorer/delete-manage-cookies\""
-                    . " target=\"_blank\">Internet Explorer</a></li>\r\n<li>"
-                    . "<a href=\"http://support.apple.com/kb/PH19214\" target=\"_blank\">Safari</a></li>\r\n<li>"
-                    . "<a href=\"https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences\""
-                    . " target=\"_blank\">Mozilla/Firefox</a></li>\r\n</ul>\r\n</div>",
-                'is_active' => 1,
-                'stores' => [0]
-            ]
-        ];
-
-        /**
-         * Insert default and system pages
-         */
-        foreach ($cmsPages as $data) {
-            $this->createPage()->setData($data)->save();
-        }
-
-        $pageContent = <<<EOD
+class InstallData implements InstallDataInterface {
+	/**
+	 * Page factory
+	 *
+	 * @var PageFactory
+	 */
+	private $pageFactory;
+	
+	/**
+	 * Init
+	 *
+	 * @param PageFactory $pageFactory        	
+	 */
+	public function __construct(PageFactory $pageFactory) {
+		$this->pageFactory = $pageFactory;
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc} @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+	 */
+	public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context) {
+		$cmsPages = [ 
+				[ 
+						'title' => '404 Not Found',
+						'page_layout' => '2columns-right',
+						'meta_keywords' => 'Page keywords',
+						'meta_description' => 'Page description',
+						'identifier' => 'no-route',
+						'content_heading' => 'Whoops, our bad...',
+						'content' => "<dl>\r\n<dt>The page you requested was not found, and we have a fine guess why.</dt>\r\n" . "<dd>\r\n<ul class=\"disc\">\r\n<li>If you typed the URL directly, please make sure the spelling" . " is correct.</li>\r\n<li>If you clicked on a link to get here, the link is outdated.</li>\r\n" . "</ul></dd>\r\n</dl>\r\n<dl>\r\n<dt>What can you do?</dt>\r\n<dd>Have no fear, help is near!" . " There are many ways you can get back on track with Magento Store.</dd>\r\n<dd>\r\n" . "<ul class=\"disc\">\r\n<li><a href=\"#\" onclick=\"history.go(-1); return false;\">Go back</a> " . "to the previous page.</li>\r\n<li>Use the search bar at the top of the page to search for your" . " products.</li>\r\n<li>Follow these links to get you back on track!<br />" . "<a href=\"{{store url=\"\"}}\">Store Home</a> <span class=\"separator\">|</span> " . "<a href=\"{{store url=\"customer/account\"}}\">My Account</a></li></ul></dd></dl>\r\n",
+						'is_active' => 1,
+						'stores' => [ 
+								0 
+						],
+						'sort_order' => 0 
+				],
+				[ 
+						'title' => 'Home page',
+						'page_layout' => '1column',
+						'identifier' => 'home',
+						'content_heading' => 'Home Page',
+						'content' => "<p>CMS homepage content goes here.</p>\r\n",
+						'is_active' => 1,
+						'stores' => [ 
+								0 
+						],
+						'sort_order' => 0 
+				],
+				[ 
+						'title' => 'Enable Cookies',
+						'page_layout' => '1column',
+						'identifier' => 'enable-cookies',
+						'content_heading' => 'What are Cookies?',
+						'content' => "<div class=\"enable-cookies cms-content\">\r\n<p>\"Cookies\" are little pieces of data" . " we send when you visit our store. Cookies help us get to know you better and personalize your" . " experience. Plus they help protect you and other shoppers from fraud.</p>\r\n" . "<p style=\"margin-bottom: 20px;\">Set your browser to accept cookies so you can buy items, " . "save items, and receive customized recommendations. Here’s how:</p>\r\n<ul>\r\n<li>" . "<a href=\"https://support.google.com/accounts/answer/61416?hl=en\" target=\"_blank\">Google " . "Chrome</a></li>\r\n<li>" . "<a href=\"http://windows.microsoft.com/en-us/internet-explorer/delete-manage-cookies\"" . " target=\"_blank\">Internet Explorer</a></li>\r\n<li>" . "<a href=\"http://support.apple.com/kb/PH19214\" target=\"_blank\">Safari</a></li>\r\n<li>" . "<a href=\"https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences\"" . " target=\"_blank\">Mozilla/Firefox</a></li>\r\n</ul>\r\n</div>",
+						'is_active' => 1,
+						'stores' => [ 
+								0 
+						] 
+				] 
+		];
+		
+		/**
+		 * Insert default and system pages
+		 */
+		foreach ( $cmsPages as $data ) {
+			$this->createPage ()->setData ( $data )->save ();
+		}
+		
+		$pageContent = <<<EOD
 <div class="privacy-policy cms-content">
     <div class="message info">
         <span>
@@ -314,78 +297,61 @@ class InstallData implements InstallDataInterface
     </table>
 </div>
 EOD;
-
-        $privacyPageData = [
-            'title' => 'Privacy and Cookie Policy',
-            'content_heading' => 'Privacy and Cookie Policy',
-            'page_layout' => '1column',
-            'identifier' => 'privacy-policy-cookie-restriction-mode',
-            'content' => $pageContent,
-            'is_active' => 1,
-            'stores' => [0],
-            'sort_order' => 0,
-        ];
-
-        $this->createPage()->setData($privacyPageData)->save();
-
-        $footerLinksBlock = $this->createPage()->load('footer_links', 'identifier');
-
-        if ($footerLinksBlock->getId()) {
-            $content = $footerLinksBlock->getContent();
-            if (preg_match('/<ul>(.*?)<\\/ul>/ims', $content)) {
-                $content = preg_replace('/<li class="last">/ims', '<li>', $content);
-                $replacment = '<li class="last privacy">' .
-                    "<a href=\"{{store direct_url=\"privacy-policy-cookie-restriction-mode\"}}\">" .
-                    "Privacy and Cookie Policy</a></li>\r\n</ul>";
-                $content = preg_replace('/<\\/ul>/ims', $replacment, $content);
-                $footerLinksBlock->setContent($content)->save();
-            }
-        }
-
-        $installer = $setup->createMigrationSetup();
-        $setup->startSetup();
-
-        $installer->appendClassAliasReplace(
-            'cms_block',
-            'content',
-            Migration::ENTITY_TYPE_BLOCK,
-            Migration::FIELD_CONTENT_TYPE_WIKI,
-            ['block_id']
-        );
-        $installer->appendClassAliasReplace(
-            'cms_page',
-            'content',
-            Migration::ENTITY_TYPE_BLOCK,
-            Migration::FIELD_CONTENT_TYPE_WIKI,
-            ['page_id']
-        );
-        $installer->appendClassAliasReplace(
-            'cms_page',
-            'layout_update_xml',
-            Migration::ENTITY_TYPE_BLOCK,
-            Migration::FIELD_CONTENT_TYPE_XML,
-            ['page_id']
-        );
-        $installer->appendClassAliasReplace(
-            'cms_page',
-            'custom_layout_update_xml',
-            Migration::ENTITY_TYPE_BLOCK,
-            Migration::FIELD_CONTENT_TYPE_XML,
-            ['page_id']
-        );
-
-        $installer->doUpdateClassAliases();
-
-        $setup->endSetup();
-    }
-
-    /**
-     * Create page
-     *
-     * @return Page
-     */
-    public function createPage()
-    {
-        return $this->pageFactory->create();
-    }
+		
+		$privacyPageData = [ 
+				'title' => 'Privacy and Cookie Policy',
+				'content_heading' => 'Privacy and Cookie Policy',
+				'page_layout' => '1column',
+				'identifier' => 'privacy-policy-cookie-restriction-mode',
+				'content' => $pageContent,
+				'is_active' => 1,
+				'stores' => [ 
+						0 
+				],
+				'sort_order' => 0 
+		];
+		
+		$this->createPage ()->setData ( $privacyPageData )->save ();
+		
+		$footerLinksBlock = $this->createPage ()->load ( 'footer_links', 'identifier' );
+		
+		if ($footerLinksBlock->getId ()) {
+			$content = $footerLinksBlock->getContent ();
+			if (preg_match ( '/<ul>(.*?)<\\/ul>/ims', $content )) {
+				$content = preg_replace ( '/<li class="last">/ims', '<li>', $content );
+				$replacment = '<li class="last privacy">' . "<a href=\"{{store direct_url=\"privacy-policy-cookie-restriction-mode\"}}\">" . "Privacy and Cookie Policy</a></li>\r\n</ul>";
+				$content = preg_replace ( '/<\\/ul>/ims', $replacment, $content );
+				$footerLinksBlock->setContent ( $content )->save ();
+			}
+		}
+		
+		$installer = $setup->createMigrationSetup ();
+		$setup->startSetup ();
+		
+		$installer->appendClassAliasReplace ( 'cms_block', 'content', Migration::ENTITY_TYPE_BLOCK, Migration::FIELD_CONTENT_TYPE_WIKI, [ 
+				'block_id' 
+		] );
+		$installer->appendClassAliasReplace ( 'cms_page', 'content', Migration::ENTITY_TYPE_BLOCK, Migration::FIELD_CONTENT_TYPE_WIKI, [ 
+				'page_id' 
+		] );
+		$installer->appendClassAliasReplace ( 'cms_page', 'layout_update_xml', Migration::ENTITY_TYPE_BLOCK, Migration::FIELD_CONTENT_TYPE_XML, [ 
+				'page_id' 
+		] );
+		$installer->appendClassAliasReplace ( 'cms_page', 'custom_layout_update_xml', Migration::ENTITY_TYPE_BLOCK, Migration::FIELD_CONTENT_TYPE_XML, [ 
+				'page_id' 
+		] );
+		
+		$installer->doUpdateClassAliases ();
+		
+		$setup->endSetup ();
+	}
+	
+	/**
+	 * Create page
+	 *
+	 * @return Page
+	 */
+	public function createPage() {
+		return $this->pageFactory->create ();
+	}
 }

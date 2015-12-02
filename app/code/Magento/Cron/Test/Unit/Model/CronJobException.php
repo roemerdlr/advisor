@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,10 +11,8 @@
  */
 namespace Magento\Cron\Test\Unit\Model;
 
-class CronJobException
-{
-    public function execute()
-    {
-        throw new \Exception('Test exception');
-    }
+class CronJobException {
+	public function execute() {
+		throw new \Exception ( 'Test exception' );
+	}
 }

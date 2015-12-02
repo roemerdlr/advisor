@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Wishlist\Test\TestCase;
 
 use Magento\Catalog\Test\Fixture\CatalogProductSimple;
@@ -15,7 +15,8 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1. Create Customer Account.
+ * 1.
+ * Create Customer Account.
  * 2. Create product.
  *
  * Steps:
@@ -31,96 +32,86 @@ use Magento\Mtf\TestCase\Injectable;
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class ShareWishlistEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'no';
-    const DOMAIN = 'CS';
-    /* end tags */
-
-    /**
-     * Cms index page.
-     *
-     * @var CmsIndex
-     */
-    protected $cmsIndex;
-
-    /**
-     * Wishlist index page.
-     *
-     * @var WishlistIndex
-     */
-    protected $wishlistIndex;
-
-    /**
-     * Wishlist share page.
-     *
-     * @var WishlistShare
-     */
-    protected $wishlistShare;
-
-    /**
-     * Prepare data.
-     *
-     * @param Customer $customer
-     * @param CatalogProductSimple $product
-     * @return array
-     */
-    public function __prepare(Customer $customer, CatalogProductSimple $product)
-    {
-        $customer->persist();
-        $product->persist();
-
-        return [
-            'customer' => $customer,
-            'product' => $product
-        ];
-    }
-
-    /**
-     * Inject pages.
-     *
-     * @param CmsIndex $cmsIndex
-     * @param WishlistIndex $wishlistIndex
-     * @param WishlistShare $wishlistShare
-     * @return void
-     */
-    public function __inject(
-        CmsIndex $cmsIndex,
-        WishlistIndex $wishlistIndex,
-        WishlistShare $wishlistShare
-    ) {
-        $this->cmsIndex = $cmsIndex;
-        $this->wishlistIndex = $wishlistIndex;
-        $this->wishlistShare = $wishlistShare;
-    }
-
-    /**
-     * Share wish list.
-     *
-     * @param Customer $customer
-     * @param CatalogProductSimple $product
-     * @param array $sharingInfo
-     * @return void
-     */
-    public function test(
-        Customer $customer,
-        CatalogProductSimple $product,
-        array $sharingInfo
-    ) {
-        //Steps
-        $this->objectManager->create(
-            'Magento\Customer\Test\TestStep\LoginCustomerOnFrontendStep',
-            ['customer' => $customer]
-        )->run();
-        $this->objectManager->create(
-            'Magento\Wishlist\Test\TestStep\AddProductsToWishlistStep',
-            ['products' => [$product]]
-        )->run();
-        $this->wishlistIndex->getMessagesBlock()->waitSuccessMessage();
-        $this->wishlistIndex->getWishlistBlock()->clickShareWishList();
-        $this->cmsIndex->getCmsPageBlock()->waitPageInit();
-        $this->wishlistShare->getSharingInfoForm()->fillForm($sharingInfo);
-        $this->wishlistShare->getSharingInfoForm()->shareWishlist();
-    }
+class ShareWishlistEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'no';
+	const DOMAIN = 'CS';
+	/* end tags */
+	
+	/**
+	 * Cms index page.
+	 *
+	 * @var CmsIndex
+	 */
+	protected $cmsIndex;
+	
+	/**
+	 * Wishlist index page.
+	 *
+	 * @var WishlistIndex
+	 */
+	protected $wishlistIndex;
+	
+	/**
+	 * Wishlist share page.
+	 *
+	 * @var WishlistShare
+	 */
+	protected $wishlistShare;
+	
+	/**
+	 * Prepare data.
+	 *
+	 * @param Customer $customer        	
+	 * @param CatalogProductSimple $product        	
+	 * @return array
+	 */
+	public function __prepare(Customer $customer, CatalogProductSimple $product) {
+		$customer->persist ();
+		$product->persist ();
+		
+		return [ 
+				'customer' => $customer,
+				'product' => $product 
+		];
+	}
+	
+	/**
+	 * Inject pages.
+	 *
+	 * @param CmsIndex $cmsIndex        	
+	 * @param WishlistIndex $wishlistIndex        	
+	 * @param WishlistShare $wishlistShare        	
+	 * @return void
+	 */
+	public function __inject(CmsIndex $cmsIndex, WishlistIndex $wishlistIndex, WishlistShare $wishlistShare) {
+		$this->cmsIndex = $cmsIndex;
+		$this->wishlistIndex = $wishlistIndex;
+		$this->wishlistShare = $wishlistShare;
+	}
+	
+	/**
+	 * Share wish list.
+	 *
+	 * @param Customer $customer        	
+	 * @param CatalogProductSimple $product        	
+	 * @param array $sharingInfo        	
+	 * @return void
+	 */
+	public function test(Customer $customer, CatalogProductSimple $product, array $sharingInfo) {
+		// Steps
+		$this->objectManager->create ( 'Magento\Customer\Test\TestStep\LoginCustomerOnFrontendStep', [ 
+				'customer' => $customer 
+		] )->run ();
+		$this->objectManager->create ( 'Magento\Wishlist\Test\TestStep\AddProductsToWishlistStep', [ 
+				'products' => [ 
+						$product 
+				] 
+		] )->run ();
+		$this->wishlistIndex->getMessagesBlock ()->waitSuccessMessage ();
+		$this->wishlistIndex->getWishlistBlock ()->clickShareWishList ();
+		$this->cmsIndex->getCmsPageBlock ()->waitPageInit ();
+		$this->wishlistShare->getSharingInfoForm ()->fillForm ( $sharingInfo );
+		$this->wishlistShare->getSharingInfoForm ()->shareWishlist ();
+	}
 }

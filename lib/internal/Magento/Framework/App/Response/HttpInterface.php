@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HTTP response interface
  *
@@ -7,13 +8,12 @@
  */
 namespace Magento\Framework\App\Response;
 
-interface HttpInterface extends \Magento\Framework\App\ResponseInterface
-{
-    /**
-     * Set HTTP response code
-     *
-     * @param int $code
-     * @return void
-     */
-    public function setHttpResponseCode($code);
+interface HttpInterface extends \Magento\Framework\App\ResponseInterface {
+	/**
+	 * Set HTTP response code
+	 *
+	 * @param int $code        	
+	 * @return void
+	 */
+	public function setHttpResponseCode($code);
 }

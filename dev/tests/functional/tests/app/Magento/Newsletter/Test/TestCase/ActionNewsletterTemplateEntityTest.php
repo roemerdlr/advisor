@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Newsletter\Test\TestCase;
 
 use Magento\Newsletter\Test\Fixture\Template;
@@ -27,46 +27,45 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Newsletters_(MX)
  * @ZephyrId MAGETWO-27043
  */
-class ActionNewsletterTemplateEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Page with newsletter template grid
-     *
-     * @var TemplateIndex
-     */
-    protected $templateIndex;
-
-    /**
-     * Inject newsletter page
-     *
-     * @param TemplateIndex $templateIndex
-     * @return void
-     */
-    public function __inject(TemplateIndex $templateIndex)
-    {
-        $this->templateIndex = $templateIndex;
-    }
-
-    /**
-     * Action for Newsletter Template
-     *
-     * @param Template $newsletter
-     * @param string $action
-     * @return void
-     */
-    public function test(Template $newsletter, $action)
-    {
-        // Preconditions
-        $newsletter->persist();
-
-        // Steps
-        $this->templateIndex->open();
-        $this->templateIndex->getNewsletterTemplateGrid()->search(['code' => $newsletter->getCode()]);
-        $this->templateIndex->getNewsletterTemplateGrid()->performAction($action);
-    }
+class ActionNewsletterTemplateEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Page with newsletter template grid
+	 *
+	 * @var TemplateIndex
+	 */
+	protected $templateIndex;
+	
+	/**
+	 * Inject newsletter page
+	 *
+	 * @param TemplateIndex $templateIndex        	
+	 * @return void
+	 */
+	public function __inject(TemplateIndex $templateIndex) {
+		$this->templateIndex = $templateIndex;
+	}
+	
+	/**
+	 * Action for Newsletter Template
+	 *
+	 * @param Template $newsletter        	
+	 * @param string $action        	
+	 * @return void
+	 */
+	public function test(Template $newsletter, $action) {
+		// Preconditions
+		$newsletter->persist ();
+		
+		// Steps
+		$this->templateIndex->open ();
+		$this->templateIndex->getNewsletterTemplateGrid ()->search ( [ 
+				'code' => $newsletter->getCode () 
+		] );
+		$this->templateIndex->getNewsletterTemplateGrid ()->performAction ( $action );
+	}
 }

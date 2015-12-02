@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,8 +11,8 @@ use Magento\Wishlist\Controller\IndexInterface;
 
 /**
  * Class AbstractIndex
+ * 
  * @package Magento\Wishlist\Controller\Index
  */
-abstract class AbstractIndex extends Action\Action implements IndexInterface
-{
+abstract class AbstractIndex extends Action\Action implements IndexInterface {
 }

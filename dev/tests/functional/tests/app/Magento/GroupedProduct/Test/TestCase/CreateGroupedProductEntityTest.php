@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\GroupedProduct\Test\TestCase;
 
 use Magento\Catalog\Test\Fixture\Category;
@@ -32,68 +32,64 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Grouped_Product_(MX)
  * @ZephyrId MAGETWO-24877
  */
-class CreateGroupedProductEntityTest extends Injectable
-{
-    /* tags */
-    const TEST_TYPE = 'acceptance_test';
-    const MVP = 'no';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Page product on backend
-     *
-     * @var CatalogProductIndex
-     */
-    protected $catalogProductIndex;
-
-    /**
-     * New page on backend
-     *
-     * @var CatalogProductNew
-     */
-    protected $catalogProductNew;
-
-    /**
-     * Persist category
-     *
-     * @param Category $category
-     * @return array
-     */
-    public function __prepare(Category $category)
-    {
-        $category->persist();
-        return ['category' => $category];
-    }
-
-    /**
-     * Injection pages
-     *
-     * @param CatalogProductIndex $catalogProductIndexNewPage
-     * @param CatalogProductNew $catalogProductNewPage
-     * @return void
-     */
-    public function __inject(
-        CatalogProductIndex $catalogProductIndexNewPage,
-        CatalogProductNew $catalogProductNewPage
-    ) {
-        $this->catalogProductIndex = $catalogProductIndexNewPage;
-        $this->catalogProductNew = $catalogProductNewPage;
-    }
-
-    /**
-     * Test create grouped product
-     *
-     * @param GroupedProduct $product
-     * @param Category $category
-     * @return void
-     */
-    public function test(GroupedProduct $product, Category $category)
-    {
-        //Steps
-        $this->catalogProductIndex->open();
-        $this->catalogProductIndex->getGridPageActionBlock()->addProduct('grouped');
-        $this->catalogProductNew->getProductForm()->fill($product, null, $category);
-        $this->catalogProductNew->getFormPageActions()->save();
-    }
+class CreateGroupedProductEntityTest extends Injectable {
+	/* tags */
+	const TEST_TYPE = 'acceptance_test';
+	const MVP = 'no';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Page product on backend
+	 *
+	 * @var CatalogProductIndex
+	 */
+	protected $catalogProductIndex;
+	
+	/**
+	 * New page on backend
+	 *
+	 * @var CatalogProductNew
+	 */
+	protected $catalogProductNew;
+	
+	/**
+	 * Persist category
+	 *
+	 * @param Category $category        	
+	 * @return array
+	 */
+	public function __prepare(Category $category) {
+		$category->persist ();
+		return [ 
+				'category' => $category 
+		];
+	}
+	
+	/**
+	 * Injection pages
+	 *
+	 * @param CatalogProductIndex $catalogProductIndexNewPage        	
+	 * @param CatalogProductNew $catalogProductNewPage        	
+	 * @return void
+	 */
+	public function __inject(CatalogProductIndex $catalogProductIndexNewPage, CatalogProductNew $catalogProductNewPage) {
+		$this->catalogProductIndex = $catalogProductIndexNewPage;
+		$this->catalogProductNew = $catalogProductNewPage;
+	}
+	
+	/**
+	 * Test create grouped product
+	 *
+	 * @param GroupedProduct $product        	
+	 * @param Category $category        	
+	 * @return void
+	 */
+	public function test(GroupedProduct $product, Category $category) {
+		// Steps
+		$this->catalogProductIndex->open ();
+		$this->catalogProductIndex->getGridPageActionBlock ()->addProduct ( 'grouped' );
+		$this->catalogProductNew->getProductForm ()->fill ( $product, null, $category );
+		$this->catalogProductNew->getFormPageActions ()->save ();
+	}
 }

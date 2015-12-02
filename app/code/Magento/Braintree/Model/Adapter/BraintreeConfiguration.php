@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,41 +13,40 @@ use \Braintree_Configuration;
  *
  * @codeCoverageIgnore
  */
-class BraintreeConfiguration
-{
-    /**
-     * @param string|null $value
-     * @return mixed
-     */
-    public function environment($value = null)
-    {
-        return \Braintree_Configuration::environment($value);
-    }
-
-    /**
-     * @param string|null $value
-     * @return mixed
-     */
-    public function merchantId($value = null)
-    {
-        return \Braintree_Configuration::merchantId($value);
-    }
-
-    /**
-     * @param string|null $value
-     * @return mixed
-     */
-    public function publicKey($value = null)
-    {
-        return \Braintree_Configuration::publicKey($value);
-    }
-
-    /**
-     * @param string|null $value
-     * @return mixed
-     */
-    public function privateKey($value = null)
-    {
-        return \Braintree_Configuration::privateKey($value);
-    }
+class BraintreeConfiguration {
+	/**
+	 *
+	 * @param string|null $value        	
+	 * @return mixed
+	 */
+	public function environment($value = null) {
+		return \Braintree_Configuration::environment ( $value );
+	}
+	
+	/**
+	 *
+	 * @param string|null $value        	
+	 * @return mixed
+	 */
+	public function merchantId($value = null) {
+		return \Braintree_Configuration::merchantId ( $value );
+	}
+	
+	/**
+	 *
+	 * @param string|null $value        	
+	 * @return mixed
+	 */
+	public function publicKey($value = null) {
+		return \Braintree_Configuration::publicKey ( $value );
+	}
+	
+	/**
+	 *
+	 * @param string|null $value        	
+	 * @return mixed
+	 */
+	public function privateKey($value = null) {
+		return \Braintree_Configuration::privateKey ( $value );
+	}
 }

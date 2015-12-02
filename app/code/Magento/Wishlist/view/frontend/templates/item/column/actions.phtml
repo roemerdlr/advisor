@@ -11,7 +11,8 @@
 
 <?php $children = $block->getChildNames(); ?>
 <?php if ($children): ?>
-    <div class="<?php /* @escapeNotVerified */ echo $block->getCssClass() ?>">
+<div
+	class="<?php /* @escapeNotVerified */ echo $block->getCssClass() ?>">
         <?php foreach ($children as $childName):?>
             <?php /* @escapeNotVerified */ echo $block->getLayout()->renderElement($childName, false);?>
         <?php endforeach;?>

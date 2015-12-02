@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Connection adapter factory interface
  *
@@ -7,14 +8,13 @@
  */
 namespace Magento\Framework\Model\ResourceModel\Type\Db;
 
-interface ConnectionFactoryInterface
-{
-    /**
-     * Create connection adapter instance
-     *
-     * @param array $connectionConfig
-     * @return \Magento\Framework\DB\Adapter\AdapterInterface
-     * @throws \InvalidArgumentException
-     */
-    public function create(array $connectionConfig);
+interface ConnectionFactoryInterface {
+	/**
+	 * Create connection adapter instance
+	 *
+	 * @param array $connectionConfig        	
+	 * @return \Magento\Framework\DB\Adapter\AdapterInterface
+	 * @throws \InvalidArgumentException
+	 */
+	public function create(array $connectionConfig);
 }

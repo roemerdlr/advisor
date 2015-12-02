@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Reports\Test\TestCase;
 
 use Magento\Customer\Test\Fixture\Customer;
@@ -14,7 +14,8 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1. Create customer
+ * 1.
+ * Create customer
  * 2. Create orders for customer
  *
  * Steps:
@@ -27,58 +28,61 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Reports_(MX)
  * @ZephyrId MAGETWO-28521
  */
-class CustomersOrderCountReportEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'no';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Order count report page.
-     *
-     * @var CustomerOrdersReport
-     */
-    protected $customerOrdersReport;
-
-    /**
-     * Inject page.
-     *
-     * @param CustomerOrdersReport $customerOrdersReport
-     * @return void
-     */
-    public function __inject(CustomerOrdersReport $customerOrdersReport)
-    {
-        $this->customerOrdersReport = $customerOrdersReport;
-    }
-
-    /**
-     * Order count report view.
-     *
-     * @param Customer $customer
-     * @param string $orders
-     * @param array $report
-     * @param FixtureFactory $fixtureFactory
-     * @return array
-     */
-    public function test(Customer $customer, $orders, array $report, FixtureFactory $fixtureFactory)
-    {
-        // Precondition
-        $customer->persist();
-        $orders = explode(',', $orders);
-        foreach ($orders as $order) {
-            $order = $fixtureFactory->createByCode(
-                'orderInjectable',
-                ['dataset' => $order, 'data' => ['customer_id' => ['customer' => $customer]]]
-            );
-            $order->persist();
-        }
-
-        // Steps
-        $this->customerOrdersReport->open();
-        $this->customerOrdersReport->getFilterBlock()->viewsReport($report);
-        $this->customerOrdersReport->getFilterBlock()->refreshFilter();
-
-        return['customer' => $customer];
-    }
+class CustomersOrderCountReportEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'no';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Order count report page.
+	 *
+	 * @var CustomerOrdersReport
+	 */
+	protected $customerOrdersReport;
+	
+	/**
+	 * Inject page.
+	 *
+	 * @param CustomerOrdersReport $customerOrdersReport        	
+	 * @return void
+	 */
+	public function __inject(CustomerOrdersReport $customerOrdersReport) {
+		$this->customerOrdersReport = $customerOrdersReport;
+	}
+	
+	/**
+	 * Order count report view.
+	 *
+	 * @param Customer $customer        	
+	 * @param string $orders        	
+	 * @param array $report        	
+	 * @param FixtureFactory $fixtureFactory        	
+	 * @return array
+	 */
+	public function test(Customer $customer, $orders, array $report, FixtureFactory $fixtureFactory) {
+		// Precondition
+		$customer->persist ();
+		$orders = explode ( ',', $orders );
+		foreach ( $orders as $order ) {
+			$order = $fixtureFactory->createByCode ( 'orderInjectable', [ 
+					'dataset' => $order,
+					'data' => [ 
+							'customer_id' => [ 
+									'customer' => $customer 
+							] 
+					] 
+			] );
+			$order->persist ();
+		}
+		
+		// Steps
+		$this->customerOrdersReport->open ();
+		$this->customerOrdersReport->getFilterBlock ()->viewsReport ( $report );
+		$this->customerOrdersReport->getFilterBlock ()->refreshFilter ();
+		
+		return [ 
+				'customer' => $customer 
+		];
+	}
 }

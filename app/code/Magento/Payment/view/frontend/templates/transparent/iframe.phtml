@@ -7,11 +7,11 @@
 // @codingStandardsIgnoreFile
 
 /** @var \Magento\Payment\Block\Transparent\Iframe $block */
-$params = $block->getParams();
+$params = $block->getParams ();
 ?>
 <html>
-    <head>
-        <script>
+<head>
+<script>
         <?php if (isset($params['redirect'])): ?>
             window.location="<?php echo $block->escapeXssInUrl($params['redirect']); ?>";
         <?php elseif (isset($params['redirect_parent'])): ?>
@@ -46,6 +46,6 @@ $params = $block->getParams();
             );
         <?php endif; ?>
         </script>
-    </head>
-    <body></body>
+</head>
+<body></body>
 </html>

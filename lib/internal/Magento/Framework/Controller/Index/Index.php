@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,12 +7,11 @@
  */
 namespace Magento\Framework\Controller\Index;
 
-class Index extends \Magento\Framework\App\Action\Action
-{
-    /**
-     * @return void
-     */
-    public function execute()
-    {
-    }
+class Index extends \Magento\Framework\App\Action\Action {
+	/**
+	 *
+	 * @return void
+	 */
+	public function execute() {
+	}
 }

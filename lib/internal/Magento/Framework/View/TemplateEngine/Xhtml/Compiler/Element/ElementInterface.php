@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,21 +12,15 @@ use Magento\Framework\View\TemplateEngine\Xhtml\CompilerInterface;
 /**
  * Interface ElementInterface
  */
-interface ElementInterface
-{
-    /**
-     * Compiles the Element node
-     *
-     * @param CompilerInterface $compiler
-     * @param \DOMElement $node
-     * @param DataObject $processedObject
-     * @param DataObject $context
-     * @return void
-     */
-    public function compile(
-        CompilerInterface $compiler,
-        \DOMElement $node,
-        DataObject $processedObject,
-        DataObject $context
-    );
+interface ElementInterface {
+	/**
+	 * Compiles the Element node
+	 *
+	 * @param CompilerInterface $compiler        	
+	 * @param \DOMElement $node        	
+	 * @param DataObject $processedObject        	
+	 * @param DataObject $context        	
+	 * @return void
+	 */
+	public function compile(CompilerInterface $compiler, \DOMElement $node, DataObject $processedObject, DataObject $context);
 }

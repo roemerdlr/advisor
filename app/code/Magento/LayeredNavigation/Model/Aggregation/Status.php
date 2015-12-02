@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -8,13 +9,13 @@ namespace Magento\LayeredNavigation\Model\Aggregation;
 
 use Magento\Framework\Search\Request\Aggregation\StatusInterface;
 
-class Status implements StatusInterface
-{
-    /**
-     * {@inheritdoc}
-     */
-    public function isEnabled()
-    {
-        return true;
-    }
+class Status implements StatusInterface {
+	/**
+	 *
+	 * {@inheritdoc}
+	 *
+	 */
+	public function isEnabled() {
+		return true;
+	}
 }

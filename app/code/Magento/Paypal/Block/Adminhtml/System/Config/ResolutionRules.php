@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,36 +13,31 @@ use Magento\Paypal\Model\Config\Rules\Reader;
 /**
  * Class ResolutionRules
  */
-class ResolutionRules extends Template
-{
-    /**
-     * @var Reader
-     */
-    private $rulesReader;
-
-    /**
-     * Constructor
-     *
-     * @param Context $context
-     * @param Reader $rulesReader
-     * @param array $data
-     */
-    public function __construct(
-        Context $context,
-        Reader $rulesReader,
-        array $data = []
-    ) {
-        parent::__construct($context, $data);
-        $this->rulesReader = $rulesReader;
-    }
-
-    /**
-     * Getting data for generating rules (JSON)
-     *
-     * @return string
-     */
-    public function getJson()
-    {
-        return json_encode($this->rulesReader->read());
-    }
+class ResolutionRules extends Template {
+	/**
+	 *
+	 * @var Reader
+	 */
+	private $rulesReader;
+	
+	/**
+	 * Constructor
+	 *
+	 * @param Context $context        	
+	 * @param Reader $rulesReader        	
+	 * @param array $data        	
+	 */
+	public function __construct(Context $context, Reader $rulesReader, array $data = []) {
+		parent::__construct ( $context, $data );
+		$this->rulesReader = $rulesReader;
+	}
+	
+	/**
+	 * Getting data for generating rules (JSON)
+	 *
+	 * @return string
+	 */
+	public function getJson() {
+		return json_encode ( $this->rulesReader->read () );
+	}
 }

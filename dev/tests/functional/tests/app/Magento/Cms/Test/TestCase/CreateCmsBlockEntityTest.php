@@ -1,16 +1,17 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Cms\Test\TestCase;
 
 use Magento\Cms\Test\Fixture\CmsBlock;
 
 /**
  * Preconditions:
- * 1. Create store view.
+ * 1.
+ * Create store view.
  *
  * Steps:
  * 1. Open Backend.
@@ -22,28 +23,26 @@ use Magento\Cms\Test\Fixture\CmsBlock;
  * @group CMS_Content_(PS)
  * @ZephyrId MAGETWO-25578
  */
-class CreateCmsBlockEntityTest extends AbstractCmsBlockEntityTest
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * Create CMS Block.
-     *
-     * @param CmsBlock $cmsBlock
-     * @return void
-     */
-    public function test(CmsBlock $cmsBlock)
-    {
-        // Prepare data for tearDown
-        $this->storeName = $cmsBlock->getStores();
-
-        // Steps
-        $this->cmsBlockIndex->open();
-        $this->cmsBlockIndex->getGridPageActions()->addNew();
-        $this->cmsBlockNew->getCmsForm()->fill($cmsBlock);
-        $this->cmsBlockNew->getFormPageActions()->save();
-    }
+class CreateCmsBlockEntityTest extends AbstractCmsBlockEntityTest {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * Create CMS Block.
+	 *
+	 * @param CmsBlock $cmsBlock        	
+	 * @return void
+	 */
+	public function test(CmsBlock $cmsBlock) {
+		// Prepare data for tearDown
+		$this->storeName = $cmsBlock->getStores ();
+		
+		// Steps
+		$this->cmsBlockIndex->open ();
+		$this->cmsBlockIndex->getGridPageActions ()->addNew ();
+		$this->cmsBlockNew->getCmsForm ()->fill ( $cmsBlock );
+		$this->cmsBlockNew->getFormPageActions ()->save ();
+	}
 }

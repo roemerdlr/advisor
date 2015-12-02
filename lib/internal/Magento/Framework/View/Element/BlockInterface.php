@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,12 +11,11 @@ namespace Magento\Framework\View\Element;
  *
  * Used to present information to user
  */
-interface BlockInterface
-{
-    /**
-     * Produce and return block's html output
-     *
-     * @return string
-     */
-    public function toHtml();
+interface BlockInterface {
+	/**
+	 * Produce and return block's html output
+	 *
+	 * @return string
+	 */
+	public function toHtml();
 }

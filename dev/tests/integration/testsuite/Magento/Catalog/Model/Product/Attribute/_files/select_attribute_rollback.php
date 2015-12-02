@@ -5,10 +5,8 @@
  */
 
 /** @var $attribute \Magento\Catalog\Model\ResourceModel\Eav\Attribute */
-$attribute = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-    'Magento\Catalog\Model\ResourceModel\Eav\Attribute'
-);
-$attribute->load('select_attribute', 'attribute_code');
-if ($attribute->getId()) {
-    $attribute->delete();
+$attribute = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ()->create ( 'Magento\Catalog\Model\ResourceModel\Eav\Attribute' );
+$attribute->load ( 'select_attribute', 'attribute_code' );
+if ($attribute->getId ()) {
+	$attribute->delete ();
 }

@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Catalog\Test\TestCase\ProductAttribute;
 
 use Magento\Catalog\Test\Fixture\CatalogAttributeSet;
@@ -28,70 +28,63 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Product_Attributes_(MX)
  * @ZephyrId MAGETWO-25104
  */
-class CreateAttributeSetEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Catalog Product Set page
-     *
-     * @var CatalogProductSetIndex
-     */
-    protected $productSetIndex;
-
-    /**
-     * Catalog Product Set add page
-     *
-     * @var CatalogProductSetAdd
-     */
-    protected $productSetAdd;
-
-    /**
-     * Catalog Product Set edit page
-     *
-     * @var CatalogProductSetEdit
-     */
-    protected $productSetEdit;
-
-    /**
-     * @param CatalogProductSetIndex $productSetIndex
-     * @param CatalogProductSetAdd $productSetAdd
-     * @param CatalogProductSetEdit $productSetEdit
-     * @return void
-     */
-    public function __inject(
-        CatalogProductSetIndex $productSetIndex,
-        CatalogProductSetAdd $productSetAdd,
-        CatalogProductSetEdit $productSetEdit
-    ) {
-        $this->productSetIndex = $productSetIndex;
-        $this->productSetAdd = $productSetAdd;
-        $this->productSetEdit = $productSetEdit;
-    }
-
-    /**
-     * Run CreateAttributeSetEntity test
-     *
-     * @param CatalogAttributeSet $attributeSet
-     * @param CatalogProductAttribute $productAttribute
-     * @return void
-     */
-    public function testCreateAttributeSet(
-        CatalogAttributeSet $attributeSet,
-        CatalogProductAttribute $productAttribute
-    ) {
-        $productAttribute->persist();
-
-        //Steps
-        $this->productSetIndex->open();
-        $this->productSetIndex->getPageActionsBlock()->addNew();
-
-        $this->productSetAdd->getAttributeSetForm()->fill($attributeSet);
-        $this->productSetAdd->getPageActions()->save();
-        $this->productSetEdit->getAttributeSetEditBlock()->moveAttribute($productAttribute->getData());
-        $this->productSetEdit->getPageActions()->save();
-    }
+class CreateAttributeSetEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Catalog Product Set page
+	 *
+	 * @var CatalogProductSetIndex
+	 */
+	protected $productSetIndex;
+	
+	/**
+	 * Catalog Product Set add page
+	 *
+	 * @var CatalogProductSetAdd
+	 */
+	protected $productSetAdd;
+	
+	/**
+	 * Catalog Product Set edit page
+	 *
+	 * @var CatalogProductSetEdit
+	 */
+	protected $productSetEdit;
+	
+	/**
+	 *
+	 * @param CatalogProductSetIndex $productSetIndex        	
+	 * @param CatalogProductSetAdd $productSetAdd        	
+	 * @param CatalogProductSetEdit $productSetEdit        	
+	 * @return void
+	 */
+	public function __inject(CatalogProductSetIndex $productSetIndex, CatalogProductSetAdd $productSetAdd, CatalogProductSetEdit $productSetEdit) {
+		$this->productSetIndex = $productSetIndex;
+		$this->productSetAdd = $productSetAdd;
+		$this->productSetEdit = $productSetEdit;
+	}
+	
+	/**
+	 * Run CreateAttributeSetEntity test
+	 *
+	 * @param CatalogAttributeSet $attributeSet        	
+	 * @param CatalogProductAttribute $productAttribute        	
+	 * @return void
+	 */
+	public function testCreateAttributeSet(CatalogAttributeSet $attributeSet, CatalogProductAttribute $productAttribute) {
+		$productAttribute->persist ();
+		
+		// Steps
+		$this->productSetIndex->open ();
+		$this->productSetIndex->getPageActionsBlock ()->addNew ();
+		
+		$this->productSetAdd->getAttributeSetForm ()->fill ( $attributeSet );
+		$this->productSetAdd->getPageActions ()->save ();
+		$this->productSetEdit->getAttributeSetEditBlock ()->moveAttribute ( $productAttribute->getData () );
+		$this->productSetEdit->getPageActions ()->save ();
+	}
 }

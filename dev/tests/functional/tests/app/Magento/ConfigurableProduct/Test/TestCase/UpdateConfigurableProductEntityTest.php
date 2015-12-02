@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\ConfigurableProduct\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
@@ -28,20 +28,18 @@ use Magento\Mtf\TestCase\Scenario;
  * @group Configurable_Product_(MX)
  * @ZephyrId MAGETWO-29916
  */
-class UpdateConfigurableProductEntityTest extends Scenario
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Update configurable product.
-     *
-     * @return array
-     */
-    public function test()
-    {
-        $this->executeScenario();
-    }
+class UpdateConfigurableProductEntityTest extends Scenario {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Update configurable product.
+	 *
+	 * @return array
+	 */
+	public function test() {
+		$this->executeScenario ();
+	}
 }

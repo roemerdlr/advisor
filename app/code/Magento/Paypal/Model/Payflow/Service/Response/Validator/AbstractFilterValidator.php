@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,46 +14,44 @@ use Magento\Quote\Api\PaymentMethodManagementInterface;
 /**
  * Class AbstractFilterValidator
  */
-abstract class AbstractFilterValidator
-{
-    /**
-     * @var \Magento\Quote\Api\CartRepositoryInterface
-     */
-    protected $quoteRepository;
-
-    /**
-     * @var Generic
-     */
-    protected $sessionTransparent;
-
-    /**
-     * @var PaymentMethodManagementInterface
-     */
-    protected $paymentManagement;
-
-    /**
-     * Constructor
-     *
-     * @param Generic $sessionTransparent
-     * @param CartRepositoryInterface $quoteRepository
-     * @param PaymentMethodManagementInterface $paymentManagement
-     */
-    public function __construct(
-        CartRepositoryInterface $quoteRepository,
-        Generic $sessionTransparent,
-        PaymentMethodManagementInterface $paymentManagement
-    ) {
-        $this->quoteRepository = $quoteRepository;
-        $this->sessionTransparent = $sessionTransparent;
-        $this->paymentManagement = $paymentManagement;
-    }
-
-    /**
-     * @return ConfigInterface
-     */
-    protected function getConfig()
-    {
-        $quote = $this->quoteRepository->get($this->sessionTransparent->getQuoteId());
-        return $this->paymentManagement->get($quote->getId())->getMethodInstance()->getConfigInterface();
-    }
+abstract class AbstractFilterValidator {
+	/**
+	 *
+	 * @var \Magento\Quote\Api\CartRepositoryInterface
+	 */
+	protected $quoteRepository;
+	
+	/**
+	 *
+	 * @var Generic
+	 */
+	protected $sessionTransparent;
+	
+	/**
+	 *
+	 * @var PaymentMethodManagementInterface
+	 */
+	protected $paymentManagement;
+	
+	/**
+	 * Constructor
+	 *
+	 * @param Generic $sessionTransparent        	
+	 * @param CartRepositoryInterface $quoteRepository        	
+	 * @param PaymentMethodManagementInterface $paymentManagement        	
+	 */
+	public function __construct(CartRepositoryInterface $quoteRepository, Generic $sessionTransparent, PaymentMethodManagementInterface $paymentManagement) {
+		$this->quoteRepository = $quoteRepository;
+		$this->sessionTransparent = $sessionTransparent;
+		$this->paymentManagement = $paymentManagement;
+	}
+	
+	/**
+	 *
+	 * @return ConfigInterface
+	 */
+	protected function getConfig() {
+		$quote = $this->quoteRepository->get ( $this->sessionTransparent->getQuoteId () );
+		return $this->paymentManagement->get ( $quote->getId () )->getMethodInstance ()->getConfigInterface ();
+	}
 }

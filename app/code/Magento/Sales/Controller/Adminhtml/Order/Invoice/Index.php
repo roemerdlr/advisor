@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Sales\Controller\Adminhtml\Order\Invoice;
 
-class Index extends \Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\Index
-{
+class Index extends \Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\Index {
 }

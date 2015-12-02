@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Store\Test\TestCase;
 
 use Magento\Backend\Test\Page\Adminhtml\EditStore;
@@ -29,56 +29,53 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Store_Management_(PS)
  * @ZephyrId MAGETWO-27786
  */
-class UpdateStoreEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * Page StoreIndex
-     *
-     * @var StoreIndex
-     */
-    protected $storeIndex;
-
-    /**
-     * Page EditStore
-     *
-     * @var EditStore
-     */
-    protected $editStore;
-
-    /**
-     * Preparing pages for test
-     *
-     * @param StoreIndex $storeIndex
-     * @param EditStore $editStore
-     * @return void
-     */
-    public function __inject(StoreIndex $storeIndex, EditStore $editStore)
-    {
-        $this->storeIndex = $storeIndex;
-        $this->editStore = $editStore;
-    }
-
-    /**
-     * Runs Update Store Entity test
-     *
-     * @param Store $storeInitial
-     * @param Store $store
-     * @return void
-     */
-    public function test(Store $storeInitial, Store $store)
-    {
-        // Preconditions:
-        $storeInitial->persist();
-
-        // Steps:
-        $this->storeIndex->open();
-        $this->storeIndex->getStoreGrid()->searchAndOpenStore($storeInitial);
-        $this->editStore->getStoreForm()->fill($store);
-        $this->editStore->getFormPageActions()->save();
-    }
+class UpdateStoreEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * Page StoreIndex
+	 *
+	 * @var StoreIndex
+	 */
+	protected $storeIndex;
+	
+	/**
+	 * Page EditStore
+	 *
+	 * @var EditStore
+	 */
+	protected $editStore;
+	
+	/**
+	 * Preparing pages for test
+	 *
+	 * @param StoreIndex $storeIndex        	
+	 * @param EditStore $editStore        	
+	 * @return void
+	 */
+	public function __inject(StoreIndex $storeIndex, EditStore $editStore) {
+		$this->storeIndex = $storeIndex;
+		$this->editStore = $editStore;
+	}
+	
+	/**
+	 * Runs Update Store Entity test
+	 *
+	 * @param Store $storeInitial        	
+	 * @param Store $store        	
+	 * @return void
+	 */
+	public function test(Store $storeInitial, Store $store) {
+		// Preconditions:
+		$storeInitial->persist ();
+		
+		// Steps:
+		$this->storeIndex->open ();
+		$this->storeIndex->getStoreGrid ()->searchAndOpenStore ( $storeInitial );
+		$this->editStore->getStoreForm ()->fill ( $store );
+		$this->editStore->getFormPageActions ()->save ();
+	}
 }

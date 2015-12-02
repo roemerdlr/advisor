@@ -5,22 +5,23 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <?php
+
 /**
+ *
  * @var $block \Magento\Sales\Block\Order\Comments
  * @see \Magento\Sales\Block\Order\Comments
  */
 ?>
 <?php if ($block->hasComments()):?>
-    <div class="order additional details comments">
-        <h3 class="subtitle"><?php /* @escapeNotVerified */ echo $block->getTitle() ?></h3>
-        <dl class="order comments">
+<div class="order additional details comments">
+	<h3 class="subtitle"><?php /* @escapeNotVerified */ echo $block->getTitle() ?></h3>
+	<dl class="order comments">
             <?php foreach ($block->getComments() as $_commentItem): ?>
                 <dt class="comment date"><?php /* @escapeNotVerified */ echo $block->formatDate($_commentItem->getCreatedAt(), \IntlDateFormatter::MEDIUM, true) ?></dt>
-                <dd class="comment text"><?php echo $block->escapeHtml($_commentItem->getComment()) ?></dd>
+		<dd class="comment text"><?php echo $block->escapeHtml($_commentItem->getComment()) ?></dd>
             <?php endforeach; ?>
         </dl>
-    </div>
+</div>
 <?php endif;?>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Authentication exception
  *
@@ -7,7 +8,6 @@
  */
 namespace Magento\Framework\Exception;
 
-class AuthenticationException extends LocalizedException
-{
-    const AUTHENTICATION_ERROR = 'An authentication error occurred.';
+class AuthenticationException extends LocalizedException {
+	const AUTHENTICATION_ERROR = 'An authentication error occurred.';
 }

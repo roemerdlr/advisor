@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,13 +10,13 @@ namespace Magento\Wonderland\Model\Data;
 use Magento\Framework\Api\AbstractExtensibleObject;
 use Magento\Wonderland\Api\Data\FakeExtensibleTwoInterface;
 
-class FakeExtensibleTwo extends AbstractExtensibleObject implements FakeExtensibleTwoInterface
-{
-    /**
-     * {@inheritdoc}
-     */
-    public function getExtensionAttributes()
-    {
-        return $this->_getExtensionAttributes();
-    }
+class FakeExtensibleTwo extends AbstractExtensibleObject implements FakeExtensibleTwoInterface {
+	/**
+	 *
+	 * {@inheritdoc}
+	 *
+	 */
+	public function getExtensionAttributes() {
+		return $this->_getExtensionAttributes ();
+	}
 }

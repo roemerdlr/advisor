@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Ip validator
  *
@@ -7,6 +8,5 @@
  */
 namespace Magento\Framework\Validator;
 
-class Ip extends \Zend_Validate_Ip implements \Magento\Framework\Validator\ValidatorInterface
-{
+class Ip extends \Zend_Validate_Ip implements \Magento\Framework\Validator\ValidatorInterface {
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,46 +12,46 @@ use Zend\Code\Reflection\ParameterReflection;
 
 /**
  */
-class Injectable
-{
-    /**
-     * @var \ReflectionException[]
-     */
-    protected $dependencies = [];
-
-    /**
-     * @param FileReflection $fileReflection
-     * @return \ReflectionException[]
-     * @throws \ReflectionException
-     */
-    public function getDependencies(FileReflection $fileReflection)
-    {
-        foreach ($fileReflection->getClasses() as $class) {
-            /** @var ClassReflection $class */
-            foreach ($class->getMethods() as $method) {
-                /** @var \Zend\Code\Reflection\MethodReflection $method */
-                if ($method->getDeclaringClass()->getName() != $class->getName()) {
-                    continue;
-                }
-
-                foreach ($method->getParameters() as $parameter) {
-                    try {
-                        /** @var ParameterReflection $parameter */
-                        $dependency = $parameter->getClass();
-                        if ($dependency instanceof ClassReflection) {
-                            $this->dependencies[] = $dependency->getName();
-                        }
-                    } catch (\ReflectionException $e) {
-                        if (preg_match('#^Class ([A-Za-z0-9_\\\\]+) does not exist$#', $e->getMessage(), $result)) {
-                            $this->dependencies[] = $result[1];
-                        } else {
-                            throw $e;
-                        }
-                    }
-                }
-            }
-        }
-
-        return $this->dependencies;
-    }
+class Injectable {
+	/**
+	 *
+	 * @var \ReflectionException[]
+	 */
+	protected $dependencies = [ ];
+	
+	/**
+	 *
+	 * @param FileReflection $fileReflection        	
+	 * @return \ReflectionException[]
+	 * @throws \ReflectionException
+	 */
+	public function getDependencies(FileReflection $fileReflection) {
+		foreach ( $fileReflection->getClasses () as $class ) {
+			/** @var ClassReflection $class */
+			foreach ( $class->getMethods () as $method ) {
+				/** @var \Zend\Code\Reflection\MethodReflection $method */
+				if ($method->getDeclaringClass ()->getName () != $class->getName ()) {
+					continue;
+				}
+				
+				foreach ( $method->getParameters () as $parameter ) {
+					try {
+						/** @var ParameterReflection $parameter */
+						$dependency = $parameter->getClass ();
+						if ($dependency instanceof ClassReflection) {
+							$this->dependencies [] = $dependency->getName ();
+						}
+					} catch ( \ReflectionException $e ) {
+						if (preg_match ( '#^Class ([A-Za-z0-9_\\\\]+) does not exist$#', $e->getMessage (), $result )) {
+							$this->dependencies [] = $result [1];
+						} else {
+							throw $e;
+						}
+					}
+				}
+			}
+		}
+		
+		return $this->dependencies;
+	}
 }

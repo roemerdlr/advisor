@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -6,6 +7,7 @@
 namespace Magento\UrlRewrite\Model;
 
 /**
+ *
  * @method int getEntityId()
  * @method string getEntityType()
  * @method int getRedirectType()
@@ -21,26 +23,23 @@ namespace Magento\UrlRewrite\Model;
  * @method UrlRewrite setStoreId($value)
  * @method UrlRewrite setDescription($value)
  */
-class UrlRewrite extends \Magento\Framework\Model\AbstractModel
-{
-    /**
-     * Initialize corresponding resource model
-     *
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init('Magento\UrlRewrite\Model\ResourceModel\UrlRewrite');
-        $this->_collectionName = 'Magento\UrlRewrite\Model\ResourceModel\UrlRewriteCollection';
-    }
-
-    /**
-     * @return array
-     * @api
-     */
-    public function getMetadata()
-    {
-        $metadata = $this->getData(\Magento\UrlRewrite\Service\V1\Data\UrlRewrite::METADATA);
-        return !empty($metadata) ? unserialize($metadata) : [];
-    }
+class UrlRewrite extends \Magento\Framework\Model\AbstractModel {
+	/**
+	 * Initialize corresponding resource model
+	 *
+	 * @return void
+	 */
+	protected function _construct() {
+		$this->_init ( 'Magento\UrlRewrite\Model\ResourceModel\UrlRewrite' );
+		$this->_collectionName = 'Magento\UrlRewrite\Model\ResourceModel\UrlRewriteCollection';
+	}
+	
+	/**
+	 *
+	 * @return array @api
+	 */
+	public function getMetadata() {
+		$metadata = $this->getData ( \Magento\UrlRewrite\Service\V1\Data\UrlRewrite::METADATA );
+		return ! empty ( $metadata ) ? unserialize ( $metadata ) : [ ];
+	}
 }

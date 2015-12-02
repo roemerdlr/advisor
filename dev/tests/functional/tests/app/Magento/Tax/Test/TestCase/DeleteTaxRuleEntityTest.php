@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Tax\Test\TestCase;
 
 use Magento\Tax\Test\Fixture\TaxRule;
@@ -14,7 +14,8 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1. Tax Rule is created.
+ * 1.
+ * Tax Rule is created.
  *
  * Steps:
  * 1. Log in as default admin user.
@@ -26,69 +27,67 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Tax_(CS)
  * @ZephyrId MAGETWO-20924
  */
-class DeleteTaxRuleEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'CS';
-    /* end tags */
-
-    /**
-     * Tax Rule grid page.
-     *
-     * @var TaxRuleIndex
-     */
-    protected $taxRuleIndexPage;
-
-    /**
-     * Tax Rule new and edit page.
-     *
-     * @var TaxRuleNew
-     */
-    protected $taxRuleNewPage;
-
-    /**
-     * Create customer.
-     *
-     * @param Customer $customer
-     * @return array
-     */
-    public function __prepare(Customer $customer)
-    {
-        $customer->persist();
-
-        return ['customer' => $customer];
-    }
-
-    /**
-     * Inject pages.
-     *
-     * @param TaxRuleIndex $taxRuleIndexPage
-     * @param TaxRuleNew $taxRuleNewPage
-     */
-    public function __inject(
-        TaxRuleIndex $taxRuleIndexPage,
-        TaxRuleNew $taxRuleNewPage
-    ) {
-        $this->taxRuleIndexPage = $taxRuleIndexPage;
-        $this->taxRuleNewPage = $taxRuleNewPage;
-    }
-
-    /**
-     * Delete Tax Rule Entity test.
-     *
-     * @param TaxRule $taxRule
-     * @return void
-     */
-    public function testDeleteTaxRule(TaxRule $taxRule)
-    {
-        // Precondition
-        $taxRule->persist();
-
-        // Steps
-        $this->taxRuleIndexPage->open();
-        $this->taxRuleIndexPage->getTaxRuleGrid()->searchAndOpen(['code' => $taxRule->getCode()]);
-        $this->taxRuleNewPage->getFormPageActions()->delete();
-        $this->taxRuleNewPage->getModalBlock()->acceptAlert();
-    }
+class DeleteTaxRuleEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'CS';
+	/* end tags */
+	
+	/**
+	 * Tax Rule grid page.
+	 *
+	 * @var TaxRuleIndex
+	 */
+	protected $taxRuleIndexPage;
+	
+	/**
+	 * Tax Rule new and edit page.
+	 *
+	 * @var TaxRuleNew
+	 */
+	protected $taxRuleNewPage;
+	
+	/**
+	 * Create customer.
+	 *
+	 * @param Customer $customer        	
+	 * @return array
+	 */
+	public function __prepare(Customer $customer) {
+		$customer->persist ();
+		
+		return [ 
+				'customer' => $customer 
+		];
+	}
+	
+	/**
+	 * Inject pages.
+	 *
+	 * @param TaxRuleIndex $taxRuleIndexPage        	
+	 * @param TaxRuleNew $taxRuleNewPage        	
+	 */
+	public function __inject(TaxRuleIndex $taxRuleIndexPage, TaxRuleNew $taxRuleNewPage) {
+		$this->taxRuleIndexPage = $taxRuleIndexPage;
+		$this->taxRuleNewPage = $taxRuleNewPage;
+	}
+	
+	/**
+	 * Delete Tax Rule Entity test.
+	 *
+	 * @param TaxRule $taxRule        	
+	 * @return void
+	 */
+	public function testDeleteTaxRule(TaxRule $taxRule) {
+		// Precondition
+		$taxRule->persist ();
+		
+		// Steps
+		$this->taxRuleIndexPage->open ();
+		$this->taxRuleIndexPage->getTaxRuleGrid ()->searchAndOpen ( [ 
+				'code' => $taxRule->getCode () 
+		] );
+		$this->taxRuleNewPage->getFormPageActions ()->delete ();
+		$this->taxRuleNewPage->getModalBlock ()->acceptAlert ();
+	}
 }

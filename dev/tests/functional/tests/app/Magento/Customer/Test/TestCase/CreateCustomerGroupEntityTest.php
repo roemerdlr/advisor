@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Customer\Test\TestCase;
 
 use Magento\Customer\Test\Fixture\CustomerGroup;
@@ -25,51 +25,46 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Customer_Groups_(CS)
  * @ZephyrId MAGETWO-23422
  */
-class CreateCustomerGroupEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'CS';
-    /* end tags */
-
-    /**
-     * Customer group index
-     *
-     * @var CustomerGroupIndex
-     */
-    protected $customerGroupIndex;
-
-    /**
-     * New customer group
-     *
-     * @var CustomerGroupNew
-     */
-    protected $customerGroupNew;
-
-    /**
-     * @param CustomerGroupIndex $customerGroupIndex
-     * @param CustomerGroupNew $customerGroupNew
-     */
-    public function __inject(
-        CustomerGroupIndex $customerGroupIndex,
-        CustomerGroupNew $customerGroupNew
-    ) {
-        $this->customerGroupIndex = $customerGroupIndex;
-        $this->customerGroupNew = $customerGroupNew;
-    }
-
-    /**
-     * Create customer group
-     *
-     * @param CustomerGroup $customerGroup
-     */
-    public function testCreateCustomerGroup(
-        CustomerGroup $customerGroup
-    ) {
-        //Steps
-        $this->customerGroupIndex->open();
-        $this->customerGroupIndex->getGridPageActions()->addNew();
-        $this->customerGroupNew->getPageMainForm()->fill($customerGroup);
-        $this->customerGroupNew->getPageMainActions()->save();
-    }
+class CreateCustomerGroupEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'CS';
+	/* end tags */
+	
+	/**
+	 * Customer group index
+	 *
+	 * @var CustomerGroupIndex
+	 */
+	protected $customerGroupIndex;
+	
+	/**
+	 * New customer group
+	 *
+	 * @var CustomerGroupNew
+	 */
+	protected $customerGroupNew;
+	
+	/**
+	 *
+	 * @param CustomerGroupIndex $customerGroupIndex        	
+	 * @param CustomerGroupNew $customerGroupNew        	
+	 */
+	public function __inject(CustomerGroupIndex $customerGroupIndex, CustomerGroupNew $customerGroupNew) {
+		$this->customerGroupIndex = $customerGroupIndex;
+		$this->customerGroupNew = $customerGroupNew;
+	}
+	
+	/**
+	 * Create customer group
+	 *
+	 * @param CustomerGroup $customerGroup        	
+	 */
+	public function testCreateCustomerGroup(CustomerGroup $customerGroup) {
+		// Steps
+		$this->customerGroupIndex->open ();
+		$this->customerGroupIndex->getGridPageActions ()->addNew ();
+		$this->customerGroupNew->getPageMainForm ()->fill ( $customerGroup );
+		$this->customerGroupNew->getPageMainActions ()->save ();
+	}
 }

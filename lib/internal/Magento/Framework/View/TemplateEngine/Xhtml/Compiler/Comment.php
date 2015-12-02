@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,17 +11,15 @@ use Magento\Framework\DataObject;
 /**
  * Class Comment
  */
-class Comment implements CommentInterface
-{
-    /**
-     * Compiles the Comment node
-     *
-     * @param \DOMComment $node
-     * @param DataObject $processedObject
-     * @return void
-     */
-    public function compile(\DOMComment $node, DataObject $processedObject)
-    {
-        //
-    }
+class Comment implements CommentInterface {
+	/**
+	 * Compiles the Comment node
+	 *
+	 * @param \DOMComment $node        	
+	 * @param DataObject $processedObject        	
+	 * @return void
+	 */
+	public function compile(\DOMComment $node, DataObject $processedObject) {
+		//
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -9,13 +10,12 @@
  */
 namespace Magento\Config\Model\Config\Structure;
 
-interface MapperInterface
-{
-    /**
-     * Apply map
-     *
-     * @param array $data
-     * @return array
-     */
-    public function map(array $data);
+interface MapperInterface {
+	/**
+	 * Apply map
+	 *
+	 * @param array $data        	
+	 * @return array
+	 */
+	public function map(array $data);
 }

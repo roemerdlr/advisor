@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,47 +13,36 @@ use Magento\Sales\Ui\Component\Listing\Column\Status\Options;
 /**
  * Class OptionsTest
  */
-class OptionsTest extends \PHPUnit_Framework_TestCase
-{
-    /**
-     * @var Options
-     */
-    protected $model;
-
-    /**
-     * @var CollectionFactory|\PHPUnit_Framework_MockObject_MockObject
-     */
-    protected $collectionFactoryMock;
-
-    public function setUp()
-    {
-        $objectManager = new ObjectManager($this);
-        $this->collectionFactoryMock = $this->getMock(
-            'Magento\Sales\Model\ResourceModel\Order\Status\CollectionFactory',
-            ['create'],
-            [],
-            '',
-            false
-        );
-        $this->model = $objectManager->getObject(
-            'Magento\Sales\Ui\Component\Listing\Column\Status\Options',
-            ['collectionFactory' => $this->collectionFactoryMock]
-        );
-    }
-
-    public function testToOptionArray()
-    {
-        $collectionMock =
-            $this->getMock('Magento\Sales\Model\ResourceModel\Order\Status\Collection', [], [], '', false);
-        $options = ['options'];
-
-        $this->collectionFactoryMock->expects($this->once())
-            ->method('create')
-            ->willReturn($collectionMock);
-        $collectionMock->expects($this->once())
-            ->method('toOptionArray')
-            ->willReturn($options);
-        $this->assertEquals($options, $this->model->toOptionArray());
-        $this->assertEquals($options, $this->model->toOptionArray());
-    }
+class OptionsTest extends \PHPUnit_Framework_TestCase {
+	/**
+	 *
+	 * @var Options
+	 */
+	protected $model;
+	
+	/**
+	 *
+	 * @var CollectionFactory|\PHPUnit_Framework_MockObject_MockObject
+	 */
+	protected $collectionFactoryMock;
+	public function setUp() {
+		$objectManager = new ObjectManager ( $this );
+		$this->collectionFactoryMock = $this->getMock ( 'Magento\Sales\Model\ResourceModel\Order\Status\CollectionFactory', [ 
+				'create' 
+		], [ ], '', false );
+		$this->model = $objectManager->getObject ( 'Magento\Sales\Ui\Component\Listing\Column\Status\Options', [ 
+				'collectionFactory' => $this->collectionFactoryMock 
+		] );
+	}
+	public function testToOptionArray() {
+		$collectionMock = $this->getMock ( 'Magento\Sales\Model\ResourceModel\Order\Status\Collection', [ ], [ ], '', false );
+		$options = [ 
+				'options' 
+		];
+		
+		$this->collectionFactoryMock->expects ( $this->once () )->method ( 'create' )->willReturn ( $collectionMock );
+		$collectionMock->expects ( $this->once () )->method ( 'toOptionArray' )->willReturn ( $options );
+		$this->assertEquals ( $options, $this->model->toOptionArray () );
+		$this->assertEquals ( $options, $this->model->toOptionArray () );
+	}
 }

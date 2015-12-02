@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,7 +11,6 @@ use Magento\Framework\View\Element\UiComponentInterface;
 /**
  * Interface ColumnInterface
  */
-interface ColumnInterface extends UiComponentInterface
-{
-    //
+interface ColumnInterface extends UiComponentInterface {
+	//
 }

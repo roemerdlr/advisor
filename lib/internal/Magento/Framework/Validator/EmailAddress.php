@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Email address validator
  *
@@ -7,6 +8,5 @@
  */
 namespace Magento\Framework\Validator;
 
-class EmailAddress extends \Zend_Validate_EmailAddress implements \Magento\Framework\Validator\ValidatorInterface
-{
+class EmailAddress extends \Zend_Validate_EmailAddress implements \Magento\Framework\Validator\ValidatorInterface {
 }

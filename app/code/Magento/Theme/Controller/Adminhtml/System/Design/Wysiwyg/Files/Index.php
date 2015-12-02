@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,16 +7,14 @@
  */
 namespace Magento\Theme\Controller\Adminhtml\System\Design\Wysiwyg\Files;
 
-class Index extends \Magento\Theme\Controller\Adminhtml\System\Design\Wysiwyg\Files
-{
-    /**
-     * Index action
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_view->loadLayout('overlay_popup');
-        $this->_view->renderLayout();
-    }
+class Index extends \Magento\Theme\Controller\Adminhtml\System\Design\Wysiwyg\Files {
+	/**
+	 * Index action
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_view->loadLayout ( 'overlay_popup' );
+		$this->_view->renderLayout ();
+	}
 }

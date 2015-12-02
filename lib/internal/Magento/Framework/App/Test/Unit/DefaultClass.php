@@ -1,4 +1,5 @@
 <?php
+
 /**
  * FrontClass model test class
  *
@@ -7,6 +8,5 @@
  */
 namespace Magento\Framework\App\Test\Unit;
 
-class DefaultClass
-{
+class DefaultClass {
 }

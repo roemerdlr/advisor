@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,16 +7,14 @@
  */
 namespace Magento\Newsletter\Controller\Adminhtml\Subscriber;
 
-class Grid extends \Magento\Newsletter\Controller\Adminhtml\Subscriber
-{
-    /**
-     * Managing newsletter grid
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_view->loadLayout(false);
-        $this->_view->renderLayout();
-    }
+class Grid extends \Magento\Newsletter\Controller\Adminhtml\Subscriber {
+	/**
+	 * Managing newsletter grid
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_view->loadLayout ( false );
+		$this->_view->renderLayout ();
+	}
 }

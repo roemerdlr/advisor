@@ -5,24 +5,24 @@
  */
 
 /** @var \Magento\Framework\ObjectManagerInterface $objectManager */
-$objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
+$objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ();
 
 /** @var \Magento\Framework\Registry $registry */
-$registry = $objectManager->get('Magento\Framework\Registry');
+$registry = $objectManager->get ( 'Magento\Framework\Registry' );
 
-$registry->unregister('isSecureArea');
-$registry->register('isSecureArea', true);
+$registry->unregister ( 'isSecureArea' );
+$registry->register ( 'isSecureArea', true );
 
 /** @var \Magento\Store\Model\Store $store */
-$store = $objectManager->create('Magento\Store\Model\Store');
+$store = $objectManager->create ( 'Magento\Store\Model\Store' );
 $storeCode = 'fixturestore';
-$store->load($storeCode);
-if ($store->getId()) {
-    $store->delete();
+$store->load ( $storeCode );
+if ($store->getId ()) {
+	$store->delete ();
 }
 
-$registry->unregister('isSecureArea');
-$registry->register('isSecureArea', false);
+$registry->unregister ( 'isSecureArea' );
+$registry->register ( 'isSecureArea', false );
 
 /* Refresh stores memory cache */
-$objectManager->get('Magento\Store\Model\StoreManagerInterface')->reinitStores();
+$objectManager->get ( 'Magento\Store\Model\StoreManagerInterface' )->reinitStores ();

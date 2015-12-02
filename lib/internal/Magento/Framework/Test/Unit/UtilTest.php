@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Collection of various useful functions
  *
@@ -7,12 +8,14 @@
  */
 namespace Magento\Framework\Test\Unit;
 
-class UtilTest extends \PHPUnit_Framework_TestCase
-{
-    public function testGetTrimmedPhpVersion()
-    {
-        $util = new \Magento\Framework\Util();
-        $version = implode('.', [PHP_MAJOR_VERSION, PHP_MINOR_VERSION, PHP_RELEASE_VERSION]);
-        $this->assertEquals($version, $util->getTrimmedPhpVersion());
-    }
+class UtilTest extends \PHPUnit_Framework_TestCase {
+	public function testGetTrimmedPhpVersion() {
+		$util = new \Magento\Framework\Util ();
+		$version = implode ( '.', [ 
+				PHP_MAJOR_VERSION,
+				PHP_MINOR_VERSION,
+				PHP_RELEASE_VERSION 
+		] );
+		$this->assertEquals ( $version, $util->getTrimmedPhpVersion () );
+	}
 }

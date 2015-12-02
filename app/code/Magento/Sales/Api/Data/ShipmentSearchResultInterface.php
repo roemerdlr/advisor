@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -14,20 +15,19 @@ use Magento\Framework\Api\SearchResultsInterface;
  * document lists the products and their quantities in the delivery package.
  * @api
  */
-interface ShipmentSearchResultInterface extends SearchResultsInterface
-{
-    /**
-     * Gets collection items.
-     *
-     * @return \Magento\Sales\Api\Data\ShipmentInterface[] Array of collection items.
-     */
-    public function getItems();
-
-    /**
-     * Set collection items.
-     *
-     * @param \Magento\Sales\Api\Data\ShipmentInterface[] $items
-     * @return $this
-     */
-    public function setItems(array $items);
+interface ShipmentSearchResultInterface extends SearchResultsInterface {
+	/**
+	 * Gets collection items.
+	 *
+	 * @return \Magento\Sales\Api\Data\ShipmentInterface[] Array of collection items.
+	 */
+	public function getItems();
+	
+	/**
+	 * Set collection items.
+	 *
+	 * @param \Magento\Sales\Api\Data\ShipmentInterface[] $items        	
+	 * @return $this
+	 */
+	public function setItems(array $items);
 }

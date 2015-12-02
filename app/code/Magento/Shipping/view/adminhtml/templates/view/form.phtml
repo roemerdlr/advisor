@@ -5,41 +5,42 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
-<?php  $_order = $block->getShipment()->getOrder() ?>
-<?php echo $block->getChildHtml('order_info') ?>
+<?php  $_order = $block->getShipment()->getOrder()?>
+<?php echo $block->getChildHtml('order_info')?>
 <section class="admin__page-section order-shipment-billing-shipping">
-    <div class="admin__page-section-title">
-        <span class="title"><?php /* @escapeNotVerified */ echo __('Payment &amp; Shipping Method') ?></span>
-    </div>
-    <div class="admin__page-section-content">
+	<div class="admin__page-section-title">
+		<span class="title"><?php /* @escapeNotVerified */ echo __('Payment &amp; Shipping Method') ?></span>
+	</div>
+	<div class="admin__page-section-content">
 
         <?php /* Billing Address */ ?>
         <div class="admin__page-section-item order-payment-method">
-            <div class="admin__page-section-item-title">
-                <span class="title"><?php /* @escapeNotVerified */ echo __('Payment Information') ?></span>
-            </div>
-            <div class="admin__page-section-item-content">
-                <div><?php echo $block->getChildHtml('order_payment') ?></div>
-                <div class="order-payment-currency"><?php /* @escapeNotVerified */ echo __('The order was placed using %1.', $_order->getOrderCurrencyCode()) ?></div>
-            </div>
-        </div>
+			<div class="admin__page-section-item-title">
+				<span class="title"><?php /* @escapeNotVerified */ echo __('Payment Information') ?></span>
+			</div>
+			<div class="admin__page-section-item-content">
+				<div><?php echo $block->getChildHtml('order_payment') ?></div>
+				<div class="order-payment-currency"><?php /* @escapeNotVerified */ echo __('The order was placed using %1.', $_order->getOrderCurrencyCode()) ?></div>
+			</div>
+		</div>
 
         <?php /* Shipping Address */ ?>
         <div class="admin__page-section-item order-shipping-address">
-            <div class="admin__page-section-item-title">
-                <span class="title"><?php /* @escapeNotVerified */ echo __('Shipping and Tracking Information') ?></span>
-            </div>
-            <div class="admin__page-section-item-content">
-                <div class="shipping-description-wrapper">
+			<div class="admin__page-section-item-title">
+				<span class="title"><?php /* @escapeNotVerified */ echo __('Shipping and Tracking Information') ?></span>
+			</div>
+			<div class="admin__page-section-item-content">
+				<div class="shipping-description-wrapper">
                     <?php if ($block->getShipment()->getTracksCollection()->count()): ?>
                         <p>
-                            <a href="#" id="linkId" onclick="popWin('<?php /* @escapeNotVerified */ echo $this->helper('Magento\Shipping\Helper\Data')->getTrackingPopupUrlBySalesModel($block->getShipment()) ?>','trackshipment','width=800,height=600,resizable=yes,scrollbars=yes')" title="<?php /* @escapeNotVerified */ echo __('Track this shipment') ?>"><?php /* @escapeNotVerified */ echo __('Track this shipment') ?></a>
-                        </p>
+						<a href="#" id="linkId"
+							onclick="popWin('<?php /* @escapeNotVerified */ echo $this->helper('Magento\Shipping\Helper\Data')->getTrackingPopupUrlBySalesModel($block->getShipment()) ?>','trackshipment','width=800,height=600,resizable=yes,scrollbars=yes')"
+							title="<?php /* @escapeNotVerified */ echo __('Track this shipment') ?>"><?php /* @escapeNotVerified */ echo __('Track this shipment') ?></a>
+					</p>
                     <?php endif; ?>
                     <div class="shipping-description-title">
-                        <?php echo $block->escapeHtml($_order->getShippingDescription()) ?>
+                        <?php echo $block->escapeHtml($_order->getShippingDescription())?>
                     </div>
 
                     <?php /* @escapeNotVerified */ echo __('Total Shipping Charges'); ?>:
@@ -60,16 +61,16 @@
                 <p>
                     <?php /* @escapeNotVerified */ echo $block->getCreateLabelButton()?>
                     <?php if ($block->getShipment()->getShippingLabel()): ?>
-                        <?php /* @escapeNotVerified */ echo $block->getPrintLabelButton() ?>
+                        <?php /* @escapeNotVerified */ echo $block->getPrintLabelButton()?>
                     <?php endif ?>
                     <?php if ($block->getShipment()->getPackages()): ?>
-                        <?php /* @escapeNotVerified */ echo $block->getShowPackagesButton() ?>
+                        <?php /* @escapeNotVerified */ echo $block->getShowPackagesButton()?>
                     <?php endif ?>
                 </p>
                 <?php endif ?>
-                <?php echo $block->getChildHtml('shipment_tracking') ?>
+                <?php echo $block->getChildHtml('shipment_tracking')?>
 
-                <?php echo $block->getChildHtml('shipment_packaging') ?>
+                <?php echo $block->getChildHtml('shipment_packaging')?>
 <script>
     require([
         'prototype'
@@ -80,39 +81,41 @@
                 packaging.sendCreateLabelRequest();
             });
             packaging.setLabelCreatedCallback(function (response) {
-                setLocation("<?php /* @escapeNotVerified */ echo $block->getUrl(
-'adminhtml/order_shipment/view',
-['shipment_id' => $block->getShipment()->getId()]
-); ?>");
+                setLocation("<?php 
+/* @escapeNotVerified */
+																echo $block->getUrl ( 'adminhtml/order_shipment/view', [ 
+																		'shipment_id' => $block->getShipment ()->getId () 
+																] );
+																?>");
             });
         }, 500);
 
     });
 </script>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="admin__page-section">
-    <div class="admin__page-section-title">
-        <span class="title"><?php /* @escapeNotVerified */ echo __('Items Shipped') ?></span>
-    </div>
-    <?php echo $block->getChildHtml('shipment_items') ?>
+	<div class="admin__page-section-title">
+		<span class="title"><?php /* @escapeNotVerified */ echo __('Items Shipped') ?></span>
+	</div>
+    <?php echo $block->getChildHtml('shipment_items')?>
 </section>
 
 <section class="admin__page-section">
-    <div class="admin__page-section-title">
-        <span class="title"><?php /* @escapeNotVerified */ echo __('Order Total') ?></span>
-    </div>
-    <div class="admin__page-section-content">
-        <?php echo $block->getChildHtml('shipment_packed') ?>
+	<div class="admin__page-section-title">
+		<span class="title"><?php /* @escapeNotVerified */ echo __('Order Total') ?></span>
+	</div>
+	<div class="admin__page-section-content">
+        <?php echo $block->getChildHtml('shipment_packed')?>
 
         <div class="admin__page-section-item order-comments-history">
-            <div class="admin__page-section-item-title">
-                <span class="title"><?php /* @escapeNotVerified */ echo __('Shipment History') ?></span>
-            </div>
-            <div class="admin__page-section-item-content"><?php echo $block->getChildHtml('order_comments') ?></div>
-        </div>
-    </div>
+			<div class="admin__page-section-item-title">
+				<span class="title"><?php /* @escapeNotVerified */ echo __('Shipment History') ?></span>
+			</div>
+			<div class="admin__page-section-item-content"><?php echo $block->getChildHtml('order_comments') ?></div>
+		</div>
+	</div>
 </section>

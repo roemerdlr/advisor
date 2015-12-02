@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Integration\Api;
 
 /**
@@ -11,26 +11,25 @@ namespace Magento\Integration\Api;
  *
  * @api
  */
-interface AdminTokenServiceInterface
-{
-    /**
-     * Create access token for admin given the admin credentials.
-     *
-     * @param string $username
-     * @param string $password
-     * @return string Token created
-     * @throws \Magento\Framework\Exception\InputException For invalid input
-     * @throws \Magento\Framework\Exception\AuthenticationException
-     * @throws \Magento\Framework\Exception\LocalizedException
-     */
-    public function createAdminAccessToken($username, $password);
-
-    /**
-     * Revoke token by admin id.
-     *
-     * @param int $adminId
-     * @return bool
-     * @throws \Magento\Framework\Exception\LocalizedException
-     */
-    public function revokeAdminAccessToken($adminId);
+interface AdminTokenServiceInterface {
+	/**
+	 * Create access token for admin given the admin credentials.
+	 *
+	 * @param string $username        	
+	 * @param string $password        	
+	 * @return string Token created
+	 * @throws \Magento\Framework\Exception\InputException For invalid input
+	 * @throws \Magento\Framework\Exception\AuthenticationException
+	 * @throws \Magento\Framework\Exception\LocalizedException
+	 */
+	public function createAdminAccessToken($username, $password);
+	
+	/**
+	 * Revoke token by admin id.
+	 *
+	 * @param int $adminId        	
+	 * @return bool
+	 * @throws \Magento\Framework\Exception\LocalizedException
+	 */
+	public function revokeAdminAccessToken($adminId);
 }

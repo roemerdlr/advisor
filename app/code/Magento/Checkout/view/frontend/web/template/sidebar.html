@@ -6,7 +6,7 @@
 -->
 
 <div id="opc-sidebar"
-     data-bind="afterRender:setModalElement, mageInit: {
+	data-bind="afterRender:setModalElement, mageInit: {
     'Magento_Ui/js/modal/modal':{
         'type': 'custom',
         'modalClass': 'opc-sidebar opc-summary-wrapper',
@@ -18,13 +18,15 @@
         'buttons': []
     }}">
 
-    <!-- ko foreach: getRegion('summary') -->
-        <!-- ko template: getTemplate() --><!-- /ko -->
-    <!--/ko-->
+	<!-- ko foreach: getRegion('summary') -->
+	<!-- ko template: getTemplate() -->
+	<!-- /ko -->
+	<!--/ko-->
 
-    <div class="opc-block-shipping-information">
-        <!-- ko foreach: getRegion('shipping-information') -->
-        <!-- ko template: getTemplate() --><!-- /ko -->
-        <!--/ko-->
-    </div>
+	<div class="opc-block-shipping-information">
+		<!-- ko foreach: getRegion('shipping-information') -->
+		<!-- ko template: getTemplate() -->
+		<!-- /ko -->
+		<!--/ko-->
+	</div>
 </div>

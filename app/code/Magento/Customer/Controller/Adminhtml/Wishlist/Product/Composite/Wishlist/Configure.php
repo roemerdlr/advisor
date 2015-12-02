@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -8,31 +9,28 @@ namespace Magento\Customer\Controller\Adminhtml\Wishlist\Product\Composite\Wishl
 
 use Exception;
 
-class Configure extends \Magento\Customer\Controller\Adminhtml\Wishlist\Product\Composite\Wishlist
-{
-    /**
-     * Ajax handler to response configuration fieldset of composite product in customer's wishlist.
-     *
-     * @return \Magento\Framework\View\Result\Layout
-     */
-    public function execute()
-    {
-        $configureResult = new \Magento\Framework\DataObject();
-        try {
-            $this->_initData();
-
-            $configureResult->setProductId($this->_wishlistItem->getProductId());
-            $configureResult->setBuyRequest($this->_wishlistItem->getBuyRequest());
-            $configureResult->setCurrentStoreId($this->_wishlistItem->getStoreId());
-            $configureResult->setCurrentCustomerId($this->_wishlist->getCustomerId());
-
-            $configureResult->setOk(true);
-        } catch (Exception $e) {
-            $configureResult->setError(true);
-            $configureResult->setMessage($e->getMessage());
-        }
-
-        return $this->_objectManager->get('Magento\Catalog\Helper\Product\Composite')
-            ->renderConfigureResult($configureResult);
-    }
+class Configure extends \Magento\Customer\Controller\Adminhtml\Wishlist\Product\Composite\Wishlist {
+	/**
+	 * Ajax handler to response configuration fieldset of composite product in customer's wishlist.
+	 *
+	 * @return \Magento\Framework\View\Result\Layout
+	 */
+	public function execute() {
+		$configureResult = new \Magento\Framework\DataObject ();
+		try {
+			$this->_initData ();
+			
+			$configureResult->setProductId ( $this->_wishlistItem->getProductId () );
+			$configureResult->setBuyRequest ( $this->_wishlistItem->getBuyRequest () );
+			$configureResult->setCurrentStoreId ( $this->_wishlistItem->getStoreId () );
+			$configureResult->setCurrentCustomerId ( $this->_wishlist->getCustomerId () );
+			
+			$configureResult->setOk ( true );
+		} catch ( Exception $e ) {
+			$configureResult->setError ( true );
+			$configureResult->setMessage ( $e->getMessage () );
+		}
+		
+		return $this->_objectManager->get ( 'Magento\Catalog\Helper\Product\Composite' )->renderConfigureResult ( $configureResult );
+	}
 }

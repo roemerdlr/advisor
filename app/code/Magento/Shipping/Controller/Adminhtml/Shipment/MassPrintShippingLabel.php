@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -17,78 +18,68 @@ use Magento\Framework\App\Response\Http\FileFactory;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Sales\Model\ResourceModel\Order\Shipment\CollectionFactory;
 
-class MassPrintShippingLabel extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMassAction
-{
-    /**
-     * @var LabelGenerator
-     */
-    protected $labelGenerator;
-
-    /**
-     * @var FileFactory
-     */
-    protected $fileFactory;
-
-    /**
-     * @param Context $context
-     * @param Filter $filter
-     * @param FileFactory $fileFactory
-     * @param LabelGenerator $labelGenerator
-     * @param CollectionFactory $collectionFactory
-     */
-    public function __construct(
-        Context $context,
-        Filter $filter,
-        FileFactory $fileFactory,
-        LabelGenerator $labelGenerator,
-        CollectionFactory $collectionFactory
-    ) {
-        $this->collectionFactory = $collectionFactory;
-        $this->fileFactory = $fileFactory;
-        $this->labelGenerator = $labelGenerator;
-        parent::__construct($context, $filter);
-    }
-
-    /**
-     * @return bool
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Magento_Sales::shipment');
-    }
-
-    /**
-     * Batch print shipping labels for whole shipments.
-     * Push pdf document with shipping labels to user browser
-     *
-     * @param AbstractCollection $collection
-     * @return ResponseInterface|ResultInterface
-     */
-    protected function massAction(AbstractCollection $collection)
-    {
-        $labelsContent = [];
-
-        if ($collection->getSize()) {
-            /** @var \Magento\Sales\Model\Order\Shipment $shipment */
-            foreach ($collection as $shipment) {
-                $labelContent = $shipment->getShippingLabel();
-                if ($labelContent) {
-                    $labelsContent[] = $labelContent;
-                }
-            }
-        }
-
-        if (!empty($labelsContent)) {
-            $outputPdf = $this->labelGenerator->combineLabelsPdf($labelsContent);
-            return $this->fileFactory->create(
-                'ShippingLabels.pdf',
-                $outputPdf->render(),
-                DirectoryList::VAR_DIR,
-                'application/pdf'
-            );
-        }
-
-        $this->messageManager->addError(__('There are no shipping labels related to selected shipments.'));
-        return $this->resultRedirectFactory->create()->setPath('sales/shipment/');
-    }
+class MassPrintShippingLabel extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMassAction {
+	/**
+	 *
+	 * @var LabelGenerator
+	 */
+	protected $labelGenerator;
+	
+	/**
+	 *
+	 * @var FileFactory
+	 */
+	protected $fileFactory;
+	
+	/**
+	 *
+	 * @param Context $context        	
+	 * @param Filter $filter        	
+	 * @param FileFactory $fileFactory        	
+	 * @param LabelGenerator $labelGenerator        	
+	 * @param CollectionFactory $collectionFactory        	
+	 */
+	public function __construct(Context $context, Filter $filter, FileFactory $fileFactory, LabelGenerator $labelGenerator, CollectionFactory $collectionFactory) {
+		$this->collectionFactory = $collectionFactory;
+		$this->fileFactory = $fileFactory;
+		$this->labelGenerator = $labelGenerator;
+		parent::__construct ( $context, $filter );
+	}
+	
+	/**
+	 *
+	 * @return bool
+	 */
+	protected function _isAllowed() {
+		return $this->_authorization->isAllowed ( 'Magento_Sales::shipment' );
+	}
+	
+	/**
+	 * Batch print shipping labels for whole shipments.
+	 * Push pdf document with shipping labels to user browser
+	 *
+	 * @param AbstractCollection $collection        	
+	 * @return ResponseInterface|ResultInterface
+	 */
+	protected function massAction(AbstractCollection $collection) {
+		$labelsContent = [ ];
+		
+		if ($collection->getSize ()) {
+			/** @var \Magento\Sales\Model\Order\Shipment $shipment */
+			foreach ( $collection as $shipment ) {
+				$labelContent = $shipment->getShippingLabel ();
+				if ($labelContent) {
+					$labelsContent [] = $labelContent;
+				}
+			}
+		}
+		
+		if (! empty ( $labelsContent )) {
+			$outputPdf = $this->labelGenerator->combineLabelsPdf ( $labelsContent );
+			return $this->fileFactory->create ( 'ShippingLabels.pdf', $outputPdf->render (), DirectoryList::VAR_DIR, 'application/pdf' );
+		}
+		
+		$this->messageManager->addError ( __ ( 'There are no shipping labels related to selected shipments.' ) );
+		return $this->resultRedirectFactory->create ()->setPath ( 'sales/shipment/' );
+	}
 }

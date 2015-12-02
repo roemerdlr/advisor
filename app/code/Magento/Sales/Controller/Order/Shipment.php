@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -8,6 +9,5 @@ namespace Magento\Sales\Controller\Order;
 
 use Magento\Sales\Controller\OrderInterface;
 
-class Shipment extends \Magento\Sales\Controller\AbstractController\Shipment implements OrderInterface
-{
+class Shipment extends \Magento\Sales\Controller\AbstractController\Shipment implements OrderInterface {
 }

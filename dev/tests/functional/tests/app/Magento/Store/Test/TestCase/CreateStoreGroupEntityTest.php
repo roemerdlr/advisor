@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Store\Test\TestCase;
 
 use Magento\Backend\Test\Page\Adminhtml\NewGroupIndex;
@@ -25,54 +25,49 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Store_Management_(PS)
  * @ZephyrId MAGETWO-27345
  */
-class CreateStoreGroupEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * Page StoreIndex
-     *
-     * @var StoreIndex
-     */
-    protected $storeIndex;
-
-    /**
-     * NewGroupIndex page
-     *
-     * @var NewGroupIndex
-     */
-    protected $newGroupIndex;
-
-    /**
-     * Injection data
-     *
-     * @param StoreIndex $storeIndex
-     * @param NewGroupIndex $newGroupIndex
-     * @return void
-     */
-    public function __inject(
-        StoreIndex $storeIndex,
-        NewGroupIndex $newGroupIndex
-    ) {
-        $this->storeIndex = $storeIndex;
-        $this->newGroupIndex = $newGroupIndex;
-    }
-
-    /**
-     * Create New StoreGroup
-     *
-     * @param StoreGroup $storeGroup
-     * @return void
-     */
-    public function test(StoreGroup $storeGroup)
-    {
-        //Steps
-        $this->storeIndex->open();
-        $this->storeIndex->getGridPageActions()->createStoreGroup();
-        $this->newGroupIndex->getEditFormGroup()->fill($storeGroup);
-        $this->newGroupIndex->getFormPageActions()->save();
-    }
+class CreateStoreGroupEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * Page StoreIndex
+	 *
+	 * @var StoreIndex
+	 */
+	protected $storeIndex;
+	
+	/**
+	 * NewGroupIndex page
+	 *
+	 * @var NewGroupIndex
+	 */
+	protected $newGroupIndex;
+	
+	/**
+	 * Injection data
+	 *
+	 * @param StoreIndex $storeIndex        	
+	 * @param NewGroupIndex $newGroupIndex        	
+	 * @return void
+	 */
+	public function __inject(StoreIndex $storeIndex, NewGroupIndex $newGroupIndex) {
+		$this->storeIndex = $storeIndex;
+		$this->newGroupIndex = $newGroupIndex;
+	}
+	
+	/**
+	 * Create New StoreGroup
+	 *
+	 * @param StoreGroup $storeGroup        	
+	 * @return void
+	 */
+	public function test(StoreGroup $storeGroup) {
+		// Steps
+		$this->storeIndex->open ();
+		$this->storeIndex->getGridPageActions ()->createStoreGroup ();
+		$this->newGroupIndex->getEditFormGroup ()->fill ( $storeGroup );
+		$this->newGroupIndex->getFormPageActions ()->save ();
+	}
 }

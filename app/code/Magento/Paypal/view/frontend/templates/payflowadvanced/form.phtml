@@ -5,6 +5,7 @@
  */
 
 /**
+ *
  * @var \Magento\Paypal\Block\Payflow\Advanced\Iframe $block
  */
 ?>
@@ -12,12 +13,16 @@
 <head>
 </head>
 <body>
-<form id="token_form" method="GET" action="<?php echo $block->escapeUrl($block->getTransactionUrl()); ?>">
-    <input type="hidden" name="SECURETOKEN" value="<?php echo $block->escapeHtml($block->getSecureToken()); ?>"/>
-    <input type="hidden" name="SECURETOKENID" value="<?php echo $block->escapeHtml($block->getSecureTokenId()); ?>"/>
-    <input type="hidden" name="MODE" value="<?php /* @noEscape */ echo $block->isTestMode() ? 'TEST' : 'LIVE'; ?>"/>
-</form>
-<script>
+	<form id="token_form" method="GET"
+		action="<?php echo $block->escapeUrl($block->getTransactionUrl()); ?>">
+		<input type="hidden" name="SECURETOKEN"
+			value="<?php echo $block->escapeHtml($block->getSecureToken()); ?>" />
+		<input type="hidden" name="SECURETOKENID"
+			value="<?php echo $block->escapeHtml($block->getSecureTokenId()); ?>" />
+		<input type="hidden" name="MODE"
+			value="<?php /* @noEscape */ echo $block->isTestMode() ? 'TEST' : 'LIVE'; ?>" />
+	</form>
+	<script>
     document.getElementById('token_form').submit();
 </script>
 </body>

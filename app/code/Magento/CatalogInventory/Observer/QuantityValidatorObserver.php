@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Product inventory data validator
  *
@@ -9,28 +10,27 @@ namespace Magento\CatalogInventory\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 
-class QuantityValidatorObserver implements ObserverInterface
-{
-    /**
-     * @var \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator $quantityValidator
-     */
-    protected $quantityValidator;
-
-    /**
-     * @param \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator $quantityValidator
-     */
-    public function __construct(
-        \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator $quantityValidator
-    ) {
-        $this->quantityValidator = $quantityValidator;
-    }
-
-    /**
-     * @param \Magento\Framework\Event\Observer $observer
-     * @return void
-     */
-    public function execute(\Magento\Framework\Event\Observer $observer)
-    {
-        $this->quantityValidator->validate($observer);
-    }
+class QuantityValidatorObserver implements ObserverInterface {
+	/**
+	 *
+	 * @var \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator $quantityValidator
+	 */
+	protected $quantityValidator;
+	
+	/**
+	 *
+	 * @param \Magento\CatalogInventory\Model\Quote\Item\QuantityValidator $quantityValidator        	
+	 */
+	public function __construct(\Magento\CatalogInventory\Model\Quote\Item\QuantityValidator $quantityValidator) {
+		$this->quantityValidator = $quantityValidator;
+	}
+	
+	/**
+	 *
+	 * @param \Magento\Framework\Event\Observer $observer        	
+	 * @return void
+	 */
+	public function execute(\Magento\Framework\Event\Observer $observer) {
+		$this->quantityValidator->validate ( $observer );
+	}
 }

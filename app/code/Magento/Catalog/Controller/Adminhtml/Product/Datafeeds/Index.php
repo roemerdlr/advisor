@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,12 +7,11 @@
  */
 namespace Magento\Catalog\Controller\Adminhtml\Product\Datafeeds;
 
-class Index extends \Magento\Backend\App\Action
-{
-    /**
-     * @return void
-     */
-    public function execute()
-    {
-    }
+class Index extends \Magento\Backend\App\Action {
+	/**
+	 *
+	 * @return void
+	 */
+	public function execute() {
+	}
 }

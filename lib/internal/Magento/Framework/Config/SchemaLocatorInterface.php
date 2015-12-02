@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Configuration validation schema locator
  *
@@ -12,19 +13,18 @@ namespace Magento\Framework\Config;
  *
  * @api
  */
-interface SchemaLocatorInterface
-{
-    /**
-     * Get path to merged config schema
-     *
-     * @return string|null
-     */
-    public function getSchema();
-
-    /**
-     * Get path to per file validation schema
-     *
-     * @return string|null
-     */
-    public function getPerFileSchema();
+interface SchemaLocatorInterface {
+	/**
+	 * Get path to merged config schema
+	 *
+	 * @return string|null
+	 */
+	public function getSchema();
+	
+	/**
+	 * Get path to per file validation schema
+	 *
+	 * @return string|null
+	 */
+	public function getPerFileSchema();
 }

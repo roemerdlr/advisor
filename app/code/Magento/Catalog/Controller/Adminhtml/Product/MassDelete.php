@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -12,52 +13,46 @@ use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 
-class MassDelete extends \Magento\Catalog\Controller\Adminhtml\Product
-{
-    /**
-     * Massactions filter
-     *
-     * @var Filter
-     */
-    protected $filter;
-
-    /**
-     * @var CollectionFactory
-     */
-    protected $collectionFactory;
-
-    /**
-     * @param Context $context
-     * @param Builder $productBuilder
-     * @param Filter $filter
-     * @param CollectionFactory $collectionFactory
-     */
-    public function __construct(
-        Context $context,
-        Builder $productBuilder,
-        Filter $filter,
-        CollectionFactory $collectionFactory
-    ) {
-        $this->filter = $filter;
-        $this->collectionFactory = $collectionFactory;
-        parent::__construct($context, $productBuilder);
-    }
-
-    /**
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     */
-    public function execute()
-    {
-        $collection = $this->filter->getCollection($this->collectionFactory->create());
-        $productDeleted = 0;
-        foreach ($collection->getItems() as $product) {
-            $product->delete();
-            $productDeleted++;
-        }
-        $this->messageManager->addSuccess(
-            __('A total of %1 record(s) have been deleted.', $productDeleted)
-        );
-
-        return $this->resultFactory->create(ResultFactory::TYPE_REDIRECT)->setPath('catalog/*/index');
-    }
+class MassDelete extends \Magento\Catalog\Controller\Adminhtml\Product {
+	/**
+	 * Massactions filter
+	 *
+	 * @var Filter
+	 */
+	protected $filter;
+	
+	/**
+	 *
+	 * @var CollectionFactory
+	 */
+	protected $collectionFactory;
+	
+	/**
+	 *
+	 * @param Context $context        	
+	 * @param Builder $productBuilder        	
+	 * @param Filter $filter        	
+	 * @param CollectionFactory $collectionFactory        	
+	 */
+	public function __construct(Context $context, Builder $productBuilder, Filter $filter, CollectionFactory $collectionFactory) {
+		$this->filter = $filter;
+		$this->collectionFactory = $collectionFactory;
+		parent::__construct ( $context, $productBuilder );
+	}
+	
+	/**
+	 *
+	 * @return \Magento\Backend\Model\View\Result\Redirect
+	 */
+	public function execute() {
+		$collection = $this->filter->getCollection ( $this->collectionFactory->create () );
+		$productDeleted = 0;
+		foreach ( $collection->getItems () as $product ) {
+			$product->delete ();
+			$productDeleted ++;
+		}
+		$this->messageManager->addSuccess ( __ ( 'A total of %1 record(s) have been deleted.', $productDeleted ) );
+		
+		return $this->resultFactory->create ( ResultFactory::TYPE_REDIRECT )->setPath ( 'catalog/*/index' );
+	}
 }

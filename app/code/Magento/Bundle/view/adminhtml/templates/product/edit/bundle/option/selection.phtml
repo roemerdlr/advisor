@@ -8,7 +8,8 @@
 
 /** @var $block \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option\Selection */
 ?>
-<script id="bundle-option-selection-box-template" type="text/x-magento-template">
+<script id="bundle-option-selection-box-template"
+	type="text/x-magento-template">
     <table class="admin__control-table">
         <thead>
             <tr class="headings">
@@ -30,7 +31,8 @@
         </tbody>
     </table>
 </script>
-<script id="bundle-option-selection-row-template" type="text/x-magento-template">
+<script id="bundle-option-selection-row-template"
+	type="text/x-magento-template">
     <td class="col-draggable">
         <span data-role="draggable-handle" class="draggable-handle"></span>
         <input type="hidden" id="<?php /* @escapeNotVerified */ echo $block->getFieldId() ?>_id<%- data.index %>"
@@ -62,7 +64,7 @@
             <?php endif; ?>/>
     </td>
     <td class="col-price price-type-box">
-        <?php echo $block->getPriceTypeSelectHtml() ?>
+        <?php echo $block->getPriceTypeSelectHtml()?>
         <div><?php echo $block->getCheckboxScopeHtml() ?></div>
     </td>
 <?php else: ?>
@@ -91,7 +93,7 @@
     </td>
     <td class="col-actions">
         <span title="Delete Row">
-            <?php echo $block->getSelectionDeleteButtonHtml() ?>
+            <?php echo $block->getSelectionDeleteButtonHtml()?>
         </span>
     </td>
 </script>

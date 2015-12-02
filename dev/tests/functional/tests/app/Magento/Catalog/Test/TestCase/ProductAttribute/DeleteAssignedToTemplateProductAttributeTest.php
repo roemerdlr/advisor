@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Catalog\Test\TestCase\ProductAttribute;
 
 use Magento\Catalog\Test\Fixture\CatalogAttributeSet;
@@ -13,7 +13,8 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1. Create Attribute set, based on Default.
+ * 1.
+ * Create Attribute set, based on Default.
  * 2. Create product attribute and add to created template.
  *
  * Test Flow:
@@ -27,59 +28,61 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Product_Attributes_(MX)
  * @ZephyrId MAGETWO-26011
  */
-class DeleteAssignedToTemplateProductAttributeTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Catalog Product Attribute index page.
-     *
-     * @var CatalogProductAttributeIndex
-     */
-    protected $attributeIndex;
-
-    /**
-     * Catalog Product Attribute new page.
-     *
-     * @var CatalogProductAttributeNew
-     */
-    protected $attributeNew;
-
-    /**
-     * Inject pages.
-     *
-     * @param CatalogProductAttributeIndex $attributeIndex
-     * @param CatalogProductAttributeNew $attributeNew
-     * @return void
-     */
-    public function __inject(CatalogProductAttributeIndex $attributeIndex, CatalogProductAttributeNew $attributeNew)
-    {
-        $this->attributeIndex = $attributeIndex;
-        $this->attributeNew = $attributeNew;
-    }
-
-    /**
-     * Run test.
-     *
-     * @param CatalogAttributeSet $attributeSet
-     * @return array
-     */
-    public function test(CatalogAttributeSet $attributeSet)
-    {
-        // Precondition
-        $attributeSet->persist();
-        $attribute = $attributeSet->getDataFieldConfig('assigned_attributes')['source']->getAttributes()[0];
-
-        // Steps
-        $filter = ['attribute_code' => $attribute->getAttributeCode()];
-        $this->attributeIndex->open();
-        $this->attributeIndex->getGrid()->searchAndOpen($filter);
-        $this->attributeNew->getPageActions()->delete();
-        $this->attributeNew->getModalBlock()->acceptAlert();
-
-        return ['attributeSet' => $attributeSet, 'attribute' => $attribute];
-    }
+class DeleteAssignedToTemplateProductAttributeTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Catalog Product Attribute index page.
+	 *
+	 * @var CatalogProductAttributeIndex
+	 */
+	protected $attributeIndex;
+	
+	/**
+	 * Catalog Product Attribute new page.
+	 *
+	 * @var CatalogProductAttributeNew
+	 */
+	protected $attributeNew;
+	
+	/**
+	 * Inject pages.
+	 *
+	 * @param CatalogProductAttributeIndex $attributeIndex        	
+	 * @param CatalogProductAttributeNew $attributeNew        	
+	 * @return void
+	 */
+	public function __inject(CatalogProductAttributeIndex $attributeIndex, CatalogProductAttributeNew $attributeNew) {
+		$this->attributeIndex = $attributeIndex;
+		$this->attributeNew = $attributeNew;
+	}
+	
+	/**
+	 * Run test.
+	 *
+	 * @param CatalogAttributeSet $attributeSet        	
+	 * @return array
+	 */
+	public function test(CatalogAttributeSet $attributeSet) {
+		// Precondition
+		$attributeSet->persist ();
+		$attribute = $attributeSet->getDataFieldConfig ( 'assigned_attributes' ) ['source']->getAttributes () [0];
+		
+		// Steps
+		$filter = [ 
+				'attribute_code' => $attribute->getAttributeCode () 
+		];
+		$this->attributeIndex->open ();
+		$this->attributeIndex->getGrid ()->searchAndOpen ( $filter );
+		$this->attributeNew->getPageActions ()->delete ();
+		$this->attributeNew->getModalBlock ()->acceptAlert ();
+		
+		return [ 
+				'attributeSet' => $attributeSet,
+				'attribute' => $attribute 
+		];
+	}
 }

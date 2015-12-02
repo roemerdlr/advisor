@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -8,13 +9,12 @@ namespace Magento\Sales\Controller\AbstractController;
 
 use Magento\Framework\App\RequestInterface;
 
-interface OrderLoaderInterface
-{
-    /**
-     * Load order
-     *
-     * @param RequestInterface $request
-     * @return bool|\Magento\Framework\Controller\ResultInterface
-     */
-    public function load(RequestInterface $request);
+interface OrderLoaderInterface {
+	/**
+	 * Load order
+	 *
+	 * @param RequestInterface $request        	
+	 * @return bool|\Magento\Framework\Controller\ResultInterface
+	 */
+	public function load(RequestInterface $request);
 }

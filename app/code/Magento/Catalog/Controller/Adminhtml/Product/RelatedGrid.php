@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Get related products grid
  *
@@ -7,6 +8,5 @@
  */
 namespace Magento\Catalog\Controller\Adminhtml\Product;
 
-class RelatedGrid extends Related
-{
+class RelatedGrid extends Related {
 }

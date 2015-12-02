@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Abstract application router
  *
@@ -7,11 +8,11 @@
  */
 namespace Magento\Framework\App;
 
-interface DefaultPathInterface
-{
-    /**
-     * @param string $code
-     * @return string
-     */
-    public function getPart($code);
+interface DefaultPathInterface {
+	/**
+	 *
+	 * @param string $code        	
+	 * @return string
+	 */
+	public function getPart($code);
 }

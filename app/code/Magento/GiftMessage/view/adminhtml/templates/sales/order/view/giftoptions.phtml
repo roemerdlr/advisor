@@ -5,16 +5,15 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 
 <?php $_childHtml = trim($block->getChildHtml('', false)); ?>
 <?php if ($_childHtml): ?>
-<?php $_item = $block->getItem() ?>
+<?php $_item = $block->getItem()?>
 <tr>
-    <td colspan="10" class="last">
-        <a class="action-link" href="#" id="gift_options_link_<?php /* @escapeNotVerified */ echo $_item->getId() ?>"><?php /* @escapeNotVerified */ echo __('Gift Options') ?></a>
-        <script>
+	<td colspan="10" class="last"><a class="action-link" href="#"
+		id="gift_options_link_<?php /* @escapeNotVerified */ echo $_item->getId() ?>"><?php /* @escapeNotVerified */ echo __('Gift Options') ?></a>
+		<script>
 require([
 	"Magento_Sales/order/giftoptions_tooltip"
 ], function(){
@@ -23,9 +22,9 @@ require([
 
 });
 </script>
-        <div id="gift_options_data_<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
-            <?php /* @escapeNotVerified */ echo $_childHtml ?>
-        </div>
-    </td>
+		<div
+			id="gift_options_data_<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
+            <?php /* @escapeNotVerified */ echo $_childHtml?>
+        </div></td>
 </tr>
 <?php endif ?>

@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Variable\Test\TestCase;
 
 use Magento\Variable\Test\Fixture\SystemVariable;
@@ -13,7 +13,8 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1. Custom Variable is created
+ * 1.
+ * Custom Variable is created
  *
  * Steps:
  * 1. Login to backend.
@@ -25,61 +26,56 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Variables_(PS)
  * @ZephyrId MAGETWO-25535
  */
-class DeleteCustomVariableEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * Custom System Variable grid page.
-     *
-     * @var SystemVariableIndex
-     */
-    protected $systemVariableIndexPage;
-
-    /**
-     * Custom System Variable new and edit page.
-     *
-     * @var SystemVariableNew
-     */
-    protected $systemVariableNewPage;
-
-    /**
-     * Injection data.
-     *
-     * @param SystemVariableIndex $systemVariableIndex
-     * @param SystemVariableNew $systemVariableNew
-     * @return void
-     */
-    public function __inject(
-        SystemVariableIndex $systemVariableIndex,
-        SystemVariableNew $systemVariableNew
-    ) {
-        $this->systemVariableIndexPage = $systemVariableIndex;
-        $this->systemVariableNewPage = $systemVariableNew;
-    }
-
-    /**
-     * Delete Custom System Variable Entity test.
-     *
-     * @param SystemVariable $systemVariable
-     * @return void
-     */
-    public function test(SystemVariable $systemVariable)
-    {
-        // Precondition
-        $systemVariable->persist();
-
-        // Steps
-        $filter = [
-            'code' => $systemVariable->getCode(),
-            'name' => $systemVariable->getName(),
-        ];
-        $this->systemVariableIndexPage->open();
-        $this->systemVariableIndexPage->getSystemVariableGrid()->searchAndOpen($filter);
-        $this->systemVariableNewPage->getFormPageActions()->delete();
-        $this->systemVariableNewPage->getModalBlock()->acceptAlert();
-    }
+class DeleteCustomVariableEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * Custom System Variable grid page.
+	 *
+	 * @var SystemVariableIndex
+	 */
+	protected $systemVariableIndexPage;
+	
+	/**
+	 * Custom System Variable new and edit page.
+	 *
+	 * @var SystemVariableNew
+	 */
+	protected $systemVariableNewPage;
+	
+	/**
+	 * Injection data.
+	 *
+	 * @param SystemVariableIndex $systemVariableIndex        	
+	 * @param SystemVariableNew $systemVariableNew        	
+	 * @return void
+	 */
+	public function __inject(SystemVariableIndex $systemVariableIndex, SystemVariableNew $systemVariableNew) {
+		$this->systemVariableIndexPage = $systemVariableIndex;
+		$this->systemVariableNewPage = $systemVariableNew;
+	}
+	
+	/**
+	 * Delete Custom System Variable Entity test.
+	 *
+	 * @param SystemVariable $systemVariable        	
+	 * @return void
+	 */
+	public function test(SystemVariable $systemVariable) {
+		// Precondition
+		$systemVariable->persist ();
+		
+		// Steps
+		$filter = [ 
+				'code' => $systemVariable->getCode (),
+				'name' => $systemVariable->getName () 
+		];
+		$this->systemVariableIndexPage->open ();
+		$this->systemVariableIndexPage->getSystemVariableGrid ()->searchAndOpen ( $filter );
+		$this->systemVariableNewPage->getFormPageActions ()->delete ();
+		$this->systemVariableNewPage->getModalBlock ()->acceptAlert ();
+	}
 }

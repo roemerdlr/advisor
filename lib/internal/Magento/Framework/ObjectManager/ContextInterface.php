@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Object Manager Context Argument Interface. Marker interface
  *
@@ -7,6 +8,5 @@
  */
 namespace Magento\Framework\ObjectManager;
 
-interface ContextInterface
-{
+interface ContextInterface {
 }

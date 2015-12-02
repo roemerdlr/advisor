@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -8,10 +9,8 @@ namespace Magento\Wishlist\Test\Unit\Model;
 
 use \Magento\Wishlist\Model\AuthenticationState;
 
-class AuthenticationStateTest extends \PHPUnit_Framework_TestCase
-{
-    public function testIsEnabled()
-    {
-        $this->assertTrue((new AuthenticationState())->isEnabled());
-    }
+class AuthenticationStateTest extends \PHPUnit_Framework_TestCase {
+	public function testIsEnabled() {
+		$this->assertTrue ( (new AuthenticationState ())->isEnabled () );
+	}
 }

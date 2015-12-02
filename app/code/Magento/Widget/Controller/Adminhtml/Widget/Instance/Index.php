@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,17 +7,15 @@
  */
 namespace Magento\Widget\Controller\Adminhtml\Widget\Instance;
 
-class Index extends \Magento\Widget\Controller\Adminhtml\Widget\Instance
-{
-    /**
-     * Widget Instances Grid
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_initAction();
-        $this->_view->getPage()->getConfig()->getTitle()->prepend(__('Widgets'));
-        $this->_view->renderLayout();
-    }
+class Index extends \Magento\Widget\Controller\Adminhtml\Widget\Instance {
+	/**
+	 * Widget Instances Grid
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_initAction ();
+		$this->_view->getPage ()->getConfig ()->getTitle ()->prepend ( __ ( 'Widgets' ) );
+		$this->_view->renderLayout ();
+	}
 }

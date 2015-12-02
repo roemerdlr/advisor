@@ -5,11 +5,12 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 
-<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('prototype/windows/themes/default.css') ?>"/>
-<link rel="stylesheet" type="text/css" href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('mage/translate-inline.css') ?>"/>
+<link rel="stylesheet" type="text/css"
+	href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('prototype/windows/themes/default.css') ?>" />
+<link rel="stylesheet" type="text/css"
+	href="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('mage/translate-inline.css') ?>" />
 
 <script id="translate-inline-icon" type="text/x-magento-template">
     <img src="<%- data.img %>" height="16" width="16" class="translate-edit-icon">
@@ -54,7 +55,7 @@
 </script>
 
 <div data-role="translate-dialog"
-     data-mage-init='{"translateInline":{"ajaxUrl":"<?php /* @escapeNotVerified */ echo $block->getAjaxUrl() ?>"},"loader":{}}'></div>
+	data-mage-init='{"translateInline":{"ajaxUrl":"<?php /* @escapeNotVerified */ echo $block->getAjaxUrl() ?>"},"loader":{}}'></div>
 <script>
 require([
     "jquery",

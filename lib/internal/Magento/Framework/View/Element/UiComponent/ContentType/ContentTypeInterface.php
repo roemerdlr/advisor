@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,14 +11,13 @@ use Magento\Framework\View\Element\UiComponentInterface;
 /**
  * Interface ContentTypeInterface
  */
-interface ContentTypeInterface
-{
-    /**
-     * Render component
-     *
-     * @param UiComponentInterface $component
-     * @param string $template
-     * @return string
-     */
-    public function render(UiComponentInterface $component, $template = '');
+interface ContentTypeInterface {
+	/**
+	 * Render component
+	 *
+	 * @param UiComponentInterface $component        	
+	 * @param string $template        	
+	 * @return string
+	 */
+	public function render(UiComponentInterface $component, $template = '');
 }

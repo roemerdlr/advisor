@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Bundle\Controller\Adminhtml\Bundle\Product\Edit;
 
-class MassStatus extends \Magento\Catalog\Controller\Adminhtml\Product\MassStatus
-{
+class MassStatus extends \Magento\Catalog\Controller\Adminhtml\Product\MassStatus {
 }

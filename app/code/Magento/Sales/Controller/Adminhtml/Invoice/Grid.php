@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Sales\Controller\Adminhtml\Invoice;
 
-class Grid extends \Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\Grid
-{
+class Grid extends \Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\Grid {
 }

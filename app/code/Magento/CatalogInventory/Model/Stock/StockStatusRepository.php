@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -18,122 +19,123 @@ use Magento\Framework\Exception\CouldNotSaveException;
  * Class StockStatusRepository
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class StockStatusRepository implements StockStatusRepositoryInterface
-{
-    /**
-     * @var StockStatusResource
-     */
-    protected $resource;
-
-    /**
-     * @var StatusFactory
-     */
-    protected $stockStatusFactory;
-
-    /**
-     * @var StockStatusCollectionInterfaceFactory
-     */
-    protected $stockStatusCollectionFactory;
-
-    /**
-     * @var QueryBuilderFactory
-     */
-    protected $queryBuilderFactory;
-
-    /**
-     * @var MapperFactory
-     */
-    protected $mapperFactory;
-
-    /**
-     * @param StockStatusResource $resource
-     * @param StatusFactory $stockStatusFactory
-     * @param StockStatusCollectionInterfaceFactory $collectionFactory
-     * @param QueryBuilderFactory $queryBuilderFactory
-     * @param MapperFactory $mapperFactory
-     */
-    public function __construct(
-        StockStatusResource $resource,
-        StatusFactory $stockStatusFactory,
-        StockStatusCollectionInterfaceFactory $collectionFactory,
-        QueryBuilderFactory $queryBuilderFactory,
-        MapperFactory $mapperFactory
-    ) {
-        $this->resource = $resource;
-        $this->stockStatusFactory = $stockStatusFactory;
-        $this->stockStatusCollectionFactory = $collectionFactory;
-        $this->queryBuilderFactory = $queryBuilderFactory;
-        $this->mapperFactory = $mapperFactory;
-    }
-
-    /**
-     * @param StockStatusInterface $stockStatus
-     * @return StockStatusInterface
-     * @throws CouldNotSaveException
-     */
-    public function save(StockStatusInterface $stockStatus)
-    {
-        try {
-            $this->resource->save($stockStatus);
-        } catch (\Exception $exception) {
-            throw new CouldNotSaveException(__($exception->getMessage()));
-        }
-        return $stockStatus;
-    }
-
-    /**
-     * @param string $stockStatusId
-     * @return StockStatusInterface|Status
-     */
-    public function get($stockStatusId)
-    {
-        $stockStatus = $this->stockStatusFactory->create();
-        $this->resource->load($stockStatus, $stockStatusId);
-        return $stockStatus;
-    }
-
-    /**
-     * @param \Magento\CatalogInventory\Api\StockStatusCriteriaInterface $criteria
-     * @return \Magento\CatalogInventory\Api\Data\StockStatusCollectionInterface
-     */
-    public function getList(\Magento\CatalogInventory\Api\StockStatusCriteriaInterface $criteria)
-    {
-        $queryBuilder = $this->queryBuilderFactory->create();
-        $queryBuilder->setCriteria($criteria);
-        $queryBuilder->setResource($this->resource);
-        $query = $queryBuilder->create();
-        $collection = $this->stockStatusCollectionFactory->create(['query' => $query]);
-        return $collection;
-    }
-
-    /**
-     * @param StockStatusInterface $stockStatus
-     * @return bool|true
-     * @throws CouldNotDeleteException
-     */
-    public function delete(StockStatusInterface $stockStatus)
-    {
-        try {
-            $this->resource->delete($stockStatus);
-        } catch (\Exception $exception) {
-            throw new CouldNotDeleteException(__($exception->getMessage()));
-        }
-        return true;
-    }
-
-    /**
-     * @param int $id
-     * @return bool
-     * @throws CouldNotDeleteException
-     */
-    public function deleteById($id)
-    {
-        try {
-            $stockStatus = $this->get($id);
-            $this->delete($stockStatus);
-        } catch (\Exception $exception) {
-            throw new CouldNotDeleteException(__($exception->getMessage()));
-        }
-        return true;
-    }
+class StockStatusRepository implements StockStatusRepositoryInterface {
+	/**
+	 *
+	 * @var StockStatusResource
+	 */
+	protected $resource;
+	
+	/**
+	 *
+	 * @var StatusFactory
+	 */
+	protected $stockStatusFactory;
+	
+	/**
+	 *
+	 * @var StockStatusCollectionInterfaceFactory
+	 */
+	protected $stockStatusCollectionFactory;
+	
+	/**
+	 *
+	 * @var QueryBuilderFactory
+	 */
+	protected $queryBuilderFactory;
+	
+	/**
+	 *
+	 * @var MapperFactory
+	 */
+	protected $mapperFactory;
+	
+	/**
+	 *
+	 * @param StockStatusResource $resource        	
+	 * @param StatusFactory $stockStatusFactory        	
+	 * @param StockStatusCollectionInterfaceFactory $collectionFactory        	
+	 * @param QueryBuilderFactory $queryBuilderFactory        	
+	 * @param MapperFactory $mapperFactory        	
+	 */
+	public function __construct(StockStatusResource $resource, StatusFactory $stockStatusFactory, StockStatusCollectionInterfaceFactory $collectionFactory, QueryBuilderFactory $queryBuilderFactory, MapperFactory $mapperFactory) {
+		$this->resource = $resource;
+		$this->stockStatusFactory = $stockStatusFactory;
+		$this->stockStatusCollectionFactory = $collectionFactory;
+		$this->queryBuilderFactory = $queryBuilderFactory;
+		$this->mapperFactory = $mapperFactory;
+	}
+	
+	/**
+	 *
+	 * @param StockStatusInterface $stockStatus        	
+	 * @return StockStatusInterface
+	 * @throws CouldNotSaveException
+	 */
+	public function save(StockStatusInterface $stockStatus) {
+		try {
+			$this->resource->save ( $stockStatus );
+		} catch ( \Exception $exception ) {
+			throw new CouldNotSaveException ( __ ( $exception->getMessage () ) );
+		}
+		return $stockStatus;
+	}
+	
+	/**
+	 *
+	 * @param string $stockStatusId        	
+	 * @return StockStatusInterface|Status
+	 */
+	public function get($stockStatusId) {
+		$stockStatus = $this->stockStatusFactory->create ();
+		$this->resource->load ( $stockStatus, $stockStatusId );
+		return $stockStatus;
+	}
+	
+	/**
+	 *
+	 * @param \Magento\CatalogInventory\Api\StockStatusCriteriaInterface $criteria        	
+	 * @return \Magento\CatalogInventory\Api\Data\StockStatusCollectionInterface
+	 */
+	public function getList(\Magento\CatalogInventory\Api\StockStatusCriteriaInterface $criteria) {
+		$queryBuilder = $this->queryBuilderFactory->create ();
+		$queryBuilder->setCriteria ( $criteria );
+		$queryBuilder->setResource ( $this->resource );
+		$query = $queryBuilder->create ();
+		$collection = $this->stockStatusCollectionFactory->create ( [ 
+				'query' => $query 
+		] );
+		return $collection;
+	}
+	
+	/**
+	 *
+	 * @param StockStatusInterface $stockStatus        	
+	 * @return bool|true
+	 * @throws CouldNotDeleteException
+	 */
+	public function delete(StockStatusInterface $stockStatus) {
+		try {
+			$this->resource->delete ( $stockStatus );
+		} catch ( \Exception $exception ) {
+			throw new CouldNotDeleteException ( __ ( $exception->getMessage () ) );
+		}
+		return true;
+	}
+	
+	/**
+	 *
+	 * @param int $id        	
+	 * @return bool
+	 * @throws CouldNotDeleteException
+	 */
+	public function deleteById($id) {
+		try {
+			$stockStatus = $this->get ( $id );
+			$this->delete ( $stockStatus );
+		} catch ( \Exception $exception ) {
+			throw new CouldNotDeleteException ( __ ( $exception->getMessage () ) );
+		}
+		return true;
+	}
 }

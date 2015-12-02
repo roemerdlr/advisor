@@ -1,16 +1,17 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Tax\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Steps:
- * 1. Log in as default admin user.
+ * 1.
+ * Log in as default admin user.
  * 2. Go to Stores > Taxes > Tax Rules.
  * 3. Click 'Add New Tax Rule' button.
  * 4. Assign default rates to rule.
@@ -27,20 +28,18 @@ use Magento\Mtf\TestCase\Scenario;
  * @group Tax_(CS)
  * @ZephyrId MAGETWO-27809
  */
-class TaxCalculationTest extends Scenario
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'CS';
-    /* end tags */
-
-    /**
-     * Runs tax calculation test.
-     *
-     * @return void
-     */
-    public function test()
-    {
-        $this->executeScenario();
-    }
+class TaxCalculationTest extends Scenario {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'CS';
+	/* end tags */
+	
+	/**
+	 * Runs tax calculation test.
+	 *
+	 * @return void
+	 */
+	public function test() {
+		$this->executeScenario ();
+	}
 }

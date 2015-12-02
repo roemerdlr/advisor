@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Customer group collection
  *
@@ -7,16 +8,15 @@
  */
 namespace Magento\Customer\Model\ResourceModel\Group\Grid;
 
-class Collection extends \Magento\Customer\Model\ResourceModel\Group\Collection
-{
-    /**
-     * Resource initialization
-     * @return $this
-     */
-    protected function _initSelect()
-    {
-        parent::_initSelect();
-        $this->addTaxClass();
-        return $this;
-    }
+class Collection extends \Magento\Customer\Model\ResourceModel\Group\Collection {
+	/**
+	 * Resource initialization
+	 * 
+	 * @return $this
+	 */
+	protected function _initSelect() {
+		parent::_initSelect ();
+		$this->addTaxClass ();
+		return $this;
+	}
 }

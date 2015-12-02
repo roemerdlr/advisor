@@ -9,7 +9,7 @@
 /* @var $block \Magento\Catalog\Block\Product\View\Options */
 ?>
 
-<?php $_options = $block->decorateArray($block->getOptions()) ?>
+<?php $_options = $block->decorateArray($block->getOptions())?>
 <?php if (count($_options)):?>
 <script type="text/x-magento-init">
     {
@@ -22,7 +22,7 @@
         }
     }
 </script>
-    <?php foreach ($_options as $_option): ?>
-        <?php echo $block->getOptionHtml($_option) ?>
+<?php foreach ($_options as $_option): ?>
+        <?php echo $block->getOptionHtml($_option)?>
     <?php endforeach; ?>
 <?php endif; ?>

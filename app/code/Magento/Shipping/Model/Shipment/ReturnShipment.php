@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -6,6 +7,7 @@
 namespace Magento\Shipping\Model\Shipment;
 
 /**
+ *
  * @method \Magento\Shipping\Model\Shipment\Request setOrderShipment(\Magento\Sales\Model\Order\Shipment $orderShipment)
  * @method \Magento\Sales\Model\Order\Shipment getOrderShipment()
  * @method \Magento\Shipping\Model\Shipment\Request setShipperContactPersonName(string $value)
@@ -60,9 +62,8 @@ namespace Magento\Shipping\Model\Shipment;
  * @method string getShippingMethod()
  * @method \Magento\Shipping\Model\Shipment\Request setPackageWeight(float $value)
  * @method float getPackageWeight()
- *
- * @author      Magento Core Team <core@magentocommerce.com>
+ *        
+ * @author Magento Core Team <core@magentocommerce.com>
  */
-class ReturnShipment extends \Magento\Framework\DataObject
-{
+class ReturnShipment extends \Magento\Framework\DataObject {
 }

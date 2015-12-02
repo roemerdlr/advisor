@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,17 +7,15 @@
  */
 namespace Magento\Theme\Controller\Adminhtml\System\Design\Theme;
 
-class Index extends \Magento\Theme\Controller\Adminhtml\System\Design\Theme
-{
-    /**
-     * Index action
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_view->loadLayout();
-        $this->_setActiveMenu('Magento_Theme::system_design_theme');
-        $this->_view->renderLayout();
-    }
+class Index extends \Magento\Theme\Controller\Adminhtml\System\Design\Theme {
+	/**
+	 * Index action
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_view->loadLayout ();
+		$this->_setActiveMenu ( 'Magento_Theme::system_design_theme' );
+		$this->_view->renderLayout ();
+	}
 }

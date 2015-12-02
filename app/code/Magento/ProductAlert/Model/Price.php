@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -28,71 +29,65 @@ use Magento\ProductAlert\Model\ResourceModel\Price\Customer\Collection;
  * @method \Magento\ProductAlert\Model\Price setSendCount(int $value)
  * @method int getStatus()
  * @method \Magento\ProductAlert\Model\Price setStatus(int $value)
- *
- * @author      Magento Core Team <core@magentocommerce.com>
+ *        
+ * @author Magento Core Team <core@magentocommerce.com>
  */
-class Price extends \Magento\Framework\Model\AbstractModel
-{
-    /**
-     * @var \Magento\ProductAlert\Model\ResourceModel\Price\Customer\CollectionFactory
-     */
-    protected $_customerColFactory;
-
-    /**
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Magento\ProductAlert\Model\ResourceModel\Price\Customer\CollectionFactory $customerColFactory
-     * @param \Magento\Framework\Model\ResourceModel\AbstractResource $resource
-     * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection
-     * @param array $data
-     */
-    public function __construct(
-        \Magento\Framework\Model\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Magento\ProductAlert\Model\ResourceModel\Price\Customer\CollectionFactory $customerColFactory,
-        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
-        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
-        array $data = []
-    ) {
-        $this->_customerColFactory = $customerColFactory;
-        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
-    }
-
-    /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init('Magento\ProductAlert\Model\ResourceModel\Price');
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getCustomerCollection()
-    {
-        return $this->_customerColFactory->create();
-    }
-
-    /**
-     * @return $this
-     */
-    public function loadByParam()
-    {
-        if ($this->getProductId() !== null && $this->getCustomerId() !== null && $this->getWebsiteId() !== null) {
-            $this->getResource()->loadByParam($this);
-        }
-        return $this;
-    }
-
-    /**
-     * @param int $customerId
-     * @param int $websiteId
-     * @return $this
-     */
-    public function deleteCustomer($customerId, $websiteId = 0)
-    {
-        $this->getResource()->deleteCustomer($this, $customerId, $websiteId);
-        return $this;
-    }
+class Price extends \Magento\Framework\Model\AbstractModel {
+	/**
+	 *
+	 * @var \Magento\ProductAlert\Model\ResourceModel\Price\Customer\CollectionFactory
+	 */
+	protected $_customerColFactory;
+	
+	/**
+	 *
+	 * @param \Magento\Framework\Model\Context $context        	
+	 * @param \Magento\Framework\Registry $registry        	
+	 * @param \Magento\ProductAlert\Model\ResourceModel\Price\Customer\CollectionFactory $customerColFactory        	
+	 * @param \Magento\Framework\Model\ResourceModel\AbstractResource $resource        	
+	 * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection        	
+	 * @param array $data        	
+	 */
+	public function __construct(\Magento\Framework\Model\Context $context, \Magento\Framework\Registry $registry, \Magento\ProductAlert\Model\ResourceModel\Price\Customer\CollectionFactory $customerColFactory, \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null, \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null, array $data = []) {
+		$this->_customerColFactory = $customerColFactory;
+		parent::__construct ( $context, $registry, $resource, $resourceCollection, $data );
+	}
+	
+	/**
+	 *
+	 * @return void
+	 */
+	protected function _construct() {
+		$this->_init ( 'Magento\ProductAlert\Model\ResourceModel\Price' );
+	}
+	
+	/**
+	 *
+	 * @return Collection
+	 */
+	public function getCustomerCollection() {
+		return $this->_customerColFactory->create ();
+	}
+	
+	/**
+	 *
+	 * @return $this
+	 */
+	public function loadByParam() {
+		if ($this->getProductId () !== null && $this->getCustomerId () !== null && $this->getWebsiteId () !== null) {
+			$this->getResource ()->loadByParam ( $this );
+		}
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @param int $customerId        	
+	 * @param int $websiteId        	
+	 * @return $this
+	 */
+	public function deleteCustomer($customerId, $websiteId = 0) {
+		$this->getResource ()->deleteCustomer ( $this, $customerId, $websiteId );
+		return $this;
+	}
 }

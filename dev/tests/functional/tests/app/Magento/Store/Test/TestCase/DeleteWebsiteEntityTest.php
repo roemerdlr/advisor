@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Store\Test\TestCase;
 
 use Magento\Backend\Test\Page\Adminhtml\DeleteWebsite;
@@ -34,80 +34,75 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Store_Management_(PS)
  * @ZephyrId MAGETWO-27723
  */
-class DeleteWebsiteEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * Page StoreIndex
-     *
-     * @var StoreIndex
-     */
-    protected $storeIndex;
-
-    /**
-     * Page EditWebsite
-     *
-     * @var EditWebsite
-     */
-    protected $editWebsite;
-
-    /**
-     * Page DeleteWebsite
-     *
-     * @var DeleteWebsite
-     */
-    protected $deleteWebsite;
-
-    /**
-     * Page BackupIndex
-     *
-     * @var BackupIndex
-     */
-    protected $backupIndex;
-
-    /**
-     * Injection data
-     *
-     * @param StoreIndex $storeIndex
-     * @param EditWebsite $editWebsite
-     * @param DeleteWebsite $deleteWebsite
-     * @param BackupIndex $backupIndex
-     * @return void
-     */
-    public function __inject(
-        StoreIndex $storeIndex,
-        EditWebsite $editWebsite,
-        DeleteWebsite $deleteWebsite,
-        BackupIndex $backupIndex
-    ) {
-        $this->storeIndex = $storeIndex;
-        $this->editWebsite = $editWebsite;
-        $this->deleteWebsite = $deleteWebsite;
-        $this->backupIndex = $backupIndex;
-    }
-
-    /**
-     * Delete Website
-     *
-     * @param Website $website
-     * @param string $createBackup
-     * @return void
-     */
-    public function test(Website $website, $createBackup)
-    {
-        //Preconditions
-        $website->persist();
-        $this->backupIndex->open()->getBackupGrid()->massaction([], 'Delete', true, 'Select All');
-
-        //Steps
-        $this->storeIndex->open();
-        $this->storeIndex->getStoreGrid()->searchAndOpenWebsite($website);
-        $this->editWebsite->getFormPageActions()->delete();
-        $this->deleteWebsite->getDeleteWebsiteForm()->fillForm(['create_backup' => $createBackup]);
-        $this->deleteWebsite->getFormPageActions()->delete();
-    }
+class DeleteWebsiteEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * Page StoreIndex
+	 *
+	 * @var StoreIndex
+	 */
+	protected $storeIndex;
+	
+	/**
+	 * Page EditWebsite
+	 *
+	 * @var EditWebsite
+	 */
+	protected $editWebsite;
+	
+	/**
+	 * Page DeleteWebsite
+	 *
+	 * @var DeleteWebsite
+	 */
+	protected $deleteWebsite;
+	
+	/**
+	 * Page BackupIndex
+	 *
+	 * @var BackupIndex
+	 */
+	protected $backupIndex;
+	
+	/**
+	 * Injection data
+	 *
+	 * @param StoreIndex $storeIndex        	
+	 * @param EditWebsite $editWebsite        	
+	 * @param DeleteWebsite $deleteWebsite        	
+	 * @param BackupIndex $backupIndex        	
+	 * @return void
+	 */
+	public function __inject(StoreIndex $storeIndex, EditWebsite $editWebsite, DeleteWebsite $deleteWebsite, BackupIndex $backupIndex) {
+		$this->storeIndex = $storeIndex;
+		$this->editWebsite = $editWebsite;
+		$this->deleteWebsite = $deleteWebsite;
+		$this->backupIndex = $backupIndex;
+	}
+	
+	/**
+	 * Delete Website
+	 *
+	 * @param Website $website        	
+	 * @param string $createBackup        	
+	 * @return void
+	 */
+	public function test(Website $website, $createBackup) {
+		// Preconditions
+		$website->persist ();
+		$this->backupIndex->open ()->getBackupGrid ()->massaction ( [ ], 'Delete', true, 'Select All' );
+		
+		// Steps
+		$this->storeIndex->open ();
+		$this->storeIndex->getStoreGrid ()->searchAndOpenWebsite ( $website );
+		$this->editWebsite->getFormPageActions ()->delete ();
+		$this->deleteWebsite->getDeleteWebsiteForm ()->fillForm ( [ 
+				'create_backup' => $createBackup 
+		] );
+		$this->deleteWebsite->getFormPageActions ()->delete ();
+	}
 }

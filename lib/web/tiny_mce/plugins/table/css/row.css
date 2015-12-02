@@ -1,5 +1,4 @@
 /* CSS file for row dialog in the table plugin */
-
 .panel_wrapper div.current {
 	height: 200px;
 }
@@ -12,12 +11,12 @@
 	margin-bottom: 3px;
 }
 
-#rowtype,#align,#valign,#class,#height {
+#rowtype, #align, #valign, #class, #height {
 	width: 150px;
 }
 
 #height {
-	width: 50px;	
+	width: 50px;
 }
 
 .col2 {

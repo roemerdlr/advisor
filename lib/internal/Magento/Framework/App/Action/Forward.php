@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Forward action class
  *
@@ -10,24 +11,21 @@ namespace Magento\Framework\App\Action;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\ResponseInterface;
 
-class Forward extends AbstractAction
-{
-    /**
-     * @param RequestInterface $request
-     * @return ResponseInterface
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */
-    public function dispatch(RequestInterface $request)
-    {
-        return $this->execute();
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function execute()
-    {
-        $this->_request->setDispatched(false);
-        return $this->_response;
-    }
+class Forward extends AbstractAction {
+	/**
+	 *
+	 * @param RequestInterface $request        	
+	 * @return ResponseInterface @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public function dispatch(RequestInterface $request) {
+		return $this->execute ();
+	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function execute() {
+		$this->_request->setDispatched ( false );
+		return $this->_response;
+	}
 }

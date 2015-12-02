@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,18 +11,23 @@ use Magento\Bundle\Api\Data\LinkInterface;
 /**
  * Extended Attributes Source Model
  *
- * @author     Magento Core Team <core@magentocommerce.com>
+ * @author Magento Core Team <core@magentocommerce.com>
  */
-class Type implements \Magento\Framework\Option\ArrayInterface
-{
-    /**
-     * @return array
-     */
-    public function toOptionArray()
-    {
-        return [
-            ['value' => LinkInterface::PRICE_TYPE_FIXED, 'label' => __('Fixed')],
-            ['value' => LinkInterface::PRICE_TYPE_PERCENT, 'label' => __('Percent')]
-        ];
-    }
+class Type implements \Magento\Framework\Option\ArrayInterface {
+	/**
+	 *
+	 * @return array
+	 */
+	public function toOptionArray() {
+		return [ 
+				[ 
+						'value' => LinkInterface::PRICE_TYPE_FIXED,
+						'label' => __ ( 'Fixed' ) 
+				],
+				[ 
+						'value' => LinkInterface::PRICE_TYPE_PERCENT,
+						'label' => __ ( 'Percent' ) 
+				] 
+		];
+	}
 }

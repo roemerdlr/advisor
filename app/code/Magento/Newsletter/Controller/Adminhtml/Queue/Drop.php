@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,16 +7,14 @@
  */
 namespace Magento\Newsletter\Controller\Adminhtml\Queue;
 
-class Drop extends \Magento\Newsletter\Controller\Adminhtml\Queue
-{
-    /**
-     * Drop Newsletter queue template
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_view->loadLayout('newsletter_queue_preview_popup');
-        $this->_view->renderLayout();
-    }
+class Drop extends \Magento\Newsletter\Controller\Adminhtml\Queue {
+	/**
+	 * Drop Newsletter queue template
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_view->loadLayout ( 'newsletter_queue_preview_popup' );
+		$this->_view->renderLayout ();
+	}
 }

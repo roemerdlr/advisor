@@ -6,12 +6,13 @@
 
 // @codingStandardsIgnoreFile
 /**
+ *
  * @var \Magento\Payment\Block\Info $block
  * @see \Magento\Payment\Block\Info
  */
 ?>
 <dl class="payment-method">
-    <dt class="title"><?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?></dt>
+	<dt class="title"><?php echo $block->escapeHtml($block->getMethod()->getTitle()) ?></dt>
 <?php if ($block->getInstructions()): ?>
     <dd class="content"><?php /* @noEscape */ echo nl2br($block->escapeHtml($block->getInstructions())); ?></dd>
 <?php endif; ?>

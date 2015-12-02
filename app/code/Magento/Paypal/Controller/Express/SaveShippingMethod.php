@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,26 +7,25 @@
  */
 namespace Magento\Paypal\Controller\Express;
 
-class SaveShippingMethod extends \Magento\Paypal\Controller\Express\AbstractExpress\SaveShippingMethod
-{
-    /**
-     * Config mode type
-     *
-     * @var string
-     */
-    protected $_configType = 'Magento\Paypal\Model\Config';
-
-    /**
-     * Config method type
-     *
-     * @var string
-     */
-    protected $_configMethod = \Magento\Paypal\Model\Config::METHOD_WPP_EXPRESS;
-
-    /**
-     * Checkout mode type
-     *
-     * @var string
-     */
-    protected $_checkoutType = 'Magento\Paypal\Model\Express\Checkout';
+class SaveShippingMethod extends \Magento\Paypal\Controller\Express\AbstractExpress\SaveShippingMethod {
+	/**
+	 * Config mode type
+	 *
+	 * @var string
+	 */
+	protected $_configType = 'Magento\Paypal\Model\Config';
+	
+	/**
+	 * Config method type
+	 *
+	 * @var string
+	 */
+	protected $_configMethod = \Magento\Paypal\Model\Config::METHOD_WPP_EXPRESS;
+	
+	/**
+	 * Checkout mode type
+	 *
+	 * @var string
+	 */
+	protected $_checkoutType = 'Magento\Paypal\Model\Express\Checkout';
 }

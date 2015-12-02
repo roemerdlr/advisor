@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -15,33 +16,32 @@ use \Braintree_Result_Successful;
  *
  * @codeCoverageIgnore
  */
-class BraintreePaymentMethod
-{
-    /**
-     * @param array $attribs
-     * @return \Braintree_Result_Successful|\Braintree_Result_Error
-     */
-    public function create(array $attribs)
-    {
-        return \Braintree_PaymentMethod::create($attribs);
-    }
-
-    /**
-     * @param string $token
-     * @param array $attribs
-     * @return \Braintree_Result_Successful|\Braintree_Result_Error
-     */
-    public function update($token, array $attribs)
-    {
-        return \Braintree_PaymentMethod::update($token, $attribs);
-    }
-
-    /**
-     * @param string $token
-     * @return \Braintree_Result_Successful|\Braintree_Result_Error
-     */
-    public function createNonce($token)
-    {
-        return \Braintree_PaymentMethodNonce::create($token);
-    }
+class BraintreePaymentMethod {
+	/**
+	 *
+	 * @param array $attribs        	
+	 * @return \Braintree_Result_Successful|\Braintree_Result_Error
+	 */
+	public function create(array $attribs) {
+		return \Braintree_PaymentMethod::create ( $attribs );
+	}
+	
+	/**
+	 *
+	 * @param string $token        	
+	 * @param array $attribs        	
+	 * @return \Braintree_Result_Successful|\Braintree_Result_Error
+	 */
+	public function update($token, array $attribs) {
+		return \Braintree_PaymentMethod::update ( $token, $attribs );
+	}
+	
+	/**
+	 *
+	 * @param string $token        	
+	 * @return \Braintree_Result_Successful|\Braintree_Result_Error
+	 */
+	public function createNonce($token) {
+		return \Braintree_PaymentMethodNonce::create ( $token );
+	}
 }

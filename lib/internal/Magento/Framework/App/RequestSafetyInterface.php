@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Application request
  *
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Framework\App;
 
 /**
@@ -13,12 +13,11 @@ namespace Magento\Framework\App;
  *
  * @package Magento\Framework\App
  */
-interface RequestSafetyInterface
-{
-    /**
-     * Check that this is safe request
-     *
-     * @return bool
-     */
-    public function isSafeMethod();
+interface RequestSafetyInterface {
+	/**
+	 * Check that this is safe request
+	 *
+	 * @return bool
+	 */
+	public function isSafeMethod();
 }

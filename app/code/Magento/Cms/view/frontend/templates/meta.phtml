@@ -5,11 +5,12 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <?php if ($pageData->getPageMetaKeywords()): ?>
-<meta name="keywords" content="<?php /* @escapeNotVerified */ echo $pageData->getPageMetaKeywords() ?>"/>
+<meta name="keywords"
+	content="<?php /* @escapeNotVerified */ echo $pageData->getPageMetaKeywords() ?>" />
 <?php endif; ?>
 <?php if ($pageData->getPageMetaDescription()): ?>
-<meta name="description" content="<?php /* @escapeNotVerified */ echo $pageData->getPageMetaDescription() ?>"/>
+<meta name="description"
+	content="<?php /* @escapeNotVerified */ echo $pageData->getPageMetaDescription() ?>" />
 <?php endif; ?>

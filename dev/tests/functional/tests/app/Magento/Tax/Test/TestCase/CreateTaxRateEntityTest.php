@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Tax\Test\TestCase;
 
 use Magento\Tax\Test\Fixture\TaxRate;
@@ -24,54 +24,49 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Tax_(CS)
  * @ZephyrId MAGETWO-23286
  */
-class CreateTaxRateEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'CS';
-    /* end tags */
-
-    /**
-     * Tax Rate grid page.
-     *
-     * @var TaxRateIndex
-     */
-    protected $taxRateIndexPage;
-
-    /**
-     * Tax Rate new/edit page.
-     *
-     * @var TaxRateNew
-     */
-    protected $taxRateNewPage;
-
-    /**
-     * Injection data.
-     *
-     * @param TaxRateIndex $taxRateIndexPage
-     * @param TaxRateNew $taxRateNewPage
-     * @return void
-     */
-    public function __inject(
-        TaxRateIndex $taxRateIndexPage,
-        TaxRateNew $taxRateNewPage
-    ) {
-        $this->taxRateIndexPage = $taxRateIndexPage;
-        $this->taxRateNewPage = $taxRateNewPage;
-    }
-
-    /**
-     * Create Tax Rate Entity test.
-     *
-     * @param TaxRate $taxRate
-     * @return void
-     */
-    public function testCreateTaxRate(TaxRate $taxRate)
-    {
-        // Steps
-        $this->taxRateIndexPage->open();
-        $this->taxRateIndexPage->getGridPageActions()->addNew();
-        $this->taxRateNewPage->getTaxRateForm()->fill($taxRate);
-        $this->taxRateNewPage->getFormPageActions()->save();
-    }
+class CreateTaxRateEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'CS';
+	/* end tags */
+	
+	/**
+	 * Tax Rate grid page.
+	 *
+	 * @var TaxRateIndex
+	 */
+	protected $taxRateIndexPage;
+	
+	/**
+	 * Tax Rate new/edit page.
+	 *
+	 * @var TaxRateNew
+	 */
+	protected $taxRateNewPage;
+	
+	/**
+	 * Injection data.
+	 *
+	 * @param TaxRateIndex $taxRateIndexPage        	
+	 * @param TaxRateNew $taxRateNewPage        	
+	 * @return void
+	 */
+	public function __inject(TaxRateIndex $taxRateIndexPage, TaxRateNew $taxRateNewPage) {
+		$this->taxRateIndexPage = $taxRateIndexPage;
+		$this->taxRateNewPage = $taxRateNewPage;
+	}
+	
+	/**
+	 * Create Tax Rate Entity test.
+	 *
+	 * @param TaxRate $taxRate        	
+	 * @return void
+	 */
+	public function testCreateTaxRate(TaxRate $taxRate) {
+		// Steps
+		$this->taxRateIndexPage->open ();
+		$this->taxRateIndexPage->getGridPageActions ()->addNew ();
+		$this->taxRateNewPage->getTaxRateForm ()->fill ( $taxRate );
+		$this->taxRateNewPage->getFormPageActions ()->save ();
+	}
 }

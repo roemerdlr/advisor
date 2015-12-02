@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Downloadable\Controller\Adminhtml\Downloadable\Product\Edit;
 
-class Edit extends \Magento\Catalog\Controller\Adminhtml\Product\Edit
-{
+class Edit extends \Magento\Catalog\Controller\Adminhtml\Product\Edit {
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -9,34 +10,33 @@
  */
 namespace Magento\Config\Model\Config;
 
-class CommentFactory
-{
-    /**
-     * @var \Magento\Framework\ObjectManagerInterface
-     */
-    protected $_objectManager;
-
-    /**
-     * @param \Magento\Framework\ObjectManagerInterface $objectManager
-     */
-    public function __construct(\Magento\Framework\ObjectManagerInterface $objectManager)
-    {
-        $this->_objectManager = $objectManager;
-    }
-
-    /**
-     * Create new config object
-     *
-     * @param string $type
-     * @return CommentInterface
-     * @throws \InvalidArgumentException
-     */
-    public function create($type)
-    {
-        $commentModel = $this->_objectManager->create($type);
-        if (!$commentModel instanceof CommentInterface) {
-            throw new \InvalidArgumentException('Incorrect comment model provided');
-        }
-        return $commentModel;
-    }
+class CommentFactory {
+	/**
+	 *
+	 * @var \Magento\Framework\ObjectManagerInterface
+	 */
+	protected $_objectManager;
+	
+	/**
+	 *
+	 * @param \Magento\Framework\ObjectManagerInterface $objectManager        	
+	 */
+	public function __construct(\Magento\Framework\ObjectManagerInterface $objectManager) {
+		$this->_objectManager = $objectManager;
+	}
+	
+	/**
+	 * Create new config object
+	 *
+	 * @param string $type        	
+	 * @return CommentInterface
+	 * @throws \InvalidArgumentException
+	 */
+	public function create($type) {
+		$commentModel = $this->_objectManager->create ( $type );
+		if (! $commentModel instanceof CommentInterface) {
+			throw new \InvalidArgumentException ( 'Incorrect comment model provided' );
+		}
+		return $commentModel;
+	}
 }

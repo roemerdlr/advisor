@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,47 +11,43 @@ namespace Magento\Paypal\Test\Unit\Model\Config\Rules;
  *
  * Test for class \Magento\Paypal\Model\Config\Rules\FileResolver
  */
-class FileResolverTest extends \PHPUnit_Framework_TestCase
-{
-    /**
-     * @vat \Magento\Paypal\Model\Config\Rules\FileResolver
-     */
-    protected $fileResolver;
-
-    /**
-     * @var \Magento\Framework\Module\Dir\Reader|\PHPUnit_Framework_MockObject_MockObject
-     */
-    protected $readerMock;
-
-    /**
-     * Set up
-     *
-     * @return void
-     */
-    protected function setUp()
-    {
-        $this->readerMock = $this->getMockBuilder('Magento\Framework\Module\Dir\Reader')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $this->fileResolver = new \Magento\Paypal\Model\Config\Rules\FileResolver($this->readerMock);
-    }
-
-    /**
-     * Run test for get method
-     *
-     * @return void
-     */
-    public function testGet()
-    {
-        $filename = 'test-filename';
-        $expected = ['file1', 'file2'];
-
-        $this->readerMock->expects($this->once())
-            ->method('getConfigurationFiles')
-            ->with($filename)
-            ->willReturn($expected);
-
-        $this->assertEquals($expected, $this->fileResolver->get($filename, null));
-    }
+class FileResolverTest extends \PHPUnit_Framework_TestCase {
+	/**
+	 * @vat \Magento\Paypal\Model\Config\Rules\FileResolver
+	 */
+	protected $fileResolver;
+	
+	/**
+	 *
+	 * @var \Magento\Framework\Module\Dir\Reader|\PHPUnit_Framework_MockObject_MockObject
+	 */
+	protected $readerMock;
+	
+	/**
+	 * Set up
+	 *
+	 * @return void
+	 */
+	protected function setUp() {
+		$this->readerMock = $this->getMockBuilder ( 'Magento\Framework\Module\Dir\Reader' )->disableOriginalConstructor ()->getMock ();
+		
+		$this->fileResolver = new \Magento\Paypal\Model\Config\Rules\FileResolver ( $this->readerMock );
+	}
+	
+	/**
+	 * Run test for get method
+	 *
+	 * @return void
+	 */
+	public function testGet() {
+		$filename = 'test-filename';
+		$expected = [ 
+				'file1',
+				'file2' 
+		];
+		
+		$this->readerMock->expects ( $this->once () )->method ( 'getConfigurationFiles' )->with ( $filename )->willReturn ( $expected );
+		
+		$this->assertEquals ( $expected, $this->fileResolver->get ( $filename, null ) );
+	}
 }

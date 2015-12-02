@@ -1,16 +1,17 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Paypal\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Preconditions:
- * 1. Create PayPal Customer.
+ * 1.
+ * Create PayPal Customer.
  * 2. Create products.
  * 3. Apply configuration for test.
  *
@@ -29,21 +30,19 @@ use Magento\Mtf\TestCase\Scenario;
  * @group PayPal_(CS)
  * @ZephyrId MAGETWO-12413, MAGETWO-14359, MAGETWO-12996
  */
-class ExpressCheckoutOnePageTest extends Scenario
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'CS';
-    const TEST_TYPE = '3rd_party_test';
-    /* end tags */
-
-    /**
-     * Runs one page checkout test.
-     *
-     * @return void
-     */
-    public function test()
-    {
-        $this->executeScenario();
-    }
+class ExpressCheckoutOnePageTest extends Scenario {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'CS';
+	const TEST_TYPE = '3rd_party_test';
+	/* end tags */
+	
+	/**
+	 * Runs one page checkout test.
+	 *
+	 * @return void
+	 */
+	public function test() {
+		$this->executeScenario ();
+	}
 }

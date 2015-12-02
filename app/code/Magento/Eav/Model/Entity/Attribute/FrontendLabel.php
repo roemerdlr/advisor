@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,7 +10,5 @@ namespace Magento\Eav\Model\Entity\Attribute;
 /**
  * @codeCoverageIgnore
  */
-class FrontendLabel extends OptionLabel implements
-    \Magento\Eav\Api\Data\AttributeFrontendLabelInterface
-{
+class FrontendLabel extends OptionLabel implements \Magento\Eav\Api\Data\AttributeFrontendLabelInterface {
 }

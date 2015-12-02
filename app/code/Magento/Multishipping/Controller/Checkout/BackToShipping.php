@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -8,15 +9,14 @@ namespace Magento\Multishipping\Controller\Checkout;
 
 use Magento\Multishipping\Model\Checkout\Type\Multishipping\State;
 
-class BackToShipping extends \Magento\Multishipping\Controller\Checkout
-{
-    /**
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_getState()->setActiveStep(State::STEP_SHIPPING);
-        $this->_getState()->unsCompleteStep(State::STEP_BILLING);
-        $this->_redirect('*/*/shipping');
-    }
+class BackToShipping extends \Magento\Multishipping\Controller\Checkout {
+	/**
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_getState ()->setActiveStep ( State::STEP_SHIPPING );
+		$this->_getState ()->unsCompleteStep ( State::STEP_BILLING );
+		$this->_redirect ( '*/*/shipping' );
+	}
 }

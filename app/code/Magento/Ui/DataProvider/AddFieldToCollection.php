@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,13 +11,13 @@ use Magento\Framework\Data\Collection;
 /**
  * Class AddFieldToCollection
  */
-class AddFieldToCollection implements AddFieldToCollectionInterface
-{
-    /**
-     * {@inheritdoc}
-     */
-    public function addField(Collection $collection, $field, $alias = null)
-    {
-        $collection->addFieldToSelect($field, $alias);
-    }
+class AddFieldToCollection implements AddFieldToCollectionInterface {
+	/**
+	 *
+	 * {@inheritdoc}
+	 *
+	 */
+	public function addField(Collection $collection, $field, $alias = null) {
+		$collection->addFieldToSelect ( $field, $alias );
+	}
 }

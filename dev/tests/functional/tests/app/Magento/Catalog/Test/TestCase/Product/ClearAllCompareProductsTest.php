@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Catalog\Test\TestCase\Product;
 
 use Magento\Config\Test\Fixture\ConfigData;
@@ -11,7 +11,8 @@ use Magento\Customer\Test\Page\CustomerAccountIndex;
 
 /**
  * Preconditions:
- * 1. All product types are created.
+ * 1.
+ * All product types are created.
  * 2. Customer created.
  *
  * Steps:
@@ -24,32 +25,30 @@ use Magento\Customer\Test\Page\CustomerAccountIndex;
  * @group Compare_Products_(MX)
  * @ZephyrId MAGETWO-25961
  */
-class ClearAllCompareProductsTest extends AbstractCompareProductsTest
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Test creation for clear all compare products.
-     *
-     * @param string $products
-     * @param ConfigData $config
-     * @param CustomerAccountIndex $customerAccountIndex
-     * @return void
-     */
-    public function test($products, ConfigData $config, CustomerAccountIndex $customerAccountIndex)
-    {
-        // Preconditions
-        $config->persist();
-        $products = $this->createProducts($products);
-
-        //Steps
-        $this->cmsIndex->open();
-        $this->loginCustomer();
-        $this->addProducts($products);
-        $this->cmsIndex->getLinksBlock()->openLink("My Account");
-        $customerAccountIndex->getCompareProductsBlock()->clickClearAll();
-    }
+class ClearAllCompareProductsTest extends AbstractCompareProductsTest {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Test creation for clear all compare products.
+	 *
+	 * @param string $products        	
+	 * @param ConfigData $config        	
+	 * @param CustomerAccountIndex $customerAccountIndex        	
+	 * @return void
+	 */
+	public function test($products, ConfigData $config, CustomerAccountIndex $customerAccountIndex) {
+		// Preconditions
+		$config->persist ();
+		$products = $this->createProducts ( $products );
+		
+		// Steps
+		$this->cmsIndex->open ();
+		$this->loginCustomer ();
+		$this->addProducts ( $products );
+		$this->cmsIndex->getLinksBlock ()->openLink ( "My Account" );
+		$customerAccountIndex->getCompareProductsBlock ()->clickClearAll ();
+	}
 }

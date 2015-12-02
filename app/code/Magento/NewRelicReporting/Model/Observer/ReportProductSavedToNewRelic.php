@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,52 +14,44 @@ use Magento\NewRelicReporting\Model\NewRelicWrapper;
 /**
  * Class ReportProductSavedToNewRelic
  */
-class ReportProductSavedToNewRelic implements ObserverInterface
-{
-    /**
-     * @var Config
-     */
-    protected $config;
-
-    /**
-     * @var NewRelicWrapper
-     */
-    protected $newRelicWrapper;
-
-    /**
-     * @param Config $config
-     * @param NewRelicWrapper $newRelicWrapper
-     */
-    public function __construct(
-        Config $config,
-        NewRelicWrapper $newRelicWrapper
-    ) {
-        $this->config = $config;
-        $this->newRelicWrapper = $newRelicWrapper;
-    }
-
-    /**
-     * Reports any products created or updated to New Relic
-     *
-     * @param Observer $observer
-     * @return void
-     */
-    public function execute(Observer $observer)
-    {
-        if ($this->config->isNewRelicEnabled()) {
-            /** @var \Magento\Catalog\Model\Product $product */
-            $product = $observer->getEvent()->getProduct();
-            if ($product->isObjectNew()) {
-                $this->newRelicWrapper->addCustomParameter(
-                    \Magento\NewRelicReporting\Model\Config::PRODUCT_CHANGE,
-                    'create'
-                );
-            } else {
-                $this->newRelicWrapper->addCustomParameter(
-                    \Magento\NewRelicReporting\Model\Config::PRODUCT_CHANGE,
-                    'update'
-                );
-            }
-        }
-    }
+class ReportProductSavedToNewRelic implements ObserverInterface {
+	/**
+	 *
+	 * @var Config
+	 */
+	protected $config;
+	
+	/**
+	 *
+	 * @var NewRelicWrapper
+	 */
+	protected $newRelicWrapper;
+	
+	/**
+	 *
+	 * @param Config $config        	
+	 * @param NewRelicWrapper $newRelicWrapper        	
+	 */
+	public function __construct(Config $config, NewRelicWrapper $newRelicWrapper) {
+		$this->config = $config;
+		$this->newRelicWrapper = $newRelicWrapper;
+	}
+	
+	/**
+	 * Reports any products created or updated to New Relic
+	 *
+	 * @param Observer $observer        	
+	 * @return void
+	 */
+	public function execute(Observer $observer) {
+		if ($this->config->isNewRelicEnabled ()) {
+			/** @var \Magento\Catalog\Model\Product $product */
+			$product = $observer->getEvent ()->getProduct ();
+			if ($product->isObjectNew ()) {
+				$this->newRelicWrapper->addCustomParameter ( \Magento\NewRelicReporting\Model\Config::PRODUCT_CHANGE, 'create' );
+			} else {
+				$this->newRelicWrapper->addCustomParameter ( \Magento\NewRelicReporting\Model\Config::PRODUCT_CHANGE, 'update' );
+			}
+		}
+	}
 }

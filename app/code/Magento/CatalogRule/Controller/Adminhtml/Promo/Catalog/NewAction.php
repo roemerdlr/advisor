@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,13 +7,12 @@
  */
 namespace Magento\CatalogRule\Controller\Adminhtml\Promo\Catalog;
 
-class NewAction extends \Magento\CatalogRule\Controller\Adminhtml\Promo\Catalog
-{
-    /**
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_forward('edit');
-    }
+class NewAction extends \Magento\CatalogRule\Controller\Adminhtml\Promo\Catalog {
+	/**
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_forward ( 'edit' );
+	}
 }

@@ -8,7 +8,7 @@
 require __DIR__ . '/../../Sales/_files/default_rollback.php';
 
 /** @var $objectManager \Magento\TestFramework\ObjectManager */
-$objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
-$objectManager->get('Magento\Framework\Registry')->unregister('quote');
-$quote = $objectManager->create('Magento\Quote\Model\Quote');
-$quote->load('test_order_1', 'reserved_order_id')->delete();
+$objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ();
+$objectManager->get ( 'Magento\Framework\Registry' )->unregister ( 'quote' );
+$quote = $objectManager->create ( 'Magento\Quote\Model\Quote' );
+$quote->load ( 'test_order_1', 'reserved_order_id' )->delete ();

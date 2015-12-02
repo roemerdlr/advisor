@@ -9,48 +9,57 @@
 /** @var $block \Magento\Swatches\Block\Adminhtml\Attribute\Edit\Options\Visual */
 ?>
 <fieldset class="fieldset">
-    <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Manage Swatch (values of your attribute)') ?></span></legend>
-    <div id="swatch-visual-options-panel">
+	<legend class="legend">
+		<span><?php /* @escapeNotVerified */ echo __('Manage Swatch (values of your attribute)') ?></span>
+	</legend>
+	<div id="swatch-visual-options-panel">
         <?php //@todo move style to css file ?>
         <table class="data-table" style="clear: both;" cellspacing="0">
-            <thead>
-            <tr id="swatch-visual-options-table">
-                <th class="col-draggable"></th>
-                <th class="col-default"><?php /* @escapeNotVerified */ echo __('Is Default') ?></th>
-                <th><?php /* @escapeNotVerified */ echo __('Swatch') ?></th>
+			<thead>
+				<tr id="swatch-visual-options-table">
+					<th class="col-draggable"></th>
+					<th class="col-default"><?php /* @escapeNotVerified */ echo __('Is Default') ?></th>
+					<th><?php /* @escapeNotVerified */ echo __('Swatch') ?></th>
                 <?php
-                $storelist = $block->getStores();
-                foreach ($storelist as $_store):
-                    ?>
+																$storelist = $block->getStores ();
+																foreach ( $storelist as $_store ) :
+																	?>
                     <th><?php /* @escapeNotVerified */ echo $_store->getName() ?></th>
-                <?php endforeach;
-                $storetotal = count($storelist) + 3;
-                ?>
+                <?php
+																
+endforeach
+																;
+																$storetotal = count ( $storelist ) + 3;
+																?>
                 <th class="col-delete">&nbsp;</th>
-            </tr>
-            </thead>
-            <tbody data-role="swatch-visual-options-container" class="ignore-validate"></tbody>
-            <tfoot>
-            <tr>
-                <th colspan="<?php /* @escapeNotVerified */ echo $storetotal; ?>">
-                    <input type="hidden" class="required-visual-swatch-entry" name="visual_swatch_validation"/>
-                </th>
-            </tr>
-            <tr>
-                <th colspan="<?php /* @escapeNotVerified */ echo $storetotal; ?>" class="col-actions-add">
+				</tr>
+			</thead>
+			<tbody data-role="swatch-visual-options-container"
+				class="ignore-validate"></tbody>
+			<tfoot>
+				<tr>
+					<th colspan="<?php /* @escapeNotVerified */ echo $storetotal; ?>">
+						<input type="hidden" class="required-visual-swatch-entry"
+						name="visual_swatch_validation" />
+					</th>
+				</tr>
+				<tr>
+					<th colspan="<?php /* @escapeNotVerified */ echo $storetotal; ?>"
+						class="col-actions-add">
                     <?php if (!$block->getReadOnly() && !$block->canManageOptionDefaultOnly()):?>
-                        <button id="add_new_swatch_visual_option_button" title="<?php /* @escapeNotVerified */ echo __('Add Swatch'); ?>"
-                                type="button" class="action- scalable add">
-                            <span><?php /* @escapeNotVerified */ echo __('Add Swatch'); ?></span>
-                        </button>
+                        <button id="add_new_swatch_visual_option_button"
+							title="<?php /* @escapeNotVerified */ echo __('Add Swatch'); ?>"
+							type="button" class="action- scalable add">
+							<span><?php /* @escapeNotVerified */ echo __('Add Swatch'); ?></span>
+						</button>
                     <?php endif; ?>
                 </th>
-            </tr>
-            </tfoot>
-        </table>
-        <input type="hidden" id="swatch-visual-option-count-check" value="" />
-    </div>
-    <script id="swatch-visual-row-template" type="text/x-magento-template">
+				</tr>
+			</tfoot>
+		</table>
+		<input type="hidden" id="swatch-visual-option-count-check" value="" />
+	</div>
+	<script id="swatch-visual-row-template" type="text/x-magento-template">
         <tr>
             <td class="col-draggable">
                 <?php if (!$block->getReadOnly() && !$block->canManageOptionDefaultOnly()): ?>
@@ -105,7 +114,7 @@
             </td>
         </tr>
     </script>
-    <script language="Javascript">
+	<script language="Javascript">
         function removeSwatch(element)
         {
             if(element.up().previous())
@@ -162,11 +171,11 @@
         }
     </script>
     <?php
-    $values = [];
-    foreach($block->getOptionValues() as $value) {
-        array_push($values, $value->getData());
-    }
-    ?>
+				$values = [ ];
+				foreach ( $block->getOptionValues () as $value ) {
+					array_push ( $values, $value->getData () );
+				}
+				?>
     <script type="text/x-magento-init">
         {
                 "*": {

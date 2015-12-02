@@ -7,39 +7,48 @@
 // @codingStandardsIgnoreFile
 
 /** @var $block \Magento\Catalog\Block\Adminhtml\Product\Helper\Form\Gallery\Content */
-$elementName = $block->getElement()->getName() . '[images]';
+$elementName = $block->getElement ()->getName () . '[images]';
 ?>
-<div id="<?php echo $block->getHtmlId() ?>"
-     class='gallery'
-     data-mage-init='{"productGallery":{"template":"#<?php echo $block->getHtmlId() ?>-template"}}'
-     data-images="<?php echo $block->escapeHtml($block->getImagesJson()) ?>"
-     data-types="<?php echo $block->escapeHtml(
-         $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($block->getImageTypes())
-     ) ?>"
-    >
-    <?php if (!$block->getElement()->getReadonly()) {
-    ?>
+<div id="<?php echo $block->getHtmlId() ?>" class='gallery'
+	data-mage-init='{"productGallery":{"template":"#<?php echo $block->getHtmlId() ?>-template"}}'
+	data-images="<?php echo $block->escapeHtml($block->getImagesJson()) ?>"
+	data-types="<?php
+	
+echo $block->escapeHtml ( $this->helper ( 'Magento\Framework\Json\Helper\Data' )->jsonEncode ( $block->getImageTypes () ) )?>">
+    <?php
+				
+if (! $block->getElement ()->getReadonly ()) {
+					?>
         <div class="image image-placeholder">
-            <?php echo $block->getUploaderHtml();
-    ?>
-            <img class="spacer" src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/spacer.gif')?>"/>
-            <p class="image-placeholder-text"><?php /* @escapeNotVerified */ echo __('Click here or drag and drop to add images.');
-    ?></p>
-        </div>
+            <?php
+					
+echo $block->getUploaderHtml ();
+					?>
+            <img class="spacer"
+			src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/spacer.gif')?>" />
+		<p class="image-placeholder-text"><?php 
+/* @escapeNotVerified */
+					echo __ ( 'Click here or drag and drop to add images.' );
+					?></p>
+	</div>
     <?php
-
-} ?>
-    <?php foreach ($block->getImageTypes() as $typeData) {
-    ?>
-        <input name="<?php echo $block->escapeHtml($typeData['name']) ?>"
-               class="image-<?php echo $block->escapeHtml($typeData['code']) ?>"
-               type="hidden"
-               value="<?php echo $block->escapeHtml($typeData['value']) ?>"/>
+				}
+				?>
     <?php
+				
+foreach ( $block->getImageTypes () as $typeData ) {
+					?>
+        <input
+		name="<?php echo $block->escapeHtml($typeData['name']) ?>"
+		class="image-<?php echo $block->escapeHtml($typeData['code']) ?>"
+		type="hidden"
+		value="<?php echo $block->escapeHtml($typeData['value']) ?>" />
+    <?php
+				}
+				?>
 
-} ?>
-
-    <script id="<?php echo $block->getHtmlId() ?>-template" type="text/x-magento-template">
+    <script id="<?php echo $block->getHtmlId() ?>-template"
+		type="text/x-magento-template">
         <div class="image item <% if (data.disabled == 1) { %>hidden-for-front<% } %>"
              data-role="image">
             <input type="hidden" name="<?php /* @escapeNotVerified */ echo $elementName ?>[<%- data.file_id %>][position]" value="<%- data.position %>" class="position"/>
@@ -49,14 +58,16 @@ $elementName = $block->getElement()->getName() . '[images]';
             <input type="hidden" name="<?php /* @escapeNotVerified */ echo $elementName ?>[<%- data.file_id %>][disabled]" value="<%- data.disabled %>"/>
             <input type="hidden" name="<?php /* @escapeNotVerified */ echo $elementName ?>[<%- data.file_id %>][removed]" value="" class="is-removed"/>
             <ul class="type-labels" style="display: none">
-                <?php foreach ($block->getImageTypes() as $typeData) {
-    ?>
-                    <li class="type-<?php echo $block->escapeHtml(
-                        $typeData['code']
-                    ) ?>"><?php echo $block->escapeHtml($typeData['label']) ?></li>
                 <?php
-
-} ?>
+																
+foreach ( $block->getImageTypes () as $typeData ) {
+																	?>
+                    <li class="type-<?php
+																	
+echo $block->escapeHtml ( $typeData ['code'] )?>"><?php echo $block->escapeHtml($typeData['label']) ?></li>
+                <?php
+																}
+																?>
             </ul>
             <img class="spacer" src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/spacer.gif')?>"/>
             <img class="product-image" src="<%- data.url %>" alt="<%- data.label %>"/>
@@ -73,7 +84,8 @@ $elementName = $block->getElement()->getName() . '[images]';
             <div class="image-fade"><span><?php /* @escapeNotVerified */ echo __('Hidden') ?></span></div>
         </div>
     </script>
-    <script class="dialog-template" type="text/x-magento-template"  data-title="Image Options">
+	<script class="dialog-template" type="text/x-magento-template"
+		data-title="Image Options">
         <div class="image-panel" data-role="dialog">
             <div class="image-panel-preview">
                 <img src="<%- data.url %>" alt="<%- data.label %>" />
@@ -99,8 +111,10 @@ $elementName = $block->getElement()->getName() . '[images]';
                         </label>
                         <div class="control">
                             <ul class="multiselect-alt">
-                                <?php foreach ($block->getMediaAttributes() as $attribute) {
-    ?>
+                                <?php
+																																
+foreach ( $block->getMediaAttributes () as $attribute ) {
+																																	?>
                                     <li class="item">
                                         <label>
                                             <input class="image-type"
@@ -108,12 +122,12 @@ $elementName = $block->getElement()->getName() . '[images]';
                                                    type="checkbox"
                                                    value="<?php echo $block->escapeHtml($attribute->getAttributeCode()) ?>"
                                                 />
-                                            <?php echo $block->escapeHtml($attribute->getFrontendLabel()) ?>
+                                            <?php echo $block->escapeHtml($attribute->getFrontendLabel())?>
                                         </label>
                                     </li>
                                 <?php
-
-} ?>
+																																}
+																																?>
                             </ul>
                         </div>
                     </div>

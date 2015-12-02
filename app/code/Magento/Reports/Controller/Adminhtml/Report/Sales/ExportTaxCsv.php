@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,18 +10,16 @@ namespace Magento\Reports\Controller\Adminhtml\Report\Sales;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-class ExportTaxCsv extends \Magento\Reports\Controller\Adminhtml\Report\Sales
-{
-    /**
-     * Export tax report grid to CSV format
-     *
-     * @return ResponseInterface
-     */
-    public function execute()
-    {
-        $fileName = 'tax.csv';
-        $grid = $this->_view->getLayout()->createBlock('Magento\Reports\Block\Adminhtml\Sales\Tax\Grid');
-        $this->_initReportAction($grid);
-        return $this->_fileFactory->create($fileName, $grid->getCsvFile(), DirectoryList::VAR_DIR);
-    }
+class ExportTaxCsv extends \Magento\Reports\Controller\Adminhtml\Report\Sales {
+	/**
+	 * Export tax report grid to CSV format
+	 *
+	 * @return ResponseInterface
+	 */
+	public function execute() {
+		$fileName = 'tax.csv';
+		$grid = $this->_view->getLayout ()->createBlock ( 'Magento\Reports\Block\Adminhtml\Sales\Tax\Grid' );
+		$this->_initReportAction ( $grid );
+		return $this->_fileFactory->create ( $fileName, $grid->getCsvFile (), DirectoryList::VAR_DIR );
+	}
 }

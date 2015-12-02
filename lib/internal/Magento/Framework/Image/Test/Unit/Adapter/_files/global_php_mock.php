@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,47 +13,48 @@ use Magento\Framework\Image\Test\Unit\Adapter\Gd2Test;
  */
 
 /**
- * @param $paramName
+ *
+ * @param
+ *        	$paramName
  * @throws \InvalidArgumentException
  * @return string
  */
-function ini_get($paramName)
-{
-    if ('memory_limit' == $paramName) {
-        return Gd2Test::$memoryLimit;
-    }
-
-    throw new \InvalidArgumentException('Unexpected parameter ' . $paramName);
+function ini_get($paramName) {
+	if ('memory_limit' == $paramName) {
+		return Gd2Test::$memoryLimit;
+	}
+	
+	throw new \InvalidArgumentException ( 'Unexpected parameter ' . $paramName );
 }
 
 /**
- * @param $file
- * @return mixed
- * @SuppressWarnings(PHPMD.UnusedFormalParameter)
- */
-function getimagesize($file)
-{
-    return Gd2Test::$imageData;
-}
-
-/**
- * @param $real
- * @return int
  *
- * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ * @param
+ *        	$file
+ * @return mixed @SuppressWarnings(PHPMD.UnusedFormalParameter)
  */
-function memory_get_usage($real)
-{
-    return 1000000;
+function getimagesize($file) {
+	return Gd2Test::$imageData;
 }
 
 /**
- * @param $callable
- * @param $param
- * @return bool
- * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ *
+ * @param
+ *        	$real
+ * @return int @SuppressWarnings(PHPMD.UnusedFormalParameter)
  */
-function call_user_func($callable, $param)
-{
-    return false;
+function memory_get_usage($real) {
+	return 1000000;
+}
+
+/**
+ *
+ * @param
+ *        	$callable
+ * @param
+ *        	$param
+ * @return bool @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ */
+function call_user_func($callable, $param) {
+	return false;
 }

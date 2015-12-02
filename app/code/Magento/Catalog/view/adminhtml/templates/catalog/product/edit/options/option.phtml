@@ -5,10 +5,9 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <?php /** @var $block \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Option */ ?>
-<?php echo $block->getTemplatesHtml() ?>
+<?php echo $block->getTemplatesHtml()?>
 <script id="custom-option-base-template" type="text/x-magento-template">
     <div class="fieldset-wrapper admin__collapsible-block-wrapper opened" id="option_<%- data.id %>">
         <div class="fieldset-wrapper-title">
@@ -38,7 +37,7 @@
 
                     <div class="field field-option-title required">
                         <label class="label" for="<?php /* @escapeNotVerified */ echo $block->getFieldId() ?>_<%- data.id %>_title">
-                            <?php /* @escapeNotVerified */ echo __('Option Title') ?>
+                            <?php /* @escapeNotVerified */ echo __('Option Title')?>
                         </label>
                         <div class="control">
                             <input id="<?php /* @escapeNotVerified */ echo $block->getFieldId() ?>_<%- data.id %>_title"
@@ -55,10 +54,10 @@
 
                     <div class="field field-option-input-type required">
                         <label class="label" for="<?php /* @escapeNotVerified */ echo $block->getFieldId() ?>_<%- data.id %>_title">
-                            <?php /* @escapeNotVerified */ echo __('Input Type') ?>
+                            <?php /* @escapeNotVerified */ echo __('Input Type')?>
                         </label>
                         <div class="control opt-type">
-                            <?php echo $block->getTypeSelectHtml() ?>
+                            <?php echo $block->getTypeSelectHtml()?>
                         </div>
                     </div>
 
@@ -79,7 +78,9 @@
 
 <div id="import-container" style="display: none;"></div>
 <?php if (!$block->isReadonly()): ?>
-<div><input type="hidden" name="affect_product_custom_options" value="1"/></div>
+<div>
+	<input type="hidden" name="affect_product_custom_options" value="1" />
+</div>
 <?php endif; ?>
 <script>
 require([
@@ -89,17 +90,17 @@ require([
 
 jQuery(function ($) {
     var fieldSet = $('[data-block=product-custom-options]');
-    fieldSet.customOptions(<?php /* @escapeNotVerified */ echo $this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode(
-        [
-            'fieldId' => $block->getFieldId(),
-            'productGridUrl' => $block->getProductGridUrl(),
-            'formKey' => $block->getFormKey(),
-            'customOptionsUrl' => $block->getCustomOptionsUrl(),
-            'isReadonly' => $block->isReadonly(),
-            'itemCount' => $block->getItemCount(),
-            'currentProductId' => $block->getCurrentProductId(),
-        ]
-    )?>);
+    fieldSet.customOptions(<?php 
+/* @escapeNotVerified */
+				echo $this->helper ( 'Magento\Framework\Json\Helper\Data' )->jsonEncode ( [ 
+						'fieldId' => $block->getFieldId (),
+						'productGridUrl' => $block->getProductGridUrl (),
+						'formKey' => $block->getFormKey (),
+						'customOptionsUrl' => $block->getCustomOptionsUrl (),
+						'isReadonly' => $block->isReadonly (),
+						'itemCount' => $block->getItemCount (),
+						'currentProductId' => $block->getCurrentProductId () 
+				] )?>);
     //adding data to templates
     <?php /** @var $_value \Magento\Framework\DataObject */ ?>
     <?php foreach ($block->getOptionValues() as $_value): ?>

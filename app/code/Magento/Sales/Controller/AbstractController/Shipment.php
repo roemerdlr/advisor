@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Sales\Controller\AbstractController;
 
-abstract class Shipment extends \Magento\Sales\Controller\AbstractController\View
-{
+abstract class Shipment extends \Magento\Sales\Controller\AbstractController\View {
 }

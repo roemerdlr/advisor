@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,25 +7,23 @@
  */
 namespace Magento\Widget\Controller\Adminhtml\Widget\Instance;
 
-class Delete extends \Magento\Widget\Controller\Adminhtml\Widget\Instance
-{
-    /**
-     * Delete Action
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $widgetInstance = $this->_initWidgetInstance();
-        if ($widgetInstance) {
-            try {
-                $widgetInstance->delete();
-                $this->messageManager->addSuccess(__('The widget instance has been deleted.'));
-            } catch (\Exception $e) {
-                $this->messageManager->addError($e->getMessage());
-            }
-        }
-        $this->_redirect('adminhtml/*/');
-        return;
-    }
+class Delete extends \Magento\Widget\Controller\Adminhtml\Widget\Instance {
+	/**
+	 * Delete Action
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$widgetInstance = $this->_initWidgetInstance ();
+		if ($widgetInstance) {
+			try {
+				$widgetInstance->delete ();
+				$this->messageManager->addSuccess ( __ ( 'The widget instance has been deleted.' ) );
+			} catch ( \Exception $e ) {
+				$this->messageManager->addError ( $e->getMessage () );
+			}
+		}
+		$this->_redirect ( 'adminhtml/*/' );
+		return;
+	}
 }

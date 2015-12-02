@@ -7,6 +7,7 @@
 // @codingStandardsIgnoreFile
 
 /**
+ *
  * @see \Magento\Checkout\Block\Cart\Totals
  */
 ?>
@@ -15,13 +16,16 @@
     <?php /* @escapeNotVerified */ echo $block->renderTotals(null, $_colspan); ?>
     <?php /* @escapeNotVerified */ echo $block->renderTotals('footer', $_colspan); ?>
     <?php if ($block->needDisplayBaseGrandtotal()):?>
-    <tr class="totals charge">
-        <th class="mark" colspan="<?php /* @escapeNotVerified */ echo $_colspan; ?>" scope="row">
-            <?php /* @escapeNotVerified */ echo __('Your credit card will be charged for') ?>
+<tr class="totals charge">
+	<th class="mark"
+		colspan="<?php /* @escapeNotVerified */ echo $_colspan; ?>"
+		scope="row">
+            <?php /* @escapeNotVerified */ echo __('Your credit card will be charged for')?>
         </th>
-        <td class="amount" data-th="<?php echo $block->escapeHtml(__('Your credit card will be charged for')); ?>">
-            <?php /* @escapeNotVerified */ echo $block->displayBaseGrandtotal() ?>
+	<td class="amount"
+		data-th="<?php echo $block->escapeHtml(__('Your credit card will be charged for')); ?>">
+            <?php /* @escapeNotVerified */ echo $block->displayBaseGrandtotal()?>
         </td>
-    </tr>
-    <?php endif?>
+</tr>
+<?php endif?>
 <?php endif; ?>

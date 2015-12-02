@@ -5,7 +5,7 @@
  */
 -->
 <address>
-    <!-- ko foreach: {
+	<!-- ko foreach: {
         data: formatPreviews([
             "prefix firstname middlename lastname suffix",
             "company",
@@ -31,13 +31,13 @@
         as: 'preview' 
     } -->
 
-        <!-- ko if: $parent.hasPreview(preview) -->
-            <span data-bind="text: $parent.buildPreview(preview)"></span><br>
-        <!-- /ko -->
-    
-    <!-- /ko -->
+	<!-- ko if: $parent.hasPreview(preview) -->
+	<span data-bind="text: $parent.buildPreview(preview)"></span><br>
+	<!-- /ko -->
 
-    <!-- ko if: noPreview -->
-        <span data-bind="text: label"></span><br>
-    <!-- /ko -->
+	<!-- /ko -->
+
+	<!-- ko if: noPreview -->
+	<span data-bind="text: label"></span><br>
+	<!-- /ko -->
 </address>

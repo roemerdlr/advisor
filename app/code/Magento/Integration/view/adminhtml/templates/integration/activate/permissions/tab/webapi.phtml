@@ -9,21 +9,20 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <fieldset class="admin__fieldset form-inline entry-edit">
     <?php if ($block->isTreeEmpty()): ?>
         <p class="empty"><?php /* @escapeNotVerified */ echo __('No permissions requested'); ?></p>
     <?php else: ?>
         <div class="field" data-role="tree-resources-container">
-            <div class="control">
-                <div id="resource-tree" class="tree x-tree" data-role="resource-tree"></div>
-            </div>
-        </div>
-    <?php endif ?>
-</fieldset>
+		<div class="control">
+			<div id="resource-tree" class="tree x-tree" data-role="resource-tree"></div>
+		</div>
+	</div>
+    <?php
+endif;</fieldset>
 <?php if (!$block->isTreeEmpty()): ?>
-    <script>
+<script>
 require(["jquery", "Magento_User/js/roles-tree"], function($){
 
     $.widget('mage.rolesTree', $.mage.rolesTree, {
@@ -37,7 +36,7 @@ require(["jquery", "Magento_User/js/roles-tree"], function($){
 
     $('[data-role="resource-tree"]').rolesTree({
         'treeInitData': <?php /* @escapeNotVerified */ echo $block->getResourcesTreeJson() ?>,
-        'treeInitSelectedData': <?php /* @escapeNotVerified */ echo $block->getSelectedResourcesJson() ?>
+        'treeInitSelectedData': <?php /* @escapeNotVerified */ echo $block->getSelectedResourcesJson()?>
     });
 
 });

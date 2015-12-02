@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Fieldset configuration data container. Provides fieldset configuration data.
  *
@@ -7,6 +8,5 @@
  */
 namespace Magento\Framework\DataObject\Copy\Config;
 
-class Data extends \Magento\Framework\Config\Data
-{
+class Data extends \Magento\Framework\Config\Data {
 }

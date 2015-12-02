@@ -7,10 +7,11 @@
 // @codingStandardsIgnoreFile
 
 /**
+ *
  * @var $block \Magento\Backend\Block\Page\System\Config\Robots\Reset
  * @var $jsonHelper \Magento\Framework\Json\Helper\Data
  */
-$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+$jsonHelper = $this->helper ( 'Magento\Framework\Json\Helper\Data' );
 ?>
 
 <script>
@@ -19,10 +20,10 @@ $jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
     ], function () {
         window.resetRobotsToDefault = function(){
             $('design_search_engine_robots_custom_instructions').value = <?php
-                /* @escapeNotVerified */ echo $jsonHelper->jsonEncode($block->getRobotsDefaultCustomInstructions())
-            ?>;
+												/* @escapeNotVerified */
+												echo $jsonHelper->jsonEncode ( $block->getRobotsDefaultCustomInstructions () )?>;
         }
     });
 </script>
 
-<?php echo $block->getButtonHtml() ?>
+<?php echo $block->getButtonHtml()?>

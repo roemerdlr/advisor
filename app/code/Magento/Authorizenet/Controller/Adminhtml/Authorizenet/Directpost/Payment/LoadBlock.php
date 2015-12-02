@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Authorizenet\Controller\Adminhtml\Authorizenet\Directpost\Payment;
 
-class LoadBlock extends \Magento\Sales\Controller\Adminhtml\Order\Create\LoadBlock
-{
+class LoadBlock extends \Magento\Sales\Controller\Adminhtml\Order\Create\LoadBlock {
 }

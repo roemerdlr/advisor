@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -8,6 +9,7 @@ namespace Magento\Quote\Model\Quote\Address;
 use Magento\Quote\Model\Quote;
 
 /**
+ *
  * @method \Magento\Quote\Model\ResourceModel\Quote\Address\Item _getResource()
  * @method \Magento\Quote\Model\ResourceModel\Quote\Address\Item getResource()
  * @method int getParentItemId()
@@ -83,121 +85,98 @@ use Magento\Quote\Model\Quote;
  * @method \Magento\Quote\Model\Quote\Address\Item setDiscountTaxCompensationAmount(float $value)
  * @method float getBaseDiscountTaxCompensationAmount()
  * @method \Magento\Quote\Model\Quote\Address\Item setBaseDiscountTaxCompensationAmount(float $value)
- *
- * @author      Magento Core Team <core@magentocommerce.com>
+ *        
+ * @author Magento Core Team <core@magentocommerce.com>
  */
-class Item extends \Magento\Quote\Model\Quote\Item\AbstractItem
-{
-    /**
-     * Quote address model object
-     *
-     * @var \Magento\Quote\Model\Quote\Address
-     */
-    protected $_address;
-
-    /**
-     * @var Quote
-     */
-    protected $_quote;
-
-    /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init('Magento\Quote\Model\ResourceModel\Quote\Address\Item');
-    }
-
-    /**
-     * @return $this|\Magento\Quote\Model\Quote\Item\AbstractItem
-     */
-    public function beforeSave()
-    {
-        parent::beforeSave();
-        if ($this->getAddress()) {
-            $this->setQuoteAddressId($this->getAddress()->getId());
-        }
-        return $this;
-    }
-
-    /**
-     * Declare address model
-     *
-     * @param \Magento\Quote\Model\Quote\Address $address
-     * @return $this
-     */
-    public function setAddress(\Magento\Quote\Model\Quote\Address $address)
-    {
-        $this->_address = $address;
-        $this->_quote = $address->getQuote();
-        return $this;
-    }
-
-    /**
-     * Retrieve address model
-     *
-     * @return \Magento\Quote\Model\Quote\Address
-     */
-    public function getAddress()
-    {
-        return $this->_address;
-    }
-
-    /**
-     * Retrieve quote model instance
-     *
-     * @return Quote
-     */
-    public function getQuote()
-    {
-        return $this->_quote;
-    }
-
-    /**
-     * @param \Magento\Quote\Model\Quote\Item $quoteItem
-     * @return $this
-     */
-    public function importQuoteItem(\Magento\Quote\Model\Quote\Item $quoteItem)
-    {
-        $this->_quote = $quoteItem->getQuote();
-        $this->setQuoteItem(
-            $quoteItem
-        )->setQuoteItemId(
-            $quoteItem->getId()
-        )->setProductId(
-            $quoteItem->getProductId()
-        )->setProduct(
-            $quoteItem->getProduct()
-        )->setSku(
-            $quoteItem->getSku()
-        )->setName(
-            $quoteItem->getName()
-        )->setDescription(
-            $quoteItem->getDescription()
-        )->setWeight(
-            $quoteItem->getWeight()
-        )->setPrice(
-            $quoteItem->getPrice()
-        )->setCost(
-            $quoteItem->getCost()
-        );
-
-        if (!$this->hasQty()) {
-            $this->setQty($quoteItem->getQty());
-        }
-        $this->setQuoteItemImported(true);
-        return $this;
-    }
-
-    /**
-     * @param string $code
-     * @return \Magento\Catalog\Model\Product\Configuration\Item\Option\OptionInterface|null
-     */
-    public function getOptionBycode($code)
-    {
-        if ($this->getQuoteItem()) {
-            return $this->getQuoteItem()->getOptionBycode($code);
-        }
-        return null;
-    }
+class Item extends \Magento\Quote\Model\Quote\Item\AbstractItem {
+	/**
+	 * Quote address model object
+	 *
+	 * @var \Magento\Quote\Model\Quote\Address
+	 */
+	protected $_address;
+	
+	/**
+	 *
+	 * @var Quote
+	 */
+	protected $_quote;
+	
+	/**
+	 *
+	 * @return void
+	 */
+	protected function _construct() {
+		$this->_init ( 'Magento\Quote\Model\ResourceModel\Quote\Address\Item' );
+	}
+	
+	/**
+	 *
+	 * @return $this|\Magento\Quote\Model\Quote\Item\AbstractItem
+	 */
+	public function beforeSave() {
+		parent::beforeSave ();
+		if ($this->getAddress ()) {
+			$this->setQuoteAddressId ( $this->getAddress ()->getId () );
+		}
+		return $this;
+	}
+	
+	/**
+	 * Declare address model
+	 *
+	 * @param \Magento\Quote\Model\Quote\Address $address        	
+	 * @return $this
+	 */
+	public function setAddress(\Magento\Quote\Model\Quote\Address $address) {
+		$this->_address = $address;
+		$this->_quote = $address->getQuote ();
+		return $this;
+	}
+	
+	/**
+	 * Retrieve address model
+	 *
+	 * @return \Magento\Quote\Model\Quote\Address
+	 */
+	public function getAddress() {
+		return $this->_address;
+	}
+	
+	/**
+	 * Retrieve quote model instance
+	 *
+	 * @return Quote
+	 */
+	public function getQuote() {
+		return $this->_quote;
+	}
+	
+	/**
+	 *
+	 * @param \Magento\Quote\Model\Quote\Item $quoteItem        	
+	 * @return $this
+	 */
+	public function importQuoteItem(\Magento\Quote\Model\Quote\Item $quoteItem) {
+		$this->_quote = $quoteItem->getQuote ();
+		$this->setQuoteItem ( $quoteItem )->setQuoteItemId ( $quoteItem->getId () )->setProductId ( $quoteItem->getProductId () )->setProduct ( $quoteItem->getProduct () )->setSku ( $quoteItem->getSku () )->setName ( $quoteItem->getName () )->setDescription ( $quoteItem->getDescription () )->setWeight ( $quoteItem->getWeight () )->setPrice ( $quoteItem->getPrice () )->setCost ( $quoteItem->getCost () );
+		
+		if (! $this->hasQty ()) {
+			$this->setQty ( $quoteItem->getQty () );
+		}
+		$this->setQuoteItemImported ( true );
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @param string $code        	
+	 * @return \Magento\Catalog\Model\Product\Configuration\Item\Option\OptionInterface|null
+	 */
+	public function getOptionBycode($code) {
+		if ($this->getQuoteItem ()) {
+			return $this->getQuoteItem ()->getOptionBycode ( $code );
+		}
+		return null;
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,21 +11,20 @@ use Magento\Framework\DataObject;
 /**
  * Interface DirectiveInterface
  */
-interface DirectiveInterface
-{
-    /**
-     * Execute directive
-     *
-     * @param array $directive
-     * @param DataObject $processedObject
-     * @return string
-     */
-    public function execute($directive, DataObject $processedObject);
-
-    /**
-     * Get regexp search pattern
-     *
-     * @return string
-     */
-    public function getPattern();
+interface DirectiveInterface {
+	/**
+	 * Execute directive
+	 *
+	 * @param array $directive        	
+	 * @param DataObject $processedObject        	
+	 * @return string
+	 */
+	public function execute($directive, DataObject $processedObject);
+	
+	/**
+	 * Get regexp search pattern
+	 *
+	 * @return string
+	 */
+	public function getPattern();
 }

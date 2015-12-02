@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application area front name resolver
  *
@@ -11,13 +12,13 @@ namespace Magento\Framework\App\Area;
  * Interface FrontNameResolverInterface
  * @api
  */
-interface FrontNameResolverInterface
-{
-    /**
-     * Retrieve front name
-     *
-     * @param bool if true,  only return frontname if it is valid for the host
-     * @return string|bool
-     */
-    public function getFrontName($checkHost = false);
+interface FrontNameResolverInterface {
+	/**
+	 * Retrieve front name
+	 *
+	 * @param
+	 *        	bool if true, only return frontname if it is valid for the host
+	 * @return string|bool
+	 */
+	public function getFrontName($checkHost = false);
 }

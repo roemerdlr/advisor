@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,13 +11,12 @@ use Magento\Framework\DataObject;
 /**
  * Interface ValidatorInterface
  */
-interface ValidatorInterface
-{
-    /**
-     * Validate data
-     *
-     * @param Object $response
-     * @return bool
-     */
-    public function validate(DataObject $response);
+interface ValidatorInterface {
+	/**
+	 * Validate data
+	 *
+	 * @param Object $response        	
+	 * @return bool
+	 */
+	public function validate(DataObject $response);
 }

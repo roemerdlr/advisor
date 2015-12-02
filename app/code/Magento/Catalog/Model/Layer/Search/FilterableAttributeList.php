@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,16 +7,14 @@
  */
 namespace Magento\Catalog\Model\Layer\Search;
 
-class FilterableAttributeList extends \Magento\Catalog\Model\Layer\Category\FilterableAttributeList
-{
-    /**
-     * @param \Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection $collection
-     * @return \Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection
-     */
-    protected function _prepareAttributeCollection($collection)
-    {
-        $collection->addIsFilterableInSearchFilter()
-            ->addVisibleFilter();
-        return $collection;
-    }
+class FilterableAttributeList extends \Magento\Catalog\Model\Layer\Category\FilterableAttributeList {
+	/**
+	 *
+	 * @param \Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection $collection        	
+	 * @return \Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection
+	 */
+	protected function _prepareAttributeCollection($collection) {
+		$collection->addIsFilterableInSearchFilter ()->addVisibleFilter ();
+		return $collection;
+	}
 }

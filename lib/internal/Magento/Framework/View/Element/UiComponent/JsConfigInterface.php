@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,13 +11,12 @@ use Magento\Framework\View\Element\UiComponentInterface;
 /**
  * Interface JsConfigInterface
  */
-interface JsConfigInterface extends UiComponentInterface
-{
-    /**
-     * Get configuration of related JavaScript Component
-     *
-     * @param UiComponentInterface $component
-     * @return array
-     */
-    public function getJsConfig(UiComponentInterface $component);
+interface JsConfigInterface extends UiComponentInterface {
+	/**
+	 * Get configuration of related JavaScript Component
+	 *
+	 * @param UiComponentInterface $component        	
+	 * @return array
+	 */
+	public function getJsConfig(UiComponentInterface $component);
 }

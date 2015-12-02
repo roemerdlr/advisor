@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,15 +7,13 @@
  */
 namespace Magento\SalesRule\Controller\Adminhtml\Promo\Quote;
 
-class NewAction extends \Magento\SalesRule\Controller\Adminhtml\Promo\Quote
-{
-    /**
-     * New promo quote action
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_forward('edit');
-    }
+class NewAction extends \Magento\SalesRule\Controller\Adminhtml\Promo\Quote {
+	/**
+	 * New promo quote action
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_forward ( 'edit' );
+	}
 }

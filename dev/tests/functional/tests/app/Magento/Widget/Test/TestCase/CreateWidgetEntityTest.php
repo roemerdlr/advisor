@@ -1,16 +1,17 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Widget\Test\TestCase;
 
 use Magento\Widget\Test\Fixture\Widget;
 
 /**
  * Steps:
- * 1. Login to the backend.
+ * 1.
+ * Login to the backend.
  * 2. Open Content > Widgets.
  * 3. Click Add Widget.
  * 4. Fill settings data according dataset.
@@ -21,25 +22,23 @@ use Magento\Widget\Test\Fixture\Widget;
  * @group Widget_(PS)
  * @ZephyrId MAGETWO-27916
  */
-class CreateWidgetEntityTest extends AbstractCreateWidgetEntityTest
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * Create for New Widget.
-     *
-     * @param Widget $widget
-     * @return void
-     */
-    public function test(Widget $widget)
-    {
-        // Steps
-        $this->widgetInstanceIndex->open();
-        $this->widgetInstanceIndex->getPageActionsBlock()->addNew();
-        $this->widgetInstanceNew->getWidgetForm()->fill($widget);
-        $this->widgetInstanceEdit->getPageActionsBlock()->save();
-    }
+class CreateWidgetEntityTest extends AbstractCreateWidgetEntityTest {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * Create for New Widget.
+	 *
+	 * @param Widget $widget        	
+	 * @return void
+	 */
+	public function test(Widget $widget) {
+		// Steps
+		$this->widgetInstanceIndex->open ();
+		$this->widgetInstanceIndex->getPageActionsBlock ()->addNew ();
+		$this->widgetInstanceNew->getWidgetForm ()->fill ( $widget );
+		$this->widgetInstanceEdit->getPageActionsBlock ()->save ();
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -19,68 +20,59 @@ use Magento\Sales\Model\ResourceModel\Order\Invoice\CollectionFactory;
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-abstract class Pdfinvoices extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMassAction
-{
-    /**
-     * @var FileFactory
-     */
-    protected $fileFactory;
-
-    /**
-     * @var DateTime
-     */
-    protected $dateTime;
-
-    /**
-     * @var Invoice
-     */
-    protected $pdfInvoice;
-
-    /**
-     * @param Context $context
-     * @param Filter $filter
-     * @param DateTime $dateTime
-     * @param FileFactory $fileFactory
-     * @param Invoice $pdfInvoice
-     * @param CollectionFactory $collectionFactory
-     */
-    public function __construct(
-        Context $context,
-        Filter $filter,
-        DateTime $dateTime,
-        FileFactory $fileFactory,
-        Invoice $pdfInvoice,
-        CollectionFactory $collectionFactory
-    ) {
-        $this->fileFactory = $fileFactory;
-        $this->dateTime = $dateTime;
-        $this->pdfInvoice = $pdfInvoice;
-        $this->collectionFactory = $collectionFactory;
-        parent::__construct($context, $filter);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Magento_Sales::sales_invoice');
-    }
-
-    /**
-     * Save collection items to pdf invoices
-     *
-     * @param AbstractCollection $collection
-     * @return ResponseInterface
-     * @throws \Exception
-     */
-    public function massAction(AbstractCollection $collection)
-    {
-        return $this->fileFactory->create(
-            sprintf('invoice%s.pdf', $this->dateTime->date('Y-m-d_H-i-s')),
-            $this->pdfInvoice->getPdf($collection)->render(),
-            DirectoryList::VAR_DIR,
-            'application/pdf'
-        );
-    }
+abstract class Pdfinvoices extends \Magento\Sales\Controller\Adminhtml\Order\AbstractMassAction {
+	/**
+	 *
+	 * @var FileFactory
+	 */
+	protected $fileFactory;
+	
+	/**
+	 *
+	 * @var DateTime
+	 */
+	protected $dateTime;
+	
+	/**
+	 *
+	 * @var Invoice
+	 */
+	protected $pdfInvoice;
+	
+	/**
+	 *
+	 * @param Context $context        	
+	 * @param Filter $filter        	
+	 * @param DateTime $dateTime        	
+	 * @param FileFactory $fileFactory        	
+	 * @param Invoice $pdfInvoice        	
+	 * @param CollectionFactory $collectionFactory        	
+	 */
+	public function __construct(Context $context, Filter $filter, DateTime $dateTime, FileFactory $fileFactory, Invoice $pdfInvoice, CollectionFactory $collectionFactory) {
+		$this->fileFactory = $fileFactory;
+		$this->dateTime = $dateTime;
+		$this->pdfInvoice = $pdfInvoice;
+		$this->collectionFactory = $collectionFactory;
+		parent::__construct ( $context, $filter );
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 *
+	 */
+	protected function _isAllowed() {
+		return $this->_authorization->isAllowed ( 'Magento_Sales::sales_invoice' );
+	}
+	
+	/**
+	 * Save collection items to pdf invoices
+	 *
+	 * @param AbstractCollection $collection        	
+	 * @return ResponseInterface
+	 * @throws \Exception
+	 */
+	public function massAction(AbstractCollection $collection) {
+		return $this->fileFactory->create ( sprintf ( 'invoice%s.pdf', $this->dateTime->date ( 'Y-m-d_H-i-s' ) ), $this->pdfInvoice->getPdf ( $collection )->render (), DirectoryList::VAR_DIR, 'application/pdf' );
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -6,13 +7,15 @@
 namespace Magento\Payment\Block\Transparent;
 
 /**
- * Class Info. Payment Information block used for transparent redirect feature
+ * Class Info.
+ * Payment Information block used for transparent redirect feature
+ * 
  * @package Magento\Payment\Block\Transparent
  */
-class Info extends \Magento\Framework\View\Element\Template
-{
-    /**
-     * @var string
-     */
-    protected $_template = 'Magento_Payment::transparent/info.phtml';
+class Info extends \Magento\Framework\View\Element\Template {
+	/**
+	 *
+	 * @var string
+	 */
+	protected $_template = 'Magento_Payment::transparent/info.phtml';
 }

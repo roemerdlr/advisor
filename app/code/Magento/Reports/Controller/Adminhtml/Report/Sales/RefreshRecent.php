@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,15 +7,13 @@
  */
 namespace Magento\Reports\Controller\Adminhtml\Report\Sales;
 
-class RefreshRecent extends \Magento\Reports\Controller\Adminhtml\Report\Sales
-{
-    /**
-     * Refresh statistics for last 25 hours
-     *
-     * @return void
-     */
-    public function execute()
-    {
-        $this->_forward('refreshRecent', 'report_statistics');
-    }
+class RefreshRecent extends \Magento\Reports\Controller\Adminhtml\Report\Sales {
+	/**
+	 * Refresh statistics for last 25 hours
+	 *
+	 * @return void
+	 */
+	public function execute() {
+		$this->_forward ( 'refreshRecent', 'report_statistics' );
+	}
 }

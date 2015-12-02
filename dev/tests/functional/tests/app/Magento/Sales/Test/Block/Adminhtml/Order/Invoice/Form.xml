@@ -1,16 +1,12 @@
 <?xml version="1.0" ?>
-<!--
-/**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
+<!-- /** * Copyright © 2015 Magento. All rights reserved. * See COPYING.txt 
+	for license details. */ -->
 <mapping strict="0">
-    <wrapper>invoice</wrapper>
-    <fields>
-        <do_shipment>
-            <input>checkbox</input>
-        </do_shipment>
-        <comment_text />
-    </fields>
+	<wrapper>invoice</wrapper>
+	<fields>
+		<do_shipment>
+			<input>checkbox</input>
+		</do_shipment>
+		<comment_text />
+	</fields>
 </mapping>

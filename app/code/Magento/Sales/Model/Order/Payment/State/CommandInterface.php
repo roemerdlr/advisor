@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,15 +12,14 @@ use Magento\Sales\Api\Data\OrderPaymentInterface;
 /**
  * Interface CommandInterface using for payment related changes of order state
  */
-interface CommandInterface
-{
-    /**
-     * Run command
-     *
-     * @param OrderPaymentInterface $payment
-     * @param string|float|int $amount
-     * @param OrderInterface $order
-     * @return string
-     */
-    public function execute(OrderPaymentInterface $payment, $amount, OrderInterface $order);
+interface CommandInterface {
+	/**
+	 * Run command
+	 *
+	 * @param OrderPaymentInterface $payment        	
+	 * @param string|float|int $amount        	
+	 * @param OrderInterface $order        	
+	 * @return string
+	 */
+	public function execute(OrderPaymentInterface $payment, $amount, OrderInterface $order);
 }

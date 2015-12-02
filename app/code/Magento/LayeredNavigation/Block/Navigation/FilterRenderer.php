@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Catalog layer filter renderer
  *
@@ -11,17 +12,16 @@ use Magento\Catalog\Model\Layer\Filter\FilterInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\LayeredNavigation\Block\Navigation\FilterRendererInterface;
 
-class FilterRenderer extends Template implements FilterRendererInterface
-{
-    /**
-     * @param FilterInterface $filter
-     * @return string
-     */
-    public function render(FilterInterface $filter)
-    {
-        $this->assign('filterItems', $filter->getItems());
-        $html = $this->_toHtml();
-        $this->assign('filterItems', []);
-        return $html;
-    }
+class FilterRenderer extends Template implements FilterRendererInterface {
+	/**
+	 *
+	 * @param FilterInterface $filter        	
+	 * @return string
+	 */
+	public function render(FilterInterface $filter) {
+		$this->assign ( 'filterItems', $filter->getItems () );
+		$html = $this->_toHtml ();
+		$this->assign ( 'filterItems', [ ] );
+		return $html;
+	}
 }

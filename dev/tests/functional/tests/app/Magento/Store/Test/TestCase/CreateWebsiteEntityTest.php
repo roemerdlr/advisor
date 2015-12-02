@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Store\Test\TestCase;
 
 use Magento\Backend\Test\Page\Adminhtml\NewWebsiteIndex;
@@ -25,54 +25,49 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Store_Management_(PS)
  * @ZephyrId MAGETWO-27665
  */
-class CreateWebsiteEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * Page StoreIndex
-     *
-     * @var StoreIndex
-     */
-    protected $storeIndex;
-
-    /**
-     * NewWebsiteIndex page
-     *
-     * @var NewWebsiteIndex
-     */
-    protected $newWebsiteIndex;
-
-    /**
-     * Injection data
-     *
-     * @param StoreIndex $storeIndex
-     * @param NewWebsiteIndex $newWebsiteIndex
-     * @return void
-     */
-    public function __inject(
-        StoreIndex $storeIndex,
-        NewWebsiteIndex $newWebsiteIndex
-    ) {
-        $this->storeIndex = $storeIndex;
-        $this->newWebsiteIndex = $newWebsiteIndex;
-    }
-
-    /**
-     * Create Website
-     *
-     * @param Website $website
-     * @return void
-     */
-    public function test(Website $website)
-    {
-        //Steps
-        $this->storeIndex->open();
-        $this->storeIndex->getGridPageActions()->addNew();
-        $this->newWebsiteIndex->getEditWebsiteForm()->fill($website);
-        $this->newWebsiteIndex->getFormPageActions()->save();
-    }
+class CreateWebsiteEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * Page StoreIndex
+	 *
+	 * @var StoreIndex
+	 */
+	protected $storeIndex;
+	
+	/**
+	 * NewWebsiteIndex page
+	 *
+	 * @var NewWebsiteIndex
+	 */
+	protected $newWebsiteIndex;
+	
+	/**
+	 * Injection data
+	 *
+	 * @param StoreIndex $storeIndex        	
+	 * @param NewWebsiteIndex $newWebsiteIndex        	
+	 * @return void
+	 */
+	public function __inject(StoreIndex $storeIndex, NewWebsiteIndex $newWebsiteIndex) {
+		$this->storeIndex = $storeIndex;
+		$this->newWebsiteIndex = $newWebsiteIndex;
+	}
+	
+	/**
+	 * Create Website
+	 *
+	 * @param Website $website        	
+	 * @return void
+	 */
+	public function test(Website $website) {
+		// Steps
+		$this->storeIndex->open ();
+		$this->storeIndex->getGridPageActions ()->addNew ();
+		$this->newWebsiteIndex->getEditWebsiteForm ()->fill ( $website );
+		$this->newWebsiteIndex->getFormPageActions ()->save ();
+	}
 }

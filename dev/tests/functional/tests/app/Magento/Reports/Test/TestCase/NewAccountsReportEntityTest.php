@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Reports\Test\TestCase;
 
 use Magento\Customer\Test\Fixture\Customer;
@@ -13,7 +13,8 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1. Delete all existing customers.
+ * 1.
+ * Delete all existing customers.
  * 2. Create customer.
  *
  * Steps:
@@ -26,56 +27,53 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Reports_(MX)
  * @ZephyrId MAGETWO-27742
  */
-class NewAccountsReportEntityTest extends Injectable
-{
-    /* tags */
-    const MVP = 'no';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Customer Accounts pages.
-     *
-     * @var CustomerAccounts
-     */
-    protected $customerAccounts;
-
-    /**
-     * Customer index pages.
-     *
-     * @var CustomerIndex
-     */
-    protected $customerIndexPage;
-
-    /**
-     * Inject pages.
-     *
-     * @param CustomerIndex $customerIndexPage
-     * @param CustomerAccounts $customerAccounts
-     * @return void
-     */
-    public function __inject(CustomerIndex $customerIndexPage, CustomerAccounts $customerAccounts)
-    {
-        $this->customerAccounts = $customerAccounts;
-        $this->customerIndexPage = $customerIndexPage;
-    }
-
-    /**
-     * New Accounts Report.
-     *
-     * @param Customer $customer
-     * @param array $customersReport
-     * @return void
-     */
-    public function test(Customer $customer, array $customersReport)
-    {
-        // Preconditions
-        $this->customerIndexPage->open();
-        $this->customerIndexPage->getCustomerGridBlock()->massaction([], 'Delete', true, 'Select All');
-        $customer->persist();
-
-        // Steps
-        $this->customerAccounts->open();
-        $this->customerAccounts->getGridBlock()->searchAccounts($customersReport);
-    }
+class NewAccountsReportEntityTest extends Injectable {
+	/* tags */
+	const MVP = 'no';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Customer Accounts pages.
+	 *
+	 * @var CustomerAccounts
+	 */
+	protected $customerAccounts;
+	
+	/**
+	 * Customer index pages.
+	 *
+	 * @var CustomerIndex
+	 */
+	protected $customerIndexPage;
+	
+	/**
+	 * Inject pages.
+	 *
+	 * @param CustomerIndex $customerIndexPage        	
+	 * @param CustomerAccounts $customerAccounts        	
+	 * @return void
+	 */
+	public function __inject(CustomerIndex $customerIndexPage, CustomerAccounts $customerAccounts) {
+		$this->customerAccounts = $customerAccounts;
+		$this->customerIndexPage = $customerIndexPage;
+	}
+	
+	/**
+	 * New Accounts Report.
+	 *
+	 * @param Customer $customer        	
+	 * @param array $customersReport        	
+	 * @return void
+	 */
+	public function test(Customer $customer, array $customersReport) {
+		// Preconditions
+		$this->customerIndexPage->open ();
+		$this->customerIndexPage->getCustomerGridBlock ()->massaction ( [ ], 'Delete', true, 'Select All' );
+		$customer->persist ();
+		
+		// Steps
+		$this->customerAccounts->open ();
+		$this->customerAccounts->getGridBlock ()->searchAccounts ( $customersReport );
+	}
 }

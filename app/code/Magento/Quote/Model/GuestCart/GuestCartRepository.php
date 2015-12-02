@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,39 +14,38 @@ use Magento\Quote\Model\QuoteIdMaskFactory;
 /**
  * Cart Repository class for guest carts.
  */
-class GuestCartRepository implements GuestCartRepositoryInterface
-{
-    /**
-     * @var QuoteIdMaskFactory
-     */
-    protected $quoteIdMaskFactory;
-
-    /**
-     * @var CartRepositoryInterface
-     */
-    protected $quoteRepository;
-
-    /**
-     * Initialize dependencies.
-     *
-     * @param CartRepositoryInterface $quoteRepository
-     * @param QuoteIdMaskFactory $quoteIdMaskFactory
-     */
-    public function __construct(
-        CartRepositoryInterface $quoteRepository,
-        QuoteIdMaskFactory $quoteIdMaskFactory
-    ) {
-        $this->quoteIdMaskFactory = $quoteIdMaskFactory;
-        $this->quoteRepository = $quoteRepository;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function get($cartId)
-    {
-        /** @var $quoteIdMask QuoteIdMask */
-        $quoteIdMask = $this->quoteIdMaskFactory->create()->load($cartId, 'masked_id');
-        return $this->quoteRepository->get($quoteIdMask->getQuoteId());
-    }
+class GuestCartRepository implements GuestCartRepositoryInterface {
+	/**
+	 *
+	 * @var QuoteIdMaskFactory
+	 */
+	protected $quoteIdMaskFactory;
+	
+	/**
+	 *
+	 * @var CartRepositoryInterface
+	 */
+	protected $quoteRepository;
+	
+	/**
+	 * Initialize dependencies.
+	 *
+	 * @param CartRepositoryInterface $quoteRepository        	
+	 * @param QuoteIdMaskFactory $quoteIdMaskFactory        	
+	 */
+	public function __construct(CartRepositoryInterface $quoteRepository, QuoteIdMaskFactory $quoteIdMaskFactory) {
+		$this->quoteIdMaskFactory = $quoteIdMaskFactory;
+		$this->quoteRepository = $quoteRepository;
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 *
+	 */
+	public function get($cartId) {
+		/** @var $quoteIdMask QuoteIdMask */
+		$quoteIdMask = $this->quoteIdMaskFactory->create ()->load ( $cartId, 'masked_id' );
+		return $this->quoteRepository->get ( $quoteIdMask->getQuoteId () );
+	}
 }

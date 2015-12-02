@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,23 +11,20 @@ use Magento\Mtf\Client\Locator;
 
 /**
  * Addresses default block
- *
  */
-class AddressesDefault extends Block
-{
-    /**
-     * Selector for change billing address
-     *
-     * @var string
-     */
-    protected $changeBillingAddressSelector = '.box-address-billing a';
-
-    /**
-     * Click on address book menu item
-     */
-    public function goToAddressBook()
-    {
-        $this->waitForElementVisible($this->changeBillingAddressSelector, Locator::SELECTOR_CSS);
-        $this->_rootElement->find($this->changeBillingAddressSelector, Locator::SELECTOR_CSS)->click();
-    }
+class AddressesDefault extends Block {
+	/**
+	 * Selector for change billing address
+	 *
+	 * @var string
+	 */
+	protected $changeBillingAddressSelector = '.box-address-billing a';
+	
+	/**
+	 * Click on address book menu item
+	 */
+	public function goToAddressBook() {
+		$this->waitForElementVisible ( $this->changeBillingAddressSelector, Locator::SELECTOR_CSS );
+		$this->_rootElement->find ( $this->changeBillingAddressSelector, Locator::SELECTOR_CSS )->click ();
+	}
 }

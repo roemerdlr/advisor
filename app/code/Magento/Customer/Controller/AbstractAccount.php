@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -10,9 +11,9 @@ use Magento\Framework\App\Action\Action;
 
 /**
  * Class AbstractAccount
+ * 
  * @package Magento\Customer\Controller
- * @SuppressWarnings(PHPMD.NumberOfChildren)
+ *          @SuppressWarnings(PHPMD.NumberOfChildren)
  */
-abstract class AbstractAccount extends Action implements AccountInterface
-{
+abstract class AbstractAccount extends Action implements AccountInterface {
 }

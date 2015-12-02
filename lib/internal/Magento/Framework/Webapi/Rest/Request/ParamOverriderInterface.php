@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Framework\Webapi\Rest\Request;
 
 /**
@@ -15,10 +15,10 @@ namespace Magento\Framework\Webapi\Rest\Request;
  * invoked could have a signature of "getAddresses($customerId)", but in the webapi.xml, the $customerId parameter
  * would be forced to be the customer id of the current authenticated user.
  *
- * The forced override parameter configuration is in the webapi.xml. 
+ * The forced override parameter configuration is in the webapi.xml.
  *
  * <data>
- *   <parameter name="customer.id" force="true">%customer_id%</parameter>
+ * <parameter name="customer.id" force="true">%customer_id%</parameter>
  * </data>
  *
  * Classes which implement ParamOverriderInterface would return the real value for the parameter, so a
@@ -26,12 +26,11 @@ namespace Magento\Framework\Webapi\Rest\Request;
  * create new ParamOverriderInterface implementations, you can register new implementations by
  * adding to the parameter list for ParamsOverrider's dependency injection configuration.
  */
-interface ParamOverriderInterface
-{
-    /**
-     * Returns the overridden value to use.
-     *
-     * @return string|int|null
-     */
-    public function getOverriddenValue();
+interface ParamOverriderInterface {
+	/**
+	 * Returns the overridden value to use.
+	 *
+	 * @return string|int|null
+	 */
+	public function getOverriddenValue();
 }

@@ -7,6 +7,6 @@
  */
 
 /** @var \Magento\SalesRule\Model\Rule $salesRule */
-$salesRule = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create('Magento\SalesRule\Model\Rule');
-$salesRule->load('Test Coupon for General', 'name');
-$salesRule->delete();
+$salesRule = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ()->create ( 'Magento\SalesRule\Model\Rule' );
+$salesRule->load ( 'Test Coupon for General', 'name' );
+$salesRule->delete ();

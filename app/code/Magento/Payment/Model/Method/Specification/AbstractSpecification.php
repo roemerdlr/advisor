@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,22 +12,20 @@ use Magento\Payment\Model\Method\SpecificationInterface;
 /**
  * Abstract specification
  */
-abstract class AbstractSpecification implements SpecificationInterface
-{
-    /**
-     * Payment methods info
-     *
-     * @var array
-     */
-    protected $methodsInfo = [];
-
-    /**
-     * Construct
-     *
-     * @param PaymentConfig $paymentConfig
-     */
-    public function __construct(PaymentConfig $paymentConfig)
-    {
-        $this->methodsInfo = $paymentConfig->getMethodsInfo();
-    }
+abstract class AbstractSpecification implements SpecificationInterface {
+	/**
+	 * Payment methods info
+	 *
+	 * @var array
+	 */
+	protected $methodsInfo = [ ];
+	
+	/**
+	 * Construct
+	 *
+	 * @param PaymentConfig $paymentConfig        	
+	 */
+	public function __construct(PaymentConfig $paymentConfig) {
+		$this->methodsInfo = $paymentConfig->getMethodsInfo ();
+	}
 }

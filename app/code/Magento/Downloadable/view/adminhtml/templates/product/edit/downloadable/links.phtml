@@ -5,97 +5,103 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <?php
 
 /**
+ *
  * @var $block \Magento\Downloadable\Block\Adminhtml\Catalog\Product\Edit\Tab\Downloadable\Links
  */
 ?>
 <?php $_product = $block->getProduct()?>
-<?php $block->getConfigJson() ?>
-<fieldset class="admin__fieldset downloadable-form" data-ui-id="downloadable-links">
-    <legend class="admin__legend"><span><?php /* @escapeNotVerified */ echo __('Links')?></span></legend><br>
-    <p class="note"><?php /* @escapeNotVerified */ echo __('Add links to your product files here.')?></p>
-    <div class="admin__field" <?php echo !$block->isSingleStoreMode() ? ' data-config-scope="' . __('[STORE VIEW]') . '"' : ''; ?>>
-        <label class="admin__field-label" for="downloadable_links_title"><span><?php /* @escapeNotVerified */ echo __('Title')?></span></label>
-        <div class="admin__field-control">
-            <input type="text" class="admin__control-text" id="downloadable_links_title" name="product[links_title]" value="<?php /* @escapeNotVerified */ echo $block->getLinksTitle() ?>" <?php echo($_product->getStoreId() && $block->getUsedDefault()) ? 'disabled="disabled"' : '' ?>>
+<?php $block->getConfigJson()?>
+<fieldset class="admin__fieldset downloadable-form"
+	data-ui-id="downloadable-links">
+	<legend class="admin__legend">
+		<span><?php /* @escapeNotVerified */ echo __('Links')?></span>
+	</legend>
+	<br>
+	<p class="note"><?php /* @escapeNotVerified */ echo __('Add links to your product files here.')?></p>
+	<div class="admin__field"
+		<?php echo !$block->isSingleStoreMode() ? ' data-config-scope="' . __('[STORE VIEW]') . '"' : ''; ?>>
+		<label class="admin__field-label" for="downloadable_links_title"><span><?php /* @escapeNotVerified */ echo __('Title')?></span></label>
+		<div class="admin__field-control">
+			<input type="text" class="admin__control-text"
+				id="downloadable_links_title" name="product[links_title]"
+				value="<?php /* @escapeNotVerified */ echo $block->getLinksTitle() ?>"
+				<?php echo($_product->getStoreId() && $block->getUsedDefault()) ? 'disabled="disabled"' : '' ?>>
             <?php if ($_product->getStoreId()): ?>
                 <div class="admin__field admin__field-option">
-                    <input id="link_title_default" class="admin__control-checkbox" type="checkbox" name="use_default[]" value="links_title" onclick="toggleValueElements(this, this.parentNode.parentNode)" <?php echo $block->getUsedDefault() ? 'checked="checked"' : '' ?> />
-                    <label class="admin__field-label" for="link_title_default"><span><?php /* @escapeNotVerified */ echo __('Use Default Value'); ?></span></label>
-                </div>
+				<input id="link_title_default" class="admin__control-checkbox"
+					type="checkbox" name="use_default[]" value="links_title"
+					onclick="toggleValueElements(this, this.parentNode.parentNode)"
+					<?php echo $block->getUsedDefault() ? 'checked="checked"' : '' ?> />
+				<label class="admin__field-label" for="link_title_default"><span><?php /* @escapeNotVerified */ echo __('Use Default Value'); ?></span></label>
+			</div>
             <?php endif; ?>
         </div>
-    </div>
+	</div>
 
-    <div class="admin__field" <?php echo !$block->isSingleStoreMode() ? ' data-config-scope="' . __('[GLOBAL]') . '"' : ''; ?>>
-        <label class="admin__field-label" for="downloadable_link_purchase_type"><span><?php /* @escapeNotVerified */ echo __('Links can be purchased separately')?></span></label>
-        <div class="admin__field-control">
-            <div class="admin__field-control link-switcher" data-role="link-switcher">
-                <div class="admin__field-control-group">
-                    <div class="admin__field admin__field-option">
-                        <input type="radio" name="product[links_purchased_separately]" value="1"
-                               class="admin__control-radio"
-                               id="link-switcher1"
-                           <?php if($block->isProductLinksCanBePurchasedSeparately()): ?>
-                               checked="checked"
-                           <?php endif; ?>
-                            >
-                        <label class="admin__field-label" for="link-switcher1">
-                            <span>Yes</span>
-                        </label>
-                    </div>
-                    <div class="admin__field admin__field-option">
-                        <input type="radio" name="product[links_purchased_separately]" value="0"
-                                class="admin__control-radio"
-                                id="link-switcher0"
-                            <?php if(!$block->isProductLinksCanBePurchasedSeparately()): ?>
-                                checked="checked"
-                            <?php endif; ?>
-                            >
-                        <label class="admin__field-label" for="link-switcher0">
-                            <span>No</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="admin__field admin__field-wide">
-        <div class="admin__field-control">
-            <div class="admin__control-table-wrapper">
-                <table class="admin__control-table">
-                    <thead>
-                        <tr>
-                            <th class="col-sort"><span><?php /* @escapeNotVerified */ echo __('Sort Order') ?></span></th>
-                            <th class="col-title _required"><span><?php /* @escapeNotVerified */ echo __('Title') ?></span></th>
+	<div class="admin__field"
+		<?php echo !$block->isSingleStoreMode() ? ' data-config-scope="' . __('[GLOBAL]') . '"' : ''; ?>>
+		<label class="admin__field-label"
+			for="downloadable_link_purchase_type"><span><?php /* @escapeNotVerified */ echo __('Links can be purchased separately')?></span></label>
+		<div class="admin__field-control">
+			<div class="admin__field-control link-switcher"
+				data-role="link-switcher">
+				<div class="admin__field-control-group">
+					<div class="admin__field admin__field-option">
+						<input type="radio" name="product[links_purchased_separately]"
+							value="1" class="admin__control-radio" id="link-switcher1"
+							<?php if($block->isProductLinksCanBePurchasedSeparately()): ?>
+							checked="checked" <?php endif; ?>> <label
+							class="admin__field-label" for="link-switcher1"> <span>Yes</span>
+						</label>
+					</div>
+					<div class="admin__field admin__field-option">
+						<input type="radio" name="product[links_purchased_separately]"
+							value="0" class="admin__control-radio" id="link-switcher0"
+							<?php if(!$block->isProductLinksCanBePurchasedSeparately()): ?>
+							checked="checked" <?php endif; ?>> <label
+							class="admin__field-label" for="link-switcher0"> <span>No</span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="admin__field admin__field-wide">
+		<div class="admin__field-control">
+			<div class="admin__control-table-wrapper">
+				<table class="admin__control-table">
+					<thead>
+						<tr>
+							<th class="col-sort"><span><?php /* @escapeNotVerified */ echo __('Sort Order') ?></span></th>
+							<th class="col-title _required"><span><?php /* @escapeNotVerified */ echo __('Title') ?></span></th>
                             <?php if ($block->getCanReadPrice() !== false) : ?>
                                 <th class="col-price"><span><?php /* @escapeNotVerified */ echo __('Price') ?></span></th>
                             <?php endif; ?>
                             <th class="col-file"><span><?php /* @escapeNotVerified */ echo __('Attach File or Enter Link') ?></span></th>
-                            <th class="col-sample"><span><?php /* @escapeNotVerified */ echo __('Sample') ?></span></th>
-                            <th class="col-share"><span><?php /* @escapeNotVerified */ echo __('Shareable') ?></span></th>
-                            <th class="col-limit"><span><?php /* @escapeNotVerified */ echo __('Max. Downloads') ?></span></th>
-                            <th class="col-actions">&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <td class="col-actions-add" colspan="8"><?php echo $block->getAddButtonHtml() ?></td>
-                        </tr>
-                    </tfoot>
-                    <tbody id="link_items_body">
-                    </tbody>
-                </table>
-            </div>
-            <div class="admin__field-note">
-                <span><?php /* @escapeNotVerified */ echo __('Alphanumeric, dash and underscore characters are recommended for filenames. Improper characters are replaced with \'_\'.')?></span>
-            </div>
-        </div>
-    </div>
+							<th class="col-sample"><span><?php /* @escapeNotVerified */ echo __('Sample') ?></span></th>
+							<th class="col-share"><span><?php /* @escapeNotVerified */ echo __('Shareable') ?></span></th>
+							<th class="col-limit"><span><?php /* @escapeNotVerified */ echo __('Max. Downloads') ?></span></th>
+							<th class="col-actions">&nbsp;</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<td class="col-actions-add" colspan="8"><?php echo $block->getAddButtonHtml() ?></td>
+						</tr>
+					</tfoot>
+					<tbody id="link_items_body">
+					</tbody>
+				</table>
+			</div>
+			<div class="admin__field-note">
+				<span><?php /* @escapeNotVerified */ echo __('Alphanumeric, dash and underscore characters are recommended for filenames. Improper characters are replaced with \'_\'.')?></span>
+			</div>
+		</div>
+	</div>
 </fieldset>
 <script>
 require([
@@ -323,7 +329,7 @@ require([
                     'downloadable[link]['+data.id+'][sample]',
                     data.sample_file_save,
                     'downloadable_link_'+data.id+'_sample_file',
-                    <?php /* @escapeNotVerified */ echo $block->getConfigJson('link_samples') ?>
+                    <?php /* @escapeNotVerified */ echo $block->getConfigJson('link_samples')?>
                 );
                 // link file
                 new Downloadable.FileUploader(
@@ -333,7 +339,7 @@ require([
                     'downloadable[link]['+data.id+']',
                     data.file_save,
                     'downloadable_link_'+data.id+'_file',
-                    <?php /* @escapeNotVerified */ echo $block->getConfigJson() ?>
+                    <?php /* @escapeNotVerified */ echo $block->getConfigJson()?>
                 );
 
                 linkFile = $('downloadable_link_'+data.id+'_file_type');

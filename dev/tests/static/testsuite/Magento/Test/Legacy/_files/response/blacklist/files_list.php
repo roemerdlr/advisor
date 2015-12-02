@@ -9,10 +9,10 @@
  *
  * Files that temporary excluded from results
  */
-return [
-    '/app/code/Magento/Backend/Model/View.php',
-    '/app/code/Magento/Backend/App/AbstractAction.php',
-    '/app/code/Magento/Backend/App/Response/Http/FileFactory.php',
-    '/app/code/Magento/Backend/Block/Widget.php',
-    '/app/code/Magento/Backend/Block/System/Config/Dwstree.php',
+return [ 
+		'/app/code/Magento/Backend/Model/View.php',
+		'/app/code/Magento/Backend/App/AbstractAction.php',
+		'/app/code/Magento/Backend/App/Response/Http/FileFactory.php',
+		'/app/code/Magento/Backend/Block/Widget.php',
+		'/app/code/Magento/Backend/Block/System/Config/Dwstree.php' 
 ];

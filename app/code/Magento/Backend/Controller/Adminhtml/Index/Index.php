@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,18 +7,16 @@
  */
 namespace Magento\Backend\Controller\Adminhtml\Index;
 
-class Index extends \Magento\Backend\Controller\Adminhtml\Index
-{
-    /**
-     * Admin area entry point
-     * Always redirects to the startup page url
-     *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     */
-    public function execute()
-    {
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultRedirectFactory->create();
-        return $resultRedirect->setPath($this->_backendUrl->getStartupPageUrl());
-    }
+class Index extends \Magento\Backend\Controller\Adminhtml\Index {
+	/**
+	 * Admin area entry point
+	 * Always redirects to the startup page url
+	 *
+	 * @return \Magento\Backend\Model\View\Result\Redirect
+	 */
+	public function execute() {
+		/** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+		$resultRedirect = $this->resultRedirectFactory->create ();
+		return $resultRedirect->setPath ( $this->_backendUrl->getStartupPageUrl () );
+	}
 }

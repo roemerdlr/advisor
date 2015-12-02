@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Sales\Controller\Guest;
 
-class Creditmemo extends \Magento\Sales\Controller\Guest\View
-{
+class Creditmemo extends \Magento\Sales\Controller\Guest\View {
 }

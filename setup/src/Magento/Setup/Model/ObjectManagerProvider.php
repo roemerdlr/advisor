@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Setup\Model;
 
 use Magento\Framework\ObjectManagerInterface;
@@ -19,83 +19,75 @@ use Magento\Framework\App\DeploymentConfig;
  * Guaranties single object manager per application run.
  * Hides complexity of creating Magento object manager
  */
-class ObjectManagerProvider
-{
-    /**
-     * @var ServiceLocatorInterface
-     */
-    private $serviceLocator;
-
-    /**
-     * @var ObjectManagerInterface
-     */
-    private $objectManager;
-
-    /**
-     * @param ServiceLocatorInterface $serviceLocator
-     */
-    public function __construct(ServiceLocatorInterface $serviceLocator)
-    {
-        $this->serviceLocator = $serviceLocator;
-    }
-
-    /**
-     * Retrieve object manager.
-     *
-     * @return ObjectManagerInterface
-     * @throws \Magento\Setup\Exception
-     */
-    public function get()
-    {
-        if (null === $this->objectManager) {
-            $initParams = $this->serviceLocator->get(InitParamListener::BOOTSTRAP_PARAM);
-            $factory = Bootstrap::createObjectManagerFactory(BP, $initParams);
-            $this->objectManager = $factory->create($initParams);
-            $this->objectManager->configure(
-                [
-                    'Magento\Framework\Stdlib\DateTime\Timezone' => [
-                        'arguments' => [
-                            'scopeType' => \Magento\Framework\App\Config\ScopeConfigInterface::SCOPE_TYPE_DEFAULT
-                        ]
-                    ]
-                ]
-            );
-        }
-        return $this->objectManager;
-    }
-
-    /**
-     * Causes object manager to be reinitialized the next time it is retrieved.
-     *
-     * @return void
-     */
-    public function reset()
-    {
-        $this->objectManager = null;
-    }
-
-    /**
-     * Sets object manager
-     *
-     * @param ObjectManagerInterface $objectManager
-     * @return void
-     */
-    public function setObjectManager(ObjectManagerInterface $objectManager)
-    {
-        $this->objectManager = $objectManager;
-    }
-
-    /**
-     * Returns ObjectManagerFactory
-     *
-     * @param array $initParams
-     * @return \Magento\Framework\App\ObjectManagerFactory
-     */
-    public function getObjectManagerFactory($initParams = [])
-    {
-        return Bootstrap::createObjectManagerFactory(
-            BP,
-            $initParams
-        );
-    }
+class ObjectManagerProvider {
+	/**
+	 *
+	 * @var ServiceLocatorInterface
+	 */
+	private $serviceLocator;
+	
+	/**
+	 *
+	 * @var ObjectManagerInterface
+	 */
+	private $objectManager;
+	
+	/**
+	 *
+	 * @param ServiceLocatorInterface $serviceLocator        	
+	 */
+	public function __construct(ServiceLocatorInterface $serviceLocator) {
+		$this->serviceLocator = $serviceLocator;
+	}
+	
+	/**
+	 * Retrieve object manager.
+	 *
+	 * @return ObjectManagerInterface
+	 * @throws \Magento\Setup\Exception
+	 */
+	public function get() {
+		if (null === $this->objectManager) {
+			$initParams = $this->serviceLocator->get ( InitParamListener::BOOTSTRAP_PARAM );
+			$factory = Bootstrap::createObjectManagerFactory ( BP, $initParams );
+			$this->objectManager = $factory->create ( $initParams );
+			$this->objectManager->configure ( [ 
+					'Magento\Framework\Stdlib\DateTime\Timezone' => [ 
+							'arguments' => [ 
+									'scopeType' => \Magento\Framework\App\Config\ScopeConfigInterface::SCOPE_TYPE_DEFAULT 
+							] 
+					] 
+			] );
+		}
+		return $this->objectManager;
+	}
+	
+	/**
+	 * Causes object manager to be reinitialized the next time it is retrieved.
+	 *
+	 * @return void
+	 */
+	public function reset() {
+		$this->objectManager = null;
+	}
+	
+	/**
+	 * Sets object manager
+	 *
+	 * @param ObjectManagerInterface $objectManager        	
+	 * @return void
+	 */
+	public function setObjectManager(ObjectManagerInterface $objectManager) {
+		$this->objectManager = $objectManager;
+	}
+	
+	/**
+	 * Returns ObjectManagerFactory
+	 *
+	 * @param array $initParams        	
+	 * @return \Magento\Framework\App\ObjectManagerFactory
+	 */
+	public function getObjectManagerFactory($initParams = []) {
+		return Bootstrap::createObjectManagerFactory ( BP, $initParams );
+	}
 }

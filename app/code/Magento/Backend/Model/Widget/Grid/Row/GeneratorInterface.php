@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Row Generator Interface
  *
@@ -7,12 +8,11 @@
  */
 namespace Magento\Backend\Model\Widget\Grid\Row;
 
-interface GeneratorInterface
-{
-    /**
-     * @param \Magento\Framework\DataObject $item
-     * @return string
-     * @api
-     */
-    public function getUrl($item);
+interface GeneratorInterface {
+	/**
+	 *
+	 * @param \Magento\Framework\DataObject $item        	
+	 * @return string @api
+	 */
+	public function getUrl($item);
 }

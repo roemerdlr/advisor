@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,6 +7,5 @@
  */
 namespace Magento\Downloadable\Controller\Adminhtml\Downloadable\Product\Edit;
 
-class Upsell extends \Magento\Catalog\Controller\Adminhtml\Product\Upsell
-{
+class Upsell extends \Magento\Catalog\Controller\Adminhtml\Product\Upsell {
 }

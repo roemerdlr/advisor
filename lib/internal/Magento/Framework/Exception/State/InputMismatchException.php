@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Input mismatch exception
  *
@@ -9,6 +10,5 @@ namespace Magento\Framework\Exception\State;
 
 use Magento\Framework\Exception\StateException;
 
-class InputMismatchException extends StateException
-{
+class InputMismatchException extends StateException {
 }

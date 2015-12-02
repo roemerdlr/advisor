@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -9,16 +10,14 @@
  */
 namespace Magento\Config\Model\Config\Structure\Mapper;
 
-class Ignore implements \Magento\Config\Model\Config\Structure\MapperInterface
-{
-    /**
-     * Apply map
-     *
-     * @param array $data
-     * @return array
-     */
-    public function map(array $data)
-    {
-        return $data;
-    }
+class Ignore implements \Magento\Config\Model\Config\Structure\MapperInterface {
+	/**
+	 * Apply map
+	 *
+	 * @param array $data        	
+	 * @return array
+	 */
+	public function map(array $data) {
+		return $data;
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,37 +14,40 @@ namespace Magento\Sales\Api;
  * a purchase order, is emailed to the customer.
  * @api
  */
-interface OrderItemRepositoryInterface
-{
-    /**
-     * Lists order items that match specified search criteria.
-     *
-     * @param \Magento\Framework\Api\SearchCriteria $searchCriteria The search criteria.
-     * @return \Magento\Sales\Api\Data\OrderItemSearchResultInterface Order item search result interface.
-     */
-    public function getList(\Magento\Framework\Api\SearchCriteria $searchCriteria);
-
-    /**
-     * Loads a specified order item.
-     *
-     * @param int $id The order item ID.
-     * @return \Magento\Sales\Api\Data\OrderItemInterface Order item interface.
-     */
-    public function get($id);
-
-    /**
-     * Deletes a specified order item.
-     *
-     * @param \Magento\Sales\Api\Data\OrderItemInterface $entity The order item.
-     * @return bool
-     */
-    public function delete(\Magento\Sales\Api\Data\OrderItemInterface $entity);
-
-    /**
-     * Performs persist operations for a specified order item.
-     *
-     * @param \Magento\Sales\Api\Data\OrderItemInterface $entity The order item.
-     * @return \Magento\Sales\Api\Data\OrderItemInterface Order item interface.
-     */
-    public function save(\Magento\Sales\Api\Data\OrderItemInterface $entity);
+interface OrderItemRepositoryInterface {
+	/**
+	 * Lists order items that match specified search criteria.
+	 *
+	 * @param \Magento\Framework\Api\SearchCriteria $searchCriteria
+	 *        	The search criteria.
+	 * @return \Magento\Sales\Api\Data\OrderItemSearchResultInterface Order item search result interface.
+	 */
+	public function getList(\Magento\Framework\Api\SearchCriteria $searchCriteria);
+	
+	/**
+	 * Loads a specified order item.
+	 *
+	 * @param int $id
+	 *        	The order item ID.
+	 * @return \Magento\Sales\Api\Data\OrderItemInterface Order item interface.
+	 */
+	public function get($id);
+	
+	/**
+	 * Deletes a specified order item.
+	 *
+	 * @param \Magento\Sales\Api\Data\OrderItemInterface $entity
+	 *        	The order item.
+	 * @return bool
+	 */
+	public function delete(\Magento\Sales\Api\Data\OrderItemInterface $entity);
+	
+	/**
+	 * Performs persist operations for a specified order item.
+	 *
+	 * @param \Magento\Sales\Api\Data\OrderItemInterface $entity
+	 *        	The order item.
+	 * @return \Magento\Sales\Api\Data\OrderItemInterface Order item interface.
+	 */
+	public function save(\Magento\Sales\Api\Data\OrderItemInterface $entity);
 }

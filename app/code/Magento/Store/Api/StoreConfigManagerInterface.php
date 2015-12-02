@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,11 +14,11 @@ use Magento\Store\Model\StoreIsInactiveException;
  *
  * @api
  */
-interface StoreConfigManagerInterface
-{
-    /**
-     * @param string[] $storeCodes
-     * @return \Magento\Store\Api\Data\StoreConfigInterface[]
-     */
-    public function getStoreConfigs(array $storeCodes = null);
+interface StoreConfigManagerInterface {
+	/**
+	 *
+	 * @param string[] $storeCodes        	
+	 * @return \Magento\Store\Api\Data\StoreConfigInterface[]
+	 */
+	public function getStoreConfigs(array $storeCodes = null);
 }

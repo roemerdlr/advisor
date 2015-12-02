@@ -7,27 +7,24 @@
 // @codingStandardsIgnoreFile
 
 /** @var $block \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Extend */
-$elementHtml = $block->getParentElementHtml();
+$elementHtml = $block->getParentElementHtml ();
 
-$attributeCode = $block->getAttribute()
-    ->getAttributeCode();
+$attributeCode = $block->getAttribute ()->getAttributeCode ();
 
 $switchAttributeCode = "{$attributeCode}_type";
-$switchAttributeValue = $block->getProduct()
-    ->getData($switchAttributeCode);
+$switchAttributeValue = $block->getProduct ()->getData ( $switchAttributeCode );
 
-$isElementReadonly = $block->getElement()
-    ->getReadonly();
+$isElementReadonly = $block->getElement ()->getReadonly ();
 ?>
 
 <?php if (!($attributeCode === 'price' && $block->getCanReadPrice() === false)) { ?>
-    <div class="<?= /* @escapeNotVerified */  $attributeCode ?> "><?= /* @escapeNotVerified */  $elementHtml ?></div>
+<div class="<?= /* @escapeNotVerified */  $attributeCode ?> "><?= /* @escapeNotVerified */  $elementHtml ?></div>
 <?php } ?>
 
 <?=$block->getExtendedElement($switchAttributeCode)->toHtml(); ?>
 
 <?php if (!$isElementReadonly && $block->getDisableChild()) { ?>
-    <script>
+<script>
         require(['prototype'], function () {
             function <?= /* @escapeNotVerified */ $switchAttributeCode?>_change() {
                 var $attribute = $('<?= /* @escapeNotVerified */ $attributeCode?>');
@@ -42,8 +39,10 @@ $isElementReadonly = $block->getElement()
                     }
                 } else {
                     if ($attribute) {
-                        <?php if ($attributeCode === 'price' && !$block->getCanEditPrice() && $block->getCanReadPrice()
-                                && $block->getProduct()->isObjectNew()) { ?>
+                        <?php
+	
+if ($attributeCode === 'price' && ! $block->getCanEditPrice () && $block->getCanReadPrice () && $block->getProduct ()->isObjectNew ()) {
+		?>
                             <?php $defaultProductPrice = $block->getDefaultProductPrice() ?: "''"; ?>
                             $attribute.value = <?= /* @escapeNotVerified */ $defaultProductPrice?>;
                         <?php } else { ?>
@@ -57,8 +56,10 @@ $isElementReadonly = $block->getElement()
                 }
             }
 
-            <?php if (!($attributeCode === 'price' && !$block->getCanEditPrice()
-                    && !$block->getProduct()->isObjectNew())) { ?>
+            <?php
+	
+if (! ($attributeCode === 'price' && ! $block->getCanEditPrice () && ! $block->getProduct ()->isObjectNew ())) {
+		?>
                 $('<?= /* @escapeNotVerified */ $switchAttributeCode?>').observe('change', <?= /* @escapeNotVerified */ $switchAttributeCode?>_change);
             <?php } ?>
             Event.observe(window, 'load', function(){

@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -10,12 +11,11 @@ namespace Magento\Bundle\Api;
  * Interface ProductOptionTypeListInterface
  * @api
  */
-interface ProductOptionTypeListInterface
-{
-    /**
-     * Get all types for options for bundle products
-     *
-     * @return \Magento\Bundle\Api\Data\OptionTypeInterface[]
-     */
-    public function getItems();
+interface ProductOptionTypeListInterface {
+	/**
+	 * Get all types for options for bundle products
+	 *
+	 * @return \Magento\Bundle\Api\Data\OptionTypeInterface[]
+	 */
+	public function getItems();
 }

@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Catalog\Test\TestCase\ProductAttribute;
 
 use Magento\Mtf\Fixture\FixtureFactory;
@@ -11,7 +11,8 @@ use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Preconditions:
- * 1. Create Product.
+ * 1.
+ * Create Product.
  *
  * Steps:
  * 1. Log in to Backend.
@@ -27,36 +28,34 @@ use Magento\Mtf\TestCase\Scenario;
  * @group Product_Attributes_(MX)
  * @ZephyrId MAGETWO-30528
  */
-class CreateProductAttributeEntityFromProductPageTest extends Scenario
-{
-    /* tags */
-    const MVP = 'yes';
-    const DOMAIN = 'MX';
-    /* end tags */
-
-    /**
-     * Prepare data for test.
-     *
-     * @param FixtureFactory $fixtureFactory
-     * @return array
-     */
-    public function __prepare(FixtureFactory $fixtureFactory)
-    {
-        $product = $fixtureFactory->createByCode(
-            'catalogProductSimple',
-            ['dataset' => 'product_with_category_with_anchor']
-        );
-        $product->persist();
-        return ['product' => $product];
-    }
-
-    /**
-     * Run CreateProductAttributeEntity from product page test.
-     *
-     * @return void
-     */
-    public function test()
-    {
-        $this->executeScenario();
-    }
+class CreateProductAttributeEntityFromProductPageTest extends Scenario {
+	/* tags */
+	const MVP = 'yes';
+	const DOMAIN = 'MX';
+	/* end tags */
+	
+	/**
+	 * Prepare data for test.
+	 *
+	 * @param FixtureFactory $fixtureFactory        	
+	 * @return array
+	 */
+	public function __prepare(FixtureFactory $fixtureFactory) {
+		$product = $fixtureFactory->createByCode ( 'catalogProductSimple', [ 
+				'dataset' => 'product_with_category_with_anchor' 
+		] );
+		$product->persist ();
+		return [ 
+				'product' => $product 
+		];
+	}
+	
+	/**
+	 * Run CreateProductAttributeEntity from product page test.
+	 *
+	 * @return void
+	 */
+	public function test() {
+		$this->executeScenario ();
+	}
 }

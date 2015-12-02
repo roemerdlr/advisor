@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -14,25 +15,23 @@ namespace Magento\Eav\Model\Entity\Increment;
  * - pad_char
  * - last_id
  */
-class NumericValue extends \Magento\Eav\Model\Entity\Increment\AbstractIncrement
-{
-    /**
-     * Get next id
-     *
-     * @return string
-     */
-    public function getNextId()
-    {
-        $last = $this->getLastId();
-
-        if (strpos($last, $this->getPrefix()) === 0) {
-            $last = (int)substr($last, strlen($this->getPrefix()));
-        } else {
-            $last = (int)$last;
-        }
-
-        $next = $last + 1;
-
-        return $this->format($next);
-    }
+class NumericValue extends \Magento\Eav\Model\Entity\Increment\AbstractIncrement {
+	/**
+	 * Get next id
+	 *
+	 * @return string
+	 */
+	public function getNextId() {
+		$last = $this->getLastId ();
+		
+		if (strpos ( $last, $this->getPrefix () ) === 0) {
+			$last = ( int ) substr ( $last, strlen ( $this->getPrefix () ) );
+		} else {
+			$last = ( int ) $last;
+		}
+		
+		$next = $last + 1;
+		
+		return $this->format ( $next );
+	}
 }

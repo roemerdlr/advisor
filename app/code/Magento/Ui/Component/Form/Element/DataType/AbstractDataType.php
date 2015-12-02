@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,15 +11,13 @@ use Magento\Ui\Component\AbstractComponent;
 /**
  * Class AbstractDataType
  */
-abstract class AbstractDataType extends AbstractComponent implements DataTypeInterface
-{
-    /**
-     * Validate value
-     *
-     * @return bool
-     */
-    public function validate()
-    {
-        return true;
-    }
+abstract class AbstractDataType extends AbstractComponent implements DataTypeInterface {
+	/**
+	 * Validate value
+	 *
+	 * @return bool
+	 */
+	public function validate() {
+		return true;
+	}
 }

@@ -8,4 +8,5 @@
 
 /** @var $block \Magento\Directory\Block\Currency */
 ?>
-<meta property="product:price:currency" content="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getCurrentCurrencyCode()); ?>"/>
+<meta property="product:price:currency"
+	content="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getCurrentCurrencyCode()); ?>" />

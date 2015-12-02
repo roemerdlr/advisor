@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Framework for unit tests containing helper methods
  *
@@ -13,33 +14,33 @@ namespace Magento\Framework\TestFramework\Unit;
 
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 
-class BaseTestCase extends \PHPUnit_Framework_TestCase
-{
-    /**
-     * @var \Magento\Framework\TestFramework\Unit\Helper\ObjectManager
-     */
-    protected $objectManager;
-
-    public function setUp()
-    {
-        $this->objectManager = new ObjectManager($this);
-    }
-
-    /**
-     * Build a basic mock object
-     *
-     * @param string $className
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    protected function basicMock($className)
-    {
-        return $this->getMockBuilder($className)
-            ->disableOriginalConstructor()
-            ->getMock();
-    }
-
-    public function booleanDataProvider()
-    {
-        return [[true], [false]];
-    }
+class BaseTestCase extends \PHPUnit_Framework_TestCase {
+	/**
+	 *
+	 * @var \Magento\Framework\TestFramework\Unit\Helper\ObjectManager
+	 */
+	protected $objectManager;
+	public function setUp() {
+		$this->objectManager = new ObjectManager ( $this );
+	}
+	
+	/**
+	 * Build a basic mock object
+	 *
+	 * @param string $className        	
+	 * @return \PHPUnit_Framework_MockObject_MockObject
+	 */
+	protected function basicMock($className) {
+		return $this->getMockBuilder ( $className )->disableOriginalConstructor ()->getMock ();
+	}
+	public function booleanDataProvider() {
+		return [ 
+				[ 
+						true 
+				],
+				[ 
+						false 
+				] 
+		];
+	}
 }

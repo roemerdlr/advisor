@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,18 +11,17 @@ use Magento\Framework\View\Asset\File;
 /**
  * Interface ContentProcessorInterface
  */
-interface ContentProcessorInterface
-{
-    /**
-     * Error prefix
-     */
-    const ERROR_MESSAGE_PREFIX = 'Compilation from source: ';
-
-    /**
-     * Process file content
-     *
-     * @param File $asset
-     * @return string
-     */
-    public function processContent(File $asset);
+interface ContentProcessorInterface {
+	/**
+	 * Error prefix
+	 */
+	const ERROR_MESSAGE_PREFIX = 'Compilation from source: ';
+	
+	/**
+	 * Process file content
+	 *
+	 * @param File $asset        	
+	 * @return string
+	 */
+	public function processContent(File $asset);
 }

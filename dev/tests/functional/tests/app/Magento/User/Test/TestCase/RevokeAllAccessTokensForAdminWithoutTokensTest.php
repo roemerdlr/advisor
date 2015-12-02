@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\User\Test\TestCase;
 
 use Magento\User\Test\Fixture\User;
@@ -30,55 +30,52 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Web_API_Framework_(PS)
  * @ZephyrId MAGETWO-29675
  */
-class RevokeAllAccessTokensForAdminWithoutTokensTest extends Injectable
-{
-    /* tags */
-    const MVP = 'no';
-    const DOMAIN = 'PS';
-    /* end tags */
-
-    /**
-     * User Index page.
-     *
-     * @var UserIndex
-     */
-    protected $userIndex;
-
-    /**
-     * User Edit page.
-     *
-     * @var UserEdit
-     */
-    protected $userEdit;
-
-    /**
-     * Setup necessary data for test.
-     *
-     * @param UserIndex $userIndex
-     * @param UserEdit $userEdit
-     * @return void
-     */
-    public function __inject(
-        UserIndex $userIndex,
-        UserEdit $userEdit
-    ) {
-        $this->userIndex = $userIndex;
-        $this->userEdit = $userEdit;
-    }
-
-    /**
-     * Run Revoke all access tokens for admin without tokens test.
-     *
-     * @param User $user
-     * @return void
-     */
-    public function test(User $user)
-    {
-        // Preconditions:
-        $user->persist();
-        // Steps:
-        $this->userIndex->open();
-        $this->userIndex->getUserGrid()->searchAndOpen(['username' => $user->getUsername()]);
-        $this->userEdit->getPageActions()->forceSignIn();
-    }
+class RevokeAllAccessTokensForAdminWithoutTokensTest extends Injectable {
+	/* tags */
+	const MVP = 'no';
+	const DOMAIN = 'PS';
+	/* end tags */
+	
+	/**
+	 * User Index page.
+	 *
+	 * @var UserIndex
+	 */
+	protected $userIndex;
+	
+	/**
+	 * User Edit page.
+	 *
+	 * @var UserEdit
+	 */
+	protected $userEdit;
+	
+	/**
+	 * Setup necessary data for test.
+	 *
+	 * @param UserIndex $userIndex        	
+	 * @param UserEdit $userEdit        	
+	 * @return void
+	 */
+	public function __inject(UserIndex $userIndex, UserEdit $userEdit) {
+		$this->userIndex = $userIndex;
+		$this->userEdit = $userEdit;
+	}
+	
+	/**
+	 * Run Revoke all access tokens for admin without tokens test.
+	 *
+	 * @param User $user        	
+	 * @return void
+	 */
+	public function test(User $user) {
+		// Preconditions:
+		$user->persist ();
+		// Steps:
+		$this->userIndex->open ();
+		$this->userIndex->getUserGrid ()->searchAndOpen ( [ 
+				'username' => $user->getUsername () 
+		] );
+		$this->userEdit->getPageActions ()->forceSignIn ();
+	}
 }

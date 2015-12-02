@@ -9,9 +9,9 @@
  *
  * Controllers that were refactored and use ResultInterface
  */
-return [
-    '/app/code/Magento/Catalog/Controller',
-    '/app/code/Magento/Backend/Controller',
-    '/app/code/Magento/Sales/Controller',
-    '/app/code/Magento/Customer/Controller',
+return [ 
+		'/app/code/Magento/Catalog/Controller',
+		'/app/code/Magento/Backend/Controller',
+		'/app/code/Magento/Sales/Controller',
+		'/app/code/Magento/Customer/Controller' 
 ];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -6,15 +7,14 @@
  */
 namespace Magento\Customer\Controller\Adminhtml\Group;
 
-class Edit extends \Magento\Customer\Controller\Adminhtml\Group
-{
-    /**
-     * Edit customer group action. Forward to new action.
-     *
-     * @return \Magento\Backend\Model\View\Result\Forward
-     */
-    public function execute()
-    {
-        return $this->resultForwardFactory->create()->forward('new');
-    }
+class Edit extends \Magento\Customer\Controller\Adminhtml\Group {
+	/**
+	 * Edit customer group action.
+	 * Forward to new action.
+	 *
+	 * @return \Magento\Backend\Model\View\Result\Forward
+	 */
+	public function execute() {
+		return $this->resultForwardFactory->create ()->forward ( 'new' );
+	}
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,17 +12,15 @@ use Magento\Framework\View\Element\UiComponentInterface;
 /**
  * Class Collection
  */
-class Collection extends AbstractComponent implements UiComponentInterface
-{
-    const NAME = 'collection';
-
-    /**
-     * Get component name
-     *
-     * @return string
-     */
-    public function getComponentName()
-    {
-        return static::NAME;
-    }
+class Collection extends AbstractComponent implements UiComponentInterface {
+	const NAME = 'collection';
+	
+	/**
+	 * Get component name
+	 *
+	 * @return string
+	 */
+	public function getComponentName() {
+		return static::NAME;
+	}
 }

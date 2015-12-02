@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,14 +11,13 @@ use Magento\Framework\DataObject;
 /**
  * Interface CdataInterface
  */
-interface CdataInterface
-{
-    /**
-     * Compiles the CData Section node
-     *
-     * @param \DOMCdataSection $node
-     * @param DataObject $processedObject
-     * @return void
-     */
-    public function compile(\DOMCdataSection $node, DataObject $processedObject);
+interface CdataInterface {
+	/**
+	 * Compiles the CData Section node
+	 *
+	 * @param \DOMCdataSection $node        	
+	 * @param DataObject $processedObject        	
+	 * @return void
+	 */
+	public function compile(\DOMCdataSection $node, DataObject $processedObject);
 }

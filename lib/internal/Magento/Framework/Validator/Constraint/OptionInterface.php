@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Validator Constraint Option interface
  *
@@ -7,12 +8,11 @@
  */
 namespace Magento\Framework\Validator\Constraint;
 
-interface OptionInterface
-{
-    /**
-     * Get option value
-     *
-     * @return mixed
-     */
-    public function getValue();
+interface OptionInterface {
+	/**
+	 * Get option value
+	 *
+	 * @return mixed
+	 */
+	public function getValue();
 }

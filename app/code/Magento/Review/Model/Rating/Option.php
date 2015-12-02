@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -18,36 +19,35 @@ namespace Magento\Review\Model\Rating;
  * @method \Magento\Review\Model\Rating\Option setValue(int $value)
  * @method int getPosition()
  * @method \Magento\Review\Model\Rating\Option setPosition(int $value)
- *
- * @author      Magento Core Team <core@magentocommerce.com>
- * @codeCoverageIgnore
+ *        
+ * @author Magento Core Team <core@magentocommerce.com>
+ *         @codeCoverageIgnore
  */
-class Option extends \Magento\Framework\Model\AbstractModel
-{
-    /**
-     * @return void
-     */
-    protected function _construct()
-    {
-        $this->_init('Magento\Review\Model\ResourceModel\Rating\Option');
-    }
-
-    /**
-     * @return $this
-     */
-    public function addVote()
-    {
-        $this->getResource()->addVote($this);
-        return $this;
-    }
-
-    /**
-     * @param mixed $id
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->setOptionId($id);
-        return $this;
-    }
+class Option extends \Magento\Framework\Model\AbstractModel {
+	/**
+	 *
+	 * @return void
+	 */
+	protected function _construct() {
+		$this->_init ( 'Magento\Review\Model\ResourceModel\Rating\Option' );
+	}
+	
+	/**
+	 *
+	 * @return $this
+	 */
+	public function addVote() {
+		$this->getResource ()->addVote ( $this );
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @param mixed $id        	
+	 * @return $this
+	 */
+	public function setId($id) {
+		$this->setOptionId ( $id );
+		return $this;
+	}
 }

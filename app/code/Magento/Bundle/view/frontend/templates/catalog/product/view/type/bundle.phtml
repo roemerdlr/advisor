@@ -8,16 +8,18 @@
 
 /* @var $block \Magento\Bundle\Block\Catalog\Product\View\Type\Bundle */
 ?>
-<?php $_product = $block->getProduct() ?>
+<?php $_product = $block->getProduct()?>
 <?php if ($block->displayProductStockStatus()): ?>
     <?php if ($_product->isAvailable()): ?>
-        <p class="stock available" title="<?php /* @escapeNotVerified */ echo __('Availability:') ?>">
-            <span><?php /* @escapeNotVerified */ echo __('In stock') ?></span>
-        </p>
-    <?php else: ?>
-        <p class="stock unavailable" title="<?php /* @escapeNotVerified */ echo __('Availability:') ?>">
-            <span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span>
-        </p>
-    <?php endif; ?>
+<p class="stock available"
+	title="<?php /* @escapeNotVerified */ echo __('Availability:') ?>">
+	<span><?php /* @escapeNotVerified */ echo __('In stock') ?></span>
+</p>
+<?php else: ?>
+<p class="stock unavailable"
+	title="<?php /* @escapeNotVerified */ echo __('Availability:') ?>">
+	<span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span>
+</p>
 <?php endif; ?>
-<?php echo $block->getChildHtml('bundle_prices') ?>
+<?php endif; ?>
+<?php echo $block->getChildHtml('bundle_prices')?>

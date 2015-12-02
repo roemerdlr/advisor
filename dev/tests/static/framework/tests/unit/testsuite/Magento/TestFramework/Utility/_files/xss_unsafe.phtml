@@ -15,15 +15,18 @@
 <?= $someVar?>
 <?php echo __("bla");?>
 
-<?php echo $object->methodHtml() .
-    $var .
-    $block->getSomeData();
+<?php
+
+echo $object->methodHtml () . $var . $block->getSomeData ();
 ?>
 <?php echo '\'' . $code . '\',\'' . $block->escapeQuote($data['parentSymbol']) . '\''; ?>
 <?php echo "\"" . $code . "\",\"" . $block->escapeQuote($data['parentSymbol']) . "\""; ?>
 
 <?php
 /* This part is commented to remove all <col> tags from the code. */
-/* foreach ($block->getColumns() as $_column): ?>
-    <col <?php echo $_column->getProperty() ?> />
-<?php endforeach; */ ?>
+/*
+ * foreach ($block->getColumns() as $_column): ?>
+ * <col <?php echo $_column->getProperty() ?> />
+ * <?php endforeach;
+ */
+?>

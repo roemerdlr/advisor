@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,19 +10,16 @@ namespace Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\App\RequestInterface;
 
-class Validator
-{
-    /**
-     * Validate product data
-     *
-     * @param Product $product
-     * @param RequestInterface $request
-     * @param \Magento\Framework\DataObject $response
-     * @return array
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */
-    public function validate(Product $product, RequestInterface $request, \Magento\Framework\DataObject $response)
-    {
-        return $product->validate();
-    }
+class Validator {
+	/**
+	 * Validate product data
+	 *
+	 * @param Product $product        	
+	 * @param RequestInterface $request        	
+	 * @param \Magento\Framework\DataObject $response        	
+	 * @return array @SuppressWarnings(PHPMD.UnusedFormalParameter)
+	 */
+	public function validate(Product $product, RequestInterface $request, \Magento\Framework\DataObject $response) {
+		return $product->validate ();
+	}
 }

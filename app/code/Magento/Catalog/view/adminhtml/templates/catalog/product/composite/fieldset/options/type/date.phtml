@@ -5,22 +5,24 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <?php /* @var $block \Magento\Catalog\Block\Product\View\Options\Type\Date */ ?>
 <?php $_option = $block->getOption(); ?>
 <?php $_optionId = $_option->getId(); ?>
-<div class="admin__field field<?php if ($_option->getIsRequire()) echo ' required _required' ?>">
-  <label class="label admin__field-label">
-      <?php echo  $block->escapeHtml($_option->getTitle()) ?>
-      <?php /* @escapeNotVerified */ echo $block->getFormatedPrice() ?>
+<div
+	class="admin__field field<?php if ($_option->getIsRequire()) echo ' required _required' ?>">
+	<label class="label admin__field-label">
+      <?php echo  $block->escapeHtml($_option->getTitle())?>
+      <?php /* @escapeNotVerified */ echo $block->getFormatedPrice()?>
   </label>
-  <div class="admin__field-control control">
+	<div class="admin__field-control control">
 
-  <?php if ($_option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME
-      || $_option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE): ?>
+  <?php
+		
+if ($_option->getType () == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME || $_option->getType () == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE) :
+			?>
 
-      <?php echo $block->getDateHtml() ?>
+      <?php echo $block->getDateHtml()?>
 
       <?php if (!$block->useCalendar()): ?>
       <script>
@@ -38,13 +40,18 @@ require([
 
   <?php endif; ?>
 
-  <?php if ($_option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME
-      || $_option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_TIME): ?>
+  <?php
+		
+if ($_option->getType () == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_DATE_TIME || $_option->getType () == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_TIME) :
+			?>
       <span class="time-picker"><?php echo $block->getTimeHtml() ?></span>
   <?php endif; ?>
 
-    <input type="hidden" name="validate_datetime_<?php /* @escapeNotVerified */ echo $_optionId ?>" class="validate-datetime-<?php /* @escapeNotVerified */ echo $_optionId ?>" value="" />
-    <script>
+    <input type="hidden"
+			name="validate_datetime_<?php /* @escapeNotVerified */ echo $_optionId ?>"
+			class="validate-datetime-<?php /* @escapeNotVerified */ echo $_optionId ?>"
+			value="" />
+		<script>
 require([
   "jquery",
   "mage/backend/validation"
@@ -80,5 +87,5 @@ require([
     
 });
 </script>
-  </div>
+	</div>
 </div>
