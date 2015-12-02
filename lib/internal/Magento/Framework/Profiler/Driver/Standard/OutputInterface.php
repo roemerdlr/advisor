@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Interface for output class of standard profiler driver.
  *
@@ -8,12 +7,13 @@
  */
 namespace Magento\Framework\Profiler\Driver\Standard;
 
-interface OutputInterface {
-	/**
-	 * Display profiling results in appropriate format
-	 *
-	 * @param Stat $stat        	
-	 * @return void
-	 */
-	public function display(Stat $stat);
+interface OutputInterface
+{
+    /**
+     * Display profiling results in appropriate format
+     *
+     * @param Stat $stat
+     * @return void
+     */
+    public function display(Stat $stat);
 }

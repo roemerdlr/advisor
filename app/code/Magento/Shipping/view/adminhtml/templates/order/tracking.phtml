@@ -5,6 +5,7 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php /** @var $block Magento\Shipping\Block\Adminhtml\Order\Tracking */?>
 <script>
@@ -100,24 +101,23 @@ require(['prototype'], function(){
 </script>
 
 <div class="admin__control-table-wrapper">
-	<table class="data-table admin__control-table"
-		id="tracking_numbers_table">
-		<thead>
-			<tr class="headings">
-				<th class="col-carrier"><?php /* @escapeNotVerified */ echo __('Carrier') ?></th>
-				<th class="col-title"><?php /* @escapeNotVerified */ echo __('Title') ?></th>
-				<th class="col-number"><?php /* @escapeNotVerified */ echo __('Number') ?></th>
-				<th class="col-delete"><?php /* @escapeNotVerified */ echo __('Action') ?></th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<td colspan="4" class="col-actions-add"><?php echo $block->getChildHtml('add_button') ?></td>
-			</tr>
-		</tfoot>
-		<tbody id="track_row_container">
-		</tbody>
-	</table>
+    <table class="data-table admin__control-table" id="tracking_numbers_table">
+        <thead>
+        <tr class="headings">
+            <th class="col-carrier"><?php /* @escapeNotVerified */ echo __('Carrier') ?></th>
+            <th class="col-title"><?php /* @escapeNotVerified */ echo __('Title') ?></th>
+            <th class="col-number"><?php /* @escapeNotVerified */ echo __('Number') ?></th>
+            <th class="col-delete"><?php /* @escapeNotVerified */ echo __('Action') ?></th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="4" class="col-actions-add"><?php echo $block->getChildHtml('add_button') ?></td>
+        </tr>
+        </tfoot>
+        <tbody id="track_row_container">
+        </tbody>
+    </table>
 </div>
 <script>
 require([

@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,13 +6,15 @@
  */
 namespace Magento\Email\Controller\Adminhtml\Email\Template;
 
-class NewAction extends \Magento\Email\Controller\Adminhtml\Email\Template {
-	/**
-	 * New transactional email action
-	 *
-	 * @return void
-	 */
-	public function execute() {
-		$this->_forward ( 'edit' );
-	}
+class NewAction extends \Magento\Email\Controller\Adminhtml\Email\Template
+{
+    /**
+     * New transactional email action
+     *
+     * @return void
+     */
+    public function execute()
+    {
+        $this->_forward('edit');
+    }
 }

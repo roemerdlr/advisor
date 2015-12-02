@@ -8,8 +8,13 @@
 ?>
 
 <?php
-echo $block->escapeHtml ( $block->getData ( 'product_name' ) )?> has been added to your Wish List. Click
-<a
-	href="<?php
-	echo $block->escapeUrl ( $block->getData ( 'referer' ) )?>">here</a>
-to continue shopping.
+echo $block
+    ->escapeHtml(
+        $block->getData('product_name')
+    )
+?> has been added to your Wish List. Click <a href="<?php
+echo $block
+    ->escapeUrl(
+        $block->getData('referer')
+    )
+?>">here</a> to continue shopping.

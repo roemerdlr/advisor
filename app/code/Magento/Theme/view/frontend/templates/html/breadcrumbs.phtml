@@ -5,23 +5,21 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php if ($crumbs && is_array($crumbs)) : ?>
 <div class="breadcrumbs">
-	<ul class="items">
+    <ul class="items">
         <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
-            <li
-			class="item <?php /* @escapeNotVerified */ echo $crumbName ?>">
+            <li class="item <?php /* @escapeNotVerified */ echo $crumbName ?>">
             <?php if ($crumbInfo['link']) : ?>
-                <a
-			href="<?php /* @escapeNotVerified */ echo $crumbInfo['link'] ?>"
-			title="<?php echo $block->escapeHtml($crumbInfo['title']) ?>">
-                    <?php echo $block->escapeHtml($crumbInfo['label'])?>
+                <a href="<?php /* @escapeNotVerified */ echo $crumbInfo['link'] ?>" title="<?php echo $block->escapeHtml($crumbInfo['title']) ?>">
+                    <?php echo $block->escapeHtml($crumbInfo['label']) ?>
                 </a>
             <?php elseif ($crumbInfo['last']) : ?>
                 <strong><?php echo $block->escapeHtml($crumbInfo['label']) ?></strong>
             <?php else: ?>
-                <?php echo $block->escapeHtml($crumbInfo['label'])?>
+                <?php echo $block->escapeHtml($crumbInfo['label']) ?>
             <?php endif; ?>
             </li>
         <?php endforeach; ?>

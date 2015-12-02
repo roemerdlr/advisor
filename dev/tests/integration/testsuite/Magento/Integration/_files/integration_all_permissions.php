@@ -5,13 +5,11 @@
  */
 
 /** @var $integration \Magento\Integration\Model\Integration */
-$objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ();
-$integration = $objectManager->create ( 'Magento\Integration\Model\Integration' );
-$integration->setName ( 'Fixture Integration' )->save ();
+$objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
+$integration = $objectManager->create('Magento\Integration\Model\Integration');
+$integration->setName('Fixture Integration')->save();
 
-/**
- * Grant permissions to integrations
- */
+/** Grant permissions to integrations */
 /** @var \Magento\Integration\Api\AuthorizationServiceInterface */
-$authorizationService = $objectManager->create ( 'Magento\Integration\Api\AuthorizationServiceInterface' );
-$authorizationService->grantAllPermissions ( $integration->getId () );
+$authorizationService = $objectManager->create('Magento\Integration\Api\AuthorizationServiceInterface');
+$authorizationService->grantAllPermissions($integration->getId());

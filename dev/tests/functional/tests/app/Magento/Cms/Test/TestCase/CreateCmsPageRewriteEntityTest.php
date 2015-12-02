@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Cms\Test\TestCase;
 
 use Magento\UrlRewrite\Test\Fixture\UrlRewrite;
@@ -13,8 +13,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions
- * 1.
- * Create CMS Page.
+ * 1. Create CMS Page.
  *
  * Steps
  * 1. Login to backend as Admin.
@@ -29,59 +28,60 @@ use Magento\Mtf\TestCase\Injectable;
  * @group URL_Rewrites_(PS)
  * @ZephyrId MAGETWO-24847
  */
-class CreateCmsPageRewriteEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * Url rewrite index page.
-	 *
-	 * @var UrlRewriteIndex
-	 */
-	protected $urlRewriteIndex;
-	
-	/**
-	 * Url rewrite edit page.
-	 *
-	 * @var UrlRewriteEdit
-	 */
-	protected $urlRewriteEdit;
-	
-	/**
-	 * Inject pages.
-	 *
-	 * @param UrlRewriteIndex $urlRewriteIndex        	
-	 * @param UrlRewriteEdit $urlRewriteEdit        	
-	 * @return void
-	 */
-	public function __inject(UrlRewriteIndex $urlRewriteIndex, UrlRewriteEdit $urlRewriteEdit) {
-		$this->urlRewriteIndex = $urlRewriteIndex;
-		$this->urlRewriteEdit = $urlRewriteEdit;
-	}
-	
-	/**
-	 * Create CMS page rewrites.
-	 *
-	 * @param UrlRewrite $urlRewrite        	
-	 * @return array
-	 */
-	public function test(UrlRewrite $urlRewrite) {
-		// Steps
-		$this->urlRewriteIndex->open ();
-		$this->urlRewriteIndex->getPageActionsBlock ()->addNew ();
-		$this->urlRewriteEdit->getUrlRewriteTypeSelectorBlock ()->selectType ( $urlRewrite->getEntityType () );
-		$cmsPage = $urlRewrite->getDataFieldConfig ( 'target_path' ) ['source']->getEntity ();
-		$filter = [ 
-				'title' => $cmsPage->getTitle () 
-		];
-		$this->urlRewriteEdit->getCmsGridBlock ()->searchAndOpen ( $filter );
-		$this->urlRewriteEdit->getFormBlock ()->fill ( $urlRewrite );
-		$this->urlRewriteEdit->getPageMainActions ()->save ();
-		
-		return [ 
-				'cmsPage' => $cmsPage 
-		];
-	}
+class CreateCmsPageRewriteEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * Url rewrite index page.
+     *
+     * @var UrlRewriteIndex
+     */
+    protected $urlRewriteIndex;
+
+    /**
+     * Url rewrite edit page.
+     *
+     * @var UrlRewriteEdit
+     */
+    protected $urlRewriteEdit;
+
+    /**
+     * Inject pages.
+     *
+     * @param UrlRewriteIndex $urlRewriteIndex
+     * @param UrlRewriteEdit $urlRewriteEdit
+     * @return void
+     */
+    public function __inject(
+        UrlRewriteIndex $urlRewriteIndex,
+        UrlRewriteEdit $urlRewriteEdit
+    ) {
+        $this->urlRewriteIndex = $urlRewriteIndex;
+        $this->urlRewriteEdit = $urlRewriteEdit;
+    }
+
+    /**
+     * Create CMS page rewrites.
+     *
+     * @param UrlRewrite $urlRewrite
+     * @return array
+     */
+    public function test(UrlRewrite $urlRewrite)
+    {
+        //Steps
+        $this->urlRewriteIndex->open();
+        $this->urlRewriteIndex->getPageActionsBlock()->addNew();
+        $this->urlRewriteEdit->getUrlRewriteTypeSelectorBlock()->selectType($urlRewrite->getEntityType());
+        $cmsPage = $urlRewrite->getDataFieldConfig('target_path')['source']->getEntity();
+        $filter = ['title' => $cmsPage->getTitle()];
+        $this->urlRewriteEdit->getCmsGridBlock()->searchAndOpen($filter);
+        $this->urlRewriteEdit->getFormBlock()->fill($urlRewrite);
+        $this->urlRewriteEdit->getPageMainActions()->save();
+
+        return ['cmsPage' => $cmsPage];
+    }
 }

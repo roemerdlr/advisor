@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -8,29 +7,34 @@ namespace Magento\Payment\Test\Unit\Gateway\Http\Converter;
 
 use Magento\Payment\Gateway\Http\Converter\HtmlFormConverter;
 
-class HtmlFormConverterTest extends \PHPUnit_Framework_TestCase {
-	public function testConvert() {
-		$expectedResult = [ 
-				'parameter1' => 'val1',
-				'parameter2' => 'val2',
-				'parameter3' => 'val3' 
-		];
-		
-		$converter = new HtmlFormConverter ();
-		static::assertEquals ( $expectedResult, $converter->convert ( $this->getValidFormHtml () ) );
-	}
-	public function testConvertNotValidHtml() {
-		$converter = new HtmlFormConverter ();
-		$converter->convert ( 'Not html. Really not.' );
-	}
-	
-	/**
-	 * Returns valid form HTML
-	 *
-	 * @return string
-	 */
-	private function getValidFormHtml() {
-		return '
+class HtmlFormConverterTest extends \PHPUnit_Framework_TestCase
+{
+    public function testConvert()
+    {
+        $expectedResult = [
+            'parameter1' => 'val1',
+            'parameter2' => 'val2',
+            'parameter3' => 'val3'
+        ];
+
+        $converter = new HtmlFormConverter();
+        static::assertEquals($expectedResult, $converter->convert($this->getValidFormHtml()));
+    }
+
+    public function testConvertNotValidHtml()
+    {
+        $converter = new HtmlFormConverter();
+        $converter->convert('Not html. Really not.');
+    }
+
+    /**
+     * Returns valid form HTML
+     *
+     * @return string
+     */
+    private function getValidFormHtml()
+    {
+        return '
         <!DOCTYPE HTML>
         <html>
          <head>
@@ -49,5 +53,5 @@ class HtmlFormConverterTest extends \PHPUnit_Framework_TestCase {
          </body>
         </html>
         ';
-	}
+    }
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -19,31 +18,33 @@
  */
 namespace Magento\Translation\Model;
 
-class StringUtils extends \Magento\Framework\Model\AbstractModel {
-	/**
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		$this->_init ( 'Magento\Translation\Model\ResourceModel\StringUtils' );
-	}
-	
-	/**
-	 *
-	 * @param string $string        	
-	 * @return $this
-	 */
-	public function setString($string) {
-		$this->setData ( 'string', $string );
-		return $this;
-	}
-	
-	/**
-	 * Retrieve string
-	 *
-	 * @return string
-	 */
-	public function getString() {
-		return $this->getData ( 'string' );
-	}
+class StringUtils extends \Magento\Framework\Model\AbstractModel
+{
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init('Magento\Translation\Model\ResourceModel\StringUtils');
+    }
+
+    /**
+     * @param string $string
+     * @return $this
+     */
+    public function setString($string)
+    {
+        $this->setData('string', $string);
+        return $this;
+    }
+
+    /**
+     * Retrieve string
+     *
+     * @return string
+     */
+    public function getString()
+    {
+        return $this->getData('string');
+    }
 }

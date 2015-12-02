@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\User\Test\TestCase;
 
 use Magento\Backend\Test\Page\AdminAuthLogin;
@@ -15,8 +15,7 @@ use Magento\User\Test\Fixture\User;
 
 /**
  * Preconditions:
- * 1.
- * Create admin user.
+ * 1. Create admin user.
  * 2. Configure 'Maximum Login Failures to Lockout Account'.
  *
  * Steps:
@@ -28,39 +27,46 @@ use Magento\User\Test\Fixture\User;
  * @group AuthN_&_AuthZ_(PS)
  * @ZephyrId MAGETWO-12386
  */
-class LockAdminUserEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'no';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * Check that locked user can't log in to admin panel.
-	 *
-	 * @param ConfigData $config        	
-	 * @param User $customAdmin        	
-	 * @param string $incorrectPassword        	
-	 * @param int $attempts        	
-	 * @param AdminAuthLogin $adminAuth        	
-	 * @param FixtureFactory $fixtureFactory        	
-	 * @param AssertUserFailedLoginMessage $assertUserFailedLoginMessage        	
-	 * @return array
-	 */
-	public function testUpdateAdminUser(ConfigData $config, User $customAdmin, $incorrectPassword, $attempts, AdminAuthLogin $adminAuth, FixtureFactory $fixtureFactory, AssertUserFailedLoginMessage $assertUserFailedLoginMessage) {
-		// Preconditions
-		$config->persist ();
-		$customAdmin->persist ();
-		/** @var User $incorrectUser */
-		$incorrectUser = $fixtureFactory->createByCode ( 'user', [ 
-				'data' => [ 
-						'username' => $customAdmin->getUsername (),
-						'password' => $incorrectPassword 
-				] 
-		] );
-		
-		// Steps and assertions
-		for($i = 0; $i < $attempts; $i ++) {
-			$assertUserFailedLoginMessage->processAssert ( $adminAuth, $incorrectUser );
-		}
-	}
+class LockAdminUserEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'no';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * Check that locked user can't log in to admin panel.
+     *
+     * @param ConfigData $config
+     * @param User $customAdmin
+     * @param string $incorrectPassword
+     * @param int $attempts
+     * @param AdminAuthLogin $adminAuth
+     * @param FixtureFactory $fixtureFactory
+     * @param AssertUserFailedLoginMessage $assertUserFailedLoginMessage
+     * @return array
+     */
+    public function testUpdateAdminUser(
+        ConfigData $config,
+        User $customAdmin,
+        $incorrectPassword,
+        $attempts,
+        AdminAuthLogin $adminAuth,
+        FixtureFactory $fixtureFactory,
+        AssertUserFailedLoginMessage $assertUserFailedLoginMessage
+    ) {
+        // Preconditions
+        $config->persist();
+        $customAdmin->persist();
+        /** @var User $incorrectUser */
+        $incorrectUser = $fixtureFactory->createByCode(
+            'user',
+            ['data' => ['username' => $customAdmin->getUsername(), 'password' => $incorrectPassword]]
+        );
+
+        // Steps and assertions
+        for ($i = 0; $i < $attempts; $i++) {
+            $assertUserFailedLoginMessage->processAssert($adminAuth, $incorrectUser);
+        }
+    }
 }

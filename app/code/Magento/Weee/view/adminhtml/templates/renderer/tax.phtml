@@ -5,55 +5,49 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php
-
 /** @var $block \Magento\Weee\Block\Renderer\Weee\Tax */
-$data = [ 
-		'fptAttribute' => [ 
-				'region' => $this->helper ( 'Magento\Framework\Json\Helper\Data' )->jsonDecode ( $this->helper ( 'Magento\Directory\Helper\Data' )->getRegionJson () ),
-				'itemsData' => $block->getValues (),
-				'bundlePriceType' => '#price_type' 
-		] 
-];
+$data = ['fptAttribute' => [
+    'region' => $this->helper('Magento\Framework\Json\Helper\Data')->jsonDecode(
+        $this->helper('Magento\Directory\Helper\Data')->getRegionJson()
+    ),
+    'itemsData' => $block->getValues(),
+    'bundlePriceType' => '#price_type',
+]];
 ?>
-<div
-	id="attribute-<?php echo $block->getElement()->getHtmlId(); ?>-container"
-	class="field"
-	data-attribute-code="<?php echo $block->getElement()->getHtmlId(); ?>"
-	data-mage-init="<?=$block->escapeHtml($this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($data))?>">
-	<label class="label"><span><?php /* @escapeNotVerified */ echo $block->getElement()->getLabel() ?></span></label>
+<div id="attribute-<?php echo $block->getElement()->getHtmlId(); ?>-container" class="field"
+     data-attribute-code="<?php echo $block->getElement()->getHtmlId(); ?>"
+     data-mage-init="<?=$block->escapeHtml($this->helper('Magento\Framework\Json\Helper\Data')->jsonEncode($data))?>">
+    <label class="label"><span><?php /* @escapeNotVerified */ echo $block->getElement()->getLabel() ?></span></label>
 
-	<div class="control">
-		<table class="data-table">
-			<thead>
-				<tr>
-					<th class="col-website" <?php if (!$block->isMultiWebsites()): ?>
-						style="display: none;" <?php endif; ?>><?php /* @escapeNotVerified */ echo __('Website'); ?></th>
-					<th class="col-country required"><?php /* @escapeNotVerified */ echo __('Country/State'); ?></th>
-					<th class="col-tax required"><?php /* @escapeNotVerified */ echo __('Tax'); ?></th>
-					<th class="col-action"><?php /* @escapeNotVerified */ echo __('Action'); ?></th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="4" class="col-actions-add"><?php echo $block->getAddButtonHtml(); ?></td>
-				</tr>
-			</tfoot>
-			<tbody data-role="fpt-item-container" class="fpt-item-container">
-			</tbody>
-		</table>
-		<!--
+    <div class="control">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th class="col-website" <?php if (!$block->isMultiWebsites()): ?>style="display: none;"<?php endif; ?>><?php /* @escapeNotVerified */ echo __('Website'); ?></th>
+                    <th class="col-country required"><?php /* @escapeNotVerified */ echo __('Country/State'); ?></th>
+                    <th class="col-tax required"><?php /* @escapeNotVerified */ echo __('Tax'); ?></th>
+                    <th class="col-action"><?php /* @escapeNotVerified */ echo __('Action'); ?></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="col-actions-add"><?php echo $block->getAddButtonHtml(); ?></td>
+                </tr>
+            </tfoot>
+            <tbody data-role="fpt-item-container" class="fpt-item-container">
+            </tbody>
+        </table>
+        <!--
             Hidden field below with attribute code id is necessary for jQuery validation plugin.
             Validation message will be displayed after this field.
         -->
-		<input type="hidden"
-			name="<?php echo $block->getElement()->getHtmlId(); ?>"
-			id="<?php echo $block->getElement()->getHtmlId(); ?>"
-			disabled="disabled">
-	</div>
+        <input type="hidden" name="<?php echo $block->getElement()->getHtmlId(); ?>" id="<?php echo $block->getElement()->getHtmlId(); ?>" disabled="disabled">
+    </div>
 
-	<script data-role="row-template" type="text/x-magento-template">
+    <script data-role="row-template" type="text/x-magento-template">
         <tr id="<?php echo $block->getElement()->getHtmlId() ?>_weee_tax_row_<%- data.index %>" data-role="fpt-item-row">
             <td class="col-website" <?php if (!$block->isMultiWebsites()): ?>style="display: none"<?php endif; ?>>
                 <select id="<?php /* @escapeNotVerified */ echo $block->getElement()->getName() ?>_weee_tax_row_<%- data.index %>_website"
@@ -85,7 +79,7 @@ $data = [
             </td>
             <td class="col-action">
                 <input name="<?php /* @escapeNotVerified */ echo $block->getElement()->getName() ?>[<%- data.index %>][delete]" class="delete" type="hidden" value="" data-role="delete-fpt-item"/>
-                <?php echo $block->getChildHtml('delete_button')?>
+                <?php echo $block->getChildHtml('delete_button') ?>
             </td>
         </tr>
     </script>

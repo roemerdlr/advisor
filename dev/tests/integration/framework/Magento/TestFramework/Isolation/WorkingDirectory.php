@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,32 +9,34 @@
  */
 namespace Magento\TestFramework\Isolation;
 
-class WorkingDirectory {
-	/**
-	 *
-	 * @var string
-	 */
-	private $_currentWorkingDir;
-	
-	/**
-	 * Handler for 'endTest' event
-	 *
-	 * @param \PHPUnit_Framework_TestCase $test
-	 *        	@SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	public function startTest(\PHPUnit_Framework_TestCase $test) {
-		$this->_currentWorkingDir = getcwd ();
-	}
-	
-	/**
-	 * Handler for 'startTest' event
-	 *
-	 * @param \PHPUnit_Framework_TestCase $test
-	 *        	@SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	public function endTest(\PHPUnit_Framework_TestCase $test) {
-		if (getcwd () != $this->_currentWorkingDir) {
-			chdir ( $this->_currentWorkingDir );
-		}
-	}
+class WorkingDirectory
+{
+    /**
+     * @var string
+     */
+    private $_currentWorkingDir;
+
+    /**
+     * Handler for 'endTest' event
+     *
+     * @param \PHPUnit_Framework_TestCase $test
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function startTest(\PHPUnit_Framework_TestCase $test)
+    {
+        $this->_currentWorkingDir = getcwd();
+    }
+
+    /**
+     * Handler for 'startTest' event
+     *
+     * @param \PHPUnit_Framework_TestCase $test
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function endTest(\PHPUnit_Framework_TestCase $test)
+    {
+        if (getcwd() != $this->_currentWorkingDir) {
+            chdir($this->_currentWorkingDir);
+        }
+    }
 }

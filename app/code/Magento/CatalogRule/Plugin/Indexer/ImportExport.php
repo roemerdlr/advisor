@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -9,32 +8,35 @@ namespace Magento\CatalogRule\Plugin\Indexer;
 use Magento\CatalogRule\Model\Indexer\Rule\RuleProductProcessor;
 use Magento\ImportExport\Model\Import;
 
-class ImportExport {
-	/**
-	 *
-	 * @var RuleProductProcessor
-	 */
-	protected $ruleProductProcessor;
-	
-	/**
-	 *
-	 * @param RuleProductProcessor $ruleProductProcessor        	
-	 */
-	public function __construct(RuleProductProcessor $ruleProductProcessor) {
-		$this->ruleProductProcessor = $ruleProductProcessor;
-	}
-	
-	/**
-	 * Invalidate catalog price rule indexer
-	 *
-	 * @param Import $subject        	
-	 * @param bool $result        	
-	 * @return bool @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	public function afterImportSource(Import $subject, $result) {
-		if (! $this->ruleProductProcessor->isIndexerScheduled ()) {
-			$this->ruleProductProcessor->markIndexerAsInvalid ();
-		}
-		return $result;
-	}
+class ImportExport
+{
+    /**
+     * @var RuleProductProcessor
+     */
+    protected $ruleProductProcessor;
+
+    /**
+     * @param RuleProductProcessor $ruleProductProcessor
+     */
+    public function __construct(RuleProductProcessor $ruleProductProcessor)
+    {
+        $this->ruleProductProcessor = $ruleProductProcessor;
+    }
+
+    /**
+     * Invalidate catalog price rule indexer
+     *
+     * @param Import $subject
+     * @param bool $result
+     * @return bool
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function afterImportSource(Import $subject, $result)
+    {
+        if (!$this->ruleProductProcessor->isIndexerScheduled()) {
+            $this->ruleProductProcessor->markIndexerAsInvalid();
+        }
+        return $result;
+    }
 }

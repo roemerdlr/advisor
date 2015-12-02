@@ -1,17 +1,16 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Sales\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Preconditions:
- * 1.
- * Create customer.
+ * 1. Create customer.
  * 2. Create product.
  *
  * Steps:
@@ -31,19 +30,21 @@ use Magento\Mtf\TestCase\Scenario;
  * @group Order_Management_(CS)
  * @ZephyrId MAGETWO-28696
  */
-class CreateOrderBackendTest extends Scenario {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'CS';
-	const TEST_TYPE = 'acceptance_test';
-	/* end tags */
-	
-	/**
-	 * Runs sales order on backend.
-	 *
-	 * @return void
-	 */
-	public function test() {
-		$this->executeScenario ();
-	}
+class CreateOrderBackendTest extends Scenario
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'CS';
+    const TEST_TYPE = 'acceptance_test';
+    /* end tags */
+
+    /**
+     * Runs sales order on backend.
+     *
+     * @return void
+     */
+    public function test()
+    {
+        $this->executeScenario();
+    }
 }

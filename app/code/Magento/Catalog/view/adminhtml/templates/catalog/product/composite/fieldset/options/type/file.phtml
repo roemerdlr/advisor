@@ -5,6 +5,7 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php $_option = $block->getOption(); ?>
 <?php $_fileInfo = $block->getFileInfo(); ?>
@@ -60,56 +61,44 @@ require(['prototype'], function(){
 });
 </script>
 
-<div
-	class="admin__field <?php if ($_option->getIsRequire()) echo ' required _required' ?>">
-	<label class="admin__field-label label">
-        <?php echo  $block->escapeHtml($_option->getTitle())?>
-        <?php /* @escapeNotVerified */ echo $block->getFormatedPrice()?>
+<div class="admin__field <?php if ($_option->getIsRequire()) echo ' required _required' ?>">
+    <label class="admin__field-label label">
+        <?php echo  $block->escapeHtml($_option->getTitle()) ?>
+        <?php /* @escapeNotVerified */ echo $block->getFormatedPrice() ?>
     </label>
-	<div class="admin__field-control control">
+    <div class="admin__field-control control">
         <?php if ($_fileExists): ?>
-            <span
-			class="<?php /* @escapeNotVerified */ echo $_fileNamed ?>"><?php /* @escapeNotVerified */ echo $_fileInfo->getTitle(); ?></span>
-		<a href="javascript:void(0)" class="label"
-			onclick="opFile<?php /* @escapeNotVerified */ echo $_rand; ?>.toggleFileChange($(this).next('.input-box'))">
-                <?php /* @escapeNotVerified */ echo __('Change')?>
+            <span class="<?php /* @escapeNotVerified */ echo $_fileNamed ?>"><?php /* @escapeNotVerified */ echo $_fileInfo->getTitle(); ?></span>
+            <a href="javascript:void(0)" class="label" onclick="opFile<?php /* @escapeNotVerified */ echo $_rand; ?>.toggleFileChange($(this).next('.input-box'))">
+                <?php /* @escapeNotVerified */ echo __('Change') ?>
             </a>&nbsp;
             <?php if (!$_option->getIsRequire()): ?>
-                <input type="checkbox"
-			onclick="opFile<?php /* @escapeNotVerified */ echo $_rand; ?>.toggleFileDelete($(this), $(this).next('.input-box'))"
-			price="<?php /* @escapeNotVerified */ echo $block->getCurrencyPrice($_option->getPrice(true)) ?>" />
-		<span class="label"><?php /* @escapeNotVerified */ echo __('Delete') ?></span>
+                <input type="checkbox" onclick="opFile<?php /* @escapeNotVerified */ echo $_rand; ?>.toggleFileDelete($(this), $(this).next('.input-box'))" price="<?php /* @escapeNotVerified */ echo $block->getCurrencyPrice($_option->getPrice(true)) ?>"/>
+                <span class="label"><?php /* @escapeNotVerified */ echo __('Delete') ?></span>
             <?php endif; ?>
         <?php endif; ?>
-        <div class="input-box"
-			<?php echo $_fileExists ? 'style="display:none"' : '' ?>>
-			<!-- ToDo UI: add appropriate file class when z-index issue in ui dialog will be resolved  -->
-			<input type="file"
-				name="<?php /* @escapeNotVerified */ echo $_fileName; ?>"
-				class="product-custom-option<?php echo $_option->getIsRequire() ? ' required-entry' : '' ?>"
-				price="<?php /* @escapeNotVerified */ echo $block->getCurrencyPrice($_option->getPrice(true)) ?>"
-				<?php echo $_fileExists ? 'disabled="disabled"' : '' ?> /> <input
-				type="hidden"
-				name="<?php /* @escapeNotVerified */ echo $_fieldNameAction; ?>"
-				value="<?php /* @escapeNotVerified */ echo $_fieldValueAction; ?>" />
+        <div class="input-box" <?php echo $_fileExists ? 'style="display:none"' : '' ?>>
+            <!-- ToDo UI: add appropriate file class when z-index issue in ui dialog will be resolved  -->
+            <input type="file" name="<?php /* @escapeNotVerified */ echo $_fileName; ?>" class="product-custom-option<?php echo $_option->getIsRequire() ? ' required-entry' : '' ?>" price="<?php /* @escapeNotVerified */ echo $block->getCurrencyPrice($_option->getPrice(true)) ?>" <?php echo $_fileExists ? 'disabled="disabled"' : '' ?>/>
+            <input type="hidden" name="<?php /* @escapeNotVerified */ echo $_fieldNameAction; ?>" value="<?php /* @escapeNotVerified */ echo $_fieldValueAction; ?>" />
 
             <?php if ($_option->getFileExtension()): ?>
                 <div class="admin__field-note">
-				<span><?php /* @escapeNotVerified */ echo __('Compatible file extensions to upload')?>: <strong><?php /* @escapeNotVerified */ echo $_option->getFileExtension() ?></strong></span>
-			</div>
+                    <span><?php /* @escapeNotVerified */ echo __('Compatible file extensions to upload')?>: <strong><?php /* @escapeNotVerified */ echo $_option->getFileExtension() ?></strong></span>
+                </div>
             <?php endif; ?>
 
             <?php if ($_option->getImageSizeX() > 0): ?>
                 <div class="admin__field-note">
-				<span><?php /* @escapeNotVerified */ echo __('Maximum image width')?>: <strong><?php /* @escapeNotVerified */ echo $_option->getImageSizeX() ?> <?php /* @escapeNotVerified */ echo __('px.')?></strong></span>
-			</div>
+                    <span><?php /* @escapeNotVerified */ echo __('Maximum image width')?>: <strong><?php /* @escapeNotVerified */ echo $_option->getImageSizeX() ?> <?php /* @escapeNotVerified */ echo __('px.')?></strong></span>
+                </div>
             <?php endif; ?>
 
             <?php if ($_option->getImageSizeY() > 0): ?>
                 <div class="admin__field-note">
-				<span><?php /* @escapeNotVerified */ echo __('Maximum image height')?>: <strong><?php /* @escapeNotVerified */ echo $_option->getImageSizeY() ?> <?php /* @escapeNotVerified */ echo __('px.')?></strong></span>
-			</div>
+                    <span><?php /* @escapeNotVerified */ echo __('Maximum image height')?>: <strong><?php /* @escapeNotVerified */ echo $_option->getImageSizeY() ?> <?php /* @escapeNotVerified */ echo __('px.')?></strong></span>
+                </div>
             <?php endif; ?>
         </div>
-	</div>
+    </div>
 </div>

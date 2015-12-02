@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Unit test for \Magento\Framework\Filesystem\FileResolver
  *
@@ -12,16 +11,20 @@ namespace Magento\Framework\Filesystem\Test\Unit;
 
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 
-class FileResolverTest extends \PHPUnit_Framework_TestCase {
-	/**
-	 *
-	 * @var \Magento\Framework\Filesystem\FileResolver
-	 */
-	protected $model;
-	public function setUp() {
-		$this->model = (new ObjectManager ( $this ))->getObject ( 'Magento\Framework\Filesystem\FileResolver' );
-	}
-	public function testGetFilePath() {
-		$this->assertSame ( 'Path/To/My/Class.php', $this->model->getFilePath ( 'Path\To\My_Class' ) );
-	}
+class FileResolverTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @var \Magento\Framework\Filesystem\FileResolver
+     */
+    protected $model;
+
+    public function setUp()
+    {
+        $this->model = (new ObjectManager($this))->getObject('Magento\Framework\Filesystem\FileResolver');
+    }
+
+    public function testGetFilePath()
+    {
+        $this->assertSame('Path/To/My/Class.php', $this->model->getFilePath('Path\To\My_Class'));
+    }
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,13 +6,15 @@
  */
 namespace Magento\Paypal\Controller\Billing\Agreement;
 
-class CancelWizard extends \Magento\Paypal\Controller\Billing\Agreement {
-	/**
-	 * Wizard cancel action
-	 *
-	 * @return void
-	 */
-	public function execute() {
-		$this->_redirect ( '*/*/index' );
-	}
+class CancelWizard extends \Magento\Paypal\Controller\Billing\Agreement
+{
+    /**
+     * Wizard cancel action
+     *
+     * @return void
+     */
+    public function execute()
+    {
+        $this->_redirect('*/*/index');
+    }
 }

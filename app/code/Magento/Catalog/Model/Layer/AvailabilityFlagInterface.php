@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,13 +6,14 @@
  */
 namespace Magento\Catalog\Model\Layer;
 
-interface AvailabilityFlagInterface {
-	/**
-	 * Is filter enabled
-	 *
-	 * @param \Magento\Catalog\Model\Layer $layer        	
-	 * @param array $filters        	
-	 * @return bool
-	 */
-	public function isEnabled($layer, array $filters = []);
+interface AvailabilityFlagInterface
+{
+    /**
+     * Is filter enabled
+     *
+     * @param \Magento\Catalog\Model\Layer $layer
+     * @param array $filters
+     * @return bool
+     */
+    public function isEnabled($layer, array $filters = []);
 }

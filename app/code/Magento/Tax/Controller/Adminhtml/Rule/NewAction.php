@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,14 +8,15 @@ namespace Magento\Tax\Controller\Adminhtml\Rule;
 
 use Magento\Framework\Controller\ResultFactory;
 
-class NewAction extends \Magento\Tax\Controller\Adminhtml\Rule {
-	/**
-	 *
-	 * @return \Magento\Backend\Model\View\Result\Forward
-	 */
-	public function execute() {
-		/** @var \Magento\Backend\Model\View\Result\Forward $resultForward */
-		$resultForward = $this->resultFactory->create ( ResultFactory::TYPE_FORWARD );
-		return $resultForward->forward ( 'edit' );
-	}
+class NewAction extends \Magento\Tax\Controller\Adminhtml\Rule
+{
+    /**
+     * @return \Magento\Backend\Model\View\Result\Forward
+     */
+    public function execute()
+    {
+        /** @var \Magento\Backend\Model\View\Result\Forward $resultForward */
+        $resultForward = $this->resultFactory->create(ResultFactory::TYPE_FORWARD);
+        return $resultForward->forward('edit');
+    }
 }

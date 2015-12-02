@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\SalesRule\Test\TestCase;
 
 use Magento\SalesRule\Test\Fixture\SalesRule;
@@ -14,8 +14,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Precondition:
- * 1.
- * Cart Price Rule is created.
+ * 1. Cart Price Rule is created.
  *
  * Steps:
  * 1. Login to backend.
@@ -28,96 +27,106 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Shopping_Cart_Price_Rules_(CS)
  * @ZephyrId MAGETWO-24860
  */
-class UpdateSalesRuleEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'CS';
-	/* end tags */
-	
-	/**
-	 * Page PromoQuoteEdit.
-	 *
-	 * @var PromoQuoteEdit
-	 */
-	protected $promoQuoteEdit;
-	
-	/**
-	 * Page PromoQuoteIndex.
-	 *
-	 * @var PromoQuoteIndex
-	 */
-	protected $promoQuoteIndex;
-	
-	/**
-	 * Sales rule name.
-	 *
-	 * @var string
-	 */
-	protected $salesRuleName;
-	
-	/**
-	 * Create simple product with category.
-	 *
-	 * @param FixtureFactory $fixtureFactory        	
-	 * @return array
-	 */
-	public function __prepare(FixtureFactory $fixtureFactory) {
-		$productForSalesRule1 = $fixtureFactory->createByCode ( 'catalogProductSimple', [ 
-				'dataset' => 'simple_for_salesrule_1' 
-		] );
-		$productForSalesRule1->persist ();
-		return [ 
-				'productForSalesRule1' => $productForSalesRule1 
-		];
-	}
-	
-	/**
-	 * Inject pages.
-	 *
-	 * @param PromoQuoteIndex $promoQuoteIndex        	
-	 * @param PromoQuoteEdit $promoQuoteEdit        	
-	 * @return void
-	 */
-	public function __inject(PromoQuoteIndex $promoQuoteIndex, PromoQuoteEdit $promoQuoteEdit) {
-		$this->promoQuoteIndex = $promoQuoteIndex;
-		$this->promoQuoteEdit = $promoQuoteEdit;
-	}
-	
-	/**
-	 * Update Sales Rule Entity.
-	 *
-	 * @param SalesRule $salesRule        	
-	 * @param SalesRule $salesRuleOrigin        	
-	 * @return void
-	 */
-	public function testUpdateSalesRule(SalesRule $salesRule, SalesRule $salesRuleOrigin) {
-		// Preconditions
-		$salesRuleOrigin->persist ();
-		$filter = [ 
-				'name' => $salesRuleOrigin->getName () 
-		];
-		$this->salesRuleName = $salesRule->hasData ( 'name' ) ? $salesRule->getName () : $salesRuleOrigin->getName ();
-		
-		// Steps
-		$this->promoQuoteIndex->open ();
-		$this->promoQuoteIndex->getPromoQuoteGrid ()->searchAndOpen ( $filter );
-		$this->promoQuoteEdit->getSalesRuleForm ()->fill ( $salesRule );
-		$this->promoQuoteEdit->getFormPageActions ()->save ();
-	}
-	
-	/**
-	 * Delete current sales rule.
-	 *
-	 * @return void
-	 */
-	public function tearDown() {
-		$filter = [ 
-				'name' => $this->salesRuleName 
-		];
-		
-		$this->promoQuoteIndex->open ();
-		$this->promoQuoteIndex->getPromoQuoteGrid ()->searchAndOpen ( $filter );
-		$this->promoQuoteEdit->getFormPageActions ()->delete ();
-		$this->promoQuoteEdit->getModalBlock ()->acceptAlert ();
-	}
+class UpdateSalesRuleEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'CS';
+    /* end tags */
+
+    /**
+     * Page PromoQuoteEdit.
+     *
+     * @var PromoQuoteEdit
+     */
+    protected $promoQuoteEdit;
+
+    /**
+     * Page PromoQuoteIndex.
+     *
+     * @var PromoQuoteIndex
+     */
+    protected $promoQuoteIndex;
+
+    /**
+     * Sales rule name.
+     *
+     * @var string
+     */
+    protected $salesRuleName;
+
+    /**
+     * Create simple product with category.
+     *
+     * @param FixtureFactory $fixtureFactory
+     * @return array
+     */
+    public function __prepare(FixtureFactory $fixtureFactory)
+    {
+        $productForSalesRule1 = $fixtureFactory->createByCode(
+            'catalogProductSimple',
+            ['dataset' => 'simple_for_salesrule_1']
+        );
+        $productForSalesRule1->persist();
+        return [
+            'productForSalesRule1' => $productForSalesRule1,
+        ];
+    }
+
+    /**
+     * Inject pages.
+     *
+     * @param PromoQuoteIndex $promoQuoteIndex
+     * @param PromoQuoteEdit $promoQuoteEdit
+     * @return void
+     */
+    public function __inject(
+        PromoQuoteIndex $promoQuoteIndex,
+        PromoQuoteEdit $promoQuoteEdit
+    ) {
+        $this->promoQuoteIndex = $promoQuoteIndex;
+        $this->promoQuoteEdit = $promoQuoteEdit;
+    }
+
+    /**
+     * Update Sales Rule Entity.
+     *
+     * @param SalesRule $salesRule
+     * @param SalesRule $salesRuleOrigin
+     * @return void
+     */
+    public function testUpdateSalesRule(
+        SalesRule $salesRule,
+        SalesRule $salesRuleOrigin
+    ) {
+        // Preconditions
+        $salesRuleOrigin->persist();
+        $filter = [
+            'name' => $salesRuleOrigin->getName(),
+        ];
+        $this->salesRuleName = $salesRule->hasData('name') ? $salesRule->getName() : $salesRuleOrigin->getName();
+
+        // Steps
+        $this->promoQuoteIndex->open();
+        $this->promoQuoteIndex->getPromoQuoteGrid()->searchAndOpen($filter);
+        $this->promoQuoteEdit->getSalesRuleForm()->fill($salesRule);
+        $this->promoQuoteEdit->getFormPageActions()->save();
+    }
+
+    /**
+     * Delete current sales rule.
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        $filter = [
+            'name' => $this->salesRuleName,
+        ];
+
+        $this->promoQuoteIndex->open();
+        $this->promoQuoteIndex->getPromoQuoteGrid()->searchAndOpen($filter);
+        $this->promoQuoteEdit->getFormPageActions()->delete();
+        $this->promoQuoteEdit->getModalBlock()->acceptAlert();
+    }
 }

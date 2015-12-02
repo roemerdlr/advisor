@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,32 +12,37 @@ use Magento\Framework\Escaper;
 /**
  * Product form MSRP field helper
  */
-class Price extends \Magento\Framework\Data\Form\Element\Select {
-	/** @var \Magento\Msrp\Model\Config */
-	protected $config;
-	
-	/**
-	 *
-	 * @param Factory $factoryElement        	
-	 * @param CollectionFactory $factoryCollection        	
-	 * @param Escaper $escaper        	
-	 * @param \Magento\Msrp\Model\Config $config        	
-	 * @param array $data        	
-	 */
-	public function __construct(Factory $factoryElement, CollectionFactory $factoryCollection, Escaper $escaper, \Magento\Msrp\Model\Config $config, $data = []) {
-		parent::__construct ( $factoryElement, $factoryCollection, $escaper, $data );
-		$this->config = $config;
-	}
-	
-	/**
-	 *
-	 * {@inheritdoc}
-	 *
-	 */
-	public function toHtml() {
-		if (! $this->config->isEnabled ()) {
-			return '';
-		}
-		return parent::toHtml ();
-	}
+class Price extends \Magento\Framework\Data\Form\Element\Select
+{
+    /** @var \Magento\Msrp\Model\Config */
+    protected $config;
+
+    /**
+     * @param Factory $factoryElement
+     * @param CollectionFactory $factoryCollection
+     * @param Escaper $escaper
+     * @param \Magento\Msrp\Model\Config $config
+     * @param array $data
+     */
+    public function __construct(
+        Factory $factoryElement,
+        CollectionFactory $factoryCollection,
+        Escaper $escaper,
+        \Magento\Msrp\Model\Config $config,
+        $data = []
+    ) {
+        parent::__construct($factoryElement, $factoryCollection, $escaper, $data);
+        $this->config = $config;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toHtml()
+    {
+        if (!$this->config->isEnabled()) {
+            return '';
+        }
+        return parent::toHtml();
+    }
 }

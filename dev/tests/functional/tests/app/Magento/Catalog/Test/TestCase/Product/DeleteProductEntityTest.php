@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Catalog\Test\TestCase\Product;
 
 use Magento\Catalog\Test\Fixture\Category;
@@ -13,8 +13,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1.
- * Create product according to data set.
+ * 1. Create product according to data set.
  *
  * Steps:
  * 1. Login to backend.
@@ -27,74 +26,77 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Products_(MX)
  * @ZephyrId MAGETWO-23272
  */
-class DeleteProductEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'MX';
-	/* end tags */
-	
-	/**
-	 * Product page with a grid.
-	 *
-	 * @var CatalogProductIndex
-	 */
-	protected $catalogProductIndex;
-	
-	/**
-	 * Prepare data.
-	 *
-	 * @param Category $category        	
-	 * @return array
-	 */
-	public function __prepare(Category $category) {
-		$category->persist ();
-		return [ 
-				'category' => $category 
-		];
-	}
-	
-	/**
-	 * Injection data.
-	 *
-	 * @param CatalogProductIndex $catalogProductIndexPage        	
-	 * @return void
-	 */
-	public function __inject(CatalogProductIndex $catalogProductIndexPage) {
-		$this->catalogProductIndex = $catalogProductIndexPage;
-	}
-	
-	/**
-	 * Run delete product test.
-	 *
-	 * @param string $products        	
-	 * @param FixtureFactory $fixtureFactory        	
-	 * @param Category $category        	
-	 * @return array
-	 */
-	public function test($products, FixtureFactory $fixtureFactory, Category $category) {
-		// Steps
-		$products = explode ( ',', $products );
-		$deleteProducts = [ ];
-		foreach ( $products as &$product ) {
-			list ( $fixture, $dataset ) = explode ( '::', $product );
-			$product = $fixtureFactory->createByCode ( $fixture, [ 
-					'dataset' => $dataset,
-					'data' => [ 
-							'category_ids' => [ 
-									'category' => $category 
-							] 
-					] 
-			] );
-			$product->persist ();
-			$deleteProducts [] = [ 
-					'sku' => $product->getSku () 
-			];
-		}
-		$this->catalogProductIndex->open ();
-		$this->catalogProductIndex->getProductGrid ()->massaction ( $deleteProducts, 'Delete', true );
-		
-		return [ 
-				'product' => $products 
-		];
-	}
+class DeleteProductEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'MX';
+    /* end tags */
+
+    /**
+     * Product page with a grid.
+     *
+     * @var CatalogProductIndex
+     */
+    protected $catalogProductIndex;
+
+    /**
+     * Prepare data.
+     *
+     * @param Category $category
+     * @return array
+     */
+    public function __prepare(Category $category)
+    {
+        $category->persist();
+        return [
+            'category' => $category
+        ];
+    }
+
+    /**
+     * Injection data.
+     *
+     * @param CatalogProductIndex $catalogProductIndexPage
+     * @return void
+     */
+    public function __inject(CatalogProductIndex $catalogProductIndexPage)
+    {
+        $this->catalogProductIndex = $catalogProductIndexPage;
+    }
+
+    /**
+     * Run delete product test.
+     *
+     * @param string $products
+     * @param FixtureFactory $fixtureFactory
+     * @param Category $category
+     * @return array
+     */
+    public function test($products, FixtureFactory $fixtureFactory, Category $category)
+    {
+        //Steps
+        $products = explode(',', $products);
+        $deleteProducts = [];
+        foreach ($products as &$product) {
+            list($fixture, $dataset) = explode('::', $product);
+            $product = $fixtureFactory->createByCode(
+                $fixture,
+                [
+                    'dataset' => $dataset,
+                    'data' => [
+                        'category_ids' => [
+                            'category' => $category,
+                        ],
+                    ]
+                ]
+            );
+            $product->persist();
+            $deleteProducts[] = ['sku' => $product->getSku()];
+        }
+        $this->catalogProductIndex->open();
+        $this->catalogProductIndex->getProductGrid()->massaction($deleteProducts, 'Delete', true);
+
+        return ['product' => $products];
+    }
 }

@@ -1,17 +1,16 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\CheckoutAgreements\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Preconditions:
- * 1.
- * Enable "Terms and Conditions": Stores > Configuration > Sales > Checkout > Checkout Options
+ * 1. Enable "Terms and Conditions": Stores > Configuration > Sales > Checkout > Checkout Options
  *
  * Steps:
  * 1. Open Backend Stores > Terms and Conditions
@@ -23,18 +22,20 @@ use Magento\Mtf\TestCase\Scenario;
  * @group Terms_and_Conditions_(CS)
  * @ZephyrId MAGETWO-29586, MAGETWO-32499
  */
-class CreateTermEntityTest extends Scenario {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'CS';
-	/* end tags */
-	
-	/**
-	 * Create term entity test.
-	 *
-	 * @return void
-	 */
-	public function test() {
-		$this->executeScenario ();
-	}
+class CreateTermEntityTest extends Scenario
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'CS';
+    /* end tags */
+
+    /**
+     * Create term entity test.
+     *
+     * @return void
+     */
+    public function test()
+    {
+        $this->executeScenario();
+    }
 }

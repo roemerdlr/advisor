@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Catalog\Test\TestCase\Product;
 
 use Magento\Catalog\Test\Constraint\AssertProductCompareSuccessAddMessage;
@@ -11,8 +11,7 @@ use Magento\Catalog\Test\Page\Product\CatalogProductCompare;
 
 /**
  * Preconditions:
- * 1.
- * All product types are created.
+ * 1. All product types are created.
  * 2. Customer created.
  *
  * Steps:
@@ -26,54 +25,59 @@ use Magento\Catalog\Test\Page\Product\CatalogProductCompare;
  * @group Compare_Products_(MX)
  * @ZephyrId MAGETWO-25843
  */
-class AddCompareProductsTest extends AbstractCompareProductsTest {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'MX';
-	/* end tags */
-	
-	/**
-	 * Catalog product compare page.
-	 *
-	 * @var CatalogProductCompare
-	 */
-	protected $catalogProductCompare;
-	
-	/**
-	 * Test creation for adding compare products.
-	 *
-	 * @param string $products        	
-	 * @param string $isCustomerLoggedIn        	
-	 * @param AssertProductCompareSuccessAddMessage $assertProductCompareSuccessAddMessage        	
-	 * @param CatalogProductCompare $catalogProductCompare        	
-	 * @return array
-	 */
-	public function test($products, $isCustomerLoggedIn, AssertProductCompareSuccessAddMessage $assertProductCompareSuccessAddMessage, CatalogProductCompare $catalogProductCompare) {
-		// Steps
-		$this->catalogProductCompare = $catalogProductCompare;
-		$this->cmsIndex->open ();
-		if ($isCustomerLoggedIn == 'Yes') {
-			$this->loginCustomer ();
-		}
-		$this->products = $this->createProducts ( $products );
-		$this->addProducts ( $this->products, $assertProductCompareSuccessAddMessage );
-		$this->cmsIndex->getLinksBlock ()->openLink ( "Compare Products" );
-		
-		return [ 
-				'products' => $this->products 
-		];
-	}
-	
-	/**
-	 * Clear data after test.
-	 *
-	 * @return void
-	 */
-	public function tearDown() {
-		$this->cmsIndex->open ();
-		$this->cmsIndex->getLinksBlock ()->openLink ( "Compare Products" );
-		for($i = 1; $i <= count ( $this->products ); $i ++) {
-			$this->catalogProductCompare->getCompareProductsBlock ()->removeProduct ();
-		}
-	}
+class AddCompareProductsTest extends AbstractCompareProductsTest
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'MX';
+    /* end tags */
+
+    /**
+     * Catalog product compare page.
+     *
+     * @var CatalogProductCompare
+     */
+    protected $catalogProductCompare;
+
+    /**
+     * Test creation for adding compare products.
+     *
+     * @param string $products
+     * @param string $isCustomerLoggedIn
+     * @param AssertProductCompareSuccessAddMessage $assertProductCompareSuccessAddMessage
+     * @param CatalogProductCompare $catalogProductCompare
+     * @return array
+     */
+    public function test(
+        $products,
+        $isCustomerLoggedIn,
+        AssertProductCompareSuccessAddMessage $assertProductCompareSuccessAddMessage,
+        CatalogProductCompare $catalogProductCompare
+    ) {
+        //Steps
+        $this->catalogProductCompare = $catalogProductCompare;
+        $this->cmsIndex->open();
+        if ($isCustomerLoggedIn == 'Yes') {
+            $this->loginCustomer();
+        }
+        $this->products = $this->createProducts($products);
+        $this->addProducts($this->products, $assertProductCompareSuccessAddMessage);
+        $this->cmsIndex->getLinksBlock()->openLink("Compare Products");
+
+        return ['products' => $this->products];
+    }
+
+    /**
+     * Clear data after test.
+     *
+     * @return void
+     */
+    public function tearDown()
+    {
+        $this->cmsIndex->open();
+        $this->cmsIndex->getLinksBlock()->openLink("Compare Products");
+        for ($i = 1; $i <= count($this->products); $i++) {
+            $this->catalogProductCompare->getCompareProductsBlock()->removeProduct();
+        }
+    }
 }

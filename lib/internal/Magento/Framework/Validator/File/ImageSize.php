@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Validator for the image size of a image file
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\Framework\Validator\File;
 
-class ImageSize extends \Zend_Validate_File_ImageSize implements \Magento\Framework\Validator\ValidatorInterface {
+class ImageSize extends \Zend_Validate_File_ImageSize implements \Magento\Framework\Validator\ValidatorInterface
+{
 }

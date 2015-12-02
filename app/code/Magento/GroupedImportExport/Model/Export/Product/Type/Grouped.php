@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Export entity of grouped product type
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\GroupedImportExport\Model\Export\Product\Type;
 
-class Grouped extends \Magento\CatalogImportExport\Model\Export\Product\Type\AbstractType {
+class Grouped extends \Magento\CatalogImportExport\Model\Export\Product\Type\AbstractType
+{
 }

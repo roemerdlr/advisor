@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,5 +8,6 @@ namespace Magento\Wonderland\Model\Data;
 
 use Magento\Wonderland\Api\Data\FakeExtensibleOneInterface;
 
-class FakeExtensibleOne implements FakeExtensibleOneInterface {
+class FakeExtensibleOne implements FakeExtensibleOneInterface
+{
 }

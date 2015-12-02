@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Session validator interface
  *
@@ -11,13 +10,14 @@ namespace Magento\Framework\Session;
 /**
  * Session validator interface
  */
-interface ValidatorInterface {
-	/**
-	 * Validate session
-	 *
-	 * @param \Magento\Framework\Session\SessionManagerInterface $session        	
-	 * @return void
-	 * @throws \Magento\Framework\Exception\SessionException
-	 */
-	public function validate(\Magento\Framework\Session\SessionManagerInterface $session);
+interface ValidatorInterface
+{
+    /**
+     * Validate session
+     *
+     * @param \Magento\Framework\Session\SessionManagerInterface $session
+     * @return void
+     * @throws \Magento\Framework\Exception\SessionException
+     */
+    public function validate(\Magento\Framework\Session\SessionManagerInterface $session);
 }

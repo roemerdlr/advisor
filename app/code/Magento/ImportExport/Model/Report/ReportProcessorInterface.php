@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\ImportExport\Model\Report;
 
 use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorInterface;
@@ -11,13 +11,17 @@ use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorI
 /**
  * Error report generator interface
  */
-interface ReportProcessorInterface {
-	/**
-	 *
-	 * @param string $originalFileName        	
-	 * @param ProcessingErrorAggregatorInterface $errorAggregator        	
-	 * @param bool $writeOnlyErrorItems        	
-	 * @return string
-	 */
-	public function createReport($originalFileName, ProcessingErrorAggregatorInterface $errorAggregator, $writeOnlyErrorItems = false);
+interface ReportProcessorInterface
+{
+    /**
+     * @param string $originalFileName
+     * @param ProcessingErrorAggregatorInterface $errorAggregator
+     * @param bool $writeOnlyErrorItems
+     * @return string
+     */
+    public function createReport(
+        $originalFileName,
+        ProcessingErrorAggregatorInterface $errorAggregator,
+        $writeOnlyErrorItems = false
+    );
 }

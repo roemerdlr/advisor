@@ -5,6 +5,7 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php if ($block->getRealOrderId()) : ?><p><?php /* @escapeNotVerified */ echo __('Order #') . $block->getRealOrderId() ?></p><?php endif ?>
 <?php if ($error = $block->getErrorMessage()) : ?><p><?php /* @escapeNotVerified */ echo $error ?></p><?php endif ?>

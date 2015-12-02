@@ -8,7 +8,8 @@
 ?>
 <?php /** @var $block \Magento\Backend\Block\Widget\Form\Renderer\Fieldset */ ?>
 
-<div id="js-file-uploader" class="uploader"></div>
+<div id="js-file-uploader" class="uploader">
+</div>
 <script id="js-file-uploader-template" type="text/x-magento-template"> 
     <div id="<%- data.id %>" class="file-row">
         <span class="file-info"><%- data.name %> (<%- data.size %>)</span>
@@ -38,7 +39,7 @@
     <input type="hidden" name="js_uploaded_files[]" value="<%- data.temporary %>" />
 </script>
 
-<ul id="js-files-container" class="js-files-container ui-sortable"></ul>
+<ul id="js-files-container" class="js-files-container ui-sortable" ></ul>
 
 <script>
 require([

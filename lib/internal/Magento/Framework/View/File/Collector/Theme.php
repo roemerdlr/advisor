@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -17,46 +16,53 @@ use Magento\Framework\View\File\Factory as FileFactory;
 /**
  * Source of view files introduced by a theme
  */
-class Theme implements CollectorInterface {
-	/**
-	 * Constructor
-	 *
-	 * @param FileFactory $fileFactory        	
-	 * @param ReadFactory $readDirFactory        	
-	 * @param ComponentRegistrarInterface $componentRegistrar        	
-	 * @param string $subDir        	
-	 */
-	public function __construct(FileFactory $fileFactory, ReadFactory $readDirFactory, ComponentRegistrarInterface $componentRegistrar, $subDir = '') {
-		$this->fileFactory = $fileFactory;
-		$this->readDirFactory = $readDirFactory;
-		$this->componentRegistrar = $componentRegistrar;
-		$this->subDir = $subDir ? $subDir . '/' : '';
-	}
-	
-	/**
-	 * Retrieve files
-	 *
-	 * @param ThemeInterface $theme        	
-	 * @param string $filePath        	
-	 * @return \Magento\Framework\View\File[]
-	 * @throws \UnexpectedValueException
-	 */
-	public function getFiles(ThemeInterface $theme, $filePath) {
-		$themePath = $theme->getFullPath ();
-		if (empty ( $themePath )) {
-			return [ ];
-		}
-		$themeAbsolutePath = $this->componentRegistrar->getPath ( ComponentRegistrar::THEME, $themePath );
-		if (! $themeAbsolutePath) {
-			return [ ];
-		}
-		$themeDir = $this->readDirFactory->create ( $themeAbsolutePath );
-		$files = $themeDir->search ( $this->subDir . $filePath );
-		$result = [ ];
-		foreach ( $files as $file ) {
-			$filename = $themeDir->getAbsolutePath ( $file );
-			$result [] = $this->fileFactory->create ( $filename, null, $theme );
-		}
-		return $result;
-	}
+class Theme implements CollectorInterface
+{
+    /**
+     * Constructor
+     *
+     * @param FileFactory $fileFactory
+     * @param ReadFactory $readDirFactory
+     * @param ComponentRegistrarInterface $componentRegistrar
+     * @param string $subDir
+     */
+    public function __construct(
+        FileFactory $fileFactory,
+        ReadFactory $readDirFactory,
+        ComponentRegistrarInterface $componentRegistrar,
+        $subDir = ''
+    ) {
+        $this->fileFactory = $fileFactory;
+        $this->readDirFactory = $readDirFactory;
+        $this->componentRegistrar = $componentRegistrar;
+        $this->subDir = $subDir ? $subDir . '/' : '';
+    }
+
+    /**
+     * Retrieve files
+     *
+     * @param ThemeInterface $theme
+     * @param string $filePath
+     * @return \Magento\Framework\View\File[]
+     * @throws \UnexpectedValueException
+     */
+    public function getFiles(ThemeInterface $theme, $filePath)
+    {
+        $themePath = $theme->getFullPath();
+        if (empty($themePath)) {
+            return [];
+        }
+        $themeAbsolutePath = $this->componentRegistrar->getPath(ComponentRegistrar::THEME, $themePath);
+        if (!$themeAbsolutePath) {
+            return [];
+        }
+        $themeDir = $this->readDirFactory->create($themeAbsolutePath);
+        $files = $themeDir->search($this->subDir . $filePath);
+        $result = [];
+        foreach ($files as $file) {
+            $filename = $themeDir->getAbsolutePath($file);
+            $result[] = $this->fileFactory->create($filename, null, $theme);
+        }
+        return $result;
+    }
 }

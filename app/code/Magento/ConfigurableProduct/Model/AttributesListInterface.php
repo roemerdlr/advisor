@@ -1,17 +1,17 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\ConfigurableProduct\Model;
 
-interface AttributesListInterface {
-	/**
-	 * Retrieve list of attributes
-	 *
-	 * @param array $ids        	
-	 * @return array
-	 */
-	public function getAttributes($ids);
+interface AttributesListInterface
+{
+    /**
+     * Retrieve list of attributes
+     *
+     * @param array $ids
+     * @return array
+     */
+    public function getAttributes($ids);
 }

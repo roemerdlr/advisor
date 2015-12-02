@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,15 +10,15 @@ use Magento\Framework\Data\Argument\InterpreterInterface;
 /**
  * Interpreter that pass through params
  */
-class Passthrough implements InterpreterInterface {
-	
-	/**
-	 *
-	 * {@inheritdoc}
-	 *
-	 * @return array
-	 */
-	public function evaluate(array $data) {
-		return $data;
-	}
+class Passthrough implements InterpreterInterface
+{
+
+    /**
+     * {@inheritdoc}
+     * @return array
+     */
+    public function evaluate(array $data)
+    {
+        return $data;
+    }
 }

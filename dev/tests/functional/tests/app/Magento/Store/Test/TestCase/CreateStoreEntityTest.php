@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Store\Test\TestCase;
 
 use Magento\Backend\Test\Page\Adminhtml\StoreIndex;
@@ -29,50 +29,53 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Store_Management_(PS)
  * @ZephyrId MAGETWO-27647
  */
-class CreateStoreEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'PS';
-	const TEST_TYPE = 'acceptance_test';
-	/* end tags */
-	
-	/**
-	 * Page StoreIndex
-	 *
-	 * @var StoreIndex
-	 */
-	protected $storeIndex;
-	
-	/**
-	 * Page StoreNew
-	 *
-	 * @var StoreNew
-	 */
-	protected $storeNew;
-	
-	/**
-	 * Preparing pages for test
-	 *
-	 * @param StoreIndex $storeIndex        	
-	 * @param StoreNew $storeNew        	
-	 * @return void
-	 */
-	public function __inject(StoreIndex $storeIndex, StoreNew $storeNew) {
-		$this->storeIndex = $storeIndex;
-		$this->storeNew = $storeNew;
-	}
-	
-	/**
-	 * Runs Test Creation for StoreEntityTest
-	 *
-	 * @param Store $store        	
-	 * @return void
-	 */
-	public function test(Store $store) {
-		// Steps:
-		$this->storeIndex->open ();
-		$this->storeIndex->getGridPageActions ()->addStoreView ();
-		$this->storeNew->getStoreForm ()->fill ( $store );
-		$this->storeNew->getFormPageActions ()->save ();
-	}
+class CreateStoreEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'PS';
+    const TEST_TYPE = 'acceptance_test';
+    /* end tags */
+
+    /**
+     * Page StoreIndex
+     *
+     * @var StoreIndex
+     */
+    protected $storeIndex;
+
+    /**
+     * Page StoreNew
+     *
+     * @var StoreNew
+     */
+    protected $storeNew;
+
+    /**
+     * Preparing pages for test
+     *
+     * @param StoreIndex $storeIndex
+     * @param StoreNew $storeNew
+     * @return void
+     */
+    public function __inject(StoreIndex $storeIndex, StoreNew $storeNew)
+    {
+        $this->storeIndex = $storeIndex;
+        $this->storeNew = $storeNew;
+    }
+
+    /**
+     * Runs Test Creation for StoreEntityTest
+     *
+     * @param Store $store
+     * @return void
+     */
+    public function test(Store $store)
+    {
+        //Steps:
+        $this->storeIndex->open();
+        $this->storeIndex->getGridPageActions()->addStoreView();
+        $this->storeNew->getStoreForm()->fill($store);
+        $this->storeNew->getFormPageActions()->save();
+    }
 }

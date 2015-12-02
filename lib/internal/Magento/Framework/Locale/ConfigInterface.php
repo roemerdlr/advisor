@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,18 +10,19 @@ namespace Magento\Framework\Locale;
  *
  * @api
  */
-interface ConfigInterface {
-	/**
-	 * Get list pre-configured allowed locales
-	 *
-	 * @return string[]
-	 */
-	public function getAllowedLocales();
-	
-	/**
-	 * Get list pre-configured allowed currencies
-	 *
-	 * @return string[]
-	 */
-	public function getAllowedCurrencies();
+interface ConfigInterface
+{
+    /**
+     * Get list pre-configured allowed locales
+     *
+     * @return string[]
+     */
+    public function getAllowedLocales();
+
+    /**
+     * Get list pre-configured allowed currencies
+     *
+     * @return string[]
+     */
+    public function getAllowedCurrencies();
 }

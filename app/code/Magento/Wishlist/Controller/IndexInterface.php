@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,5 +8,6 @@ namespace Magento\Wishlist\Controller;
 
 use Magento\Catalog\Controller\Product\View\ViewInterface;
 
-interface IndexInterface extends \Magento\Framework\App\ActionInterface, ViewInterface {
+interface IndexInterface extends \Magento\Framework\App\ActionInterface, ViewInterface
+{
 }

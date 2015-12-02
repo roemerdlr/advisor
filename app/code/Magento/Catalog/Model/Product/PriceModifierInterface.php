@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Price calculation extension point
  *
@@ -10,13 +9,15 @@ namespace Magento\Catalog\Model\Product;
 
 use Magento\Catalog\Model\Product;
 
-interface PriceModifierInterface {
-	/**
-	 * Modify price
-	 *
-	 * @param mixed $price        	
-	 * @param Product $product        	
-	 * @return mixed @api
-	 */
-	public function modifyPrice($price, Product $product);
+interface PriceModifierInterface
+{
+    /**
+     * Modify price
+     *
+     * @param mixed $price
+     * @param Product $product
+     * @return mixed
+     * @api
+     */
+    public function modifyPrice($price, Product $product);
 }

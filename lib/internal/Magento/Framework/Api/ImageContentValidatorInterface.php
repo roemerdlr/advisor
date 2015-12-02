@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -15,13 +14,14 @@ use Magento\Framework\Exception\InputException;
  *
  * @api
  */
-interface ImageContentValidatorInterface {
-	/**
-	 * Check if gallery entry content is valid
-	 *
-	 * @param ImageContentInterface $imageContent        	
-	 * @return bool
-	 * @throws InputException
-	 */
-	public function isValid(ImageContentInterface $imageContent);
+interface ImageContentValidatorInterface
+{
+    /**
+     * Check if gallery entry content is valid
+     *
+     * @param ImageContentInterface $imageContent
+     * @return bool
+     * @throws InputException
+     */
+    public function isValid(ImageContentInterface $imageContent);
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,13 +12,14 @@ use Magento\Store\Model\System\Store;
  *
  * This class is needed until the layout file supports supplying arguments to an option model.
  */
-class AdminOptionHash extends OptionHash {
-	/**
-	 *
-	 * @param Store $systemStore        	
-	 * @param bool $withDefaultWebsite        	
-	 */
-	public function __construct(Store $systemStore, $withDefaultWebsite = true) {
-		parent::__construct ( $systemStore, $withDefaultWebsite );
-	}
+class AdminOptionHash extends OptionHash
+{
+    /**
+     * @param Store $systemStore
+     * @param bool $withDefaultWebsite
+     */
+    public function __construct(Store $systemStore, $withDefaultWebsite = true)
+    {
+        parent::__construct($systemStore, $withDefaultWebsite);
+    }
 }

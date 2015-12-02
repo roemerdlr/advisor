@@ -7,8 +7,9 @@
 // @codingStandardsIgnoreFile
 
 /** @var $block \Magento\Checkout\Block\Item\Price\Renderer */
-$_item = $block->getItem ();
+
+$_item = $block->getItem();
 ?>
 <span class="cart-price">
-    <?php /* @escapeNotVerified */ echo $this->helper('Magento\Checkout\Helper\Data')->formatPrice($_item->getCalculationPrice())?>
+    <?php /* @escapeNotVerified */ echo $this->helper('Magento\Checkout\Helper\Data')->formatPrice($_item->getCalculationPrice()) ?>
 </span>

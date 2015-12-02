@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Integer validator
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\Framework\Validator;
 
-class IntUtils extends \Zend_Validate_Int implements \Magento\Framework\Validator\ValidatorInterface {
+class IntUtils extends \Zend_Validate_Int implements \Magento\Framework\Validator\ValidatorInterface
+{
 }

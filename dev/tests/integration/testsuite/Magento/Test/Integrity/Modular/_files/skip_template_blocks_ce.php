@@ -8,8 +8,8 @@
  * See COPYING.txt for license details.
  */
 return [
-		// Fails because of dependence on registry
-		'Magento\Reminder\Block\Adminhtml\Reminder\Edit\Tab\Customers',
-		'Magento\LayeredNavigation\Block\Navigation',
-		'Magento\LayeredNavigation\Block\Navigation\State' 
+    // Fails because of dependence on registry
+    'Magento\Reminder\Block\Adminhtml\Reminder\Edit\Tab\Customers',
+    'Magento\LayeredNavigation\Block\Navigation',
+    'Magento\LayeredNavigation\Block\Navigation\State',
 ];

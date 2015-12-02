@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,17 +11,18 @@ namespace Magento\TestModule5\Service\V2\Entity;
  * Data Object long
  * multi line description.
  */
-class AllSoapAndRest extends \Magento\TestModule5\Service\V2\AllSoapAndRest {
-	/**
-	 * Price field
-	 */
-	const PRICE = 'price';
-	
-	/**
-	 *
-	 * @return int
-	 */
-	public function getPrice() {
-		return $this->_get ( self::PRICE );
-	}
+class AllSoapAndRest extends \Magento\TestModule5\Service\V2\AllSoapAndRest
+{
+    /**
+     * Price field
+     */
+    const PRICE = 'price';
+
+    /**
+     * @return int
+     */
+    public function getPrice()
+    {
+        return $this->_get(self::PRICE);
+    }
 }

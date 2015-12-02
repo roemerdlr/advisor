@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -17,15 +16,16 @@ namespace Magento\Directory\Model\Country;
  * @method \Magento\Directory\Model\Country\Format setType(string $value)
  * @method string getFormat()
  * @method \Magento\Directory\Model\Country\Format setFormat(string $value)
- *        
- * @author Magento Core Team <core@magentocommerce.com>
+ *
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Format extends \Magento\Framework\Model\AbstractModel {
-	/**
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		$this->_init ( 'Magento\Directory\Model\ResourceModel\Country\Format' );
-	}
+class Format extends \Magento\Framework\Model\AbstractModel
+{
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init('Magento\Directory\Model\ResourceModel\Country\Format');
+    }
 }

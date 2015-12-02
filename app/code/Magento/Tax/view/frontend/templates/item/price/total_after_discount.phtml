@@ -7,7 +7,7 @@
 // @codingStandardsIgnoreFile
 
 /** @var \Magento\Tax\Block\Item\Price\Renderer $block */
-$_item = $block->getItem ();
+$_item = $block->getItem();
 ?>
-<?php $_order = $block->getItem()->getOrderItem()->getOrder()?>
+<?php $_order = $block->getItem()->getOrderItem()->getOrder() ?>
 <?php /* @escapeNotVerified */ echo $_order->formatPrice($block->getTotalAmount($_item))?>

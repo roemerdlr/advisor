@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,13 +9,15 @@
  */
 namespace Magento\Wishlist\Block\Customer;
 
-class Sidebar extends \Magento\Wishlist\Block\AbstractBlock {
-	/**
-	 * Retrieve block title
-	 *
-	 * @return \Magento\Framework\Phrase
-	 */
-	public function getTitle() {
-		return __ ( 'My Wish List' );
-	}
+class Sidebar extends \Magento\Wishlist\Block\AbstractBlock
+{
+    /**
+     * Retrieve block title
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getTitle()
+    {
+        return __('My Wish List');
+    }
 }

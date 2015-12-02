@@ -5,15 +5,14 @@
  */
 ?>
 <?php
-
 /**
  * Shopping cart template
  *
  * @var $block \Magento\Checkout\Block\Cart
  */
 
-if ($block->getItemsCount ()) {
-	echo $block->getChildHtml ( 'with-items' );
+if ($block->getItemsCount()) {
+    echo $block->getChildHtml('with-items');
 } else {
-	echo $block->getChildHtml ( 'no-items' );
+    echo $block->getChildHtml('no-items');
 }

@@ -5,13 +5,13 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php
-
 /** @var \Magento\Sales\Block\Adminhtml\Order\Create\Items\Grid $block */
 
-$_item = $block->getItem ();
+$_item = $block->getItem();
 ?>
 <div class="price-excl-tax">
-<?php /* @escapeNotVerified */ echo $block->formatPrice($_item->getCalculationPrice())?>
+<?php /* @escapeNotVerified */ echo $block->formatPrice($_item->getCalculationPrice()) ?>
 </div>

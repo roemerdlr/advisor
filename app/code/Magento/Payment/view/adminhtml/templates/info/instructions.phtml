@@ -6,18 +6,17 @@
 
 // @codingStandardsIgnoreFile
 /**
- *
  * @var \Magento\Payment\Block\Info $block
  * @see \Magento\Payment\Block\Info
  */
 ?>
 <p><?php echo $block->escapeHtml($block->getMethod()->getTitle()); ?></p>
 <?php if ($block->getInstructions()): ?>
-<table>
-	<tbody>
-		<tr>
-			<td><?php /* @noEscape */ echo nl2br($block->escapeHtml($block->getInstructions())); ?></td>
-		</tr>
-	</tbody>
-</table>
+    <table>
+        <tbody>
+            <tr>
+                <td><?php /* @noEscape */ echo nl2br($block->escapeHtml($block->getInstructions())); ?></td>
+            </tr>
+        </tbody>
+    </table>
 <?php endif; ?>

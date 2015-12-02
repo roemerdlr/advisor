@@ -9,15 +9,14 @@
 /* @var $block \Magento\ConfigurableProduct\Block\Adminhtml\Product\Steps\SelectAttributes */
 ?>
 <div class="select-attributes-block">
-	<div class="select-attributes-actions" data-type="skipKO">
+    <div class="select-attributes-actions" data-type="skipKO">
         <?= /* @escapeNotVerified */  $block->getAddNewAttributeButton(); ?>
     </div>
-	<h2 class="steps-wizard-title"><?= /* @escapeNotVerified */  __('Step 1: Select Attributes') ?></h2>
-	<div class="selected-attributes"
-		data-bind="scope: '<?= /* @escapeNotVerified */  $block->getComponentName()?>'">
-        <?= /* @escapeNotVerified */  __('Selected Attributes:')?>
+    <h2 class="steps-wizard-title"><?= /* @escapeNotVerified */  __('Step 1: Select Attributes') ?></h2>
+    <div class="selected-attributes" data-bind="scope: '<?= /* @escapeNotVerified */  $block->getComponentName()?>'">
+        <?= /* @escapeNotVerified */  __('Selected Attributes:') ?>
         <span data-bind="text: selectedAttributes() || '--'"></span>
-	</div>
+    </div>
 </div>
 <?= $block->getChildHtml(); ?>
 <script type="text/x-magento-init">

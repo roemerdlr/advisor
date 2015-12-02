@@ -5,10 +5,10 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php /** @var $block \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Type\Select */ ?>
-<script id="custom-option-select-type-template"
-	type="text/x-magento-template">
+<script id="custom-option-select-type-template" type="text/x-magento-template">
     <div id="product_option_<%- data.option_id %>_type_<%- data.group %>" class="fieldset">
         <table class="data-table">
             <thead>
@@ -26,7 +26,7 @@
             <tbody id="select_option_type_row_<%- data.option_id %>"></tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6"><?php echo $block->getAddButtonHtml()?>
+                    <td colspan="6"><?php echo $block->getAddButtonHtml() ?>
                         <input name="validation_<%- data.option_id %>_result" class="required-option-select-type-rows" type="hidden" value="">
                     </td>
                 </tr>
@@ -34,8 +34,7 @@
         </table>
     </div>
 </script>
-<script id="custom-option-select-type-row-template"
-	type="text/x-magento-template">
+<script id="custom-option-select-type-row-template" type="text/x-magento-template">
     <tr id="product_option_<%- data.id %>_select_<%- data.select_id %>">
         <td class="col-draggable">
             <div data-role="draggable-handle" class="draggable-handle"

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,13 +9,15 @@
  */
 namespace Magento\Framework\Backup\Test\Unit\Filesystem\Rollback;
 
-class Fs extends \Magento\Framework\Backup\Filesystem\Rollback\AbstractRollback {
-	/**
-	 * Mock Files rollback implementation via local filesystem
-	 *
-	 * @see \Magento\Framework\Backup\Filesystem\Rollback\AbstractRollback::run()
-	 */
-	public function run() {
-		return;
-	}
+class Fs extends \Magento\Framework\Backup\Filesystem\Rollback\AbstractRollback
+{
+    /**
+     * Mock Files rollback implementation via local filesystem
+     *
+     * @see \Magento\Framework\Backup\Filesystem\Rollback\AbstractRollback::run()
+     */
+    public function run()
+    {
+        return;
+    }
 }

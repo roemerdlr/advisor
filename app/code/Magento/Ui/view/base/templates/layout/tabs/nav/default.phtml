@@ -4,13 +4,9 @@
  * See COPYING.txt for license details.
  */
 /**
- *
  * @var \Magento\Ui\Component\Layout\Tabs\Nav $block
  */
 ?>
-<div
-	data-bind="scope: '<?php /* @escapeNotVerified */ echo $block->getDataScope(); ?>.sections' "
-	class="ui-tabs">
-	<!-- ko template: getTemplate() -->
-	<!-- /ko -->
+<div data-bind="scope: '<?php /* @escapeNotVerified */ echo $block->getDataScope(); ?>.sections' " class="ui-tabs">
+    <!-- ko template: getTemplate() --><!-- /ko -->
 </div>

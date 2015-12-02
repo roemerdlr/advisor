@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Variable\Test\TestCase;
 
 use Magento\Variable\Test\Fixture\SystemVariable;
@@ -13,8 +13,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Steps:
- * 1.
- * Login to backend.
+ * 1. Login to backend.
  * 2. Navigate to System->Other Settings->Custom Variables.
  * 3. Click on 'Add new variable' button.
  * 4. Fill in all data according to data set.
@@ -24,49 +23,54 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Variables_(PS)
  * @ZephyrId MAGETWO-23293
  */
-class CreateCustomVariableEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * Custom System Variable grid page.
-	 *
-	 * @var SystemVariableIndex
-	 */
-	protected $systemVariableIndexPage;
-	
-	/**
-	 * Custom System Variable new and edit page.
-	 *
-	 * @var SystemVariableNew
-	 */
-	protected $systemVariableNewPage;
-	
-	/**
-	 * Injection data.
-	 *
-	 * @param SystemVariableIndex $systemVariableIndex        	
-	 * @param SystemVariableNew $systemVariableNew        	
-	 * @return void
-	 */
-	public function __inject(SystemVariableIndex $systemVariableIndex, SystemVariableNew $systemVariableNew) {
-		$this->systemVariableIndexPage = $systemVariableIndex;
-		$this->systemVariableNewPage = $systemVariableNew;
-	}
-	
-	/**
-	 * Delete Custom System Variable Entity test.
-	 *
-	 * @param SystemVariable $customVariable        	
-	 * @return void
-	 */
-	public function test(SystemVariable $customVariable) {
-		// Steps
-		$this->systemVariableIndexPage->open ();
-		$this->systemVariableIndexPage->getGridPageActions ()->addNew ();
-		$this->systemVariableNewPage->getSystemVariableForm ()->fill ( $customVariable );
-		$this->systemVariableNewPage->getFormPageActions ()->save ();
-	}
+class CreateCustomVariableEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * Custom System Variable grid page.
+     *
+     * @var SystemVariableIndex
+     */
+    protected $systemVariableIndexPage;
+
+    /**
+     * Custom System Variable new and edit page.
+     *
+     * @var SystemVariableNew
+     */
+    protected $systemVariableNewPage;
+
+    /**
+     * Injection data.
+     *
+     * @param SystemVariableIndex $systemVariableIndex
+     * @param SystemVariableNew $systemVariableNew
+     * @return void
+     */
+    public function __inject(
+        SystemVariableIndex $systemVariableIndex,
+        SystemVariableNew $systemVariableNew
+    ) {
+        $this->systemVariableIndexPage = $systemVariableIndex;
+        $this->systemVariableNewPage = $systemVariableNew;
+    }
+
+    /**
+     * Delete Custom System Variable Entity test.
+     *
+     * @param SystemVariable $customVariable
+     * @return void
+     */
+    public function test(SystemVariable $customVariable)
+    {
+        // Steps
+        $this->systemVariableIndexPage->open();
+        $this->systemVariableIndexPage->getGridPageActions()->addNew();
+        $this->systemVariableNewPage->getSystemVariableForm()->fill($customVariable);
+        $this->systemVariableNewPage->getFormPageActions()->save();
+    }
 }

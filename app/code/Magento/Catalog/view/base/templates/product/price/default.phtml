@@ -5,19 +5,19 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 
 <?php
 /** @var \Magento\Catalog\Pricing\Render\FinalPriceBox $block */
 
-$productId = $block->getSaleableItem ()->getId ();
+$productId = $block->getSaleableItem()->getId();
 
 /** @var \Magento\Catalog\Pricing\Price\RegularPrice $priceModel */
-$priceModel = $block->getPriceType ( 'regular_price' );
+$priceModel = $block->getPriceType('regular_price');
 
-/* @escapeNotVerified */
-echo $block->renderAmount ( $priceModel->getAmount (), [ 
-		'price_id' => $block->getPriceId ( 'product-price-' ),
-		'include_container' => true 
-] );
+/* @escapeNotVerified */ echo $block->renderAmount($priceModel->getAmount(), [
+    'price_id'          => $block->getPriceId('product-price-'),
+    'include_container' => true
+]);
 ?>

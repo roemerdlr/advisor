@@ -5,30 +5,27 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php
 
-$numColumns = sizeof ( $block->getColumns () );
+$numColumns = sizeof($block->getColumns());
 ?>
 <?php if ($block->getCollection()): ?>
 <div class="dashboard-item-content">
     <?php if ($block->getCollection()->getSize()>0): ?>
-        <table class="admin__table-primary dashboard-data"
-		id="<?php /* @escapeNotVerified */ echo $block->getId() ?>_table">
+        <table class="admin__table-primary dashboard-data" id="<?php /* @escapeNotVerified */ echo $block->getId() ?>_table">
             <?php
-		/* This part is commented to remove all <col> tags from the code. */
-		/*
-		 * foreach ($block->getColumns() as $_column): ?>
-		 * <col <?php echo $_column->getHtmlProperty() ?> />
-		 * <?php endforeach;
-		 */
-		?>
+            /* This part is commented to remove all <col> tags from the code. */
+            /* foreach ($block->getColumns() as $_column): ?>
+            <col <?php echo $_column->getHtmlProperty() ?> />
+            <?php endforeach; */ ?>
             <?php if ($block->getHeadersVisibility() || $block->getFilterVisibility()): ?>
                 <thead>
                 <?php if ($block->getHeadersVisibility()): ?>
                     <tr>
                         <?php foreach ($block->getColumns() as $_column): ?>
-                            <?php echo $_column->getHeaderHtml()?>
+                            <?php echo $_column->getHeaderHtml() ?>
                         <?php endforeach; ?>
                     </tr>
                 <?php endif; ?>
@@ -37,11 +34,9 @@ $numColumns = sizeof ( $block->getColumns () );
             <?php if (!$block->getIsCollapsed()): ?>
                 <tbody>
                 <?php foreach ($block->getCollection() as $_index => $_item): ?>
-                    <tr
-				title="<?php /* @escapeNotVerified */ echo $block->getRowUrl($_item) ?>">
+                    <tr title="<?php /* @escapeNotVerified */ echo $block->getRowUrl($_item) ?>">
                     <?php $i = 0; foreach ($block->getColumns() as $_column): ?>
-                        <td
-					class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?> <?php echo ++$i == $numColumns ? 'last' : '' ?>"><?php echo(($_html = $_column->getRowField($_item)) != '' ? $_html : '&nbsp;') ?></td>
+                        <td class="<?php /* @escapeNotVerified */ echo $_column->getCssProperty() ?> <?php echo ++$i == $numColumns ? 'last' : '' ?>"><?php echo(($_html = $_column->getRowField($_item)) != '' ? $_html : '&nbsp;') ?></td>
                     <?php endforeach; ?>
                     </tr>
                 <?php endforeach; ?>
@@ -49,8 +44,7 @@ $numColumns = sizeof ( $block->getColumns () );
             <?php endif; ?>
         </table>
     <?php else: ?>
-        <div
-		class="<?php /* @escapeNotVerified */ echo $block->getEmptyTextClass() ?>"><?php /* @escapeNotVerified */ echo $block->getEmptyText() ?></div>
+        <div class="<?php /* @escapeNotVerified */ echo $block->getEmptyTextClass() ?>"><?php /* @escapeNotVerified */ echo $block->getEmptyText() ?></div>
     <?php endif; ?>
 </div>
 <?php if ($block->canDisplayContainer()): ?>
@@ -87,7 +81,7 @@ require(deps, function(<?php echo ($block->getDependencyJsObject() ? 'registry' 
         <?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>.rows.each(function(row){<?php /* @escapeNotVerified */ echo $block->getRowInitCallback() ?>(<?php /* @escapeNotVerified */ echo $block->getJsObjectName() ?>, row)});
     <?php endif; ?>
     <?php if ($block->getMassactionBlock()->isAvailable()): ?>
-    <?php /* @escapeNotVerified */ echo $block->getMassactionBlock()->getJavaScript()?>
+    <?php /* @escapeNotVerified */ echo $block->getMassactionBlock()->getJavaScript() ?>
     <?php endif ?>
 
     <?php if ($block->getDependencyJsObject()): ?>

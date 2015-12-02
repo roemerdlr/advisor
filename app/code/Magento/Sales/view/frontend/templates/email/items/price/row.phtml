@@ -5,15 +5,15 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php
-
 /** @var \Magento\Sales\Block\Order\Email\Items\DefaultItems $block */
 
-$_item = $block->getItem ();
+$_item = $block->getItem();
 
 /** @var \Magento\Sales\Model\Order $_order */
-$_order = $_item->getOrder ();
+$_order = $_item->getOrder();
 ?>
 
-<?= /* @escapeNotVerified */  $_order->formatPrice($_item->getRowTotal())?>
+<?= /* @escapeNotVerified */  $_order->formatPrice($_item->getRowTotal()) ?>

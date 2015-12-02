@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,27 +12,28 @@ use Magento\Framework\Exception\NoSuchEntityException;
  *
  * @api
  */
-interface GroupRepositoryInterface {
-	/**
-	 * Retrieve group by id
-	 *
-	 * @param int $id        	
-	 * @return \Magento\Store\Api\Data\GroupInterface
-	 * @throws NoSuchEntityException
-	 */
-	public function get($id);
-	
-	/**
-	 * Retrieve list of all groups
-	 *
-	 * @return \Magento\Store\Api\Data\GroupInterface[]
-	 */
-	public function getList();
-	
-	/**
-	 * Clear cached entities
-	 *
-	 * @return void
-	 */
-	public function clean();
+interface GroupRepositoryInterface
+{
+    /**
+     * Retrieve group by id
+     *
+     * @param int $id
+     * @return \Magento\Store\Api\Data\GroupInterface
+     * @throws NoSuchEntityException
+     */
+    public function get($id);
+
+    /**
+     * Retrieve list of all groups
+     *
+     * @return \Magento\Store\Api\Data\GroupInterface[]
+     */
+    public function getList();
+
+    /**
+     * Clear cached entities
+     *
+     * @return void
+     */
+    public function clean();
 }

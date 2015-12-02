@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,8 +12,9 @@ use Magento\Framework\Filesystem\Test\Unit\Driver\HttpTest;
  *
  * @return string
  */
-function file_get_contents() {
-	return HttpTest::$fileGetContents;
+function file_get_contents()
+{
+    return HttpTest::$fileGetContents;
 }
 
 /**
@@ -22,27 +22,30 @@ function file_get_contents() {
  *
  * @return bool
  */
-function file_put_contents() {
-	return HttpTest::$filePutContents;
+function file_put_contents()
+{
+    return HttpTest::$filePutContents;
 }
 
 /**
  * Override standard function
  *
- * @param int $errorNumber        	
- * @param string $errorMessage        	
+ * @param int    $errorNumber
+ * @param string $errorMessage
  * @return bool
  */
-function fsockopen(&$errorNumber, &$errorMessage) {
-	$errorNumber = 0;
-	$errorMessage = '';
-	return HttpTest::$fsockopen;
+function fsockopen(&$errorNumber, &$errorMessage)
+{
+    $errorNumber = 0;
+    $errorMessage = '';
+    return HttpTest::$fsockopen;
 }
 
 /**
  * Override standard function (make a placeholder - we don't need it in our tests)
  */
-function fwrite() {
+function fwrite()
+{
 }
 
 /**
@@ -50,8 +53,9 @@ function fwrite() {
  *
  * @return bool
  */
-function feof() {
-	return true;
+function feof()
+{
+    return true;
 }
 
 /**
@@ -59,6 +63,7 @@ function feof() {
  *
  * @return array
  */
-function get_headers() {
-	return HttpTest::$headers;
+function get_headers()
+{
+    return HttpTest::$headers;
 }

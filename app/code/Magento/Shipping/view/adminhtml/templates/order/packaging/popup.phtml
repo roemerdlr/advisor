@@ -5,13 +5,13 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php /** @var $block \Magento\Shipping\Block\Adminhtml\Order\Packaging */ ?>
 <?php
-
-$shippingMethod = $block->getShipment ()->getOrder ()->getShippingMethod ();
-$sizeSource = $block->getSourceSizeModel ()->toOptionArray ();
-$girthEnabled = $block->isDisplayGirthValue () && $block->isGirthAllowed () ? 1 : 0;
+$shippingMethod = $block->getShipment()->getOrder()->getShippingMethod();
+$sizeSource = $block->getSourceSizeModel()->toOptionArray();
+$girthEnabled = $block->isDisplayGirthValue() && $block->isGirthAllowed() ? 1 : 0;
 ?>
 <script>
     require([
@@ -32,12 +32,10 @@ $girthEnabled = $block->isDisplayGirthValue () && $block->isGirthAllowed () ? 1 
             packaging.sendCreateLabelRequest();
         });
         packaging.setLabelCreatedCallback(function(response){
-            setLocation("<?php 
-/* @escapeNotVerified */
-												echo $block->getUrl ( 'sales/order/view', [ 
-														'order_id' => $block->getShipment ()->getOrderId () 
-												] );
-												?>");
+            setLocation("<?php /* @escapeNotVerified */ echo $block->getUrl(
+                'sales/order/view',
+                ['order_id' => $block->getShipment()->getOrderId()]
+            ); ?>");
         });
         packaging.setCancelCallback(function() {
             if ($('create_shipping_label')) {
@@ -80,4 +78,4 @@ $girthEnabled = $block->isDisplayGirthValue () && $block->isGirthAllowed () ? 1 
         });
     });
 </script>
-<?php include ($block->getTemplateFile('Magento_Shipping::order/packaging/popup_content.phtml'))?>
+<?php include ($block->getTemplateFile('Magento_Shipping::order/packaging/popup_content.phtml')) ?>

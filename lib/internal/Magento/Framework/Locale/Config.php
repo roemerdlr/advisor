@@ -1,19 +1,19 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Framework\Locale;
 
-class Config implements \Magento\Framework\Locale\ConfigInterface {
-	/**
-	 * List of allowed locales
-	 *
-	 * @var array
-	 */
-	protected $_allowedLocales = [ 
-			'af_ZA', /*Afrikaans (South Africa)*/
+class Config implements \Magento\Framework\Locale\ConfigInterface
+{
+    /**
+     * List of allowed locales
+     *
+     * @var array
+     */
+    protected $_allowedLocales = [
+        'af_ZA', /*Afrikaans (South Africa)*/
         'ar_DZ', /*Arabic (Algeria)*/
         'ar_EG', /*Arabic (Egypt)*/
         'ar_KW', /*Arabic (Kuwait)*/
@@ -97,14 +97,14 @@ class Config implements \Magento\Framework\Locale\ConfigInterface {
         'es_VE', /*Spanish (Venezuela)*/
         'en_IE', /*English (Ireland)*/
     ];
-	
-	/**
-	 * List of allowed currencies
-	 *
-	 * @var array
-	 */
-	protected $_allowedCurrencies = [ 
-			'AFN', /*Afghani*/
+
+    /**
+     * List of allowed currencies
+     *
+     * @var array
+     */
+    protected $_allowedCurrencies = [
+        'AFN', /*Afghani*/
         'ALL', /*Albanian Lek*/
         'AZN', /*Azerbaijanian Manat*/
         'DZD', /*Algerian Dinar*/
@@ -275,32 +275,34 @@ class Config implements \Magento\Framework\Locale\ConfigInterface {
         'TRL', /*Old Turkish Lira*/
         'XPF', /*CFP Franc*/
     ];
-	
-	/**
-	 *
-	 * @param array $data        	
-	 */
-	public function __construct(array $data = []) {
-		if (isset ( $data ['allowedLocales'] ) && is_array ( $data ['allowedLocales'] )) {
-			$this->_allowedLocales = array_merge ( $this->_allowedLocales, $data ['allowedLocales'] );
-		}
-		
-		if (isset ( $data ['allowedCurrencies'] ) && is_array ( $data ['allowedCurrencies'] )) {
-			$this->_allowedCurrencies = array_merge ( $this->_allowedCurrencies, $data ['allowedCurrencies'] );
-		}
-	}
-	
-	/**
-	 * @inheritdoc
-	 */
-	public function getAllowedLocales() {
-		return $this->_allowedLocales;
-	}
-	
-	/**
-	 * @inheritdoc
-	 */
-	public function getAllowedCurrencies() {
-		return $this->_allowedCurrencies;
-	}
+
+    /**
+     * @param array $data
+     */
+    public function __construct(array $data = [])
+    {
+        if (isset($data['allowedLocales']) && is_array($data['allowedLocales'])) {
+            $this->_allowedLocales = array_merge($this->_allowedLocales, $data['allowedLocales']);
+        }
+
+        if (isset($data['allowedCurrencies']) && is_array($data['allowedCurrencies'])) {
+            $this->_allowedCurrencies = array_merge($this->_allowedCurrencies, $data['allowedCurrencies']);
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAllowedLocales()
+    {
+        return $this->_allowedLocales;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAllowedCurrencies()
+    {
+        return $this->_allowedCurrencies;
+    }
 }

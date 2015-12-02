@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,14 +10,15 @@ use Magento\Backend\App\Action;
 /**
  * Adminhtml account controller
  *
- * @author Magento Core Team <core@magentocommerce.com>
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-abstract class Account extends Action {
-	/**
-	 *
-	 * @return bool
-	 */
-	protected function _isAllowed() {
-		return $this->_authorization->isAllowed ( 'Magento_Backend::myaccount' );
-	}
+abstract class Account extends Action
+{
+    /**
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Magento_Backend::myaccount');
+    }
 }

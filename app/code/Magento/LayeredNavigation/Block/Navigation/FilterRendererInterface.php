@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,12 +11,13 @@ use Magento\Catalog\Model\Layer\Filter\FilterInterface;
  * Interface FilterRendererInterface
  * @api
  */
-interface FilterRendererInterface {
-	/**
-	 * Render filter
-	 *
-	 * @param FilterInterface $filter        	
-	 * @return string
-	 */
-	public function render(FilterInterface $filter);
+interface FilterRendererInterface
+{
+    /**
+     * Render filter
+     *
+     * @param FilterInterface $filter
+     * @return string
+     */
+    public function render(FilterInterface $filter);
 }

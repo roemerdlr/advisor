@@ -10,22 +10,17 @@
 ?>
 
 <?php
-$mode = $block->getViewMode ();
-$type = $block->getType () . '-' . $mode;
+$mode = $block->getViewMode();
+$type = $block->getType() . '-' . $mode;
 $class = 'widget viewed' . ' ' . $mode;
-$title = __ ( 'Recently Viewed' );
+$title = __('Recently Viewed');
 ?>
-<div class="block <?php /* @escapeNotVerified */ echo $class; ?>"
-	id="recently_viewed_container"
-	data-mage-init='{"recentlyViewedProducts":{}}'
-	data-count="<?php /* @escapeNotVerified */ echo $block->getCount(); ?>"
-	style="display: none;">
-	<div class="title">
-		<strong><?php /* @escapeNotVerified */ echo $title; ?></strong>
-	</div>
-	<div class="content">
-		<ol
-			class="products list items <?php /* @escapeNotVerified */ echo $type; ?>">
-		</ol>
-	</div>
+<div class="block <?php /* @escapeNotVerified */ echo $class; ?>" id="recently_viewed_container" data-mage-init='{"recentlyViewedProducts":{}}' data-count="<?php /* @escapeNotVerified */ echo $block->getCount(); ?>" style="display: none;">
+    <div class="title">
+        <strong><?php /* @escapeNotVerified */ echo $title; ?></strong>
+    </div>
+    <div class="content">
+        <ol class="products list items <?php /* @escapeNotVerified */ echo $type; ?>">
+        </ol>
+    </div>
 </div>

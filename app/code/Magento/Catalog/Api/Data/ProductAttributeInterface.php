@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -10,6 +9,7 @@ namespace Magento\Catalog\Api\Data;
 /**
  * @api
  */
-interface ProductAttributeInterface extends \Magento\Catalog\Api\Data\EavAttributeInterface {
-	const ENTITY_TYPE_CODE = 'catalog_product';
+interface ProductAttributeInterface extends \Magento\Catalog\Api\Data\EavAttributeInterface
+{
+    const ENTITY_TYPE_CODE = 'catalog_product';
 }

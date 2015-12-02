@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Permissions tab for integration activation dialog.
  *
@@ -15,19 +14,19 @@ use Magento\Backend\Block\Widget\Tabs as TabsWidget;
  *
  * @codeCoverageIgnore
  */
-class Tabs extends TabsWidget {
-	/**
-	 *
-	 * @var string
-	 */
-	protected $_template = 'Magento_Backend::widget/tabshoriz.phtml';
-	
-	/**
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		parent::_construct ();
-		$this->setDestElementId ( 'integrations-activate-permissions-content' );
-	}
+class Tabs extends TabsWidget
+{
+    /**
+     * @var string
+     */
+    protected $_template = 'Magento_Backend::widget/tabshoriz.phtml';
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        parent::_construct();
+        $this->setDestElementId('integrations-activate-permissions-content');
+    }
 }

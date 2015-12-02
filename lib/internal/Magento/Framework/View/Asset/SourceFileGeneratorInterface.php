@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,12 +12,12 @@ use Magento\Framework\View\Asset\PreProcessor\Chain;
  *
  * @package Magento\Framework\View\Asset
  */
-interface SourceFileGeneratorInterface {
-	/**
-	 *
-	 * @param Chain $chain        	
-	 *
-	 * @return mixed
-	 */
-	public function generateFileTree(Chain $chain);
+interface SourceFileGeneratorInterface
+{
+    /**
+     * @param Chain $chain
+     *
+     * @return mixed
+     */
+    public function generateFileTree(Chain $chain);
 }

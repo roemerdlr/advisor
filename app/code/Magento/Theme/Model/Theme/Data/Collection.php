@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,11 +10,12 @@ use Magento\Framework\View\Design\Theme\ListInterface;
 /**
  * Theme filesystem data collection
  */
-class Collection extends \Magento\Theme\Model\Theme\Collection implements ListInterface {
-	/**
-	 * Model of collection item
-	 *
-	 * @var string
-	 */
-	protected $_itemObjectClass = 'Magento\Theme\Model\Theme\Data';
+class Collection extends \Magento\Theme\Model\Theme\Collection implements ListInterface
+{
+    /**
+     * Model of collection item
+     *
+     * @var string
+     */
+    protected $_itemObjectClass = 'Magento\Theme\Model\Theme\Data';
 }

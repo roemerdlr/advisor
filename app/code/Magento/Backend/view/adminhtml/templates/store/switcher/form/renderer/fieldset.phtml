@@ -5,28 +5,25 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
-<?php $_element = $block->getElement()?>
+<?php $_element = $block->getElement() ?>
 <?php if ($_element->getFieldsetContainerId()): ?>
-<div
-	id="<?php /* @escapeNotVerified */ echo $_element->getFieldsetContainerId(); ?>">789
+    <div id="<?php /* @escapeNotVerified */ echo $_element->getFieldsetContainerId(); ?>">789
 <?php endif; ?>
 
 <?php if (!$_element->getNoContainer()): ?>
-    <fieldset
-		class="admin__fieldset fieldset <?php /* @escapeNotVerified */ echo $_element->getClass() ?>"
-		id="<?php echo $_element->getHtmlId() ?>">
+    <fieldset class="admin__fieldset fieldset <?php /* @escapeNotVerified */ echo $_element->getClass() ?>" id="<?php echo $_element->getHtmlId() ?>">
 <?php endif; ?>
 
     <?php if ($_element->getLegend()): ?>
         <legend class="admin__legend legend">
-			<span><?php /* @escapeNotVerified */ echo $_element->getLegend() ?></span>
-            <?php echo $block->getHintHtml()?>
-        </legend>
-		<br />
-        <?php /* @escapeNotVerified */ echo $_element->getHeaderBar()?>
+            <span><?php /* @escapeNotVerified */ echo $_element->getLegend() ?></span>
+            <?php echo $block->getHintHtml() ?>
+        </legend><br/>
+        <?php /* @escapeNotVerified */ echo $_element->getHeaderBar() ?>
     <?php else: ?>
-        <?php echo $block->getHintHtml()?>
+        <?php echo $block->getHintHtml() ?>
     <?php endif; ?>
         <div class="tree-store-scope">
             <?php if ($_element->getComment()): ?>
@@ -38,7 +35,7 @@
                 <?php echo $_element->getChildrenHtml(); ?>
             <?php endif; ?>
         </div>
-<?php echo $_element->getSubFieldsetHtml()?>
+<?php echo $_element->getSubFieldsetHtml() ?>
 
 <?php if (!$_element->getNoContainer()): ?>
     </fieldset>

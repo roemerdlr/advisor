@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Translate Phrase renderer
  *
@@ -12,48 +11,52 @@ use Magento\Framework\Phrase\RendererInterface;
 use Magento\Framework\TranslateInterface;
 use Psr\Log\LoggerInterface;
 
-class Translate implements RendererInterface {
-	/**
-	 *
-	 * @var \Magento\Framework\TranslateInterface
-	 */
-	protected $translator;
-	
-	/**
-	 *
-	 * @var \Psr\Log\LoggerInterface
-	 */
-	protected $logger;
-	
-	/**
-	 * Renderer construct
-	 *
-	 * @param \Magento\Framework\TranslateInterface $translator        	
-	 * @param \Psr\Log\LoggerInterface $logger        	
-	 */
-	public function __construct(TranslateInterface $translator, LoggerInterface $logger) {
-		$this->translator = $translator;
-		$this->logger = $logger;
-	}
-	
-	/**
-	 * Render source text
-	 *
-	 * @param [] $source        	
-	 * @param [] $arguments        	
-	 * @return string
-	 * @throws \Exception @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	public function render(array $source, array $arguments) {
-		$text = end ( $source );
-		
-		try {
-			$data = $this->translator->getData ();
-		} catch ( \Exception $e ) {
-			$this->logger->critical ( $e->getMessage () );
-			throw $e;
-		}
-		
-		return array_key_exists ( $text, $data ) ? $data [$text] : $text;
-	}
+class Translate implements RendererInterface
+{
+    /**
+     * @var \Magento\Framework\TranslateInterface
+     */
+    protected $translator;
+
+    /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    protected $logger;
+
+    /**
+     * Renderer construct
+     *
+     * @param \Magento\Framework\TranslateInterface $translator
+     * @param \Psr\Log\LoggerInterface $logger
+     */
+    public function __construct(
+        TranslateInterface $translator,
+        LoggerInterface $logger
+    ) {
+        $this->translator = $translator;
+        $this->logger = $logger;
+    }
+
+    /**
+     * Render source text
+     *
+     * @param [] $source
+     * @param [] $arguments
+     * @return string
+     * @throws \Exception
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function render(array $source, array $arguments)
+    {
+        $text = end($source);
+
+        try {
+            $data = $this->translator->getData();
+        } catch (\Exception $e) {
+            $this->logger->critical($e->getMessage());
+            throw $e;
+        }
+
+        return array_key_exists($text, $data) ? $data[$text] : $text;
+    }
 }

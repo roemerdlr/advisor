@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,5 +6,6 @@
  */
 namespace Magento\Paypal\Controller\Payflowadvanced;
 
-class Form extends \Magento\Paypal\Controller\Payflow\Form {
+class Form extends \Magento\Paypal\Controller\Payflow\Form
+{
 }

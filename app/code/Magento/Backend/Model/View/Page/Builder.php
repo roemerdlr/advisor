@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,13 +10,14 @@ use Magento\Framework\App;
 use Magento\Framework\Event;
 use Magento\Framework\View;
 
-class Builder extends View\Page\Builder {
-	/**
-	 *
-	 * @return $this
-	 */
-	protected function afterGenerateBlock() {
-		$this->layout->initMessages ();
-		return $this;
-	}
+class Builder extends View\Page\Builder
+{
+    /**
+     * @return $this
+     */
+    protected function afterGenerateBlock()
+    {
+        $this->layout->initMessages();
+        return $this;
+    }
 }

@@ -9,14 +9,14 @@
  *
  * Obsolete methods for controllers
  */
-return [ 
-		'loadLayout',
-		'renderLayout',
-		'_redirect',
-		'_setActiveMenu',
-		'_addBreadcrumb',
-		'_addContent',
-		'_addLeft',
-		'_addJs',
-		'_moveBlockToContainer' 
+return [
+    'loadLayout',
+    'renderLayout',
+    '_redirect',
+    '_setActiveMenu',
+    '_addBreadcrumb',
+    '_addContent',
+    '_addLeft',
+    '_addJs',
+    '_moveBlockToContainer',
 ];

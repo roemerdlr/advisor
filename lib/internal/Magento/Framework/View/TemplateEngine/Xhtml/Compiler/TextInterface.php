@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,13 +10,14 @@ use Magento\Framework\DataObject;
 /**
  * Interface TextInterface
  */
-interface TextInterface {
-	/**
-	 * Compiles the Element node
-	 *
-	 * @param \DOMText $node        	
-	 * @param DataObject $processedObject        	
-	 * @return void
-	 */
-	public function compile(\DOMText $node, DataObject $processedObject);
+interface TextInterface
+{
+    /**
+     * Compiles the Element node
+     *
+     * @param \DOMText $node
+     * @param DataObject $processedObject
+     * @return void
+     */
+    public function compile(\DOMText $node, DataObject $processedObject);
 }

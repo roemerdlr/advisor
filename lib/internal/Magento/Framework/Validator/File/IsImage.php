@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Validator which checks if the file is image
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\Framework\Validator\File;
 
-class IsImage extends \Zend_Validate_File_IsImage implements \Magento\Framework\Validator\ValidatorInterface {
+class IsImage extends \Zend_Validate_File_IsImage implements \Magento\Framework\Validator\ValidatorInterface
+{
 }

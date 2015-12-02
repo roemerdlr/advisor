@@ -1,45 +1,47 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
 // @codingStandardsIgnoreFile
+
 namespace Magento\Review\Block\Adminhtml;
 
 /**
  * Adminhtml add Review main block
  *
- * @author Magento Core Team <core@magentocommerce.com>
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Add extends \Magento\Backend\Block\Widget\Form\Container {
-	/**
-	 * Initialize add review
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		parent::_construct ();
-		
-		$this->_blockGroup = 'Magento_Review';
-		$this->_controller = 'adminhtml';
-		$this->_mode = 'add';
-		
-		$this->buttonList->update ( 'save', 'label', __ ( 'Save Review' ) );
-		$this->buttonList->update ( 'save', 'id', 'save_button' );
-		
-		$this->buttonList->update ( 'reset', 'id', 'reset_button' );
-		
-		$this->_formScripts [] = '
+class Add extends \Magento\Backend\Block\Widget\Form\Container
+{
+    /**
+     * Initialize add review
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        parent::_construct();
+
+        $this->_blockGroup = 'Magento_Review';
+        $this->_controller = 'adminhtml';
+        $this->_mode = 'add';
+
+        $this->buttonList->update('save', 'label', __('Save Review'));
+        $this->buttonList->update('save', 'id', 'save_button');
+
+        $this->buttonList->update('reset', 'id', 'reset_button');
+
+        $this->_formScripts[] = '
             require(["prototype"], function(){
                 toggleParentVis("add_review_form");
                 toggleVis("save_button");
                 toggleVis("reset_button");
             });
         ';
-		
-		$this->_formInitScripts [] = '
+
+        $this->_formInitScripts[] = '
             require(["jquery","prototype"], function(jQuery){
             window.review = function() {
                 return {
@@ -81,7 +83,11 @@ class Add extends \Magento\Backend\Block\Widget\Form\Container {
                         if (!params.form_key) {
                             params.form_key = FORM_KEY;
                         }
-                        new Ajax.Updater("rating_detail", "' . $this->getUrl ( 'review/product/ratingItems' ) . '", {parameters:params, evalScripts: true,  onComplete:function(){ $(\'save_button\').disabled = false; } });
+                        new Ajax.Updater("rating_detail", "' .
+            $this->getUrl(
+                'review/product/ratingItems'
+            ) .
+            '", {parameters:params, evalScripts: true,  onComplete:function(){ $(\'save_button\').disabled = false; } });
                     },
 
                     reqSuccess :function(response) {
@@ -90,7 +96,11 @@ class Add extends \Magento\Backend\Block\Widget\Form\Container {
                         } else if( response.id ){
                             $("product_id").value = response.id;
 
-                            $("product_name").innerHTML = \'<a href="' . $this->getUrl ( 'catalog/product/edit' ) . 'id/\' + response.id + \'" target="_blank">\' + response.name + \'</a>\';
+                            $("product_name").innerHTML = \'<a href="' .
+            $this->getUrl(
+                'catalog/product/edit'
+            ) .
+            'id/\' + response.id + \'" target="_blank">\' + response.name + \'</a>\';
                         } else if ( response.message ) {
                             alert(response.message);
                         }
@@ -105,14 +115,15 @@ class Add extends \Magento\Backend\Block\Widget\Form\Container {
             });
            //]]>
         ';
-	}
-	
-	/**
-	 * Get add new review header text
-	 *
-	 * @return \Magento\Framework\Phrase
-	 */
-	public function getHeaderText() {
-		return __ ( 'New Review' );
-	}
+    }
+
+    /**
+     * Get add new review header text
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getHeaderText()
+    {
+        return __('New Review');
+    }
 }

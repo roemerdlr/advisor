@@ -4,12 +4,15 @@
  * See COPYING.txt for license details.
  */
 -->
-<label class="admin__form-field-label" data-bind="attr: {for: uid}">
-	<span data-bind="text: label"></span>
+<label
+    class="admin__form-field-label"
+    data-bind="attr: {for: uid}">
+    <span data-bind="text: label"></span>
 </label>
 <div class="admin__field-control">
-	<select class="admin__control-select"
-		data-bind="attr: {
+    <select
+        class="admin__control-select"
+        data-bind="attr: {
                        name: inputName,
                        id: uid,
                        disabled: disabled,
@@ -21,5 +24,5 @@
                    value: value,
                    optionsCaption: caption,
                    optionsValue: 'value',
-                   optionsText: 'label'" />
+                   optionsText: 'label'"/>
 </div>

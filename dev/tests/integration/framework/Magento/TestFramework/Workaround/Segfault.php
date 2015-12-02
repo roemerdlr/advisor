@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,11 +9,13 @@
  */
 namespace Magento\TestFramework\Workaround;
 
-class Segfault {
-	/**
-	 * Force garbage collection
-	 */
-	public function endTestSuite() {
-		gc_collect_cycles ();
-	}
+class Segfault
+{
+    /**
+     * Force garbage collection
+     */
+    public function endTestSuite()
+    {
+        gc_collect_cycles();
+    }
 }

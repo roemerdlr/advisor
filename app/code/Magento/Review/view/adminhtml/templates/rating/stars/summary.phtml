@@ -5,11 +5,12 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php if ($block->getRatingSummary()->getCount()): ?>
-<div class="rating-box">
-	<div class="rating" style="width:<?php /* @escapeNotVerified */ echo ceil($block->getRatingSummary()->getSum() / ($block->getRatingSummary()->getCount())) ?>%;"></div>
-</div>
+    <div class="rating-box">
+        <div class="rating" style="width:<?php /* @escapeNotVerified */ echo ceil($block->getRatingSummary()->getSum() / ($block->getRatingSummary()->getCount())) ?>%;"></div>
+    </div>
 <?php else: ?>
-    <?php /* @escapeNotVerified */ echo __("Rating isn't Available")?>
+    <?php /* @escapeNotVerified */ echo __("Rating isn't Available") ?>
 <?php endif; ?>

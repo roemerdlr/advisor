@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Attribure lock state validator interface
  *
@@ -8,15 +7,16 @@
  */
 namespace Magento\Catalog\Model\Attribute;
 
-interface LockValidatorInterface {
-	/**
-	 * Check attribute lock state
-	 *
-	 * @param \Magento\Framework\Model\AbstractModel $object        	
-	 * @param null $attributeSet        	
-	 * @throws \Magento\Framework\Exception\LocalizedException
-	 *
-	 * @return void
-	 */
-	public function validate(\Magento\Framework\Model\AbstractModel $object, $attributeSet = null);
+interface LockValidatorInterface
+{
+    /**
+     * Check attribute lock state
+     *
+     * @param \Magento\Framework\Model\AbstractModel $object
+     * @param null $attributeSet
+     * @throws \Magento\Framework\Exception\LocalizedException
+     *
+     * @return void
+     */
+    public function validate(\Magento\Framework\Model\AbstractModel $object, $attributeSet = null);
 }

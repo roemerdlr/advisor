@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,11 +6,13 @@
  */
 
 // @codingStandardsIgnoreFile
+
 namespace Magento\Framework\Interception\Fixture;
 
-interface InterceptedParentInterface {
-	/**
-	 * @SuppressWarnings(PHPMD.ShortMethodName)
-	 */
-	public function A($param1);
+interface InterceptedParentInterface
+{
+    /**
+     * @SuppressWarnings(PHPMD.ShortMethodName)
+     */
+    public function A($param1);
 }

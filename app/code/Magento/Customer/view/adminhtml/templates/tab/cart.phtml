@@ -5,23 +5,23 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php /* @var $block \Magento\Customer\Block\Adminhtml\Edit\Tab\Cart */ ?>
 <?php if ($block->getCartHeader()): ?>
 <div class="content-header skip-header">
-	<table>
-		<tr>
-			<td style="width: 50%;"><h4><?php /* @escapeNotVerified */ echo $block->getCartHeader(); ?></h4></td>
-		</tr>
-	</table>
+    <table>
+        <tr>
+            <td style="width:50%;"><h4><?php /* @escapeNotVerified */ echo $block->getCartHeader(); ?></h4></td>
+        </tr>
+    </table>
 </div>
 <?php endif ?>
-<?php echo $block->getGridParentHtml()?>
+<?php echo $block->getGridParentHtml() ?>
 <?php if ($block->canDisplayContainer()) : ?>
 <?php
-
-	$listType = $block->getJsObjectName ();
-	?>
+    $listType = $block->getJsObjectName();
+?>
 <script>
 require([
     "Magento_Ui/js/modal/alert",
@@ -75,11 +75,11 @@ require([
 };
 
 <?php
-	$params = [ 
-			'customer_id' => $block->getCustomerId (),
-			'website_id' => $block->getWebsiteId () 
-	];
-	?>
+$params = [
+    'customer_id' => $block->getCustomerId(),
+    'website_id' => $block->getWebsiteId(),
+];
+?>
 productConfigure.addListType(
     '<?php /* @escapeNotVerified */ echo $listType ?>',
     {

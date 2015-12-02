@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,5 +8,6 @@ namespace Magento\Sales\Controller;
 
 use Magento\Framework\App\ActionInterface;
 
-interface OrderInterface extends ActionInterface {
+interface OrderInterface extends ActionInterface
+{
 }

@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\User\Test\TestCase;
 
 use Magento\Backend\Test\Page\Adminhtml\Dashboard;
@@ -38,113 +38,115 @@ use Magento\Mtf\TestCase\Injectable;
  * @group ACL_(PS)
  * @ZephyrId MAGETWO-28828
  */
-class UserLoginAfterChangingPermissionsTest extends Injectable {
-	/* tags */
-	const MVP = 'no';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * User edit page
-	 *
-	 * @var UserRoleIndex
-	 */
-	protected $userRoleIndex;
-	
-	/**
-	 * Role edit page
-	 *
-	 * @var UserRoleEditRole
-	 */
-	protected $userRoleEditRole;
-	
-	/**
-	 * User grid page
-	 *
-	 * @var UserIndex
-	 */
-	protected $userIndexPage;
-	
-	/**
-	 * User new/edit page
-	 *
-	 * @var UserEdit
-	 */
-	protected $userEditPage;
-	
-	/**
-	 * Dashboard panel
-	 *
-	 * @var Dashboard
-	 */
-	protected $dashboard;
-	
-	/**
-	 * Factory for Fixtures
-	 *
-	 * @var FixtureFactory
-	 */
-	protected $fixtureFactory;
-	
-	/**
-	 * Preconditions for test
-	 *
-	 * @param FixtureFactory $fixtureFactory        	
-	 */
-	public function __prepare(FixtureFactory $fixtureFactory) {
-		$this->fixtureFactory = $fixtureFactory;
-	}
-	
-	/**
-	 * Setup necessary data for test
-	 *
-	 * @param UserIndex $userIndex        	
-	 * @param UserEdit $userEdit        	
-	 * @param UserRoleIndex $userRoleIndex        	
-	 * @param UserRoleEditRole $userRoleEditRole        	
-	 * @param Dashboard $dashboard        	
-	 * @return void
-	 */
-	public function __inject(UserIndex $userIndex, UserEdit $userEdit, UserRoleIndex $userRoleIndex, UserRoleEditRole $userRoleEditRole, Dashboard $dashboard) {
-		$this->userIndexPage = $userIndex;
-		$this->userEditPage = $userEdit;
-		$this->userRoleIndex = $userRoleIndex;
-		$this->userRoleEditRole = $userRoleEditRole;
-		$this->dashboard = $dashboard;
-	}
-	
-	/**
-	 *
-	 * @param Role $role        	
-	 * @param Role $updatedRole        	
-	 * @param User $user        	
-	 * @return void
-	 */
-	public function testLoginAfterChangingPermissions(Role $role, Role $updatedRole, User $user) {
-		/**
-		 * Create role and a new user with this role
-		 */
-		$role->persist ();
-		/** @var User $user */
-		$user = $this->fixtureFactory->create ( 'Magento\User\Test\Fixture\User', [ 
-				'data' => array_merge ( $user->getData (), [ 
-						'role_id' => [ 
-								'role' => $role 
-						] 
-				] ) 
-		] );
-		$user->persist ();
-		
-		/**
-		 * Change the scope of resources available for the role created earlier
-		 */
-		$filter = [ 
-				'rolename' => $role->getRoleName () 
-		];
-		$this->userRoleIndex->open ();
-		$this->userRoleIndex->getRoleGrid ()->searchAndOpen ( $filter );
-		$this->userRoleEditRole->getRoleFormTabs ()->fill ( $updatedRole );
-		$this->userRoleEditRole->getPageActions ()->save ();
-		$this->dashboard->getAdminPanelHeader ()->logOut ();
-	}
+class UserLoginAfterChangingPermissionsTest extends Injectable
+{
+    /* tags */
+    const MVP = 'no';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * User edit page
+     *
+     * @var UserRoleIndex
+     */
+    protected $userRoleIndex;
+
+    /**
+     * Role edit page
+     *
+     * @var UserRoleEditRole
+     */
+    protected $userRoleEditRole;
+
+    /**
+     * User grid page
+     *
+     * @var UserIndex
+     */
+    protected $userIndexPage;
+
+    /**
+     * User new/edit page
+     *
+     * @var UserEdit
+     */
+    protected $userEditPage;
+
+    /**
+     * Dashboard panel
+     *
+     * @var Dashboard
+     */
+    protected $dashboard;
+
+    /**
+     * Factory for Fixtures
+     *
+     * @var FixtureFactory
+     */
+    protected $fixtureFactory;
+
+    /**
+     * Preconditions for test
+     *
+     * @param FixtureFactory $fixtureFactory
+     */
+    public function __prepare(FixtureFactory $fixtureFactory)
+    {
+        $this->fixtureFactory = $fixtureFactory;
+    }
+
+    /**
+     * Setup necessary data for test
+     *
+     * @param UserIndex $userIndex
+     * @param UserEdit $userEdit
+     * @param UserRoleIndex $userRoleIndex
+     * @param UserRoleEditRole $userRoleEditRole
+     * @param Dashboard $dashboard
+     * @return void
+     */
+    public function __inject(
+        UserIndex $userIndex,
+        UserEdit $userEdit,
+        UserRoleIndex $userRoleIndex,
+        UserRoleEditRole $userRoleEditRole,
+        Dashboard $dashboard
+    ) {
+        $this->userIndexPage = $userIndex;
+        $this->userEditPage = $userEdit;
+        $this->userRoleIndex = $userRoleIndex;
+        $this->userRoleEditRole = $userRoleEditRole;
+        $this->dashboard = $dashboard;
+    }
+
+    /**
+     * @param Role $role
+     * @param Role $updatedRole
+     * @param User $user
+     * @return void
+     */
+    public function testLoginAfterChangingPermissions(
+        Role $role,
+        Role $updatedRole,
+        User $user
+    ) {
+        /** Create role and a new user with this role */
+        $role->persist();
+        /** @var User $user */
+        $user = $this->fixtureFactory->create(
+            'Magento\User\Test\Fixture\User',
+            ['data' => array_merge($user->getData(), ['role_id' => ['role' => $role]])]
+        );
+        $user->persist();
+
+        /** Change the scope of resources available for the role created earlier */
+        $filter = ['rolename' => $role->getRoleName()];
+        $this->userRoleIndex->open();
+        $this->userRoleIndex->getRoleGrid()->searchAndOpen($filter);
+        $this->userRoleEditRole->getRoleFormTabs()->fill($updatedRole);
+        $this->userRoleEditRole->getPageActions()->save();
+        $this->dashboard->getAdminPanelHeader()->logOut();
+    }
 }

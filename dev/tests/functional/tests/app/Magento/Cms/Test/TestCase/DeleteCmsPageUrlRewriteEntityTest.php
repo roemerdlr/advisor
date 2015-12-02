@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Cms\Test\TestCase;
 
 use Magento\UrlRewrite\Test\Fixture\UrlRewrite;
@@ -13,8 +13,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1.
- * Create CMS Page.
+ * 1. Create CMS Page.
  * 2. Create CMS Page URL Redirect.
  *
  * Steps:
@@ -27,54 +26,57 @@ use Magento\Mtf\TestCase\Injectable;
  * @group URL_Rewrites_(PS)
  * @ZephyrId MAGETWO-25915
  */
-class DeleteCmsPageUrlRewriteEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * Url rewrite index page.
-	 *
-	 * @var UrlRewriteIndex
-	 */
-	protected $urlRewriteIndex;
-	
-	/**
-	 * Url rewrite edit page.
-	 *
-	 * @var UrlRewriteEdit
-	 */
-	protected $urlRewriteEdit;
-	
-	/**
-	 * Inject pages.
-	 *
-	 * @param UrlRewriteIndex $urlRewriteIndex        	
-	 * @param UrlRewriteEdit $urlRewriteEdit        	
-	 * @return void
-	 */
-	public function __inject(UrlRewriteIndex $urlRewriteIndex, UrlRewriteEdit $urlRewriteEdit) {
-		$this->urlRewriteIndex = $urlRewriteIndex;
-		$this->urlRewriteEdit = $urlRewriteEdit;
-	}
-	
-	/**
-	 * Delete CMS page rewrites entity.
-	 *
-	 * @param UrlRewrite $urlRewrite        	
-	 * @return void
-	 */
-	public function test(UrlRewrite $urlRewrite) {
-		// Precondition
-		$urlRewrite->persist ();
-		
-		// Steps
-		$this->urlRewriteIndex->open ();
-		$this->urlRewriteIndex->getUrlRedirectGrid ()->searchAndOpen ( [ 
-				'request_path' => $urlRewrite->getRequestPath () 
-		] );
-		$this->urlRewriteEdit->getPageMainActions ()->delete ();
-		$this->urlRewriteEdit->getModalBlock ()->acceptAlert ();
-	}
+class DeleteCmsPageUrlRewriteEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * Url rewrite index page.
+     *
+     * @var UrlRewriteIndex
+     */
+    protected $urlRewriteIndex;
+
+    /**
+     * Url rewrite edit page.
+     *
+     * @var UrlRewriteEdit
+     */
+    protected $urlRewriteEdit;
+
+    /**
+     * Inject pages.
+     *
+     * @param UrlRewriteIndex $urlRewriteIndex
+     * @param UrlRewriteEdit $urlRewriteEdit
+     * @return void
+     */
+    public function __inject(
+        UrlRewriteIndex $urlRewriteIndex,
+        UrlRewriteEdit $urlRewriteEdit
+    ) {
+        $this->urlRewriteIndex = $urlRewriteIndex;
+        $this->urlRewriteEdit = $urlRewriteEdit;
+    }
+
+    /**
+     * Delete CMS page rewrites entity.
+     *
+     * @param UrlRewrite $urlRewrite
+     * @return void
+     */
+    public function test(UrlRewrite $urlRewrite)
+    {
+        // Precondition
+        $urlRewrite->persist();
+
+        // Steps
+        $this->urlRewriteIndex->open();
+        $this->urlRewriteIndex->getUrlRedirectGrid()->searchAndOpen(['request_path' => $urlRewrite->getRequestPath()]);
+        $this->urlRewriteEdit->getPageMainActions()->delete();
+        $this->urlRewriteEdit->getModalBlock()->acceptAlert();
+    }
 }

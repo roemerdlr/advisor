@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,10 +6,10 @@
  */
 namespace Magento\Framework\Search\Request\Aggregation;
 
-interface StatusInterface {
-	/**
-	 *
-	 * @return bool
-	 */
-	public function isEnabled();
+interface StatusInterface
+{
+    /**
+     * @return bool
+     */
+    public function isEnabled();
 }

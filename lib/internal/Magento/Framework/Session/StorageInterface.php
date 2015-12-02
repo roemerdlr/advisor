@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Session storage interface
  *
@@ -8,19 +7,20 @@
  */
 namespace Magento\Framework\Session;
 
-interface StorageInterface {
-	/**
-	 * Initialize storage data
-	 *
-	 * @param array $data        	
-	 * @return $this
-	 */
-	public function init(array $data);
-	
-	/**
-	 * Get current storage namespace
-	 *
-	 * @return string
-	 */
-	public function getNamespace();
+interface StorageInterface
+{
+    /**
+     * Initialize storage data
+     *
+     * @param array $data
+     * @return $this
+     */
+    public function init(array $data);
+
+    /**
+     * Get current storage namespace
+     *
+     * @return string
+     */
+    public function getNamespace();
 }

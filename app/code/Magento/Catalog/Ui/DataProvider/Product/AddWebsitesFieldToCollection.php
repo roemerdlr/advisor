@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,13 +11,13 @@ use Magento\Ui\DataProvider\AddFieldToCollectionInterface;
 /**
  * Class AddWebsitesFieldToCollection
  */
-class AddWebsitesFieldToCollection implements AddFieldToCollectionInterface {
-	/**
-	 *
-	 * {@inheritdoc}
-	 *
-	 */
-	public function addField(Collection $collection, $field, $alias = null) {
-		$collection->addWebsiteNamesToResult ();
-	}
+class AddWebsitesFieldToCollection implements AddFieldToCollectionInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function addField(Collection $collection, $field, $alias = null)
+    {
+         $collection->addWebsiteNamesToResult();
+    }
 }

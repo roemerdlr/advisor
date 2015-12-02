@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -9,5 +8,6 @@ namespace Magento\Sales\Controller\Order;
 
 use Magento\Sales\Controller\OrderInterface;
 
-class PrintAction extends \Magento\Sales\Controller\AbstractController\PrintAction implements OrderInterface {
+class PrintAction extends \Magento\Sales\Controller\AbstractController\PrintAction implements OrderInterface
+{
 }

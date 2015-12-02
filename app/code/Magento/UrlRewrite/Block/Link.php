@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -14,13 +13,17 @@
  */
 namespace Magento\UrlRewrite\Block;
 
-class Link extends \Magento\Framework\View\Element\AbstractBlock {
-	/**
-	 * Render output
-	 *
-	 * @return string
-	 */
-	protected function _toHtml() {
-		return '<p>' . $this->getLabel () . ' <a href="' . $this->getItemUrl () . '">' . $this->escapeHtml ( $this->getItemName () ) . '</a></p>';
-	}
+class Link extends \Magento\Framework\View\Element\AbstractBlock
+{
+    /**
+     * Render output
+     *
+     * @return string
+     */
+    protected function _toHtml()
+    {
+        return '<p>' . $this->getLabel() . ' <a href="' . $this->getItemUrl() . '">' . $this->escapeHtml(
+            $this->getItemName()
+        ) . '</a></p>';
+    }
 }

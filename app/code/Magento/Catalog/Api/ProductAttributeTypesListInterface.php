@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -10,11 +9,12 @@ namespace Magento\Catalog\Api;
 /**
  * @api
  */
-interface ProductAttributeTypesListInterface {
-	/**
-	 * Retrieve list of product attribute types
-	 *
-	 * @return \Magento\Catalog\Api\Data\ProductAttributeTypeInterface[]
-	 */
-	public function getItems();
+interface ProductAttributeTypesListInterface
+{
+    /**
+     * Retrieve list of product attribute types
+     *
+     * @return \Magento\Catalog\Api\Data\ProductAttributeTypeInterface[]
+     */
+    public function getItems();
 }

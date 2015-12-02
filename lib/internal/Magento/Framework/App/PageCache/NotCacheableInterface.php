@@ -1,5 +1,4 @@
 <?php
-
 /**
  * HTTP response interface
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\Framework\App\PageCache;
 
-interface NotCacheableInterface {
+interface NotCacheableInterface
+{
 }

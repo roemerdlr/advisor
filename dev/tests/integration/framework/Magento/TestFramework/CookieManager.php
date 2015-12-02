@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,16 +9,19 @@
  */
 namespace Magento\TestFramework;
 
-class CookieManager extends \Magento\Framework\Stdlib\Cookie\PhpCookieManager {
-	/**
-	 * Dummy function, which sets value directly to $_COOKIE super-global array instead of calling setcookie()
-	 *
-	 * @param string $name        	
-	 * @param string $value        	
-	 * @param array $metadataArray        	
-	 * @return void @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	protected function setCookie($name, $value, array $metadataArray) {
-		$_COOKIE [$name] = $value;
-	}
+class CookieManager extends \Magento\Framework\Stdlib\Cookie\PhpCookieManager
+{
+    /**
+     * Dummy function, which sets value directly to $_COOKIE super-global array instead of calling setcookie()
+     *
+     * @param string $name
+     * @param string $value
+     * @param array $metadataArray
+     * @return void
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    protected function setCookie($name, $value, array $metadataArray)
+    {
+        $_COOKIE[$name] = $value;
+    }
 }

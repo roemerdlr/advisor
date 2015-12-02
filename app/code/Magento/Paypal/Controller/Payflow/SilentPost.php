@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,22 +6,24 @@
  */
 namespace Magento\Paypal\Controller\Payflow;
 
-class SilentPost extends \Magento\Paypal\Controller\Payflow {
-	/**
-	 * Get response from PayPal by silent post method
-	 *
-	 * @return void
-	 */
-	public function execute() {
-		$data = $this->getRequest ()->getPostValue ();
-		if (isset ( $data ['INVNUM'] )) {
-			/** @var $paymentModel \Magento\Paypal\Model\Payflowlink */
-			$paymentModel = $this->_payflowModelFactory->create ();
-			try {
-				$paymentModel->process ( $data );
-			} catch ( \Exception $e ) {
-				$this->_logger->critical ( $e );
-			}
-		}
-	}
+class SilentPost extends \Magento\Paypal\Controller\Payflow
+{
+    /**
+     * Get response from PayPal by silent post method
+     *
+     * @return void
+     */
+    public function execute()
+    {
+        $data = $this->getRequest()->getPostValue();
+        if (isset($data['INVNUM'])) {
+            /** @var $paymentModel \Magento\Paypal\Model\Payflowlink */
+            $paymentModel = $this->_payflowModelFactory->create();
+            try {
+                $paymentModel->process($data);
+            } catch (\Exception $e) {
+                $this->_logger->critical($e);
+            }
+        }
+    }
 }

@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Wishlist\Test\TestCase;
 
 use Magento\Customer\Test\Fixture\Customer;
@@ -30,59 +30,54 @@ use Magento\Customer\Test\Page\Adminhtml\CustomerIndexEdit;
  * @group Wishlist_(CS)
  * @ZephyrId MAGETWO-27813
  */
-class DeleteProductFromCustomerWishlistOnBackendTest extends AbstractWishlistTest {
-	/* tags */
-	const MVP = 'no';
-	const DOMAIN = 'CS';
-	/* end tags */
-	
-	/**
-	 * Prepare data
-	 *
-	 * @param Customer $customer        	
-	 * @return array
-	 */
-	public function __prepare(Customer $customer) {
-		$customer->persist ();
-		
-		return [ 
-				'customer' => $customer 
-		];
-	}
-	
-	/**
-	 * Delete product from customer wishlist on backend
-	 *
-	 * @param Customer $customer        	
-	 * @param string $product        	
-	 * @param CustomerIndex $customerIndex        	
-	 * @param CustomerIndexEdit $customerIndexEdit        	
-	 * @return array
-	 */
-	public function test(Customer $customer, $product, CustomerIndex $customerIndex, CustomerIndexEdit $customerIndexEdit) {
-		// Preconditions
-		$product = $this->createProducts ( $product ) [0];
-		$this->loginCustomer ( $customer );
-		$this->addToWishlist ( [ 
-				$product 
-		] );
-		
-		// Steps
-		$customerIndex->open ();
-		$customerIndex->getCustomerGridBlock ()->searchAndOpen ( [ 
-				'email' => $customer->getEmail () 
-		] );
-		$customerForm = $customerIndexEdit->getCustomerForm ();
-		$customerForm->openTab ( 'wishlist' );
-		$filter = [ 
-				'product_name' => $product->getName () 
-		];
-		$customerForm->getTab ( 'wishlist' )->getSearchGridBlock ()->searchAndAction ( $filter, 'Delete' );
-		
-		return [ 
-				'products' => [ 
-						$product 
-				] 
-		];
-	}
+class DeleteProductFromCustomerWishlistOnBackendTest extends AbstractWishlistTest
+{
+    /* tags */
+    const MVP = 'no';
+    const DOMAIN = 'CS';
+    /* end tags */
+
+    /**
+     * Prepare data
+     *
+     * @param Customer $customer
+     * @return array
+     */
+    public function __prepare(Customer $customer)
+    {
+        $customer->persist();
+
+        return ['customer' => $customer];
+    }
+
+    /**
+     * Delete product from customer wishlist on backend
+     *
+     * @param Customer $customer
+     * @param string $product
+     * @param CustomerIndex $customerIndex
+     * @param CustomerIndexEdit $customerIndexEdit
+     * @return array
+     */
+    public function test(
+        Customer $customer,
+        $product,
+        CustomerIndex $customerIndex,
+        CustomerIndexEdit $customerIndexEdit
+    ) {
+        //Preconditions
+        $product = $this->createProducts($product)[0];
+        $this->loginCustomer($customer);
+        $this->addToWishlist([$product]);
+
+        //Steps
+        $customerIndex->open();
+        $customerIndex->getCustomerGridBlock()->searchAndOpen(['email' => $customer->getEmail()]);
+        $customerForm = $customerIndexEdit->getCustomerForm();
+        $customerForm->openTab('wishlist');
+        $filter = ['product_name' => $product->getName()];
+        $customerForm->getTab('wishlist')->getSearchGridBlock()->searchAndAction($filter, 'Delete');
+
+        return ['products' => [$product]];
+    }
 }

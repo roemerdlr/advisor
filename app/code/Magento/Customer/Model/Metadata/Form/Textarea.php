@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Form Element Textarea Data Model
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\Customer\Model\Metadata\Form;
 
-class Textarea extends Text {
+class Textarea extends Text
+{
 }

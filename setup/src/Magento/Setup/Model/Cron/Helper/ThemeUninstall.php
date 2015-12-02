@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,41 +12,40 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Helper class for JobComponentUninstall to uninstall a theme component
  */
-class ThemeUninstall {
-	/**
-	 *
-	 * @var ThemeUninstaller
-	 */
-	private $themeUninstaller;
-	
-	/**
-	 *
-	 * @var ThemePackageInfo
-	 */
-	private $themePackageInfo;
-	
-	/**
-	 * Constructor
-	 *
-	 * @param ThemeUninstaller $themeUninstaller        	
-	 * @param ThemePackageInfo $themePackageInfo        	
-	 */
-	public function __construct(ThemeUninstaller $themeUninstaller, ThemePackageInfo $themePackageInfo) {
-		$this->themeUninstaller = $themeUninstaller;
-		$this->themePackageInfo = $themePackageInfo;
-	}
-	
-	/**
-	 * Perform setup side uninstall
-	 *
-	 * @param OutputInterface $output        	
-	 * @param string $componentName        	
-	 * @return void
-	 */
-	public function uninstall(OutputInterface $output, $componentName) {
-		$themePath = $this->themePackageInfo->getFullThemePath ( $componentName );
-		$this->themeUninstaller->uninstallRegistry ( $output, [ 
-				$themePath 
-		] );
-	}
+class ThemeUninstall
+{
+    /**
+     * @var ThemeUninstaller
+     */
+    private $themeUninstaller;
+
+    /**
+     * @var ThemePackageInfo
+     */
+    private $themePackageInfo;
+
+    /**
+     * Constructor
+     *
+     * @param ThemeUninstaller $themeUninstaller
+     * @param ThemePackageInfo $themePackageInfo
+     */
+    public function __construct(ThemeUninstaller $themeUninstaller, ThemePackageInfo $themePackageInfo)
+    {
+        $this->themeUninstaller = $themeUninstaller;
+        $this->themePackageInfo = $themePackageInfo;
+    }
+
+    /**
+     * Perform setup side uninstall
+     *
+     * @param OutputInterface $output
+     * @param string $componentName
+     * @return void
+     */
+    public function uninstall(OutputInterface $output, $componentName)
+    {
+        $themePath = $this->themePackageInfo->getFullThemePath($componentName);
+        $this->themeUninstaller->uninstallRegistry($output, [$themePath]);
+    }
 }

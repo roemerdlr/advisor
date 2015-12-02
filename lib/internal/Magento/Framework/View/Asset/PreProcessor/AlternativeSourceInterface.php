@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,11 +10,12 @@ use Magento\Framework\View\Asset\PreProcessorInterface;
 /**
  * Interface AlternativeSourceInterface
  */
-interface AlternativeSourceInterface extends PreProcessorInterface {
-	/**
-	 * Get extensions names of alternatives
-	 *
-	 * @return string[]
-	 */
-	public function getAlternativesExtensionsNames();
+interface AlternativeSourceInterface extends PreProcessorInterface
+{
+    /**
+     * Get extensions names of alternatives
+     *
+     * @return string[]
+     */
+    public function getAlternativesExtensionsNames();
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,38 +12,38 @@ use Magento\Sales\Model\Order\Payment\Transaction;
 /**
  * Class Order
  */
-class OrderOperation extends AbstractOperation {
-	/**
-	 *
-	 * @param OrderPaymentInterface $payment        	
-	 * @param string|float $amount        	
-	 * @return OrderPaymentInterface
-	 */
-	public function order(OrderPaymentInterface $payment, $amount) {
-		/**
-		 *
-		 * @var $payment Payment
-		 */
-		// update totals
-		$amount = $payment->formatAmount ( $amount, true );
-		
-		// do ordering
-		$order = $payment->getOrder ();
-		
-		$method = $payment->getMethodInstance ();
-		$method->setStore ( $order->getStoreId () );
-		$method->order ( $payment, $amount );
-		
-		if ($payment->getSkipOrderProcessing ()) {
-			return $payment;
-		}
-		
-		$message = $this->stateCommand->execute ( $payment, $amount, $order );
-		// update transactions, order state and add comments
-		$transaction = $payment->addTransaction ( Transaction::TYPE_ORDER );
-		$message = $payment->prependMessage ( $message );
-		$payment->addTransactionCommentsToOrder ( $transaction, $message );
-		
-		return $payment;
-	}
+class OrderOperation extends AbstractOperation
+{
+    /**
+     * @param OrderPaymentInterface $payment
+     * @param string|float $amount
+     * @return OrderPaymentInterface
+     */
+    public function order(OrderPaymentInterface $payment, $amount)
+    {
+        /**
+         * @var $payment Payment
+         */
+        // update totals
+        $amount = $payment->formatAmount($amount, true);
+
+        // do ordering
+        $order = $payment->getOrder();
+
+        $method = $payment->getMethodInstance();
+        $method->setStore($order->getStoreId());
+        $method->order($payment, $amount);
+
+        if ($payment->getSkipOrderProcessing()) {
+            return $payment;
+        }
+
+        $message = $this->stateCommand->execute($payment, $amount, $order);
+        // update transactions, order state and add comments
+        $transaction = $payment->addTransaction(Transaction::TYPE_ORDER);
+        $message = $payment->prependMessage($message);
+        $payment->addTransactionCommentsToOrder($transaction, $message);
+
+        return $payment;
+    }
 }

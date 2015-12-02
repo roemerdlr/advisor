@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\CatalogSearch\Test\TestCase;
 
 use Magento\CatalogSearch\Test\Fixture\CatalogSearchQuery;
@@ -12,8 +12,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1.
- * All product types are created.
+ * 1. All product types are created.
  *
  * Steps:
  * 1. Navigate to frontend on index page.
@@ -23,38 +22,41 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Search_Frontend_(MX)
  * @ZephyrId MAGETWO-25095
  */
-class SearchEntityResultsTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'MX';
-	const TEST_TYPE = 'acceptance_test';
-	/* end tags */
-	
-	/**
-	 * CMS index page.
-	 *
-	 * @var CmsIndex
-	 */
-	protected $cmsIndex;
-	
-	/**
-	 * Inject data.
-	 *
-	 * @param CmsIndex $cmsIndex        	
-	 * @return void
-	 */
-	public function __inject(CmsIndex $cmsIndex) {
-		$this->cmsIndex = $cmsIndex;
-	}
-	
-	/**
-	 * Run searching result test.
-	 *
-	 * @param CatalogSearchQuery $catalogSearch        	
-	 * @return void
-	 */
-	public function test(CatalogSearchQuery $catalogSearch) {
-		$this->cmsIndex->open ();
-		$this->cmsIndex->getSearchBlock ()->search ( $catalogSearch->getQueryText () );
-	}
+class SearchEntityResultsTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'MX';
+    const TEST_TYPE = 'acceptance_test';
+    /* end tags */
+
+    /**
+     * CMS index page.
+     *
+     * @var CmsIndex
+     */
+    protected $cmsIndex;
+
+    /**
+     * Inject data.
+     *
+     * @param CmsIndex $cmsIndex
+     * @return void
+     */
+    public function __inject(CmsIndex $cmsIndex)
+    {
+        $this->cmsIndex = $cmsIndex;
+    }
+
+    /**
+     * Run searching result test.
+     *
+     * @param CatalogSearchQuery $catalogSearch
+     * @return void
+     */
+    public function test(CatalogSearchQuery $catalogSearch)
+    {
+        $this->cmsIndex->open();
+        $this->cmsIndex->getSearchBlock()->search($catalogSearch->getQueryText());
+    }
 }

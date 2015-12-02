@@ -5,23 +5,20 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php /** @var $block \Magento\Shipping\Block\Adminhtml\View */ ?>
-<?php $order = $block->getOrder()?>
+<?php $order = $block->getOrder() ?>
 <?php if ($order->getIsVirtual()) : return '';endif; ?>
 
 <?php /* Shipping Method */ ?>
 <div class="admin__page-section-item order-shipping-method">
-	<div class="admin__page-section-item-title">
-		<span class="title"><?php /* @escapeNotVerified */ echo __('Shipping &amp; Handling Information') ?></span>
-	</div>
-	<div class="admin__page-section-item-content">
+    <div class="admin__page-section-item-title">
+        <span class="title"><?php /* @escapeNotVerified */ echo __('Shipping &amp; Handling Information') ?></span>
+    </div>
+    <div class="admin__page-section-item-content">
         <?php  if ($order->getTracksCollection()->count()) : ?>
-            <p>
-			<a href="#" id="linkId"
-				onclick="popWin('<?php /* @escapeNotVerified */ echo $this->helper('Magento\Shipping\Helper\Data')->getTrackingPopupUrlBySalesModel($order) ?>','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')"
-				title="<?php /* @escapeNotVerified */ echo __('Track Order') ?>"><?php /* @escapeNotVerified */ echo __('Track Order') ?></a>
-		</p>
+            <p><a href="#" id="linkId" onclick="popWin('<?php /* @escapeNotVerified */ echo $this->helper('Magento\Shipping\Helper\Data')->getTrackingPopupUrlBySalesModel($order) ?>','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')" title="<?php /* @escapeNotVerified */ echo __('Track Order') ?>"><?php /* @escapeNotVerified */ echo __('Track Order') ?></a></p>
         <?php endif; ?>
         <?php if ($order->getShippingDescription()): ?>
             <strong><?php echo $block->escapeHtml($order->getShippingDescription()) ?></strong>

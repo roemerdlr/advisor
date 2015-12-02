@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,5 +10,7 @@ namespace Magento\Paypal\Controller\Adminhtml\Transparent;
  *
  * @package Magento\Paypal\Controller\Adminhtml\Transparent
  */
-class RequestSecureToken extends \Magento\Paypal\Controller\Transparent\RequestSecureToken {
+class RequestSecureToken extends \Magento\Paypal\Controller\Transparent\RequestSecureToken
+{
+
 }

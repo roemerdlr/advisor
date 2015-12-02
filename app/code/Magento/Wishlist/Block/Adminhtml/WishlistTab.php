@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -15,56 +14,58 @@ use Magento\Customer\Controller\RegistryConstants;
 /**
  * Class WishlistTab
  */
-class WishlistTab extends TabWrapper implements TabInterface {
-	/**
-	 * Core registry
-	 *
-	 * @var Registry
-	 */
-	protected $coreRegistry = null;
-	
-	/**
-	 *
-	 * @var bool
-	 */
-	protected $isAjaxLoaded = true;
-	
-	/**
-	 * Constructor
-	 *
-	 * @param Context $context        	
-	 * @param Registry $registry        	
-	 * @param array $data        	
-	 */
-	public function __construct(Context $context, Registry $registry, array $data = []) {
-		$this->coreRegistry = $registry;
-		parent::__construct ( $context, $data );
-	}
-	
-	/**
-	 * @inheritdoc
-	 */
-	public function canShowTab() {
-		return $this->coreRegistry->registry ( RegistryConstants::CURRENT_CUSTOMER_ID );
-	}
-	
-	/**
-	 * Return Tab label
-	 *
-	 * @return \Magento\Framework\Phrase
-	 */
-	public function getTabLabel() {
-		return __ ( 'Wish List' );
-	}
-	
-	/**
-	 * Return URL link to Tab content
-	 *
-	 * @return string
-	 */
-	public function getTabUrl() {
-		return $this->getUrl ( 'customer/*/wishlist', [ 
-				'_current' => true 
-		] );
-	}
+class WishlistTab extends TabWrapper implements TabInterface
+{
+    /**
+     * Core registry
+     *
+     * @var Registry
+     */
+    protected $coreRegistry = null;
+
+    /**
+     * @var bool
+     */
+    protected $isAjaxLoaded = true;
+
+    /**
+     * Constructor
+     *
+     * @param Context $context
+     * @param Registry $registry
+     * @param array $data
+     */
+    public function __construct(Context $context, Registry $registry, array $data = [])
+    {
+        $this->coreRegistry = $registry;
+        parent::__construct($context, $data);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function canShowTab()
+    {
+        return $this->coreRegistry->registry(RegistryConstants::CURRENT_CUSTOMER_ID);
+    }
+
+    /**
+     * Return Tab label
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getTabLabel()
+    {
+        return __('Wish List');
+    }
+
+    /**
+     * Return URL link to Tab content
+     *
+     * @return string
+     */
+    public function getTabUrl()
+    {
+        return $this->getUrl('customer/*/wishlist', ['_current' => true]);
+    }
 }

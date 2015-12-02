@@ -5,13 +5,14 @@
  */
 -->
 
-<div class="admin__field-control"
-	data-bind="css: {
+<div
+    class="admin__field-control"
+    data-bind="css: {
         _error: error(),
         _focus: focused()
     }">
-	<!-- ko template: getTemplate() -->
-	<!-- /ko -->
-	<label class="admin__field-error"
-		data-bind="attr: { for: uid }, text: error, visible: error() && focused()"></label>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <label
+        class="admin__field-error"
+        data-bind="attr: { for: uid }, text: error, visible: error() && focused()"></label>
 </div>

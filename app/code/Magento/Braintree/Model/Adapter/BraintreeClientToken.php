@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -15,17 +14,18 @@ use \Braintree_Result_Successful;
  *
  * @codeCoverageIgnore
  */
-class BraintreeClientToken {
-	/**
-	 *
-	 * @param array $params        	
-	 * @return \Braintree_Result_Successful|\Braintree_Result_Error|null
-	 */
-	public function generate(array $params = []) {
-		try {
-			return \Braintree_ClientToken::generate ( $params );
-		} catch ( \Exception $e ) {
-			return null;
-		}
-	}
+class BraintreeClientToken
+{
+    /**
+     * @param array $params
+     * @return \Braintree_Result_Successful|\Braintree_Result_Error|null
+     */
+    public function generate(array $params = [])
+    {
+        try {
+            return \Braintree_ClientToken::generate($params);
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
 }

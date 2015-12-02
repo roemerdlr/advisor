@@ -5,15 +5,18 @@
  */
 -->
 <div class="switcher">
-	<input class="admin__control-onoff" type="checkbox"
-		data-bind="
+    <input
+            class="admin__control-onoff"
+            type="checkbox"
+            data-bind="
                 staticChecked: $col.selected,
                 value: $row()[$col.indexField],
                 attr: {
                     id: 'check' + $row()[$col.indexField]
                 }">
-	<label class="switcher-label"
-		data-bind="
+    <label
+        class="switcher-label"
+        data-bind="
             attr: {
                 for: 'check' + $row()[$col.indexField]
             },

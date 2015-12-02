@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,18 +11,19 @@ use Magento\Payment\Model\Method\ConfigInterface;
 /**
  * Gateway interface for online payment methods
  *
- * @author Magento Core Team <core@magentocommerce.com>
+ * @author     Magento Core Team <core@magentocommerce.com>
  */
-interface GatewayInterface {
-	/**
-	 * Post request to gateway and return response
-	 *
-	 * @param Object $request        	
-	 * @param ConfigInterface $config        	
-	 *
-	 * @return DataObject
-	 *
-	 * @throws \Exception
-	 */
-	public function postRequest(DataObject $request, ConfigInterface $config);
+interface GatewayInterface
+{
+    /**
+     * Post request to gateway and return response
+     *
+     * @param Object $request
+     * @param ConfigInterface $config
+     *
+     * @return DataObject
+     *
+     * @throws \Exception
+     */
+    public function postRequest(DataObject $request, ConfigInterface $config);
 }

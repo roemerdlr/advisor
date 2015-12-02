@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,24 +6,26 @@
  */
 namespace Magento\Paypal\Controller\Adminhtml\Paypal\Reports;
 
-class Index extends \Magento\Paypal\Controller\Adminhtml\Paypal\Reports {
-	/**
-	 * Grid action
-	 *
-	 * @return void
-	 */
-	public function execute() {
-		$this->_initAction ();
-		$this->_view->renderLayout ();
-	}
-	
-	/**
-	 *
-	 * {@inheritDoc}
-	 *
-	 * @return bool
-	 */
-	protected function _isAllowed() {
-		return $this->_authorization->isAllowed ( 'Magento_Paypal::paypal_settlement_reports_view' );
-	}
+class Index extends \Magento\Paypal\Controller\Adminhtml\Paypal\Reports
+{
+    /**
+     * Grid action
+     *
+     * @return void
+     */
+    public function execute()
+    {
+        $this->_initAction();
+        $this->_view->renderLayout();
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Magento_Paypal::paypal_settlement_reports_view');
+    }
 }

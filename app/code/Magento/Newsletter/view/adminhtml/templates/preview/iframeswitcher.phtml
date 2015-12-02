@@ -5,18 +5,17 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <div id="preview" class="cms-revision-preview">
-	<div class="toolbar">
+    <div class="toolbar">
         <?php if (!$block->isSingleStoreMode()) :?>
         <div class="store-switcher">
-            <?php echo $block->getChildHtml('store_switcher')?>
+            <?php echo $block->getChildHtml('store_switcher') ?>
         </div>
         <?php endif;?>
     </div>
-	<iframe name="preview_iframe" id="preview_iframe" frameborder="0"
-		title="<?php /* @escapeNotVerified */ echo __('Preview') ?>"
-		width="100%"></iframe>
+    <iframe name="preview_iframe" id="preview_iframe" frameborder="0" title="<?php /* @escapeNotVerified */ echo __('Preview') ?>" width="100%"></iframe>
     <?php echo $block->getChildHtml('preview_form'); ?>
 </div>
 

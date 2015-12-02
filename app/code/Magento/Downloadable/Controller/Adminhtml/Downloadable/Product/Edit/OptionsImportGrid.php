@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,5 +6,6 @@
  */
 namespace Magento\Downloadable\Controller\Adminhtml\Downloadable\Product\Edit;
 
-class OptionsImportGrid extends \Magento\Catalog\Controller\Adminhtml\Product\OptionsImportGrid {
+class OptionsImportGrid extends \Magento\Catalog\Controller\Adminhtml\Product\OptionsImportGrid
+{
 }

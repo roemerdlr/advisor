@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Backend user session
  *
@@ -8,14 +7,17 @@
  */
 namespace Magento\Backend\Model;
 
-class Session extends \Magento\Framework\Session\SessionManager {
-	/**
-	 * Skip path validation in backend area
-	 *
-	 * @param string $path        	
-	 * @return bool @SuppressWarnings(PHPMD.UnusedFormalParameter)
-	 */
-	public function isValidForPath($path) {
-		return true;
-	}
+class Session extends \Magento\Framework\Session\SessionManager
+{
+    /**
+     * Skip path validation in backend area
+     *
+     * @param string $path
+     * @return bool
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function isValidForPath($path)
+    {
+        return true;
+    }
 }

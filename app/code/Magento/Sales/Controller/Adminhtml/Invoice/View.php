@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,5 +6,6 @@
  */
 namespace Magento\Sales\Controller\Adminhtml\Invoice;
 
-class View extends \Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\View {
+class View extends \Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\View
+{
 }

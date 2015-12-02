@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Catalog\Test\TestCase\ProductAttribute;
 
 use Magento\Catalog\Test\Fixture\CatalogAttributeSet;
@@ -30,69 +30,71 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Product_Attributes_(MX)
  * @ZephyrId MAGETWO-25473
  */
-class DeleteAttributeSetTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'MX';
-	/* end tags */
-	
-	/**
-	 * Catalog Product Set index page
-	 *
-	 * @var CatalogProductSetIndex
-	 */
-	protected $productSetIndex;
-	
-	/**
-	 * Catalog Product Set edit page
-	 *
-	 * @var CatalogProductSetEdit
-	 */
-	protected $productSetEdit;
-	
-	/**
-	 * Inject data
-	 *
-	 * @param CatalogProductSetIndex $productSetIndex        	
-	 * @param CatalogProductSetEdit $productSetEdit        	
-	 * @return void
-	 */
-	public function __inject(CatalogProductSetIndex $productSetIndex, CatalogProductSetEdit $productSetEdit) {
-		$this->productSetIndex = $productSetIndex;
-		$this->productSetEdit = $productSetEdit;
-	}
-	
-	/**
-	 * Run DeleteAttributeSet test
-	 *
-	 * @param FixtureFactory $fixtureFactory        	
-	 * @param CatalogAttributeSet $attributeSet        	
-	 * @return array
-	 */
-	public function test(FixtureFactory $fixtureFactory, CatalogAttributeSet $attributeSet) {
-		// Precondition
-		$attributeSet->persist ();
-		$product = $fixtureFactory->createByCode ( 'catalogProductSimple', [ 
-				'dataset' => 'default',
-				'data' => [ 
-						'attribute_set_id' => [ 
-								'attribute_set' => $attributeSet 
-						] 
-				] 
-		] );
-		$product->persist ();
-		
-		// Steps
-		$filter = [ 
-				'set_name' => $attributeSet->getAttributeSetName () 
-		];
-		$this->productSetIndex->open ();
-		$this->productSetIndex->getGrid ()->searchAndOpen ( $filter );
-		$this->productSetEdit->getPageActions ()->delete ();
-		$this->productSetEdit->getModalBlock ()->acceptAlert ();
-		
-		return [ 
-				'product' => $product 
-		];
-	}
+class DeleteAttributeSetTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'MX';
+    /* end tags */
+
+    /**
+     * Catalog Product Set index page
+     *
+     * @var CatalogProductSetIndex
+     */
+    protected $productSetIndex;
+
+    /**
+     * Catalog Product Set edit page
+     *
+     * @var CatalogProductSetEdit
+     */
+    protected $productSetEdit;
+
+    /**
+     * Inject data
+     *
+     * @param CatalogProductSetIndex $productSetIndex
+     * @param CatalogProductSetEdit $productSetEdit
+     * @return void
+     */
+    public function __inject(
+        CatalogProductSetIndex $productSetIndex,
+        CatalogProductSetEdit $productSetEdit
+    ) {
+        $this->productSetIndex = $productSetIndex;
+        $this->productSetEdit = $productSetEdit;
+    }
+
+    /**
+     * Run DeleteAttributeSet test
+     *
+     * @param FixtureFactory $fixtureFactory
+     * @param CatalogAttributeSet $attributeSet
+     * @return array
+     */
+    public function test(FixtureFactory $fixtureFactory, CatalogAttributeSet $attributeSet)
+    {
+        // Precondition
+        $attributeSet->persist();
+        $product = $fixtureFactory->createByCode(
+            'catalogProductSimple',
+            [
+                'dataset' => 'default',
+                'data' => [
+                    'attribute_set_id' => ['attribute_set' => $attributeSet],
+                ],
+            ]
+        );
+        $product->persist();
+
+        // Steps
+        $filter = ['set_name' => $attributeSet->getAttributeSetName()];
+        $this->productSetIndex->open();
+        $this->productSetIndex->getGrid()->searchAndOpen($filter);
+        $this->productSetEdit->getPageActions()->delete();
+        $this->productSetEdit->getModalBlock()->acceptAlert();
+
+        return ['product' => $product];
+    }
 }

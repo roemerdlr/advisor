@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -17,29 +16,32 @@ namespace Magento\SalesRule\Model\Rule;
  * @method \Magento\SalesRule\Model\Rule\Customer setCustomerId(int $value)
  * @method int getTimesUsed()
  * @method \Magento\SalesRule\Model\Rule\Customer setTimesUsed(int $value)
- *        
- * @author Magento Core Team <core@magentocommerce.com>
+ *
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Customer extends \Magento\Framework\Model\AbstractModel {
-	/**
-	 * Constructor
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		parent::_construct ();
-		$this->_init ( 'Magento\SalesRule\Model\ResourceModel\Rule\Customer' );
-	}
-	
-	/**
-	 * Load by customer rule
-	 *
-	 * @param int $customerId        	
-	 * @param int $ruleId        	
-	 * @return $this
-	 */
-	public function loadByCustomerRule($customerId, $ruleId) {
-		$this->_getResource ()->loadByCustomerRule ( $this, $customerId, $ruleId );
-		return $this;
-	}
+class Customer extends \Magento\Framework\Model\AbstractModel
+{
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        parent::_construct();
+        $this->_init('Magento\SalesRule\Model\ResourceModel\Rule\Customer');
+    }
+
+    /**
+     * Load by customer rule
+     *
+     * @param int $customerId
+     * @param int $ruleId
+     * @return $this
+     */
+    public function loadByCustomerRule($customerId, $ruleId)
+    {
+        $this->_getResource()->loadByCustomerRule($this, $customerId, $ruleId);
+        return $this;
+    }
 }

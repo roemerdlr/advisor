@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Configuration cache interface
  *
@@ -13,5 +12,6 @@ namespace Magento\Framework\Config;
  *
  * @api
  */
-interface CacheInterface extends \Magento\Framework\Cache\FrontendInterface {
+interface CacheInterface extends \Magento\Framework\Cache\FrontendInterface
+{
 }

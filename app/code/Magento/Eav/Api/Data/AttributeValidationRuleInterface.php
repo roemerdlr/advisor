@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,5 +6,6 @@
  */
 namespace Magento\Eav\Api\Data;
 
-interface AttributeValidationRuleInterface extends \Magento\Framework\DataObject\KeyValueObjectInterface {
+interface AttributeValidationRuleInterface extends \Magento\Framework\DataObject\KeyValueObjectInterface
+{
 }

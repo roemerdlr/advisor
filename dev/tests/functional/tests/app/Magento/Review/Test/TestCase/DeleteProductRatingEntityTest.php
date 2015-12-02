@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -14,8 +13,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1.
- * Simple product is created.
+ * 1. Simple product is created.
  * 2. Product rating is created.
  *
  * Steps:
@@ -29,71 +27,69 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Reviews_and_Ratings_(MX)
  * @ZephyrId MAGETWO-23276
  */
-class DeleteProductRatingEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'no';
-	const DOMAIN = 'MX';
-	/* end tags */
-	
-	/**
-	 * Product rating grid page.
-	 *
-	 * @var RatingIndex
-	 */
-	protected $ratingIndex;
-	
-	/**
-	 * Product rating edit page.
-	 *
-	 * @var RatingEdit
-	 */
-	protected $ratingEdit;
-	
-	/**
-	 * Prepare data.
-	 *
-	 * @param FixtureFactory $fixtureFactory        	
-	 * @return array
-	 */
-	public function __prepare(FixtureFactory $fixtureFactory) {
-		$product = $fixtureFactory->createByCode ( 'catalogProductSimple', [ 
-				'dataset' => 'default' 
-		] );
-		$product->persist ();
-		
-		return [ 
-				'product' => $product 
-		];
-	}
-	
-	/**
-	 * Inject data.
-	 *
-	 * @param RatingIndex $ratingIndex        	
-	 * @param RatingEdit $ratingEdit        	
-	 * @return void
-	 */
-	public function __inject(RatingIndex $ratingIndex, RatingEdit $ratingEdit) {
-		$this->ratingIndex = $ratingIndex;
-		$this->ratingEdit = $ratingEdit;
-	}
-	
-	/**
-	 * Runs delete product Rating entity test.
-	 *
-	 * @param Rating $productRating        	
-	 * @return void
-	 */
-	public function testDeleteProductRatingEntity(Rating $productRating) {
-		// Preconditions
-		$productRating->persist ();
-		
-		// Steps
-		$this->ratingIndex->open ();
-		$this->ratingIndex->getRatingGrid ()->searchAndOpen ( [ 
-				'rating_code' => $productRating->getRatingCode () 
-		] );
-		$this->ratingEdit->getPageActions ()->delete ();
-		$this->ratingEdit->getModalBlock ()->acceptAlert ();
-	}
+class DeleteProductRatingEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'no';
+    const DOMAIN = 'MX';
+    /* end tags */
+
+    /**
+     * Product rating grid page.
+     *
+     * @var RatingIndex
+     */
+    protected $ratingIndex;
+
+    /**
+     * Product rating edit page.
+     *
+     * @var RatingEdit
+     */
+    protected $ratingEdit;
+
+    /**
+     * Prepare data.
+     *
+     * @param FixtureFactory $fixtureFactory
+     * @return array
+     */
+    public function __prepare(FixtureFactory $fixtureFactory)
+    {
+        $product = $fixtureFactory->createByCode('catalogProductSimple', ['dataset' => 'default']);
+        $product->persist();
+
+        return ['product' => $product];
+    }
+
+    /**
+     * Inject data.
+     *
+     * @param RatingIndex $ratingIndex
+     * @param RatingEdit $ratingEdit
+     * @return void
+     */
+    public function __inject(RatingIndex $ratingIndex, RatingEdit $ratingEdit)
+    {
+        $this->ratingIndex = $ratingIndex;
+        $this->ratingEdit = $ratingEdit;
+    }
+
+    /**
+     * Runs delete product Rating entity test.
+     *
+     * @param Rating $productRating
+     * @return void
+     */
+    public function testDeleteProductRatingEntity(Rating $productRating)
+    {
+        // Preconditions
+        $productRating->persist();
+
+        // Steps
+        $this->ratingIndex->open();
+        $this->ratingIndex->getRatingGrid()->searchAndOpen(['rating_code' => $productRating->getRatingCode()]);
+        $this->ratingEdit->getPageActions()->delete();
+        $this->ratingEdit->getModalBlock()->acceptAlert();
+    }
 }

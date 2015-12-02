@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,8 +9,9 @@ use \Magento\Paypal\Model\AbstractConfig;
 
 /**
  * Class AbstractConfigTesting
- * 
  * @package Magento\Paypal\Test\Unit\Model
  */
-class AbstractConfigTesting extends AbstractConfig {
+class AbstractConfigTesting extends AbstractConfig
+{
+
 }

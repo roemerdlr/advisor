@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,18 +9,15 @@
  */
 namespace Magento\Config\Model\Config\Backend;
 
-class Image extends File {
-	/**
-	 * Getter for allowed extensions of uploaded files
-	 *
-	 * @return string[]
-	 */
-	protected function _getAllowedExtensions() {
-		return [ 
-				'jpg',
-				'jpeg',
-				'gif',
-				'png' 
-		];
-	}
+class Image extends File
+{
+    /**
+     * Getter for allowed extensions of uploaded files
+     *
+     * @return string[]
+     */
+    protected function _getAllowedExtensions()
+    {
+        return ['jpg', 'jpeg', 'gif', 'png'];
+    }
 }

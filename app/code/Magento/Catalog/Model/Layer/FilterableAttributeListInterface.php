@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,11 +6,12 @@
  */
 namespace Magento\Catalog\Model\Layer;
 
-interface FilterableAttributeListInterface {
-	/**
-	 * Retrieve list of filterable attributes
-	 *
-	 * @return array|\Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection
-	 */
-	public function getList();
+interface FilterableAttributeListInterface
+{
+    /**
+     * Retrieve list of filterable attributes
+     *
+     * @return array|\Magento\Catalog\Model\ResourceModel\Product\Attribute\Collection
+     */
+    public function getList();
 }

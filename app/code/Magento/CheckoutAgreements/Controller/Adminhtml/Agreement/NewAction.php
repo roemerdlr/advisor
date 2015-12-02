@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,12 +6,14 @@
  */
 namespace Magento\CheckoutAgreements\Controller\Adminhtml\Agreement;
 
-class NewAction extends \Magento\CheckoutAgreements\Controller\Adminhtml\Agreement {
-	/**
-	 *
-	 * @return void @codeCoverageIgnore
-	 */
-	public function execute() {
-		$this->_forward ( 'edit' );
-	}
+class NewAction extends \Magento\CheckoutAgreements\Controller\Adminhtml\Agreement
+{
+    /**
+     * @return void
+     * @codeCoverageIgnore
+     */
+    public function execute()
+    {
+        $this->_forward('edit');
+    }
 }

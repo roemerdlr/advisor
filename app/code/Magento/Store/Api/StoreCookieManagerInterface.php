@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -14,24 +13,22 @@ use Magento\Store\Api\Data\StoreInterface;
  *
  * @api
  */
-interface StoreCookieManagerInterface {
-	/**
-	 *
-	 * @return string
-	 */
-	public function getStoreCodeFromCookie();
-	
-	/**
-	 *
-	 * @param StoreInterface $store        	
-	 * @return void
-	 */
-	public function setStoreCookie(StoreInterface $store);
-	
-	/**
-	 *
-	 * @param StoreInterface $store        	
-	 * @return void
-	 */
-	public function deleteStoreCookie(StoreInterface $store);
+interface StoreCookieManagerInterface
+{
+    /**
+     * @return string
+     */
+    public function getStoreCodeFromCookie();
+
+    /**
+     * @param StoreInterface $store
+     * @return void
+     */
+    public function setStoreCookie(StoreInterface $store);
+
+    /**
+     * @param StoreInterface $store
+     * @return void
+     */
+    public function deleteStoreCookie(StoreInterface $store);
 }

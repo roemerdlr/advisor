@@ -9,7 +9,7 @@
  *
  * @var array
  */
-$taxCalculationData = [ ];
+$taxCalculationData = [];
 
 require_once __DIR__ . '/scenarios/excluding_tax_apply_tax_after_discount.php';
 require_once __DIR__ . '/scenarios/excluding_tax_apply_tax_after_discount_discount_tax.php';

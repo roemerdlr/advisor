@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -43,37 +42,45 @@ use Magento\Downloadable\Model\ResourceModel\Link\Purchased\Item as Resource;
  * @method Item setCreatedAt($value)
  * @method string getUpdatedAt()
  * @method Item setUpdatedAt($value)
- *        
- * @author Magento Core Team <core@magentocommerce.com>
+ *
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Item extends \Magento\Framework\Model\AbstractModel {
-	const XML_PATH_ORDER_ITEM_STATUS = 'catalog/downloadable/order_item_status';
-	const LINK_STATUS_PENDING = 'pending';
-	const LINK_STATUS_AVAILABLE = 'available';
-	const LINK_STATUS_EXPIRED = 'expired';
-	const LINK_STATUS_PENDING_PAYMENT = 'pending_payment';
-	const LINK_STATUS_PAYMENT_REVIEW = 'payment_review';
-	
-	/**
-	 * Enter description here...
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		$this->_init ( 'Magento\Downloadable\Model\ResourceModel\Link\Purchased\Item' );
-		parent::_construct ();
-	}
-	
-	/**
-	 * Check order item id
-	 *
-	 * @return $this
-	 * @throws \Exception
-	 */
-	public function beforeSave() {
-		if (null == $this->getOrderItemId ()) {
-			throw new \Exception ( __ ( 'Order item id cannot be null' ) );
-		}
-		return parent::beforeSave ();
-	}
+class Item extends \Magento\Framework\Model\AbstractModel
+{
+    const XML_PATH_ORDER_ITEM_STATUS = 'catalog/downloadable/order_item_status';
+
+    const LINK_STATUS_PENDING = 'pending';
+
+    const LINK_STATUS_AVAILABLE = 'available';
+
+    const LINK_STATUS_EXPIRED = 'expired';
+
+    const LINK_STATUS_PENDING_PAYMENT = 'pending_payment';
+
+    const LINK_STATUS_PAYMENT_REVIEW = 'payment_review';
+
+    /**
+     * Enter description here...
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init('Magento\Downloadable\Model\ResourceModel\Link\Purchased\Item');
+        parent::_construct();
+    }
+
+    /**
+     * Check order item id
+     *
+     * @return $this
+     * @throws \Exception
+     */
+    public function beforeSave()
+    {
+        if (null == $this->getOrderItemId()) {
+            throw new \Exception(__('Order item id cannot be null'));
+        }
+        return parent::beforeSave();
+    }
 }

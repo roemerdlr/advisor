@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -9,15 +8,17 @@ namespace Magento\Review\Block\Form;
 /**
  * Review form block
  *
- * @author Magento Core Team <core@magentocommerce.com>
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Configure extends \Magento\Review\Block\Form {
-	/**
-	 * Get review product id
-	 *
-	 * @return int
-	 */
-	public function getProductId() {
-		return ( int ) $this->getRequest ()->getParam ( 'product_id', false );
-	}
+class Configure extends \Magento\Review\Block\Form
+{
+    /**
+     * Get review product id
+     *
+     * @return int
+     */
+    public function getProductId()
+    {
+        return (int)$this->getRequest()->getParam('product_id', false);
+    }
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,13 +10,15 @@ use Magento\Catalog\Model\Product;
 /**
  * Product stock qty block for configurable product type
  */
-class Configurable extends \Magento\CatalogInventory\Block\Stockqty\Composite {
-	/**
-	 * Retrieve child products
-	 *
-	 * @return Product[]
-	 */
-	protected function _getChildProducts() {
-		return $this->getProduct ()->getTypeInstance ()->getUsedProducts ( $this->getProduct () );
-	}
+class Configurable extends \Magento\CatalogInventory\Block\Stockqty\Composite
+{
+    /**
+     * Retrieve child products
+     *
+     * @return Product[]
+     */
+    protected function _getChildProducts()
+    {
+        return $this->getProduct()->getTypeInstance()->getUsedProducts($this->getProduct());
+    }
 }

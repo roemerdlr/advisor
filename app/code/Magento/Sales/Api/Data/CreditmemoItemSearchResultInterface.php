@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -15,19 +14,20 @@ namespace Magento\Sales\Api\Data;
  * a merchant creates a credit memo.
  * @api
  */
-interface CreditmemoItemSearchResultInterface extends \Magento\Framework\Api\SearchResultsInterface {
-	/**
-	 * Gets collection items.
-	 *
-	 * @return \Magento\Sales\Api\Data\CreditmemoItemInterface[] Array of collection items.
-	 */
-	public function getItems();
-	
-	/**
-	 * Set collection items.
-	 *
-	 * @param \Magento\Sales\Api\Data\CreditmemoItemInterface[] $items        	
-	 * @return $this
-	 */
-	public function setItems(array $items);
+interface CreditmemoItemSearchResultInterface extends \Magento\Framework\Api\SearchResultsInterface
+{
+    /**
+     * Gets collection items.
+     *
+     * @return \Magento\Sales\Api\Data\CreditmemoItemInterface[] Array of collection items.
+     */
+    public function getItems();
+
+    /**
+     * Set collection items.
+     *
+     * @param \Magento\Sales\Api\Data\CreditmemoItemInterface[] $items
+     * @return $this
+     */
+    public function setItems(array $items);
 }

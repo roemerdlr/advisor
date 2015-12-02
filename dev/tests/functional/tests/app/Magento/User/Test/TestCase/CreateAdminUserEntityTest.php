@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\User\Test\TestCase;
 
 use Magento\User\Test\Fixture\User;
@@ -26,91 +26,86 @@ use Magento\Mtf\TestCase\Injectable;
  * @group ACL_(PS)
  * @ZephyrId MAGETWO-25699
  */
-class CreateAdminUserEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'no';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * User grid page
-	 *
-	 * @var UserIndex
-	 */
-	protected $userIndexPage;
-	
-	/**
-	 * User new/edit page
-	 *
-	 * @var UserEdit
-	 */
-	protected $userEditPage;
-	
-	/**
-	 * Factory for Fixtures
-	 *
-	 * @var FixtureFactory
-	 */
-	protected $fixtureFactory;
-	
-	/**
-	 * Preconditions for test
-	 *
-	 * @param FixtureFactory $fixtureFactory        	
-	 * @return array
-	 */
-	public function __prepare(FixtureFactory $fixtureFactory) {
-		$this->fixtureFactory = $fixtureFactory;
-		$adminUser = $fixtureFactory->createByCode ( 'user', [ 
-				'dataset' => 'custom_admin' 
-		] );
-		$adminUser->persist ();
-		
-		return [ 
-				'adminUser' => $adminUser 
-		];
-	}
-	
-	/**
-	 * Setup necessary data for test
-	 *
-	 * @param UserIndex $userIndex        	
-	 * @param UserEdit $userEdit        	
-	 * @return void
-	 */
-	public function __inject(UserIndex $userIndex, UserEdit $userEdit) {
-		$this->userIndexPage = $userIndex;
-		$this->userEditPage = $userEdit;
-	}
-	
-	/**
-	 *
-	 * @param User $user        	
-	 * @param User $adminUser        	
-	 * @param string $isDuplicated        	
-	 * @return array
-	 */
-	public function test(User $user, User $adminUser, $isDuplicated) {
-		// Prepare data
-		if ($isDuplicated != '-') {
-			$data = $user->getData ();
-			$data [$isDuplicated] = $adminUser->getData ( $isDuplicated );
-			$data ['role_id'] = [ 
-					'role' => $user->getDataFieldConfig ( 'role_id' ) ['source']->getRole () 
-			];
-			$user = $this->fixtureFactory->createByCode ( 'user', [ 
-					'data' => $data 
-			] );
-		}
-		
-		// Steps
-		$this->userIndexPage->open ();
-		$this->userIndexPage->getPageActions ()->addNew ();
-		$this->userEditPage->getUserForm ()->fill ( $user );
-		$this->userEditPage->getPageActions ()->save ();
-		
-		return [ 
-				'customAdmin' => $user 
-		];
-	}
+class CreateAdminUserEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'no';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * User grid page
+     *
+     * @var UserIndex
+     */
+    protected $userIndexPage;
+
+    /**
+     * User new/edit page
+     *
+     * @var UserEdit
+     */
+    protected $userEditPage;
+
+    /**
+     * Factory for Fixtures
+     *
+     * @var FixtureFactory
+     */
+    protected $fixtureFactory;
+
+    /**
+     * Preconditions for test
+     *
+     * @param FixtureFactory $fixtureFactory
+     * @return array
+     */
+    public function __prepare(FixtureFactory $fixtureFactory)
+    {
+        $this->fixtureFactory = $fixtureFactory;
+        $adminUser = $fixtureFactory->createByCode('user', ['dataset' => 'custom_admin']);
+        $adminUser->persist();
+
+        return ['adminUser' => $adminUser];
+    }
+
+    /**
+     * Setup necessary data for test
+     *
+     * @param UserIndex $userIndex
+     * @param UserEdit $userEdit
+     * @return void
+     */
+    public function __inject(
+        UserIndex $userIndex,
+        UserEdit $userEdit
+    ) {
+        $this->userIndexPage = $userIndex;
+        $this->userEditPage = $userEdit;
+    }
+
+    /**
+     * @param User $user
+     * @param User $adminUser
+     * @param string $isDuplicated
+     * @return array
+     */
+    public function test(User $user, User $adminUser, $isDuplicated)
+    {
+        // Prepare data
+        if ($isDuplicated != '-') {
+            $data = $user->getData();
+            $data[$isDuplicated] = $adminUser->getData($isDuplicated);
+            $data['role_id'] = ['role' => $user->getDataFieldConfig('role_id')['source']->getRole()];
+            $user = $this->fixtureFactory->createByCode('user', ['data' => $data]);
+        }
+
+        // Steps
+        $this->userIndexPage->open();
+        $this->userIndexPage->getPageActions()->addNew();
+        $this->userEditPage->getUserForm()->fill($user);
+        $this->userEditPage->getPageActions()->save();
+
+        return ['customAdmin' => $user];
+    }
 }

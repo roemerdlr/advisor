@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\UrlRewrite\Test\TestCase;
 
 use Magento\Catalog\Test\Fixture\Category;
@@ -33,68 +33,71 @@ use Magento\Mtf\TestCase\Injectable;
  * @group URL_Rewrites_(PS)
  * @ZephyrId MAGETWO-24838
  */
-class UpdateCategoryUrlRewriteEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * Url rewrite index page
-	 *
-	 * @var UrlRewriteIndex
-	 */
-	protected $urlRewriteIndex;
-	
-	/**
-	 * Url rewrite edit page
-	 *
-	 * @var UrlRewriteEdit
-	 */
-	protected $urlRewriteEdit;
-	
-	/**
-	 * Prepare datasets and pages
-	 *
-	 * @param UrlRewriteIndex $urlRewriteIndex        	
-	 * @param UrlRewriteEdit $urlRewriteEdit        	
-	 * @param FixtureFactory $fixtureFactory        	
-	 * @param Category $category        	
-	 * @return array
-	 */
-	public function __inject(UrlRewriteIndex $urlRewriteIndex, UrlRewriteEdit $urlRewriteEdit, FixtureFactory $fixtureFactory, Category $category) {
-		$this->urlRewriteIndex = $urlRewriteIndex;
-		$this->urlRewriteEdit = $urlRewriteEdit;
-		$category->persist ();
-		$categoryRedirect = $fixtureFactory->createByCode ( 'urlRewrite', [ 
-				'dataset' => 'default',
-				'data' => [ 
-						'target_path' => $category->getUrlKey () . '.html' 
-				] 
-		] );
-		$categoryRedirect->persist ();
-		
-		return [ 
-				'categoryRedirect' => $categoryRedirect,
-				'category' => $category 
-		];
-	}
-	
-	/**
-	 * Update category URL rewrites
-	 *
-	 * @param UrlRewrite $categoryRedirect        	
-	 * @param UrlRewrite $urlRewrite        	
-	 * @return void
-	 */
-	public function test(UrlRewrite $categoryRedirect, UrlRewrite $urlRewrite) {
-		// Steps
-		$this->urlRewriteIndex->open ();
-		$filter = [ 
-				'request_path' => $categoryRedirect->getRequestPath () 
-		];
-		$this->urlRewriteIndex->getUrlRedirectGrid ()->searchAndOpen ( $filter );
-		$this->urlRewriteEdit->getFormBlock ()->fill ( $urlRewrite );
-		$this->urlRewriteEdit->getPageMainActions ()->save ();
-	}
+class UpdateCategoryUrlRewriteEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * Url rewrite index page
+     *
+     * @var UrlRewriteIndex
+     */
+    protected $urlRewriteIndex;
+
+    /**
+     * Url rewrite edit page
+     *
+     * @var UrlRewriteEdit
+     */
+    protected $urlRewriteEdit;
+
+    /**
+     * Prepare datasets and pages
+     *
+     * @param UrlRewriteIndex $urlRewriteIndex
+     * @param UrlRewriteEdit $urlRewriteEdit
+     * @param FixtureFactory $fixtureFactory
+     * @param Category $category
+     * @return array
+     */
+    public function __inject(
+        UrlRewriteIndex $urlRewriteIndex,
+        UrlRewriteEdit $urlRewriteEdit,
+        FixtureFactory $fixtureFactory,
+        Category $category
+    ) {
+        $this->urlRewriteIndex = $urlRewriteIndex;
+        $this->urlRewriteEdit = $urlRewriteEdit;
+        $category->persist();
+        $categoryRedirect = $fixtureFactory->createByCode(
+            'urlRewrite',
+            [
+                'dataset' => 'default',
+                'data' => ['target_path' => $category->getUrlKey() . '.html']
+            ]
+        );
+        $categoryRedirect->persist();
+
+        return ['categoryRedirect' => $categoryRedirect, 'category' => $category];
+    }
+
+    /**
+     * Update category URL rewrites
+     *
+     * @param UrlRewrite $categoryRedirect
+     * @param UrlRewrite $urlRewrite
+     * @return void
+     */
+    public function test(UrlRewrite $categoryRedirect, UrlRewrite $urlRewrite)
+    {
+        //Steps
+        $this->urlRewriteIndex->open();
+        $filter = ['request_path' => $categoryRedirect->getRequestPath()];
+        $this->urlRewriteIndex->getUrlRedirectGrid()->searchAndOpen($filter);
+        $this->urlRewriteEdit->getFormBlock()->fill($urlRewrite);
+        $this->urlRewriteEdit->getPageMainActions()->save();
+    }
 }

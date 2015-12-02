@@ -4,8 +4,7 @@
  * See COPYING.txt for license details.
  */
 -->
-<select class="select"
-	data-bind="
+<select class="select" data-bind="
     attr: {
         name: inputName,
         id: uid,
@@ -23,4 +22,5 @@
         if (item && item.disabled) {
             ko.applyBindingsToNode(option, {attr: {disabled: true}}, item);
         }
-    }" />
+    }"
+/>

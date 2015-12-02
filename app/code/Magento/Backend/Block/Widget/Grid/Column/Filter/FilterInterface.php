@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,25 +10,26 @@ use Magento\Backend\Block\Widget\Grid\Column;
 /**
  * Grid column filter interface
  *
- * @author Magento Core Team <core@magentocommerce.com>
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-interface FilterInterface {
-	/**
-	 *
-	 * @return Column @api
-	 */
-	public function getColumn();
-	
-	/**
-	 *
-	 * @param Column $column        	
-	 * @return AbstractFilter @api
-	 */
-	public function setColumn($column);
-	
-	/**
-	 *
-	 * @return string @api
-	 */
-	public function getHtml();
+interface FilterInterface
+{
+    /**
+     * @return Column
+     * @api
+     */
+    public function getColumn();
+
+    /**
+     * @param Column $column
+     * @return AbstractFilter
+     * @api
+     */
+    public function setColumn($column);
+
+    /**
+     * @return string
+     * @api
+     */
+    public function getHtml();
 }

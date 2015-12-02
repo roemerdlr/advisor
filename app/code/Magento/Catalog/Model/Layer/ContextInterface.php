@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,22 +6,20 @@
  */
 namespace Magento\Catalog\Model\Layer;
 
-interface ContextInterface {
-	/**
-	 *
-	 * @return ItemCollectionProviderInterface
-	 */
-	public function getCollectionProvider();
-	
-	/**
-	 *
-	 * @return StateKeyInterface
-	 */
-	public function getStateKey();
-	
-	/**
-	 *
-	 * @return CollectionFilterInterface
-	 */
-	public function getCollectionFilter();
+interface ContextInterface
+{
+    /**
+     * @return ItemCollectionProviderInterface
+     */
+    public function getCollectionProvider();
+
+    /**
+     * @return StateKeyInterface
+     */
+    public function getStateKey();
+
+    /**
+     * @return CollectionFilterInterface
+     */
+    public function getCollectionFilter();
 }

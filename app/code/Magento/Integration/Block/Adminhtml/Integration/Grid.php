@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Integration grid.
  *
@@ -13,22 +12,25 @@ use Magento\Backend\Block\Widget\Grid as BackendGrid;
 /**
  * @codeCoverageIgnore
  */
-class Grid extends BackendGrid {
-	/**
-	 * Disable javascript callback on row clicking.
-	 *
-	 * @return string
-	 */
-	public function getRowClickCallback() {
-		return '';
-	}
-	
-	/**
-	 * Disable javascript callback on row init.
-	 *
-	 * @return string
-	 */
-	public function getRowInitCallback() {
-		return '';
-	}
+class Grid extends BackendGrid
+{
+    /**
+     * Disable javascript callback on row clicking.
+     *
+     * @return string
+     */
+    public function getRowClickCallback()
+    {
+        return '';
+    }
+
+    /**
+     * Disable javascript callback on row init.
+     *
+     * @return string
+     */
+    public function getRowInitCallback()
+    {
+        return '';
+    }
 }

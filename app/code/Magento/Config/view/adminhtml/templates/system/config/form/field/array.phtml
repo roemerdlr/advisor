@@ -5,48 +5,40 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 
 <?php
-$_htmlId = $block->getHtmlId () ? $block->getHtmlId () : '_' . uniqid ();
-$_colspan = $block->isAddAfter () ? 2 : 1;
+$_htmlId = $block->getHtmlId() ? $block->getHtmlId() : '_' . uniqid();
+$_colspan = $block->isAddAfter() ? 2 : 1;
 ?>
 
-<div class="design_theme_ua_regexp"
-	id="grid<?php /* @escapeNotVerified */ echo $_htmlId; ?>">
-	<div class="admin__control-table-wrapper">
-		<table class="admin__control-table">
-			<thead>
-				<tr>
+<div class="design_theme_ua_regexp" id="grid<?php /* @escapeNotVerified */ echo $_htmlId; ?>">
+    <div class="admin__control-table-wrapper">
+        <table class="admin__control-table">
+            <thead>
+            <tr>
                 <?php foreach ($block->getColumns() as $columnName => $column): ?>
                     <th><?php /* @escapeNotVerified */ echo $column['label']; ?></th>
                 <?php endforeach;?>
-                <th class="col-actions"
-						colspan="<?php /* @escapeNotVerified */ echo $_colspan; ?>">Action</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="<?php echo count($block->getColumns())+$_colspan; ?>"
-						class="col-actions-add">
-						<button
-							id="addToEndBtn<?php /* @escapeNotVerified */ echo $_htmlId; ?>"
-							class="action-add"
-							title="<?php /* @escapeNotVerified */ echo __('Add'); ?>"
-							type="button">
-							<span><?php /* @escapeNotVerified */ echo $block->getAddButtonLabel(); ?><?php /* @escapeNotVerified */ echo __('Add'); ?></span>
-						</button>
-					</td>
-				</tr>
-			</tfoot>
-			<tbody id="addRow<?php /* @escapeNotVerified */ echo $_htmlId; ?>"></tbody>
-		</table>
-	</div>
-	<input type="hidden"
-		name="<?php /* @escapeNotVerified */ echo $block->getElement()->getName(); ?>[__empty]"
-		value="" />
+                <th class="col-actions" colspan="<?php /* @escapeNotVerified */ echo $_colspan; ?>">Action</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="<?php echo count($block->getColumns())+$_colspan; ?>" class="col-actions-add">
+                    <button id="addToEndBtn<?php /* @escapeNotVerified */ echo $_htmlId; ?>" class="action-add" title="<?php /* @escapeNotVerified */ echo __('Add'); ?>" type="button">
+                        <span><?php /* @escapeNotVerified */ echo $block->getAddButtonLabel(); ?><?php /* @escapeNotVerified */ echo __('Add'); ?></span>
+                    </button>
+                </td>
+            </tr>
+            </tfoot>
+            <tbody id="addRow<?php /* @escapeNotVerified */ echo $_htmlId; ?>"></tbody>
+        </table>
+    </div>
+    <input type="hidden" name="<?php /* @escapeNotVerified */ echo $block->getElement()->getName(); ?>[__empty]" value="" />
 
-	<script>
+    <script>
         require([
             'mage/template',
             'prototype'
@@ -122,11 +114,10 @@ $_colspan = $block->isAddAfter () ? 2 : 1;
 
         // add existing rows
         <?php
-								foreach ( $block->getArrayRows () as $_rowId => $_row ) {
-									/* @escapeNotVerified */
-									echo "arrayRow{$_htmlId}.add(" . $_row->toJson () . ");\n";
-								}
-								?>
+        foreach ($block->getArrayRows() as $_rowId => $_row) {
+            /* @escapeNotVerified */ echo "arrayRow{$_htmlId}.add(" . $_row->toJson() . ");\n";
+        }
+        ?>
 
         // Toggle the grid availability, if element is disabled (depending on scope)
         <?php if ($block->getElement()->getDisabled()):?>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Magento application product metadata
  *
@@ -8,25 +7,26 @@
  */
 namespace Magento\Framework\App;
 
-interface ProductMetadataInterface {
-	/**
-	 * Get Product version
-	 *
-	 * @return string
-	 */
-	public function getVersion();
-	
-	/**
-	 * Get Product edition
-	 *
-	 * @return string
-	 */
-	public function getEdition();
-	
-	/**
-	 * Get Product name
-	 *
-	 * @return string
-	 */
-	public function getName();
+interface ProductMetadataInterface
+{
+    /**
+     * Get Product version
+     *
+     * @return string
+     */
+    public function getVersion();
+
+    /**
+     * Get Product edition
+     *
+     * @return string
+     */
+    public function getEdition();
+
+    /**
+     * Get Product name
+     *
+     * @return string
+     */
+    public function getName();
 }

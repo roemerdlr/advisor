@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,11 +6,12 @@
  */
 namespace Magento\Wishlist\Model;
 
-interface AuthenticationStateInterface {
-	/**
-	 * Is authentication enabled
-	 *
-	 * @return bool
-	 */
-	public function isEnabled();
+interface AuthenticationStateInterface
+{
+    /**
+     * Is authentication enabled
+     *
+     * @return bool
+     */
+    public function isEnabled();
 }

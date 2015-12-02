@@ -5,11 +5,12 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
-<?php $_element = $block->getElement()?>
+<?php $_element = $block->getElement() ?>
 
 <?php if (!$_element->getNoDisplay()): ?>
 <div class="cms-manage-content-actions">
-    <?php echo trim($_element->getElementHtml())?>
+    <?php echo trim($_element->getElementHtml()) ?>
 </div>
 <?php endif; ?>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -8,17 +7,22 @@ namespace Magento\Msrp\Plugin\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab;
 
 use Magento\Msrp\Model\Product\Attribute\Source\Type\Price;
 
-class Attributes {
-	/**
-	 *
-	 * @param \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $subject        	
-	 * @param \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $result        	
-	 * @return \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes
-	 */
-	public function afterSetForm(\Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $subject, \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $result) {
-		$mapEnabled = $subject->getForm ()->getElement ( 'msrp' );
-		if ($mapEnabled && $subject->getCanEditPrice () !== false) {
-			$mapEnabled->setAfterElementHtml ( '<script>' . "
+class Attributes
+{
+    /**
+     * @param \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $subject
+     * @param \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $result
+     * @return \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes
+     */
+    public function afterSetForm(
+        \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $subject,
+        \Magento\Bundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes $result
+    ) {
+        $mapEnabled = $subject->getForm()->getElement('msrp');
+        if ($mapEnabled && $subject->getCanEditPrice() !== false) {
+            $mapEnabled->setAfterElementHtml(
+                '<script>' .
+                "
                 require(['prototype'], function(){
                 function changePriceTypeMap() {
                     if ($('price_type').value == " . \Magento\Bundle\Model\Product\Price::PRICE_TYPE_DYNAMIC . ") {
@@ -36,8 +40,10 @@ class Attributes {
                 changePriceTypeMap();
 
                 });
-                " . '</script>' );
-		}
-		return $result;
-	}
+                " .
+                '</script>'
+            );
+        }
+        return $result;
+    }
 }

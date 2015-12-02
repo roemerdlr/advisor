@@ -5,15 +5,13 @@
  */
 ?>
 <?php
-
 $required = '';
-if ($block->hasRequiredOptions ()) {
-	$required = ' data-hasrequired="' . __ ( '* Required Fields' ) . '"';
+if ($block->hasRequiredOptions()) {
+    $required = ' data-hasrequired="' . __('* Required Fields') . '"';
 }
 ?>
-<div class="product-options-wrapper" id="product-options-wrapper"
-	<?php /* @escapeNotVerified */ echo $required; ?>>
-	<div class="fieldset" tabindex="0">
+<div class="product-options-wrapper" id="product-options-wrapper"<?php /* @escapeNotVerified */ echo $required; ?>>
+    <div class="fieldset" tabindex="0">
         <?php echo $block->getChildHtml('', true);?>
     </div>
 </div>

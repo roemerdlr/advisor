@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,13 +10,15 @@ use Magento\Paypal\Model;
 /**
  * Payflow payment info
  */
-class Info extends \Magento\Paypal\Block\Payment\Info {
-	/**
-	 * Don't show CC type
-	 *
-	 * @return false
-	 */
-	public function getCcTypeName() {
-		return false;
-	}
+class Info extends \Magento\Paypal\Block\Payment\Info
+{
+    /**
+     * Don't show CC type
+     *
+     * @return false
+     */
+    public function getCcTypeName()
+    {
+        return false;
+    }
 }

@@ -7,24 +7,21 @@
 // @codingStandardsIgnoreFile
 
 /**
- *
  * @var \Magento\Theme\Block\Html\Header $block
  */
-$welcomeMessage = $block->getWelcome ();
+$welcomeMessage = $block->getWelcome();
 ?>
-<?php
-
-
-switch ($block->getShowPart ()) :
-	case 'welcome' :
-		?>
-<li class="greet welcome" data-bind="scope: 'customer'">
-	<!-- ko if: customer().fullname  --> <span
-	data-bind="text: $t('Welcome, %1!').replace('%1', customer().fullname)"></span>
-	<!-- /ko --> <!-- ko ifnot: customer().fullname  --> <span
-	data-bind="html:'<?=$block->escapeHtml($welcomeMessage) ?>'"></span> <!-- /ko -->
-</li>
-<script type="text/x-magento-init">
+<?php switch ($block->getShowPart()):
+    case 'welcome': ?>
+        <li class="greet welcome" data-bind="scope: 'customer'">
+            <!-- ko if: customer().fullname  -->
+            <span data-bind="text: $t('Welcome, %1!').replace('%1', customer().fullname)"></span>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().fullname  -->
+            <span data-bind="html:'<?=$block->escapeHtml($welcomeMessage) ?>'"></span>
+            <!-- /ko -->
+        </li>
+        <script type="text/x-magento-init">
         {
             "*": {
                 "Magento_Ui/js/core/app": {
@@ -37,7 +34,7 @@ switch ($block->getShowPart ()) :
             }
         }
         </script>
-<?php break; ?>
+    <?php break; ?>
 
     <?php case 'other': ?>
         <?php echo $block->getChildHtml(); ?>

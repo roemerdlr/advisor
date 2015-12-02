@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
-<!-- /** * Copyright © 2015 Magento. All rights reserved. * See COPYING.txt 
-	for license details. */ -->
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
 <layout>
-	<container name="main.container" />
+    <container name="main.container" />
 </layout>

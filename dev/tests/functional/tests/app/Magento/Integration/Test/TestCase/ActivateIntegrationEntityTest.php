@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Integration\Test\TestCase;
 
 use Magento\Integration\Test\Fixture\Integration;
@@ -12,8 +12,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1.
- * Integration is created.
+ * 1. Integration is created.
  *
  * Steps:
  * 1. Log in to backend as admin user.
@@ -24,44 +23,45 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Web_API_Framework_(PS)
  * @ZephyrId MAGETWO-26119
  */
-class ActivateIntegrationEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * Integration grid page.
-	 *
-	 * @var IntegrationIndex
-	 */
-	protected $integrationIndexPage;
-	
-	/**
-	 * Injection data.
-	 *
-	 * @param IntegrationIndex $integrationIndex        	
-	 * @return void
-	 */
-	public function __inject(IntegrationIndex $integrationIndex) {
-		$this->integrationIndexPage = $integrationIndex;
-	}
-	
-	/**
-	 * Activate Integration Entity Test.
-	 *
-	 * @param Integration $integration        	
-	 * @return void
-	 */
-	public function test(Integration $integration) {
-		// Preconditions
-		$integration->persist ();
-		
-		// Steps
-		$filter = [ 
-				'name' => $integration->getName () 
-		];
-		$this->integrationIndexPage->open ();
-		$this->integrationIndexPage->getIntegrationGrid ()->searchAndActivate ( $filter );
-	}
+class ActivateIntegrationEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * Integration grid page.
+     *
+     * @var IntegrationIndex
+     */
+    protected $integrationIndexPage;
+
+    /**
+     * Injection data.
+     *
+     * @param IntegrationIndex $integrationIndex
+     * @return void
+     */
+    public function __inject(IntegrationIndex $integrationIndex)
+    {
+        $this->integrationIndexPage = $integrationIndex;
+    }
+
+    /**
+     * Activate Integration Entity Test.
+     *
+     * @param Integration $integration
+     * @return void
+     */
+    public function test(Integration $integration)
+    {
+        // Preconditions
+        $integration->persist();
+
+        // Steps
+        $filter = ['name' => $integration->getName()];
+        $this->integrationIndexPage->open();
+        $this->integrationIndexPage->getIntegrationGrid()->searchAndActivate($filter);
+    }
 }

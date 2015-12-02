@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -12,14 +11,15 @@ namespace Magento\Bundle\Api;
  *
  * @api
  */
-interface ProductOptionManagementInterface {
-	/**
-	 * Add new option for bundle product
-	 *
-	 * @param \Magento\Bundle\Api\Data\OptionInterface $option        	
-	 * @return int
-	 * @throws \Magento\Framework\Exception\CouldNotSaveException
-	 * @throws \Magento\Framework\Exception\InputException
-	 */
-	public function save(\Magento\Bundle\Api\Data\OptionInterface $option);
+interface ProductOptionManagementInterface
+{
+    /**
+     * Add new option for bundle product
+     *
+     * @param \Magento\Bundle\Api\Data\OptionInterface $option
+     * @return int
+     * @throws \Magento\Framework\Exception\CouldNotSaveException
+     * @throws \Magento\Framework\Exception\InputException
+     */
+    public function save(\Magento\Bundle\Api\Data\OptionInterface $option);
 }

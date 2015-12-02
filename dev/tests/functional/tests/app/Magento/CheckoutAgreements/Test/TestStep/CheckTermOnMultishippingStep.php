@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,37 +12,41 @@ use Magento\CheckoutAgreements\Test\Fixture\CheckoutAgreement;
 /**
  * Process Terms and Conditions checkbox on multiple addresses checkout page.
  */
-class CheckTermOnMultishippingStep implements TestStepInterface {
-	/**
-	 * Multishipping overview page.
-	 *
-	 * @var MultishippingCheckoutOverview
-	 */
-	protected $multishippingCheckoutOverview;
-	
-	/**
-	 * Term and conditions checkbox value.
-	 *
-	 * @var string
-	 */
-	protected $agreementValue;
-	
-	/**
-	 *
-	 * @param MultishippingCheckoutOverview $multishippingCheckoutOverview        	
-	 * @param string $agreementValue        	
-	 */
-	public function __construct(MultishippingCheckoutOverview $multishippingCheckoutOverview, $agreementValue = 'No') {
-		$this->multishippingCheckoutOverview = $multishippingCheckoutOverview;
-		$this->agreementValue = $agreementValue;
-	}
-	
-	/**
-	 * Process Terms and Conditions checkbox on multiple addresses checkout overview step.
-	 *
-	 * @return void
-	 */
-	public function run() {
-		$this->multishippingCheckoutOverview->getAgreementReview ()->setAgreement ( $this->agreementValue );
-	}
+class CheckTermOnMultishippingStep implements TestStepInterface
+{
+    /**
+     * Multishipping overview page.
+     *
+     * @var MultishippingCheckoutOverview
+     */
+    protected $multishippingCheckoutOverview;
+
+    /**
+     * Term and conditions checkbox value.
+     *
+     * @var string
+     */
+    protected $agreementValue;
+
+    /**
+     * @param MultishippingCheckoutOverview $multishippingCheckoutOverview
+     * @param string $agreementValue
+     */
+    public function __construct(
+        MultishippingCheckoutOverview $multishippingCheckoutOverview,
+        $agreementValue = 'No'
+    ) {
+        $this->multishippingCheckoutOverview = $multishippingCheckoutOverview;
+        $this->agreementValue = $agreementValue;
+    }
+
+    /**
+     * Process Terms and Conditions checkbox on multiple addresses checkout overview step.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $this->multishippingCheckoutOverview->getAgreementReview()->setAgreement($this->agreementValue);
+    }
 }

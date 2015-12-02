@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,14 +6,17 @@
  */
 namespace Magento\Catalog\Controller\Adminhtml\Product\Attribute;
 
-class Index extends \Magento\Catalog\Controller\Adminhtml\Product\Attribute {
-	/**
-	 *
-	 * @return \Magento\Backend\Model\View\Result\Page
-	 */
-	public function execute() {
-		$resultPage = $this->createActionPage ();
-		$resultPage->addContent ( $resultPage->getLayout ()->createBlock ( 'Magento\Catalog\Block\Adminhtml\Product\Attribute' ) );
-		return $resultPage;
-	}
+class Index extends \Magento\Catalog\Controller\Adminhtml\Product\Attribute
+{
+    /**
+     * @return \Magento\Backend\Model\View\Result\Page
+     */
+    public function execute()
+    {
+        $resultPage = $this->createActionPage();
+        $resultPage->addContent(
+            $resultPage->getLayout()->createBlock('Magento\Catalog\Block\Adminhtml\Product\Attribute')
+        );
+        return $resultPage;
+    }
 }

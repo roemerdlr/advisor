@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Google Experiment Product Save observer
  *
@@ -10,43 +9,46 @@ namespace Magento\GoogleOptimizer\Observer\Product;
 
 use Magento\Framework\Event\Observer;
 
-class SaveGoogleExperimentScriptObserver extends \Magento\GoogleOptimizer\Observer\AbstractSave {
-	/**
-	 *
-	 * @var \Magento\Catalog\Model\Product
-	 */
-	protected $_product;
-	
-	/**
-	 * Init entity
-	 *
-	 * @param Observer $observer        	
-	 * @return void
-	 */
-	protected function _initEntity($observer) {
-		$this->_product = $observer->getEvent ()->getProduct ();
-	}
-	
-	/**
-	 * Check is Google Experiment enabled
-	 *
-	 * @return bool
-	 */
-	protected function _isGoogleExperimentActive() {
-		return $this->_helper->isGoogleExperimentActive ( $this->_product->getStoreId () );
-	}
-	
-	/**
-	 * Get data for saving code model
-	 *
-	 * @return array
-	 */
-	protected function _getCodeData() {
-		return [ 
-				'entity_type' => \Magento\GoogleOptimizer\Model\Code::ENTITY_TYPE_PRODUCT,
-				'entity_id' => $this->_product->getId (),
-				'store_id' => $this->_product->getStoreId (),
-				'experiment_script' => $this->_params ['experiment_script'] 
-		];
-	}
+class SaveGoogleExperimentScriptObserver extends \Magento\GoogleOptimizer\Observer\AbstractSave
+{
+    /**
+     * @var \Magento\Catalog\Model\Product
+     */
+    protected $_product;
+
+    /**
+     * Init entity
+     *
+     * @param Observer $observer
+     * @return void
+     */
+    protected function _initEntity($observer)
+    {
+        $this->_product = $observer->getEvent()->getProduct();
+    }
+
+    /**
+     * Check is Google Experiment enabled
+     *
+     * @return bool
+     */
+    protected function _isGoogleExperimentActive()
+    {
+        return $this->_helper->isGoogleExperimentActive($this->_product->getStoreId());
+    }
+
+    /**
+     * Get data for saving code model
+     *
+     * @return array
+     */
+    protected function _getCodeData()
+    {
+        return [
+            'entity_type' => \Magento\GoogleOptimizer\Model\Code::ENTITY_TYPE_PRODUCT,
+            'entity_id' => $this->_product->getId(),
+            'store_id' => $this->_product->getStoreId(),
+            'experiment_script' => $this->_params['experiment_script']
+        ];
+    }
 }

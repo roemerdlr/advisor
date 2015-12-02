@@ -5,16 +5,17 @@
  */
 
 /** @var \Magento\Framework\Registry $registry */
-$registry = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ()->get ( 'Magento\Framework\Registry' );
-$registry->unregister ( 'isSecureArea' );
-$registry->register ( 'isSecureArea', true );
+$registry = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->get('Magento\Framework\Registry');
+$registry->unregister('isSecureArea');
+$registry->register('isSecureArea', true);
 
 /** @var \Magento\Customer\Model\Address $customerAddress */
-$customerAddress = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ()->create ( 'Magento\Customer\Model\Address' );
-$customerAddress->load ( 1 );
-if ($customerAddress->getId ()) {
-	$customerAddress->delete ();
+$customerAddress = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()
+    ->create('Magento\Customer\Model\Address');
+$customerAddress->load(1);
+if ($customerAddress->getId()) {
+    $customerAddress->delete();
 }
 
-$registry->unregister ( 'isSecureArea' );
-$registry->register ( 'isSecureArea', false );
+$registry->unregister('isSecureArea');
+$registry->register('isSecureArea', false);

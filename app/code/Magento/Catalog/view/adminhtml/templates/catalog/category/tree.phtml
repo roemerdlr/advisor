@@ -5,37 +5,38 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <div class="categories-side-col">
-	<div class="sidebar-actions">
+    <div class="sidebar-actions">
         <?php if ($block->getRoot()): ?>
-            <?php echo $block->getAddRootButtonHtml() ?><br />
-            <?php echo $block->getAddSubButtonHtml()?>
+            <?php echo $block->getAddRootButtonHtml() ?><br/>
+            <?php echo $block->getAddSubButtonHtml() ?>
         <?php endif; ?>
     </div>
-	<div class="tree-actions">
+    <div class="tree-actions">
         <?php if ($block->getRoot()): ?>
             <?php //echo $block->getCollapseButtonHtml() ?>
             <?php //echo $block->getExpandButtonHtml() ?>
-            <a href="#" onclick="tree.collapseTree(); return false;"><?php /* @escapeNotVerified */ echo __('Collapse All'); ?></a>
-		<span class="separator">|</span> <a href="#"
-			onclick="tree.expandTree(); return false;"><?php /* @escapeNotVerified */ echo __('Expand All'); ?></a>
+            <a href="#"
+               onclick="tree.collapseTree(); return false;"><?php /* @escapeNotVerified */ echo __('Collapse All'); ?></a>
+            <span class="separator">|</span> <a href="#"
+                                                onclick="tree.expandTree(); return false;"><?php /* @escapeNotVerified */ echo __('Expand All'); ?></a>
         <?php endif; ?>
     </div>
     <?php if ($block->getRoot()): ?>
     <div class="tree-holder">
-		<div id="tree-div" class="tree-wrapper"></div>
-	</div>
+        <div id="tree-div" class="tree-wrapper"></div>
+    </div>
 </div>
 
-<div data-id="information-dialog-tree" class="messages"
-	style="display: none;">
-	<div class="message message-notice">
-		<div><?php /* @escapeNotVerified */ echo __('This operation can take a long time'); ?></div>
-	</div>
-</div>
-<script id="ie-deferred-loader" defer="defer" src=""></script>
-<script>
+    <div data-id="information-dialog-tree" class="messages" style="display: none;">
+        <div class="message message-notice">
+            <div><?php /* @escapeNotVerified */ echo __('This operation can take a long time'); ?></div>
+        </div>
+    </div>
+    <script id="ie-deferred-loader" defer="defer" src=""></script>
+    <script>
         var tree;
         require([
             "jquery",
@@ -385,9 +386,9 @@
                         id: <?php /* @escapeNotVerified */ echo (int)$block->getRoot()->getId() ?>,
                         expanded: <?php /* @escapeNotVerified */ echo (int)$block->getIsWasExpanded() ?>,
                         store_id: <?php /* @escapeNotVerified */ echo (int)$block->getStore()->getId() ?>,
-                        category_id: <?php /* @escapeNotVerified */ echo (int)$block->getCategoryId()?>
+                        category_id: <?php /* @escapeNotVerified */ echo (int)$block->getCategoryId() ?>
                     },
-                    data: <?php  /* @escapeNotVerified */ echo $block->getTreeJson()?>
+                    data: <?php  /* @escapeNotVerified */ echo $block->getTreeJson() ?>
                 };
 
                 reRenderTree();

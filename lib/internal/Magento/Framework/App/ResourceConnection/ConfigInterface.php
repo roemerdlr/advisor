@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Resource configuration interface
  *
@@ -8,12 +7,13 @@
  */
 namespace Magento\Framework\App\ResourceConnection;
 
-interface ConfigInterface {
-	/**
-	 * Retrieve resource connection instance name
-	 *
-	 * @param string $resourceName        	
-	 * @return string
-	 */
-	public function getConnectionName($resourceName);
+interface ConfigInterface
+{
+    /**
+     * Retrieve resource connection instance name
+     *
+     * @param string $resourceName
+     * @return string
+     */
+    public function getConnectionName($resourceName);
 }

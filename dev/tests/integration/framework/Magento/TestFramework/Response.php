@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,7 +12,9 @@ namespace Magento\TestFramework;
 /**
  * @SuppressWarnings(PHPMD.LongVariable)
  */
-class Response extends \Magento\Framework\App\Response\Http {
-	public function sendResponse() {
-	}
+class Response extends \Magento\Framework\App\Response\Http
+{
+    public function sendResponse()
+    {
+    }
 }

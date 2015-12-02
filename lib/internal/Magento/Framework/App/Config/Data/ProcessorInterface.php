@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,13 +10,13 @@ namespace Magento\Framework\App\Config\Data;
  *
  * @api
  */
-interface ProcessorInterface {
-	/**
-	 * Process config value
-	 *
-	 * @param string $value
-	 *        	Raw value of the configuration field
-	 * @return string Processed value
-	 */
-	public function processValue($value);
+interface ProcessorInterface
+{
+    /**
+     * Process config value
+     *
+     * @param string $value Raw value of the configuration field
+     * @return string Processed value
+     */
+    public function processValue($value);
 }

@@ -6,20 +6,19 @@
 
 // @codingStandardsIgnoreFile
 /**
- *
  * @var \Magento\Authorizenet\Block\Adminhtml\Order\View\Info\FraudDetails $block
  */
-$payment = $block->getPayment ();
-$fraudDetails = $payment->getAdditionalInformation ( 'fraud_details' );
+$payment = $block->getPayment();
+$fraudDetails = $payment->getAdditionalInformation('fraud_details');
 ?>
 
 <?php if (!empty($fraudDetails)): ?>
-<div class="admin__page-section-item-title">
-	<span class="title"><?php echo $block->escapeHtml(__('Fraud Detection ')); ?></span>
-</div>
+    <div class="admin__page-section-item-title">
+        <span class="title"><?php echo $block->escapeHtml(__('Fraud Detection ')); ?></span>
+    </div>
 
-<div class="admin__page-section-item-content">
-	<div class="order-payment-additional">
+    <div class="admin__page-section-item-content">
+        <div class="order-payment-additional">
             <?php if(!empty($fraudDetails['fds_filter_action'])): ?>
                 <?php echo $block->escapeHtml(__('FDS Filter Action')); ?>:
                 <?php echo $block->escapeHtml($fraudDetails['fds_filter_action']); ?>
@@ -54,5 +53,5 @@ $fraudDetails = $payment->getAdditionalInformation ( 'fraud_details' );
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-</div>
+    </div>
 <?php endif; ?>

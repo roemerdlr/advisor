@@ -5,12 +5,11 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php if ($block->getChildHtml()): ?>
 <section class="admin__page-section order-gift-options">
-	<div class="admin__page-section-title">
-		<strong class="title"><?php /* @escapeNotVerified */ echo __('Gift Options') ?></strong>
-	</div>
-    <?php echo $block->getChildHtml()?>
+    <div class="admin__page-section-title"><strong class="title"><?php /* @escapeNotVerified */ echo __('Gift Options') ?></strong></div>
+    <?php echo $block->getChildHtml() ?>
 </section>
 <?php endif ?>

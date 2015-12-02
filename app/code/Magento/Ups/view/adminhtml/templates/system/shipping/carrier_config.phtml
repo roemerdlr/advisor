@@ -8,31 +8,31 @@
 
 /** @var $upsModel \Magento\Ups\Helper\Config */
 /** @var $block \Magento\Ups\Block\Backend\System\CarrierConfig */
-$upsCarrierConfig = $block->getCarrierConfig ();
-$orShipArr = $upsCarrierConfig->getCode ( 'originShipment' );
-$defShipArr = $upsCarrierConfig->getCode ( 'method' );
+$upsCarrierConfig = $block->getCarrierConfig();
+$orShipArr = $upsCarrierConfig->getCode('originShipment');
+$defShipArr = $upsCarrierConfig->getCode('method');
 
-$sectionCode = $block->getRequest ()->getParam ( 'section' );
-$websiteCode = $block->getRequest ()->getParam ( 'website' );
-$storeCode = $block->getRequest ()->getParam ( 'store' );
+$sectionCode = $block->getRequest()->getParam('section');
+$websiteCode = $block->getRequest()->getParam('website');
+$storeCode = $block->getRequest()->getParam('store');
 
-if (! $storeCode && $websiteCode) {
-	/** @var $web \Magento\Store\Model\Website */
-	$web = $block->getWebsiteModel ()->load ( $websiteCode );
-	$storedAllowedMethods = explode ( ',', $web->getConfig ( 'carriers/ups/allowed_methods' ) );
-	$storedOriginShipment = $block->escapeHtml ( $web->getConfig ( 'carriers/ups/origin_shipment' ) );
-	$storedFreeShipment = $block->escapeHtml ( $web->getConfig ( 'carriers/ups/free_method' ) );
-	$storedUpsType = $block->escapeHtml ( $web->getConfig ( 'carriers/ups/type' ) );
+if (!$storeCode && $websiteCode) {
+    /** @var $web \Magento\Store\Model\Website */
+    $web = $block->getWebsiteModel()->load($websiteCode);
+    $storedAllowedMethods = explode(',', $web->getConfig('carriers/ups/allowed_methods'));
+    $storedOriginShipment = $block->escapeHtml($web->getConfig('carriers/ups/origin_shipment'));
+    $storedFreeShipment   = $block->escapeHtml($web->getConfig('carriers/ups/free_method'));
+    $storedUpsType        = $block->escapeHtml($web->getConfig('carriers/ups/type'));
 } elseif ($storeCode) {
-	$storedAllowedMethods = explode ( ',', $block->getConfig ( 'carriers/ups/allowed_methods', $storeCode ) );
-	$storedOriginShipment = $block->escapeHtml ( $block->getConfig ( 'carriers/ups/origin_shipment', $storeCode ) );
-	$storedFreeShipment = $block->escapeHtml ( $block->getConfig ( 'carriers/ups/free_method', $storeCode ) );
-	$storedUpsType = $block->escapeHtml ( $block->getConfig ( 'carriers/ups/type', $storeCode ) );
+    $storedAllowedMethods = explode(',', $block->getConfig('carriers/ups/allowed_methods', $storeCode));
+    $storedOriginShipment = $block->escapeHtml($block->getConfig('carriers/ups/origin_shipment', $storeCode));
+    $storedFreeShipment   = $block->escapeHtml($block->getConfig('carriers/ups/free_method', $storeCode));
+    $storedUpsType        = $block->escapeHtml($block->getConfig('carriers/ups/type', $storeCode));
 } else {
-	$storedAllowedMethods = explode ( ',', $block->getConfig ( 'carriers/ups/allowed_methods' ) );
-	$storedOriginShipment = $block->escapeHtml ( $block->getConfig ( 'carriers/ups/origin_shipment' ) );
-	$storedFreeShipment = $block->escapeHtml ( $block->getConfig ( 'carriers/ups/free_method' ) );
-	$storedUpsType = $block->escapeHtml ( $block->getConfig ( 'carriers/ups/type' ) );
+    $storedAllowedMethods = explode(',', $block->getConfig('carriers/ups/allowed_methods'));
+    $storedOriginShipment = $block->escapeHtml($block->getConfig('carriers/ups/origin_shipment'));
+    $storedFreeShipment   = $block->escapeHtml($block->getConfig('carriers/ups/free_method'));
+    $storedUpsType        = $block->escapeHtml($block->getConfig('carriers/ups/type'));
 }
 ?>
 <script>

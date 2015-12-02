@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,5 +6,6 @@
  */
 namespace Magento\Sales\Controller\Guest;
 
-class Invoice extends \Magento\Sales\Controller\Guest\View {
+class Invoice extends \Magento\Sales\Controller\Guest\View
+{
 }

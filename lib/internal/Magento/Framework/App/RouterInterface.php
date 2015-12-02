@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Router. Matches action from request
  *
@@ -8,12 +7,13 @@
  */
 namespace Magento\Framework\App;
 
-interface RouterInterface {
-	/**
-	 * Match application action by request
-	 *
-	 * @param RequestInterface $request        	
-	 * @return ActionInterface
-	 */
-	public function match(RequestInterface $request);
+interface RouterInterface
+{
+    /**
+     * Match application action by request
+     *
+     * @param RequestInterface $request
+     * @return ActionInterface
+     */
+    public function match(RequestInterface $request);
 }

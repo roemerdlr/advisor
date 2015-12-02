@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\CatalogSearch\Test\TestCase;
 
 use Magento\CatalogSearch\Test\Fixture\CatalogSearchQuery;
@@ -14,8 +14,7 @@ use Magento\Mtf\TestCase\Injectable;
 
 /**
  * Preconditions:
- * 1.
- * Product is created.
+ * 1. Product is created.
  *
  * Steps:
  * 1. Go to frontend.
@@ -30,62 +29,66 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Search_Terms_(MX)
  * @ZephyrId MAGETWO-26100
  */
-class UpdateSearchTermEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'MX';
-	/* end tags */
-	
-	/**
-	 * CMS index page.
-	 *
-	 * @var CmsIndex
-	 */
-	protected $cmsIndex;
-	
-	/**
-	 * Search term page.
-	 *
-	 * @var CatalogSearchIndex
-	 */
-	protected $indexPage;
-	
-	/**
-	 * Search term edit page.
-	 *
-	 * @var CatalogSearchEdit
-	 */
-	protected $editPage;
-	
-	/**
-	 * Inject pages.
-	 *
-	 * @param CmsIndex $cmsIndex        	
-	 * @param CatalogSearchIndex $indexPage        	
-	 * @param CatalogSearchEdit $editPage        	
-	 * @return void
-	 */
-	public function __inject(CmsIndex $cmsIndex, CatalogSearchIndex $indexPage, CatalogSearchEdit $editPage) {
-		$this->cmsIndex = $cmsIndex;
-		$this->indexPage = $indexPage;
-		$this->editPage = $editPage;
-	}
-	
-	/**
-	 * Run update search term test.
-	 *
-	 * @param CatalogSearchQuery $searchTerm        	
-	 * @return void
-	 */
-	public function test(CatalogSearchQuery $searchTerm) {
-		// Preconditions
-		$searchText = $searchTerm->getQueryText ();
-		// Steps
-		$this->cmsIndex->open ()->getSearchBlock ()->search ( $searchText );
-		$this->indexPage->open ()->getGrid ()->searchAndOpen ( [ 
-				'search_query' => $searchText 
-		] );
-		$this->editPage->getForm ()->fill ( $searchTerm );
-		$this->editPage->getFormPageActions ()->save ();
-	}
+class UpdateSearchTermEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'MX';
+    /* end tags */
+
+    /**
+     * CMS index page.
+     *
+     * @var CmsIndex
+     */
+    protected $cmsIndex;
+
+    /**
+     * Search term page.
+     *
+     * @var CatalogSearchIndex
+     */
+    protected $indexPage;
+
+    /**
+     * Search term edit page.
+     *
+     * @var CatalogSearchEdit
+     */
+    protected $editPage;
+
+    /**
+     * Inject pages.
+     *
+     * @param CmsIndex $cmsIndex
+     * @param CatalogSearchIndex $indexPage
+     * @param CatalogSearchEdit $editPage
+     * @return void
+     */
+    public function __inject(
+        CmsIndex $cmsIndex,
+        CatalogSearchIndex $indexPage,
+        CatalogSearchEdit $editPage
+    ) {
+        $this->cmsIndex = $cmsIndex;
+        $this->indexPage = $indexPage;
+        $this->editPage = $editPage;
+    }
+
+    /**
+     * Run update search term test.
+     *
+     * @param CatalogSearchQuery $searchTerm
+     * @return void
+     */
+    public function test(CatalogSearchQuery $searchTerm)
+    {
+        // Preconditions
+        $searchText = $searchTerm->getQueryText();
+        // Steps
+        $this->cmsIndex->open()->getSearchBlock()->search($searchText);
+        $this->indexPage->open()->getGrid()->searchAndOpen(['search_query' => $searchText]);
+        $this->editPage->getForm()->fill($searchTerm);
+        $this->editPage->getFormPageActions()->save();
+    }
 }

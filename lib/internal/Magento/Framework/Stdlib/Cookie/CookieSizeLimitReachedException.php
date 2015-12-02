@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -15,5 +14,6 @@ use Magento\Framework\Exception\LocalizedException;
  * Limits can include the amount of data stored in an individual cookie as well as the number of cookies
  * set for the domain.
  */
-class CookieSizeLimitReachedException extends LocalizedException {
+class CookieSizeLimitReachedException extends LocalizedException
+{
 }

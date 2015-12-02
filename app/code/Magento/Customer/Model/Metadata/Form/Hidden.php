@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Form Element Hidden Data Model
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\Customer\Model\Metadata\Form;
 
-class Hidden extends Text {
+class Hidden extends Text
+{
 }

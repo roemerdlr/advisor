@@ -5,24 +5,21 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php
-
 /**
- *
- * @method s
- *         getTitle() - string
- *         getSaveUrl() - string
- *         getSections() - array
- *         getForm() - html
+ * @methods
+ *  getTitle() - string
+ *  getSaveUrl() - string
+ *  getSections() - array
+ *  getForm() - html
  */
 ?>
-<form
-	action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>"
-	method="post" id="config-edit-form" enctype="multipart/form-data">
+<form action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="config-edit-form" enctype="multipart/form-data">
     <?php echo $block->getBlockHtml('formkey')?>
     <div class="accordion">
-        <?php echo $block->getChildHtml('form')?>
+        <?php echo $block->getChildHtml('form') ?>
     </div>
 </form>
 <script>

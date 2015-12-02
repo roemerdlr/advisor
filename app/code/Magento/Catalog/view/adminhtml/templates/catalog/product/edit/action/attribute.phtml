@@ -5,12 +5,10 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 
-<form
-	action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>"
-	method="post" id="attributes-edit-form" class="attributes-edit-form"
-	enctype="multipart/form-data">
+<form action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="attributes-edit-form" class="attributes-edit-form" enctype="multipart/form-data">
     <?php echo $block->getBlockHtml('formkey')?>
 </form>
 <script>

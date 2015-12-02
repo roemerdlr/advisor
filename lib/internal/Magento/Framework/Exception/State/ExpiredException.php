@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Expired exception
  *
@@ -10,5 +9,6 @@ namespace Magento\Framework\Exception\State;
 
 use Magento\Framework\Exception\StateException;
 
-class ExpiredException extends StateException {
+class ExpiredException extends StateException
+{
 }

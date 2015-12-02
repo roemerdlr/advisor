@@ -5,25 +5,22 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
-<?php $_element = $block->getElement()?>
+<?php $_element = $block->getElement() ?>
 <div class="rule-tree">
-	<fieldset id="<?php echo $_element->getHtmlId() ?>"
-		<?php /* @escapeNotVerified */ echo $_element->serialize(['class'])?>
-		class="fieldset">
-		<legend class="legend">
-			<span><?php /* @escapeNotVerified */ echo $_element->getLegend() ?></span>
-		</legend>
-		<br>
+    <fieldset id="<?php echo $_element->getHtmlId() ?>" <?php /* @escapeNotVerified */ echo $_element->serialize(['class']) ?> class="fieldset">
+        <legend class="legend"><span><?php /* @escapeNotVerified */ echo $_element->getLegend() ?></span></legend>
+        <br>
     <?php if ($_element->getComment()): ?>
         <div class="messages">
-			<div class="message message-notice"><?php echo $block->escapeHtml($_element->getComment()) ?></div>
-		</div>
+            <div class="message message-notice"><?php echo $block->escapeHtml($_element->getComment()) ?></div>
+        </div>
     <?php endif; ?>
     <div class="rule-tree-wrapper">
-        <?php echo $_element->getChildrenHtml()?>
+        <?php echo $_element->getChildrenHtml() ?>
     </div>
-	</fieldset>
+    </fieldset>
 </div>
 <script>
 require([

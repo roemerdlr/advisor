@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,13 +10,15 @@ use Magento\Sales\Model\Order\Item;
 /**
  * Adminhtml sales order item renderer
  */
-class DefaultRenderer extends \Magento\Sales\Block\Adminhtml\Items\AbstractItems {
-	/**
-	 * Get order item
-	 *
-	 * @return Item
-	 */
-	public function getItem() {
-		return $this->_getData ( 'item' ); // ->getOrderItem();
-	}
+class DefaultRenderer extends \Magento\Sales\Block\Adminhtml\Items\AbstractItems
+{
+    /**
+     * Get order item
+     *
+     * @return Item
+     */
+    public function getItem()
+    {
+        return $this->_getData('item');//->getOrderItem();
+    }
 }

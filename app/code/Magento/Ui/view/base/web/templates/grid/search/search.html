@@ -5,12 +5,13 @@
  */
 -->
 <div class="data-grid-search-control-wrap">
-	<label class="data-grid-search-label" for="data-grid-search"
-		data-bind="attr: {title: $t('Search')}"> <span
-		data-bind="text: $t('Search')"></span>
-	</label> <input id="data-grid-search"
-		class="admin__control-text data-grid-search-control"
-		data-bind="
+    <label class="data-grid-search-label" for="data-grid-search" data-bind="attr: {title: $t('Search')}">
+        <span data-bind="text: $t('Search')"></span>
+    </label>
+    <input
+            id="data-grid-search"
+            class="admin__control-text data-grid-search-control"
+            data-bind="
                 attr: {
                     placeholder: placeholder
                 },
@@ -19,9 +20,8 @@
                     13: apply,
                     27: cancel
                 }"
-		type="text" />
-	<button class="action-submit"
-		data-bind="click: apply.bind($data, false)" type="button">
-		<span data-bind="i18n: 'Search'"></span>
-	</button>
+            type="text"/>
+    <button class="action-submit" data-bind="click: apply.bind($data, false)" type="button">
+        <span data-bind="i18n: 'Search'"></span>
+    </button>
 </div>

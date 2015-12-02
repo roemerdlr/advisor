@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -11,5 +10,6 @@ use Magento\Framework\Exception\AuthenticationException;
 /**
  * OAuth \Exception
  */
-class Exception extends AuthenticationException {
+class Exception extends AuthenticationException
+{
 }

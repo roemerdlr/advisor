@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Sales Rules resource collection model
  *
@@ -8,15 +7,17 @@
  */
 namespace Magento\SalesRule\Model\ResourceModel\Rule\Quote;
 
-class Collection extends \Magento\SalesRule\Model\ResourceModel\Rule\Collection {
-	/**
-	 * Add websites for load
-	 *
-	 * @return $this
-	 */
-	public function _initSelect() {
-		parent::_initSelect ();
-		$this->addWebsitesToResult ();
-		return $this;
-	}
+class Collection extends \Magento\SalesRule\Model\ResourceModel\Rule\Collection
+{
+    /**
+     * Add websites for load
+     *
+     * @return $this
+     */
+    public function _initSelect()
+    {
+        parent::_initSelect();
+        $this->addWebsitesToResult();
+        return $this;
+    }
 }

@@ -5,21 +5,21 @@
  */
 
 /** @var \Magento\Framework\Registry $registry */
-$registry = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ()->get ( 'Magento\Framework\Registry' );
+$registry = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->get('Magento\Framework\Registry');
 
-$registry->unregister ( 'isSecureArea' );
-$registry->register ( 'isSecureArea', true );
+$registry->unregister('isSecureArea');
+$registry->register('isSecureArea', true);
 
-$productIds = range ( 10, 12, 1 );
-foreach ( $productIds as $productId ) {
-	/** @var \Magento\Catalog\Model\Product $product */
-	$product = \Magento\TestFramework\Helper\Bootstrap::getObjectManager ()->create ( 'Magento\Catalog\Model\Product' );
-	$product->load ( $productId );
-	
-	if ($product->getId ()) {
-		$product->delete ();
-	}
+$productIds = range(10, 12, 1);
+foreach ($productIds as $productId) {
+    /** @var \Magento\Catalog\Model\Product $product */
+    $product = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create('Magento\Catalog\Model\Product');
+    $product->load($productId);
+
+    if ($product->getId()) {
+        $product->delete();
+    }
 }
 
-$registry->unregister ( 'isSecureArea' );
-$registry->register ( 'isSecureArea', false );
+$registry->unregister('isSecureArea');
+$registry->register('isSecureArea', false);

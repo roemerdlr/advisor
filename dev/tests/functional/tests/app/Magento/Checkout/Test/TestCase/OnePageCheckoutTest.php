@@ -1,17 +1,16 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Checkout\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Preconditions:
- * 1.
- * Configure shipping method.
+ * 1. Configure shipping method.
  * 2. Configure payment method.
  * 3. Create products.
  * 4. Create and setup customer.
@@ -37,19 +36,21 @@ use Magento\Mtf\TestCase\Scenario;
  * @ZephyrId MAGETWO-27485, MAGETWO-12412, MAGETWO-12429
  * @ZephyrId MAGETWO-12444, MAGETWO-12848, MAGETWO-12849, MAGETWO-12850
  */
-class OnePageCheckoutTest extends Scenario {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'CS';
-	const TEST_TYPE = 'acceptance_test, 3rd_party_test';
-	/* end tags */
-	
-	/**
-	 * Runs one page checkout test.
-	 *
-	 * @return void
-	 */
-	public function test() {
-		$this->executeScenario ();
-	}
+class OnePageCheckoutTest extends Scenario
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'CS';
+    const TEST_TYPE = 'acceptance_test, 3rd_party_test';
+    /* end tags */
+
+    /**
+     * Runs one page checkout test.
+     *
+     * @return void
+     */
+    public function test()
+    {
+        $this->executeScenario();
+    }
 }

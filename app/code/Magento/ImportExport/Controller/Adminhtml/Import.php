@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -13,13 +12,15 @@ use Magento\ImportExport\Model\Import\ErrorProcessing\ProcessingErrorAggregatorI
 /**
  * Import controller
  */
-abstract class Import extends Action {
-	/**
-	 * Check access (in the ACL) for current user.
-	 *
-	 * @return bool
-	 */
-	protected function _isAllowed() {
-		return $this->_authorization->isAllowed ( 'Magento_ImportExport::import' );
-	}
+abstract class Import extends Action
+{
+    /**
+     * Check access (in the ACL) for current user.
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Magento_ImportExport::import');
+    }
 }

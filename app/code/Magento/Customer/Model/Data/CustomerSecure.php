@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Customer\Model\Data;
 
 /**
@@ -18,5 +18,6 @@ namespace Magento\Customer\Model\Data;
  * @method setPasswordHash(string $hashedPassword)
  * @method setDeleteable(bool $deleteable)
  */
-class CustomerSecure extends \Magento\Framework\DataObject {
+class CustomerSecure extends \Magento\Framework\DataObject
+{
 }

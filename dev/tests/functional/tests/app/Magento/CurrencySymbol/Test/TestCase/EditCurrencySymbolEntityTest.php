@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\CurrencySymbol\Test\TestCase;
 
 use Magento\Catalog\Test\Fixture\CatalogProductSimple;
@@ -11,8 +11,7 @@ use Magento\CurrencySymbol\Test\Fixture\CurrencySymbolEntity;
 
 /**
  * Preconditions:
- * 1.
- * Create simple product
+ * 1. Create simple product
  *
  * Steps:
  * 1. Login to backend.
@@ -24,26 +23,28 @@ use Magento\CurrencySymbol\Test\Fixture\CurrencySymbolEntity;
  * @group Currency_(PS)
  * @ZephyrId MAGETWO-26600
  */
-class EditCurrencySymbolEntityTest extends AbstractCurrencySymbolEntityTest {
-	/* tags */
-	const MVP = 'no';
-	const DOMAIN = 'PS';
-	/* end tags */
-	
-	/**
-	 * Edit Currency Symbol Entity test.
-	 *
-	 * @param CurrencySymbolEntity $currencySymbol        	
-	 * @param string $configData        	
-	 * @return void
-	 */
-	public function test(CurrencySymbolEntity $currencySymbol, $configData) {
-		// Preconditions
-		$this->importCurrencyRate ( $configData );
-		
-		// Steps
-		$this->currencySymbolIndex->open ();
-		$this->currencySymbolIndex->getCurrencySymbolForm ()->fill ( $currencySymbol );
-		$this->currencySymbolIndex->getPageActions ()->save ();
-	}
+class EditCurrencySymbolEntityTest extends AbstractCurrencySymbolEntityTest
+{
+    /* tags */
+    const MVP = 'no';
+    const DOMAIN = 'PS';
+    /* end tags */
+
+    /**
+     * Edit Currency Symbol Entity test.
+     *
+     * @param CurrencySymbolEntity $currencySymbol
+     * @param string $configData
+     * @return void
+     */
+    public function test(CurrencySymbolEntity $currencySymbol, $configData)
+    {
+        // Preconditions
+        $this->importCurrencyRate($configData);
+
+        // Steps
+        $this->currencySymbolIndex->open();
+        $this->currencySymbolIndex->getCurrencySymbolForm()->fill($currencySymbol);
+        $this->currencySymbolIndex->getPageActions()->save();
+    }
 }

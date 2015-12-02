@@ -5,9 +5,10 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 
-<?php $_divId = 'tree' . $block->getId()?>
+<?php $_divId = 'tree' . $block->getId() ?>
 <div id="<?php /* @escapeNotVerified */ echo $_divId ?>" class="tree"></div>
 <script id="ie-deferred-loader" defer="defer" src=""></script>
 <script>
@@ -175,7 +176,7 @@ jQuery(function()
         draggable:   false,
         id:          <?php echo (int) $block->getRoot()->getId() ?>,
         expanded:    <?php echo (int) $block->getIsWasExpanded() ?>,
-        category_id: <?php echo (int) $block->getCategoryId()?>
+        category_id: <?php echo (int) $block->getCategoryId() ?>
     };
 
     tree<?php /* @escapeNotVerified */ echo $block->getId() ?>.loadTree({parameters:parameters, data:<?php /* @escapeNotVerified */ echo $block->getTreeJson() ?>},true);

@@ -4,12 +4,16 @@
  * See COPYING.txt for license details.
  */
 -->
-<label class="admin__form-field-label" data-bind="attr: {for: uid}">
-	<span data-bind="text: label"></span>
+<label
+    class="admin__form-field-label"
+    data-bind="attr: {for: uid}">
+    <span data-bind="text: label"></span>
 </label>
 <div class="admin__form-field-control">
-	<input class="admin__control-text" type="text"
-		data-bind="value: value,
+    <input
+        class="admin__control-text"
+        type="text"
+        data-bind="value: value,
                    hasFocus: focused,
                    attr: {
                        name: inputName,

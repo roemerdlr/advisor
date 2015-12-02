@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Invalid state exception
  *
@@ -10,5 +9,6 @@ namespace Magento\Framework\Exception\State;
 
 use Magento\Framework\Exception\StateException;
 
-class InvalidTransitionException extends StateException {
+class InvalidTransitionException extends StateException
+{
 }

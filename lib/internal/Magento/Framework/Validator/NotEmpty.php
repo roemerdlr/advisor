@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Not empty validator
  *
@@ -8,5 +7,6 @@
  */
 namespace Magento\Framework\Validator;
 
-class NotEmpty extends \Zend_Validate_NotEmpty implements \Magento\Framework\Validator\ValidatorInterface {
+class NotEmpty extends \Zend_Validate_NotEmpty implements \Magento\Framework\Validator\ValidatorInterface
+{
 }

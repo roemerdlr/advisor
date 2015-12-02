@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,19 +11,20 @@ use Magento\Framework\Api\SearchResultsInterface;
  * Interface for cms page search results.
  * @api
  */
-interface PageSearchResultsInterface extends SearchResultsInterface {
-	/**
-	 * Get pages list.
-	 *
-	 * @return \Magento\Cms\Api\Data\PageInterface[]
-	 */
-	public function getItems();
-	
-	/**
-	 * Set pages list.
-	 *
-	 * @param \Magento\Cms\Api\Data\PageInterface[] $items        	
-	 * @return $this
-	 */
-	public function setItems(array $items);
+interface PageSearchResultsInterface extends SearchResultsInterface
+{
+    /**
+     * Get pages list.
+     *
+     * @return \Magento\Cms\Api\Data\PageInterface[]
+     */
+    public function getItems();
+
+    /**
+     * Set pages list.
+     *
+     * @param \Magento\Cms\Api\Data\PageInterface[] $items
+     * @return $this
+     */
+    public function setItems(array $items);
 }

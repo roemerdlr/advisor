@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -9,7 +8,6 @@ namespace Magento\Quote\Model\Quote\Address;
 use Magento\Framework\Model\AbstractModel;
 
 /**
- *
  * @method \Magento\Quote\Model\ResourceModel\Quote\Address\Rate _getResource()
  * @method \Magento\Quote\Model\ResourceModel\Quote\Address\Rate getResource()
  * @method int getAddressId()
@@ -34,65 +32,87 @@ use Magento\Framework\Model\AbstractModel;
  * @method \Magento\Quote\Model\Quote\Address\Rate setErrorMessage(string $value)
  * @method string getMethodTitle()
  * @method \Magento\Quote\Model\Quote\Address\Rate setMethodTitle(string $value)
- *        
- * @author Magento Core Team <core@magentocommerce.com>
+ *
+ * @author      Magento Core Team <core@magentocommerce.com>
  */
-class Rate extends AbstractModel {
-	/**
-	 *
-	 * @var \Magento\Quote\Model\Quote\Address
-	 */
-	protected $_address;
-	
-	/**
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		$this->_init ( 'Magento\Quote\Model\ResourceModel\Quote\Address\Rate' );
-	}
-	
-	/**
-	 *
-	 * @return $this
-	 */
-	public function beforeSave() {
-		parent::beforeSave ();
-		if ($this->getAddress ()) {
-			$this->setAddressId ( $this->getAddress ()->getId () );
-		}
-		return $this;
-	}
-	
-	/**
-	 *
-	 * @param \Magento\Quote\Model\Quote\Address $address        	
-	 * @return $this
-	 */
-	public function setAddress(\Magento\Quote\Model\Quote\Address $address) {
-		$this->_address = $address;
-		return $this;
-	}
-	
-	/**
-	 *
-	 * @return \Magento\Quote\Model\Quote\Address
-	 */
-	public function getAddress() {
-		return $this->_address;
-	}
-	
-	/**
-	 *
-	 * @param \Magento\Quote\Model\Quote\Address\RateResult\AbstractResult $rate        	
-	 * @return $this
-	 */
-	public function importShippingRate(\Magento\Quote\Model\Quote\Address\RateResult\AbstractResult $rate) {
-		if ($rate instanceof \Magento\Quote\Model\Quote\Address\RateResult\Error) {
-			$this->setCode ( $rate->getCarrier () . '_error' )->setCarrier ( $rate->getCarrier () )->setCarrierTitle ( $rate->getCarrierTitle () )->setErrorMessage ( $rate->getErrorMessage () );
-		} elseif ($rate instanceof \Magento\Quote\Model\Quote\Address\RateResult\Method) {
-			$this->setCode ( $rate->getCarrier () . '_' . $rate->getMethod () )->setCarrier ( $rate->getCarrier () )->setCarrierTitle ( $rate->getCarrierTitle () )->setMethod ( $rate->getMethod () )->setMethodTitle ( $rate->getMethodTitle () )->setMethodDescription ( $rate->getMethodDescription () )->setPrice ( $rate->getPrice () );
-		}
-		return $this;
-	}
+class Rate extends AbstractModel
+{
+    /**
+     * @var \Magento\Quote\Model\Quote\Address
+     */
+    protected $_address;
+
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init('Magento\Quote\Model\ResourceModel\Quote\Address\Rate');
+    }
+
+    /**
+     * @return $this
+     */
+    public function beforeSave()
+    {
+        parent::beforeSave();
+        if ($this->getAddress()) {
+            $this->setAddressId($this->getAddress()->getId());
+        }
+        return $this;
+    }
+
+    /**
+     * @param \Magento\Quote\Model\Quote\Address $address
+     * @return $this
+     */
+    public function setAddress(\Magento\Quote\Model\Quote\Address $address)
+    {
+        $this->_address = $address;
+        return $this;
+    }
+
+    /**
+     * @return \Magento\Quote\Model\Quote\Address
+     */
+    public function getAddress()
+    {
+        return $this->_address;
+    }
+
+    /**
+     * @param \Magento\Quote\Model\Quote\Address\RateResult\AbstractResult $rate
+     * @return $this
+     */
+    public function importShippingRate(\Magento\Quote\Model\Quote\Address\RateResult\AbstractResult $rate)
+    {
+        if ($rate instanceof \Magento\Quote\Model\Quote\Address\RateResult\Error) {
+            $this->setCode(
+                $rate->getCarrier() . '_error'
+            )->setCarrier(
+                $rate->getCarrier()
+            )->setCarrierTitle(
+                $rate->getCarrierTitle()
+            )->setErrorMessage(
+                $rate->getErrorMessage()
+            );
+        } elseif ($rate instanceof \Magento\Quote\Model\Quote\Address\RateResult\Method) {
+            $this->setCode(
+                $rate->getCarrier() . '_' . $rate->getMethod()
+            )->setCarrier(
+                $rate->getCarrier()
+            )->setCarrierTitle(
+                $rate->getCarrierTitle()
+            )->setMethod(
+                $rate->getMethod()
+            )->setMethodTitle(
+                $rate->getMethodTitle()
+            )->setMethodDescription(
+                $rate->getMethodDescription()
+            )->setPrice(
+                $rate->getPrice()
+            );
+        }
+        return $this;
+    }
 }

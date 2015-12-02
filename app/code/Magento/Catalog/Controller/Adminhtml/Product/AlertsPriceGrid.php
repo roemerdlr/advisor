@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,13 +6,16 @@
  */
 namespace Magento\Catalog\Controller\Adminhtml\Product;
 
-class AlertsPriceGrid extends AbstractProductGrid {
-	/**
-	 * Get alerts price grid
-	 *
-	 * @return \Magento\Framework\Controller\ResultInterface
-	 */
-	public function execute() {
-		return $this->resultLayoutFactory->create ();
-	}
+
+class AlertsPriceGrid extends AbstractProductGrid
+{
+    /**
+     * Get alerts price grid
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
+    public function execute()
+    {
+        return $this->resultLayoutFactory->create();
+    }
 }

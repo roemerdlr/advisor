@@ -1,17 +1,16 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Sales\Test\TestCase;
 
 use Magento\Mtf\TestCase\Scenario;
 
 /**
  * Preconditions:
- * 1.
- * Create two products.
+ * 1. Create two products.
  * 2. Create a customer.
  * 3. Create order.
  *
@@ -25,18 +24,20 @@ use Magento\Mtf\TestCase\Scenario;
  * @group Order_Management_(CS)
  * @ZephyrId MAGETWO-29007
  */
-class ReorderOrderEntityTest extends Scenario {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'CS';
-	/* end tags */
-	
-	/**
-	 * Reorder created order.
-	 *
-	 * @return void
-	 */
-	public function test() {
-		$this->executeScenario ();
-	}
+class ReorderOrderEntityTest extends Scenario
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'CS';
+    /* end tags */
+
+    /**
+     * Reorder created order.
+     *
+     * @return void
+     */
+    public function test()
+    {
+        $this->executeScenario();
+    }
 }

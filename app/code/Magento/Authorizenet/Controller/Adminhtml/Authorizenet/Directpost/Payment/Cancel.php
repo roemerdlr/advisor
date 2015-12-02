@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * Copyright © 2015 Magento. All rights reserved.
@@ -7,5 +6,6 @@
  */
 namespace Magento\Authorizenet\Controller\Adminhtml\Authorizenet\Directpost\Payment;
 
-class Cancel extends \Magento\Sales\Controller\Adminhtml\Order\Create\Cancel {
+class Cancel extends \Magento\Sales\Controller\Adminhtml\Order\Create\Cancel
+{
 }

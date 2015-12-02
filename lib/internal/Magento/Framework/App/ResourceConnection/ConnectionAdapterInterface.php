@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Connection adapter interface
  *
@@ -10,13 +9,14 @@ namespace Magento\Framework\App\ResourceConnection;
 
 use Magento\Framework\DB\LoggerInterface;
 
-interface ConnectionAdapterInterface {
-	/**
-	 * Get connection
-	 *
-	 * @param LoggerInterface $logger        	
-	 * @return \Magento\Framework\DB\Adapter\AdapterInterface
-	 * @throws \InvalidArgumentException
-	 */
-	public function getConnection(LoggerInterface $logger);
+interface ConnectionAdapterInterface
+{
+    /**
+     * Get connection
+     *
+     * @param LoggerInterface $logger
+     * @return \Magento\Framework\DB\Adapter\AdapterInterface
+     * @throws \InvalidArgumentException
+     */
+    public function getConnection(LoggerInterface $logger);
 }

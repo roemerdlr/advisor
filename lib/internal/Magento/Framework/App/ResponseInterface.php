@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Application response
  *
@@ -8,11 +7,12 @@
  */
 namespace Magento\Framework\App;
 
-interface ResponseInterface {
-	/**
-	 * Send response to client
-	 *
-	 * @return int|void
-	 */
-	public function sendResponse();
+interface ResponseInterface
+{
+    /**
+     * Send response to client
+     *
+     * @return int|void
+     */
+    public function sendResponse();
 }

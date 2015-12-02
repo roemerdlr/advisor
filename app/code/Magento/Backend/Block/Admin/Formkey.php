@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,13 +9,15 @@
  */
 namespace Magento\Backend\Block\Admin;
 
-class Formkey extends \Magento\Backend\Block\Template {
-	/**
-	 * Get form key
-	 *
-	 * @return string
-	 */
-	public function getFormKey() {
-		return $this->formKey->getFormKey ();
-	}
+class Formkey extends \Magento\Backend\Block\Template
+{
+    /**
+     * Get form key
+     *
+     * @return string
+     */
+    public function getFormKey()
+    {
+        return $this->formKey->getFormKey();
+    }
 }

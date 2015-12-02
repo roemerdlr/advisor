@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Magento filesystem zlib driver
  *
@@ -8,10 +7,10 @@
  */
 namespace Magento\Framework\Filesystem\Driver;
 
-class Zlib extends File {
-	/**
-	 *
-	 * @var string
-	 */
-	protected $scheme = 'compress.zlib';
+class Zlib extends File
+{
+    /**
+     * @var string
+     */
+    protected $scheme = 'compress.zlib';
 }

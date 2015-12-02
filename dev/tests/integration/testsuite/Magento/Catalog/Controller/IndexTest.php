@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,10 +9,12 @@
  */
 namespace Magento\Catalog\Controller;
 
-class IndexTest extends \Magento\TestFramework\TestCase\AbstractController {
-	public function testIndexAction() {
-		$this->dispatch ( 'catalog/index' );
-		
-		$this->assertRedirect ();
-	}
+class IndexTest extends \Magento\TestFramework\TestCase\AbstractController
+{
+    public function testIndexAction()
+    {
+        $this->dispatch('catalog/index');
+
+        $this->assertRedirect();
+    }
 }

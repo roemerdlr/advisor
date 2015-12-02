@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Catalog\Test\TestCase\ProductAttribute;
 
 use Magento\Catalog\Test\Fixture\CatalogAttributeSet;
@@ -32,60 +32,67 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Product_Attributes_(MX)
  * @ZephyrId MAGETWO-26251
  */
-class UpdateAttributeSetTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'MX';
-	/* end tags */
-	
-	/**
-	 * Catalog Product Set page
-	 *
-	 * @var CatalogProductSetIndex
-	 */
-	protected $productSetIndex;
-	
-	/**
-	 * Catalog Product Set edit page
-	 *
-	 * @var CatalogProductSetEdit
-	 */
-	protected $productSetEdit;
-	
-	/**
-	 * Inject data
-	 *
-	 * @param CatalogProductSetIndex $productSetIndex        	
-	 * @param CatalogProductSetEdit $productSetEdit        	
-	 * @return void
-	 */
-	public function __inject(CatalogProductSetIndex $productSetIndex, CatalogProductSetEdit $productSetEdit) {
-		$this->productSetIndex = $productSetIndex;
-		$this->productSetEdit = $productSetEdit;
-	}
-	
-	/**
-	 * Run UpdateAttributeSet test
-	 *
-	 * @param CatalogAttributeSet $attributeSet        	
-	 * @param CatalogAttributeSet $attributeSetOriginal        	
-	 * @param CatalogProductAttribute $productAttributeOriginal        	
-	 * @return void
-	 */
-	public function test(CatalogAttributeSet $attributeSet, CatalogAttributeSet $attributeSetOriginal, CatalogProductAttribute $productAttributeOriginal) {
-		// Precondition
-		$attributeSetOriginal->persist ();
-		$productAttributeOriginal->persist ();
-		// Steps
-		$filter = [ 
-				'set_name' => $attributeSetOriginal->getAttributeSetName () 
-		];
-		$this->productSetIndex->open ();
-		$this->productSetIndex->getGrid ()->searchAndOpen ( $filter );
-		$groupName = $attributeSet->getGroup ();
-		$this->productSetEdit->getAttributeSetEditBlock ()->addAttributeSetGroup ( $groupName );
-		$this->productSetEdit->getAttributeSetEditBlock ()->moveAttribute ( $productAttributeOriginal->getData (), $groupName );
-		$this->productSetEdit->getAttributeSetEditForm ()->fill ( $attributeSet );
-		$this->productSetEdit->getPageActions ()->save ();
-	}
+class UpdateAttributeSetTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'MX';
+    /* end tags */
+
+    /**
+     * Catalog Product Set page
+     *
+     * @var CatalogProductSetIndex
+     */
+    protected $productSetIndex;
+
+    /**
+     * Catalog Product Set edit page
+     *
+     * @var CatalogProductSetEdit
+     */
+    protected $productSetEdit;
+
+    /**
+     * Inject data
+     *
+     * @param CatalogProductSetIndex $productSetIndex
+     * @param CatalogProductSetEdit $productSetEdit
+     * @return void
+     */
+    public function __inject(
+        CatalogProductSetIndex $productSetIndex,
+        CatalogProductSetEdit $productSetEdit
+    ) {
+        $this->productSetIndex = $productSetIndex;
+        $this->productSetEdit = $productSetEdit;
+    }
+
+    /**
+     * Run UpdateAttributeSet test
+     *
+     * @param CatalogAttributeSet $attributeSet
+     * @param CatalogAttributeSet $attributeSetOriginal
+     * @param CatalogProductAttribute $productAttributeOriginal
+     * @return void
+     */
+    public function test(
+        CatalogAttributeSet $attributeSet,
+        CatalogAttributeSet $attributeSetOriginal,
+        CatalogProductAttribute $productAttributeOriginal
+    ) {
+        // Precondition
+        $attributeSetOriginal->persist();
+        $productAttributeOriginal->persist();
+        // Steps
+        $filter = ['set_name' => $attributeSetOriginal->getAttributeSetName()];
+        $this->productSetIndex->open();
+        $this->productSetIndex->getGrid()->searchAndOpen($filter);
+        $groupName = $attributeSet->getGroup();
+        $this->productSetEdit->getAttributeSetEditBlock()->addAttributeSetGroup($groupName);
+        $this->productSetEdit->getAttributeSetEditBlock()
+            ->moveAttribute($productAttributeOriginal->getData(), $groupName);
+        $this->productSetEdit->getAttributeSetEditForm()->fill($attributeSet);
+        $this->productSetEdit->getPageActions()->save();
+    }
 }

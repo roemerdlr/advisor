@@ -5,22 +5,21 @@
  */
 
 // @codingStandardsIgnoreFile
+
 ?>
 <?php
-
 /**
  * Template for \Magento\Backend\Block\Widget\Accordion
  */
-$items = $block->getItems ();
+$items = $block->getItems();
 ?>
 <?php if (!empty($items)): ?>
-<dl id="tab_content_<?php echo $block->getHtmlId() ?>"
-	name="tab_content_<?php echo $block->getHtmlId() ?>" class="accordion">
+    <dl id="tab_content_<?php echo $block->getHtmlId() ?>" name="tab_content_<?php echo $block->getHtmlId() ?>" class="accordion">
     <?php foreach ($items as $_item): ?>
-        <?php echo $block->getChildHtml($_item->getId())?>
+        <?php echo $block->getChildHtml($_item->getId()) ?>
     <?php endforeach ?>
     </dl>
-<script>
+    <script>
         require([
             'mage/adminhtml/accordion'
         ], function(){

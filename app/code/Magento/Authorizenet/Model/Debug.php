@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -7,7 +6,6 @@
 namespace Magento\Authorizenet\Model;
 
 /**
- *
  * @method \Magento\Authorizenet\Model\ResourceModel\Debug _getResource()
  * @method \Magento\Authorizenet\Model\ResourceModel\Debug getResource()
  * @method string getRequestBody()
@@ -23,12 +21,13 @@ namespace Magento\Authorizenet\Model;
  * @method string getResultDump()
  * @method \Magento\Authorizenet\Model\Debug setResultDump(string $value)
  */
-class Debug extends \Magento\Framework\Model\AbstractModel {
-	/**
-	 *
-	 * @return void
-	 */
-	protected function _construct() {
-		$this->_init ( 'Magento\Authorizenet\Model\ResourceModel\Debug' );
-	}
+class Debug extends \Magento\Framework\Model\AbstractModel
+{
+    /**
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init('Magento\Authorizenet\Model\ResourceModel\Debug');
+    }
 }

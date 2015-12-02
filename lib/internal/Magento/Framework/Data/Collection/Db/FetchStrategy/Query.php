@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -12,13 +11,13 @@ namespace Magento\Framework\Data\Collection\Db\FetchStrategy;
 
 use Magento\Framework\DB\Select;
 
-class Query implements \Magento\Framework\Data\Collection\Db\FetchStrategyInterface {
-	/**
-	 *
-	 * {@inheritdoc}
-	 *
-	 */
-	public function fetchAll(Select $select, array $bindParams = []) {
-		return $select->getConnection ()->fetchAll ( $select, $bindParams );
-	}
+class Query implements \Magento\Framework\Data\Collection\Db\FetchStrategyInterface
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function fetchAll(Select $select, array $bindParams = [])
+    {
+        return $select->getConnection()->fetchAll($select, $bindParams);
+    }
 }

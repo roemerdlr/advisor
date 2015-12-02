@@ -1,5 +1,4 @@
 <?php
-
 /**
  * JavaScript helper
  *
@@ -10,14 +9,16 @@
  */
 namespace Magento\Framework\View\Helper;
 
-class Js {
-	/**
-	 * Retrieve framed javascript
-	 *
-	 * @param string $script        	
-	 * @return string
-	 */
-	public function getScript($script) {
-		return '<script type="text/javascript">//<![CDATA[' . "\n{$script}\n" . '//]]></script>';
-	}
+class Js
+{
+    /**
+     * Retrieve framed javascript
+     *
+     * @param   string $script
+     * @return  string
+     */
+    public function getScript($script)
+    {
+        return '<script type="text/javascript">//<![CDATA[' . "\n{$script}\n" . '//]]></script>';
+    }
 }

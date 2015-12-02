@@ -1,9 +1,9 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Magento\Customer\Test\TestCase;
 
 use Magento\Customer\Test\Fixture\CustomerGroup;
@@ -28,56 +28,61 @@ use Magento\Mtf\TestCase\Injectable;
  * @group Customer_Groups_(CS)
  * @ZephyrId MAGETWO-25536
  */
-class UpdateCustomerGroupEntityTest extends Injectable {
-	/* tags */
-	const MVP = 'yes';
-	const DOMAIN = 'CS';
-	/* end tags */
-	
-	/**
-	 * Page CustomerGroupIndex
-	 *
-	 * @var CustomerGroupIndex
-	 */
-	protected $customerGroupIndex;
-	
-	/**
-	 * Page CustomerGroupNew
-	 *
-	 * @var CustomerGroupNew
-	 */
-	protected $customerGroupNew;
-	
-	/**
-	 * Injection data
-	 *
-	 * @param CustomerGroupIndex $customerGroupIndex        	
-	 * @param CustomerGroupNew $customerGroupNew        	
-	 * @return void
-	 */
-	public function __inject(CustomerGroupIndex $customerGroupIndex, CustomerGroupNew $customerGroupNew) {
-		$this->customerGroupIndex = $customerGroupIndex;
-		$this->customerGroupNew = $customerGroupNew;
-	}
-	
-	/**
-	 * Update Customer Group
-	 *
-	 * @param CustomerGroup $customerGroupOriginal        	
-	 * @param CustomerGroup $customerGroup        	
-	 * @return void
-	 */
-	public function test(CustomerGroup $customerGroupOriginal, CustomerGroup $customerGroup) {
-		// Precondition
-		$customerGroupOriginal->persist ();
-		$filter = [ 
-				'code' => $customerGroupOriginal->getCustomerGroupCode () 
-		];
-		
-		// Steps
-		$this->customerGroupIndex->open ();
-		$this->customerGroupIndex->getCustomerGroupGrid ()->searchAndOpen ( $filter );
-		$this->customerGroupNew->getPageMainForm ()->fill ( $customerGroup );
-		$this->customerGroupNew->getPageMainActions ()->save ();
-	}
+class UpdateCustomerGroupEntityTest extends Injectable
+{
+    /* tags */
+    const MVP = 'yes';
+    const DOMAIN = 'CS';
+    /* end tags */
+
+    /**
+     * Page CustomerGroupIndex
+     *
+     * @var CustomerGroupIndex
+     */
+    protected $customerGroupIndex;
+
+    /**
+     * Page CustomerGroupNew
+     *
+     * @var CustomerGroupNew
+     */
+    protected $customerGroupNew;
+
+    /**
+     * Injection data
+     *
+     * @param CustomerGroupIndex $customerGroupIndex
+     * @param CustomerGroupNew $customerGroupNew
+     * @return void
+     */
+    public function __inject(
+        CustomerGroupIndex $customerGroupIndex,
+        CustomerGroupNew $customerGroupNew
+    ) {
+        $this->customerGroupIndex = $customerGroupIndex;
+        $this->customerGroupNew = $customerGroupNew;
+    }
+
+    /**
+     * Update Customer Group
+     *
+     * @param CustomerGroup $customerGroupOriginal
+     * @param CustomerGroup $customerGroup
+     * @return void
+     */
+    public function test(
+        CustomerGroup $customerGroupOriginal,
+        CustomerGroup $customerGroup
+    ) {
+        // Precondition
+        $customerGroupOriginal->persist();
+        $filter = ['code' => $customerGroupOriginal->getCustomerGroupCode()];
+
+        // Steps
+        $this->customerGroupIndex->open();
+        $this->customerGroupIndex->getCustomerGroupGrid()->searchAndOpen($filter);
+        $this->customerGroupNew->getPageMainForm()->fill($customerGroup);
+        $this->customerGroupNew->getPageMainActions()->save();
+    }
 }

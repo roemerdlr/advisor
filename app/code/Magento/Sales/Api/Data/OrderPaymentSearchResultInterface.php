@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright © 2015 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -14,19 +13,20 @@ namespace Magento\Sales\Api\Data;
  * a purchase order, is emailed to the customer.
  * @api
  */
-interface OrderPaymentSearchResultInterface extends \Magento\Framework\Api\SearchResultsInterface {
-	/**
-	 * Gets collection items.
-	 *
-	 * @return \Magento\Sales\Api\Data\OrderPaymentInterface[] Array of collection items.
-	 */
-	public function getItems();
-	
-	/**
-	 * Set collection items.
-	 *
-	 * @param \Magento\Sales\Api\Data\OrderPaymentInterface[] $items        	
-	 * @return $this
-	 */
-	public function setItems(array $items);
+interface OrderPaymentSearchResultInterface extends \Magento\Framework\Api\SearchResultsInterface
+{
+    /**
+     * Gets collection items.
+     *
+     * @return \Magento\Sales\Api\Data\OrderPaymentInterface[] Array of collection items.
+     */
+    public function getItems();
+
+    /**
+     * Set collection items.
+     *
+     * @param \Magento\Sales\Api\Data\OrderPaymentInterface[] $items
+     * @return $this
+     */
+    public function setItems(array $items);
 }

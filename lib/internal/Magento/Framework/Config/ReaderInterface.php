@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Reader responsible for retrieving provided scope of configuration from storage
  *
@@ -13,12 +12,13 @@ namespace Magento\Framework\Config;
  *
  * @api
  */
-interface ReaderInterface {
-	/**
-	 * Read configuration scope
-	 *
-	 * @param string|null $scope        	
-	 * @return array
-	 */
-	public function read($scope = null);
+interface ReaderInterface
+{
+    /**
+     * Read configuration scope
+     *
+     * @param string|null $scope
+     * @return array
+     */
+    public function read($scope = null);
 }
