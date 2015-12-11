@@ -28,7 +28,8 @@
 @message-global-caution__border-color: none;
 
 @header__background-color: false;
-@header-panel__background-color: @color-gray-middle3;
+@header-panel__background-color: @color-black;
+@header-wrapper-border: @color-orange-red5;
 @header-panel__text-color: @color-white;
 @header-icons-color: @color-gray56;
 @header-icons-color-hover: @color-gray20;
@@ -52,7 +53,8 @@
 //  Footer
 //  ---------------------------------------------
 
-@footer__background-color: @color-gray-light01;
+@footer__background-color: @color-orange-red5;
+
 @footer-links-separator-border-color: @color-gray-light4;
 @footer-links-color: @color-gray34;
 @footer-links-color-hover: @color-gray20;
@@ -435,7 +437,7 @@
         margin-bottom: 0;
 
         .panel.wrapper {
-            border-bottom: 1px solid @secondary__color;
+            border-bottom: 3px solid @header-wrapper-border;
             .lib-css(background-color, @header-panel__background-color);
         }
 
@@ -607,7 +609,7 @@
     }
 
     .page-footer {
-        .lib-css(background, @footer__background-color);
+        background: @color-orange-red5;
         margin-top: auto;
         padding-bottom: @indent__m;
     }
