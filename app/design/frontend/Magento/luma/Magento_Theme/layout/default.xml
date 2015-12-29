@@ -19,11 +19,20 @@
                 <argument name="logo_img_width" xsi:type="number">120</argument>
                 <argument name="logo_img_height" xsi:type="number">43</argument>
             </arguments>
-        </referenceBlock>
+        </referenceBlock>  
         <referenceContainer name="footer">
-            <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" after="footer_links" template="switch/stores.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="footer_new" template="Magento_Theme::html/footer.phtml" >
+                <block class="Magento\Cms\Block\Block" name="footernew" htmlClass="newfootler" htmlTag="div">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-new</argument>
+                    </arguments>
+                </block>
+            </block>                   
         </referenceContainer>
         <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true"/>        
+        <referenceBlock name="store_switcher" remove="true"/>
+        <referenceBlock name="footer_links" remove="true"/>        
         <move element="copyright" destination="before.body.end"/>
     </body>
 </page>
