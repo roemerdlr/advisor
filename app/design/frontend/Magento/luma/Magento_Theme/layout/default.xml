@@ -32,7 +32,7 @@
         <referenceBlock name="report.bugs" remove="true"/>
         <referenceBlock name="form.subscribe" remove="true"/>        
         <referenceBlock name="store_switcher" remove="true"/>
-        <referenceBlock name="footer_links" remove="true"/>        
+        <referenceBlock name="footer_links" remove="true"/>             
         <move element="copyright" destination="before.body.end"/>
     </body>
 </page>

@@ -22,6 +22,7 @@
         <referenceBlock name="sale.reorder.sidebar" remove="true"/>
         <referenceBlock name="wishlist_sidebar" remove="true"/>                
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referemceBLock name="customer-account-navigation-wish-list-link" remove="true"/>  
         <move element="authorization-link" destination="top.links" after="-"/>        
     </body>
 </page>
