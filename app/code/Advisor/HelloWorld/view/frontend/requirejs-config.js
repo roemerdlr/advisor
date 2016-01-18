@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 
-define(["jquery"], function($) {
-    "use strict";
-    $(document).ready(function(){
-        alert('Test JS');
-    });
-});
+
+var config = {
+    map: {
+        '*': {
+            advisor: 'Advisor_HelloWorld/js/advisor'
+        }
+    }
+};

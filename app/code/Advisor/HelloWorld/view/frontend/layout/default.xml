@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../Magento/Core/etc/layout_single.xsd">
     <head>
-        <title>Hello magento 2</title>  
+        <title>Hello Magento</title>  
         <!--script type="text/javascript" src="Advisor_HelloWorld::js/advisor.js"></script-->      
     </head>      
-    <referenceBlock name="head">       
-        <arguments>
-            <argument name="jsLayout" xsi:type="array">
-                <item name="components" xsi:type="array">
-                    <item name="hello" xsi:type="array">
+    <body>
+        <referenceBlock name="authentication-popup">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="advisor" xsi:type="array">
                         <item name="component" xsi:type="string">Advisor_HelloWorld/js/advisor</item>
                     </item>
-                </item>
-            </argument>
-        </arguments>
-    </referenceBlock>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
 </layout>
